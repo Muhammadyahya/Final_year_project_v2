@@ -1,0 +1,32 @@
+2014-11-11 11:57:14,566 WARN  [SoapUI] Missing folder [/homes/my301/year2/Software engineering/new/Final_year_project_v1/ext] for external libraries
+2014-11-11 11:57:14,566 INFO  [DefaultSoapUICore] Creating new settings at [/homes/my301/soapui-settings.xml]
+2014-11-11 11:57:15,205 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+2014-11-11 11:57:15,236 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+2014-11-11 11:57:15,237 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+2014-11-11 11:57:15,238 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+2014-11-11 11:57:15,239 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+2014-11-11 11:57:15,239 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+2014-11-11 11:57:15,241 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+2014-11-11 11:57:15,244 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+2014-11-11 11:57:15,246 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+2014-11-11 11:57:15,250 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+2014-11-11 11:57:16,424 INFO  [SchemaUtils] Loading schema types from [http://www.webservicex.net/geoipservice.asmx?WSDL]
+2014-11-11 11:57:16,424 INFO  [SchemaUtils] Getting schema http://www.webservicex.net/geoipservice.asmx?WSDL
+2014-11-11 11:57:16,619 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
+2014-11-11 11:57:16,621 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
+2014-11-11 11:57:16,621 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
+2014-11-11 11:57:16,621 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
+2014-11-11 11:57:16,621 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceSoap
+2014-11-11 11:57:16,621 INFO  [WsdlImporter] Importing binding {http://www.webservicex.net/}GeoIPServiceSoap
+2014-11-11 11:57:16,632 INFO  [Soap11HttpBindingImporter] importing endpoint http://www.webservicex.net/geoipservice.asmx
+2014-11-11 11:57:16,657 INFO  [Soap11HttpBindingImporter] importing operation GetGeoIP
+2014-11-11 11:57:16,665 INFO  [Soap11HttpBindingImporter] importing operation GetGeoIPContext
+2014-11-11 11:57:16,706 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceSoap12
+2014-11-11 11:57:16,706 INFO  [WsdlImporter] Importing binding {http://www.webservicex.net/}GeoIPServiceSoap12
+2014-11-11 11:57:16,707 INFO  [Soap12HttpBindingImporter] importing endpoint http://www.webservicex.net/geoipservice.asmx
+2014-11-11 11:57:16,707 INFO  [Soap12HttpBindingImporter] importing operation GetGeoIP
+2014-11-11 11:57:16,707 INFO  [Soap12HttpBindingImporter] importing operation GetGeoIPContext
+2014-11-11 11:57:16,708 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
+2014-11-11 11:57:16,708 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
+2014-11-11 11:57:16,708 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
+2014-11-11 11:57:16,708 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpPost

@@ -1,0 +1,935 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f70003abfba, pid=28161, tid=140118859360000
+#
+# JRE version: 7.0_25-b15
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (23.25-b01 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# v  ~BufferBlob::jni_fast_GetLongField
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f7004660000):  JavaThread "AWT-XAWT" daemon [_thread_in_native, id=28179, stack(0x00007f6ff6c6a000,0x00007f6ff6d6b000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000000000000
+
+Registers:
+RAX=0x00007f700969dc40, RBX=0x000000077fd393d8, RCX=0x00007f700a0e3300, RDX=0x0000000000000042
+RSP=0x00007f6ff6d69698, RBP=0x00007f6ff6d696c0, RSI=0x0000000000000000, RDI=0x00007f70046601d8
+R8 =0x0000000784fc1b80, R9 =0x0000000000000000, R10=0x0000000000000018, R11=0x00007f6ff7d2b760
+R12=0x00007f70046601d8, R13=0x0000000000000000, R14=0x00007f6ffc546fc0, R15=0x00007f7004660000
+RIP=0x00007f70003abfba, EFLAGS=0x0000000000010246, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f6ff6d69698)
+0x00007f6ff6d69698:   00007f6ffc311711 000000077fd393d8
+0x00007f6ff6d696a8:   00007f6fa00173d0 000000077fd393d8
+0x00007f6ff6d696b8:   00007f6ff6d697b0 0000000000000000
+0x00007f6ff6d696c8:   00007f6ff7d2b7b8 000000077fd393d8
+0x00007f6ff6d696d8:   00007f6ff6d69700 0000000000000000
+0x00007f6ff6d696e8:   00007f6ff7d230c3 000000077fd393d8
+0x00007f6ff6d696f8:   00007f6ffc3075df 00007f6ff6d69778
+0x00007f6ff6d69708:   00007f7000362f90 0000000000000000
+0x00007f6ff6d69718:   00000007850ed2a8 00000007db3d42a8
+0x00007f6ff6d69728:   00007f6ff6d69728 0000000780201e86
+0x00007f6ff6d69738:   00007f6ff6d69738 0000000000000000
+0x00007f6ff6d69748:   00007f6ff6d697b0 000000077fd3fbe0
+0x00007f6ff6d69758:   0000000000000000 000000077fd393d8
+0x00007f6ff6d69768:   0000000000000000 00007f6ff6d697c0
+0x00007f6ff6d69778:   00000000fb61c0eb 00007f70004960a8
+0x00007f6ff6d69788:   0000000784c8d460 00007f700035fdc0
+0x00007f6ff6d69798:   0000000000000000 0000000000000019
+0x00007f6ff6d697a8:   00007f6fb4002330 00000000fb61c0eb
+0x00007f6ff6d697b8:   00007f70004960a8 00007f6fb4002330
+0x00007f6ff6d697c8:   0000000700000000 00007f6fb4002330
+0x00007f6ff6d697d8:   00000007db1ffcf8 00000007fb6b0620
+0x00007f6ff6d697e8:   00000007db1ffc70 00000007850ed2a8
+0x00007f6ff6d697f8:   00000007d75bbde0 0000000000000019
+0x00007f6ff6d69808:   0000000000000000 00007f6ff6d69870
+0x00007f6ff6d69818:   00007f7000357158 0000000000000000
+0x00007f6ff6d69828:   00000007db1ffcf8 00007f6ff6d69830
+0x00007f6ff6d69838:   000000077fc54765 00007f6ff6d69880
+0x00007f6ff6d69848:   000000077fc61260 0000000000000000
+0x00007f6ff6d69858:   000000077fc54770 00007f6ff6d69820
+0x00007f6ff6d69868:   00007f6ff6d69880 00007f6ff6d698c8
+0x00007f6ff6d69878:   00007f7000357806 00000007db1ffcf8
+0x00007f6ff6d69888:   00007f6ff6d69888 000000077f835d1b 
+
+Instructions: (pc=0x00007f70003abfba)
+0x00007f70003abf9a:   00 00 00 00 00 00 44 8b 15 81 92 31 09 4c 8b ce
+0x00007f70003abfaa:   41 f6 c2 01 0f 85 2e 00 00 00 4d 33 ca 4d 33 ca
+0x00007f70003abfba:   4d 8b 09 4c 8b da 49 c1 eb 02 4b 8b 04 19 49 bb
+0x00007f70003abfca:   28 52 6c 09 70 7f 00 00 4c 33 d8 4c 33 d8 45 3b 
+
+Register to memory mapping:
+
+RAX=0x00007f700969dc40: <offset 0xcccc40> in /usr/java/jdk1.7.0_25/jre/lib/amd64/server/libjvm.so at 0x00007f70089d1000
+RBX=0x000000077fd393d8 is an oop
+{method} 
+ - klass: {other class}
+RCX=0x00007f700a0e3300: <offset 0x218300> in /lib64/libpthread.so.0 at 0x00007f7009ecb000
+RDX=0x0000000000000042 is an unknown value
+RSP=0x00007f6ff6d69698 is pointing into the stack for thread: 0x00007f7004660000
+RBP=0x00007f6ff6d696c0 is pointing into the stack for thread: 0x00007f7004660000
+RSI=0x0000000000000000 is an unknown value
+RDI=0x00007f70046601d8 is an unknown value
+R8 =0x0000000784fc1b80 is an oop
+java.util.TreeMap$Entry 
+ - klass: 'java/util/TreeMap$Entry'
+R9 =0x0000000000000000 is an unknown value
+R10=0x0000000000000018 is an unknown value
+R11=0x00007f6ff7d2b760: _XimServerDestroy+0 in /lib64/libX11.so.6 at 0x00007f6ff7cc2000
+R12=0x00007f70046601d8 is an unknown value
+R13=0x0000000000000000 is an unknown value
+R14=0x00007f6ffc546fc0: <offset 0x253fc0> in /usr/java/jdk1.7.0_25/jre/lib/amd64/xawt/libmawt.so at 0x00007f6ffc2f3000
+R15=0x00007f7004660000 is a thread
+
+
+Stack: [0x00007f6ff6c6a000,0x00007f6ff6d6b000],  sp=0x00007f6ff6d69698,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+v  ~BufferBlob::jni_fast_GetLongField
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.awt.X11.XlibWrapper.XFilterEvent(JJ)Z+0
+J  sun.awt.X11.XToolkit.run(Z)V
+j  sun.awt.X11.XToolkit.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f700400d800 JavaThread "DestroyJavaVM" [_thread_blocked, id=28165, stack(0x00007f700a1c8000,0x00007f700a2c9000)]
+  0x00007f7004a53000 JavaThread "Thread-1" [_thread_blocked, id=28185, stack(0x00007f6ff54ce000,0x00007f6ff55cf000)]
+  0x00007f7004861000 JavaThread "Timer-0" [_thread_blocked, id=28184, stack(0x00007f6ff5816000,0x00007f6ff5917000)]
+  0x00007f6fa0022000 JavaThread "TimerQueue" daemon [_thread_blocked, id=28183, stack(0x00007f6ff5917000,0x00007f6ff5a18000)]
+=>0x00007f7004660000 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=28179, stack(0x00007f6ff6c6a000,0x00007f6ff6d6b000)]
+  0x00007f700462e800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=28178, stack(0x00007f6ff717c000,0x00007f6ff727d000)]
+  0x00007f70040f6800 JavaThread "Service Thread" daemon [_thread_blocked, id=28176, stack(0x00007f6ffd000000,0x00007f6ffd101000)]
+  0x00007f70040f4000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=28175, stack(0x00007f6ffd101000,0x00007f6ffd202000)]
+  0x00007f70040f1800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=28174, stack(0x00007f6ffd202000,0x00007f6ffd303000)]
+  0x00007f70040ef000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=28173, stack(0x00007f6ffd303000,0x00007f6ffd404000)]
+  0x00007f70040a1000 JavaThread "Finalizer" daemon [_thread_blocked, id=28172, stack(0x00007f6ffd404000,0x00007f6ffd505000)]
+  0x00007f700409e800 JavaThread "Reference Handler" daemon [_thread_blocked, id=28171, stack(0x00007f6ffd505000,0x00007f6ffd606000)]
+
+Other Threads:
+  0x00007f7004097000 VMThread [stack: 0x00007f6ffd606000,0x00007f6ffd707000] [id=28170]
+  0x00007f7004109800 WatcherThread [stack: 0x00007f6ffceff000,0x00007f6ffd000000] [id=28177]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 68480K, used 28190K [0x00000007d6e00000, 0x00000007db600000, 0x0000000800000000)
+  eden space 63232K, 36% used [0x00000007d6e00000,0x00000007d846d9a8,0x00000007dabc0000)
+  from space 5248K, 99% used [0x00000007db0e0000,0x00000007db5f9e70,0x00000007db600000)
+  to   space 5248K, 0% used [0x00000007dabc0000,0x00000007dabc0000,0x00000007db0e0000)
+ ParOldGen       total 84224K, used 9509K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 11% used [0x0000000784a00000,0x0000000785349420,0x0000000789c40000)
+ PSPermGen       total 27392K, used 27344K [0x000000077f800000, 0x00000007812c0000, 0x0000000784a00000)
+  object space 27392K, 99% used [0x000000077f800000,0x00000007812b43e8,0x00000007812c0000)
+
+Card table byte_map: [0x00007f6ffff4c000,0x00007f7000351000] byte_map_base: 0x00007f6ffc350000
+
+Polling page: 0x00007f700a305000
+
+Code Cache  [0x00007f7000351000, 0x00007f70005c1000, 0x00007f7003351000)
+ total_blobs=842 nmethods=303 adapters=491 free_code_cache=47873Kb largest_free_block=48972288
+
+Compilation events (10 events):
+Event: 4252.467 Thread 0x00007f70040f1800  291             sun.awt.X11.XEvent::get_xany (22 bytes)
+Event: 4252.467 Thread 0x00007f70040f4000  292             sun.awt.X11.XAnyEvent::<init> (30 bytes)
+Event: 4252.469 Thread 0x00007f70040f4000 nmethod 292 0x00007f700048a610 code [0x00007f700048a760, 0x00007f700048a898]
+Event: 4252.469 Thread 0x00007f70040f1800 nmethod 291 0x00007f700048ce90 code [0x00007f700048d020, 0x00007f700048d250]
+Event: 4438.109 Thread 0x00007f70040f4000  293   !         sun.awt.X11.XToolkit::getNextTaskTime (55 bytes)
+Event: 4438.112 Thread 0x00007f70040f4000 nmethod 293 0x00007f7000489290 code [0x00007f7000489420, 0x00007f70004896f0]
+Event: 4897.352 Thread 0x00007f70040f1800  295             org.apache.log4j.Category::getEffectiveLevel (28 bytes)
+Event: 4897.353 Thread 0x00007f70040f1800 nmethod 295 0x00007f700048a2d0 code [0x00007f700048a400, 0x00007f700048a498]
+Event: 6179.221 Thread 0x00007f70040f4000   23 % !         sun.awt.X11.XToolkit::run @ 59 (407 bytes)
+Event: 6179.300 Thread 0x00007f70040f4000 nmethod 23% 0x00007f70004951d0 code [0x00007f7000495a20, 0x00007f7000498bb0]
+
+GC Heap History (8 events):
+Event: 1.852 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 36864K, used 31616K [0x00000007d6e00000, 0x00000007d9720000, 0x0000000800000000)
+  eden space 31616K, 100% used [0x00000007d6e00000,0x00000007d8ce0000,0x00000007d8ce0000)
+  from space 5248K, 0% used [0x00000007d9200000,0x00000007d9200000,0x00000007d9720000)
+  to   space 5248K, 0% used [0x00000007d8ce0000,0x00000007d8ce0000,0x00000007d9200000)
+ ParOldGen       total 84224K, used 0K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 0% used [0x0000000784a00000,0x0000000784a00000,0x0000000789c40000)
+ PSPermGen       total 21248K, used 15341K [0x000000077f800000, 0x0000000780cc0000, 0x0000000784a00000)
+  object space 21248K, 72% used [0x000000077f800000,0x00000007806fb790,0x0000000780cc0000)
+Event: 1.857 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 36864K, used 4475K [0x00000007d6e00000, 0x00000007d9720000, 0x0000000800000000)
+  eden space 31616K, 0% used [0x00000007d6e00000,0x00000007d6e00000,0x00000007d8ce0000)
+  from space 5248K, 85% used [0x00000007d8ce0000,0x00000007d913ec60,0x00000007d9200000)
+  to   space 5248K, 0% used [0x00000007d9200000,0x00000007d9200000,0x00000007d9720000)
+ ParOldGen       total 84224K, used 8K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 0% used [0x0000000784a00000,0x0000000784a02000,0x0000000789c40000)
+ PSPermGen       total 21248K, used 15341K [0x000000077f800000, 0x0000000780cc0000, 0x0000000784a00000)
+  object space 21248K, 72% used [0x000000077f800000,0x00000007806fb790,0x0000000780cc0000)
+}
+Event: 2.253 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 36864K, used 36091K [0x00000007d6e00000, 0x00000007d9720000, 0x0000000800000000)
+  eden space 31616K, 100% used [0x00000007d6e00000,0x00000007d8ce0000,0x00000007d8ce0000)
+  from space 5248K, 85% used [0x00000007d8ce0000,0x00000007d913ec60,0x00000007d9200000)
+  to   space 5248K, 0% used [0x00000007d9200000,0x00000007d9200000,0x00000007d9720000)
+ ParOldGen       total 84224K, used 8K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 0% used [0x0000000784a00000,0x0000000784a02000,0x0000000789c40000)
+ PSPermGen       total 21248K, used 19985K [0x000000077f800000, 0x0000000780cc0000, 0x0000000784a00000)
+  object space 21248K, 94% used [0x000000077f800000,0x0000000780b84748,0x0000000780cc0000)
+Event: 2.259 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 36864K, used 5223K [0x00000007d6e00000, 0x00000007d9720000, 0x0000000800000000)
+  eden space 31616K, 0% used [0x00000007d6e00000,0x00000007d6e00000,0x00000007d8ce0000)
+  from space 5248K, 99% used [0x00000007d9200000,0x00000007d9719c78,0x00000007d9720000)
+  to   space 5248K, 0% used [0x00000007d8ce0000,0x00000007d8ce0000,0x00000007d9200000)
+ ParOldGen       total 84224K, used 1425K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 1% used [0x0000000784a00000,0x0000000784b64400,0x0000000789c40000)
+ PSPermGen       total 21248K, used 19985K [0x000000077f800000, 0x0000000780cc0000, 0x0000000784a00000)
+  object space 21248K, 94% used [0x000000077f800000,0x0000000780b84748,0x0000000780cc0000)
+}
+Event: 2.564 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 36864K, used 36839K [0x00000007d6e00000, 0x00000007d9720000, 0x0000000800000000)
+  eden space 31616K, 100% used [0x00000007d6e00000,0x00000007d8ce0000,0x00000007d8ce0000)
+  from space 5248K, 99% used [0x00000007d9200000,0x00000007d9719c78,0x00000007d9720000)
+  to   space 5248K, 0% used [0x00000007d8ce0000,0x00000007d8ce0000,0x00000007d9200000)
+ ParOldGen       total 84224K, used 1425K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 1% used [0x0000000784a00000,0x0000000784b64400,0x0000000789c40000)
+ PSPermGen       total 22784K, used 22728K [0x000000077f800000, 0x0000000780e40000, 0x0000000784a00000)
+  object space 22784K, 99% used [0x000000077f800000,0x0000000780e323e8,0x0000000780e40000)
+Event: 2.572 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 36864K, used 5224K [0x00000007d6e00000, 0x00000007db600000, 0x0000000800000000)
+  eden space 31616K, 0% used [0x00000007d6e00000,0x00000007d6e00000,0x00000007d8ce0000)
+  from space 5248K, 99% used [0x00000007d8ce0000,0x00000007d91fa2e8,0x00000007d9200000)
+  to   space 5248K, 0% used [0x00000007db0e0000,0x00000007db0e0000,0x00000007db600000)
+ ParOldGen       total 84224K, used 5450K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 6% used [0x0000000784a00000,0x0000000784f52b20,0x0000000789c40000)
+ PSPermGen       total 22784K, used 22728K [0x000000077f800000, 0x0000000780e40000, 0x0000000784a00000)
+  object space 22784K, 99% used [0x000000077f800000,0x0000000780e323e8,0x0000000780e40000)
+}
+Event: 3.754 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 36864K, used 36840K [0x00000007d6e00000, 0x00000007db600000, 0x0000000800000000)
+  eden space 31616K, 100% used [0x00000007d6e00000,0x00000007d8ce0000,0x00000007d8ce0000)
+  from space 5248K, 99% used [0x00000007d8ce0000,0x00000007d91fa2e8,0x00000007d9200000)
+  to   space 5248K, 0% used [0x00000007db0e0000,0x00000007db0e0000,0x00000007db600000)
+ ParOldGen       total 84224K, used 5450K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 6% used [0x0000000784a00000,0x0000000784f52b20,0x0000000789c40000)
+ PSPermGen       total 25664K, used 25472K [0x000000077f800000, 0x0000000781110000, 0x0000000784a00000)
+  object space 25664K, 99% used [0x000000077f800000,0x00000007810e01c8,0x0000000781110000)
+Event: 3.761 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 68480K, used 5223K [0x00000007d6e00000, 0x00000007db600000, 0x0000000800000000)
+  eden space 63232K, 0% used [0x00000007d6e00000,0x00000007d6e00000,0x00000007dabc0000)
+  from space 5248K, 99% used [0x00000007db0e0000,0x00000007db5f9e70,0x00000007db600000)
+  to   space 5248K, 0% used [0x00000007dabc0000,0x00000007dabc0000,0x00000007db0e0000)
+ ParOldGen       total 84224K, used 9509K [0x0000000784a00000, 0x0000000789c40000, 0x00000007d6e00000)
+  object space 84224K, 11% used [0x0000000784a00000,0x0000000785349420,0x0000000789c40000)
+ PSPermGen       total 25664K, used 25472K [0x000000077f800000, 0x0000000781110000, 0x0000000784a00000)
+  object space 25664K, 99% used [0x000000077f800000,0x00000007810e01c8,0x0000000781110000)
+}
+
+Deoptimization events (10 events):
+Event: 3.928 Thread 0x00007f700400d800 Uncommon trap -34 fr.pc 0x00007f7000479b78
+Event: 3.928 Thread 0x00007f700400d800 Uncommon trap -34 fr.pc 0x00007f7000479b78
+Event: 3.928 Thread 0x00007f700400d800 Uncommon trap -34 fr.pc 0x00007f7000479b78
+Event: 3.928 Thread 0x00007f700400d800 Uncommon trap -34 fr.pc 0x00007f7000479b78
+Event: 3.968 Thread 0x00007f700400d800 Uncommon trap -83 fr.pc 0x00007f7000482b68
+Event: 3.968 Thread 0x00007f700400d800 Uncommon trap -83 fr.pc 0x00007f700048316c
+Event: 3.984 Thread 0x00007f700400d800 Uncommon trap -58 fr.pc 0x00007f70004638c0
+Event: 3.984 Thread 0x00007f700400d800 Uncommon trap -58 fr.pc 0x00007f70004638c0
+Event: 3.984 Thread 0x00007f700400d800 Uncommon trap -58 fr.pc 0x00007f70004638c0
+Event: 3.985 Thread 0x00007f700400d800 Uncommon trap -58 fr.pc 0x00007f70004638c0
+
+Internal exceptions (10 events):
+Event: 4.011 Thread 0x00007f700400d800 Threw 0x00000007d7ff4a00 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.011 Thread 0x00007f700400d800 Threw 0x00000007d8004f80 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.012 Thread 0x00007f700400d800 Threw 0x00000007d8012798 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.014 Thread 0x00007f700400d800 Threw 0x00000007d8032988 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.015 Thread 0x00007f700400d800 Threw 0x00000007d804e100 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.017 Thread 0x00007f700400d800 Threw 0x00000007d8077c88 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.018 Thread 0x00007f700400d800 Threw 0x00000007d8089ba8 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.019 Thread 0x00007f700400d800 Threw 0x00000007d809a378 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.019 Thread 0x00007f700400d800 Threw 0x00000007d80a3cc0 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.023 Thread 0x00007f700400d800 Threw 0x00000007d80b9360 at /HUDSON/workspace/jdk7u25-2-build-linux-amd64-product/jdk7u25/hotspot/src/share/vm/prims/jvm.cpp:1235
+
+Events (10 events):
+Event: 4.049 Executing VM operation: EnableBiasedLocking done
+Event: 4.625 loading class 0x00007f7004601760
+Event: 4.625 loading class 0x00007f7004601760 done
+Event: 4.625 loading class 0x00007f7004601730
+Event: 4.626 loading class 0x00007f7004601730 done
+Event: 4.882 Thread 0x00007f6f900c5800 Thread exited: 0x00007f6f900c5800
+Event: 4.882 Thread 0x00007f6f900c6000 Thread exited: 0x00007f6f900c6000
+Event: 8.998 Thread 0x00007f700469e800 Thread exited: 0x00007f700469e800
+Event: 9033.343 loading class 0x00007f6fb4001410
+Event: 9033.344 loading class 0x00007f6fb4001410 done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 fd:01 1843816                            /usr/java/jdk1.7.0_25/bin/java
+00600000-00601000 rw-p 00000000 fd:01 1843816                            /usr/java/jdk1.7.0_25/bin/java
+01cc2000-01ce3000 rw-p 00000000 00:00 0                                  [heap]
+77f800000-780cc0000 rw-p 00000000 00:00 0 
+780cc0000-780cf0000 rw-p 00000000 00:00 0 
+780cf0000-780d20000 rw-p 00000000 00:00 0 
+780d20000-780d50000 rw-p 00000000 00:00 0 
+780d50000-780d80000 rw-p 00000000 00:00 0 
+780d80000-780db0000 rw-p 00000000 00:00 0 
+780db0000-780de0000 rw-p 00000000 00:00 0 
+780de0000-780e10000 rw-p 00000000 00:00 0 
+780e10000-780e40000 rw-p 00000000 00:00 0 
+780e40000-780e70000 rw-p 00000000 00:00 0 
+780e70000-780ea0000 rw-p 00000000 00:00 0 
+780ea0000-780ed0000 rw-p 00000000 00:00 0 
+780ed0000-780f00000 rw-p 00000000 00:00 0 
+780f00000-780f30000 rw-p 00000000 00:00 0 
+780f30000-780f60000 rw-p 00000000 00:00 0 
+780f60000-780f90000 rw-p 00000000 00:00 0 
+780f90000-780fc0000 rw-p 00000000 00:00 0 
+780fc0000-780ff0000 rw-p 00000000 00:00 0 
+780ff0000-781020000 rw-p 00000000 00:00 0 
+781020000-781050000 rw-p 00000000 00:00 0 
+781050000-781080000 rw-p 00000000 00:00 0 
+781080000-7810b0000 rw-p 00000000 00:00 0 
+7810b0000-7810e0000 rw-p 00000000 00:00 0 
+7810e0000-781110000 rw-p 00000000 00:00 0 
+781110000-781140000 rw-p 00000000 00:00 0 
+781140000-781170000 rw-p 00000000 00:00 0 
+781170000-7811a0000 rw-p 00000000 00:00 0 
+7811a0000-7811d0000 rw-p 00000000 00:00 0 
+7811d0000-781200000 rw-p 00000000 00:00 0 
+781200000-781230000 rw-p 00000000 00:00 0 
+781230000-781260000 rw-p 00000000 00:00 0 
+781260000-781290000 rw-p 00000000 00:00 0 
+781290000-7812c0000 rw-p 00000000 00:00 0 
+7812c0000-784a00000 rw-p 00000000 00:00 0 
+784a00000-789c40000 rw-p 00000000 00:00 0 
+789c40000-7d6e00000 rw-p 00000000 00:00 0 
+7d6e00000-7d9720000 rw-p 00000000 00:00 0 
+7d9720000-7db600000 rw-p 00000000 00:00 0 
+7db600000-800000000 rw-p 00000000 00:00 0 
+7f6f90000000-7f6f900f2000 rw-p 00000000 00:00 0 
+7f6f900f2000-7f6f94000000 ---p 00000000 00:00 0 
+7f6f98000000-7f6f98021000 rw-p 00000000 00:00 0 
+7f6f98021000-7f6f9c000000 ---p 00000000 00:00 0 
+7f6f9c000000-7f6f9c021000 rw-p 00000000 00:00 0 
+7f6f9c021000-7f6fa0000000 ---p 00000000 00:00 0 
+7f6fa0000000-7f6fa0028000 rw-p 00000000 00:00 0 
+7f6fa0028000-7f6fa4000000 ---p 00000000 00:00 0 
+7f6fa4000000-7f6fa4021000 rw-p 00000000 00:00 0 
+7f6fa4021000-7f6fa8000000 ---p 00000000 00:00 0 
+7f6fa8000000-7f6fa8065000 rw-p 00000000 00:00 0 
+7f6fa8065000-7f6fac000000 ---p 00000000 00:00 0 
+7f6fac000000-7f6fac021000 rw-p 00000000 00:00 0 
+7f6fac021000-7f6fb0000000 ---p 00000000 00:00 0 
+7f6fb0000000-7f6fb0021000 rw-p 00000000 00:00 0 
+7f6fb0021000-7f6fb4000000 ---p 00000000 00:00 0 
+7f6fb4000000-7f6fb4021000 rw-p 00000000 00:00 0 
+7f6fb4021000-7f6fb8000000 ---p 00000000 00:00 0 
+7f6fb8000000-7f6fb8021000 rw-p 00000000 00:00 0 
+7f6fb8021000-7f6fbc000000 ---p 00000000 00:00 0 
+7f6fbc000000-7f6fbc021000 rw-p 00000000 00:00 0 
+7f6fbc021000-7f6fc0000000 ---p 00000000 00:00 0 
+7f6fc0000000-7f6fc08ea000 rw-p 00000000 00:00 0 
+7f6fc08ea000-7f6fc4000000 ---p 00000000 00:00 0 
+7f6fc4000000-7f6fc4ac2000 rw-p 00000000 00:00 0 
+7f6fc4ac2000-7f6fc8000000 ---p 00000000 00:00 0 
+7f6fc8000000-7f6fc8021000 rw-p 00000000 00:00 0 
+7f6fc8021000-7f6fcc000000 ---p 00000000 00:00 0 
+7f6fcdad7000-7f6fd4000000 r--p 00000000 fd:01 1836277                    /usr/lib/locale/locale-archive
+7f6fd4000000-7f6fd4021000 rw-p 00000000 00:00 0 
+7f6fd4021000-7f6fd8000000 ---p 00000000 00:00 0 
+7f6fd8000000-7f6fd8021000 rw-p 00000000 00:00 0 
+7f6fd8021000-7f6fdc000000 ---p 00000000 00:00 0 
+7f6fdc000000-7f6fdc021000 rw-p 00000000 00:00 0 
+7f6fdc021000-7f6fe0000000 ---p 00000000 00:00 0 
+7f6fe3fc0000-7f6fe8000000 rw-p 00000000 00:00 0 
+7f6fe8000000-7f6fe8021000 rw-p 00000000 00:00 0 
+7f6fe8021000-7f6fec000000 ---p 00000000 00:00 0 
+7f6fec000000-7f6fec021000 rw-p 00000000 00:00 0 
+7f6fec021000-7f6ff0000000 ---p 00000000 00:00 0 
+7f6ff0000000-7f6ff0021000 rw-p 00000000 00:00 0 
+7f6ff0021000-7f6ff4000000 ---p 00000000 00:00 0 
+7f6ff53cd000-7f6ff53d0000 ---p 00000000 00:00 0 
+7f6ff53d0000-7f6ff54ce000 rw-p 00000000 00:00 0 
+7f6ff54ce000-7f6ff54d1000 ---p 00000000 00:00 0 
+7f6ff54d1000-7f6ff55cf000 rw-p 00000000 00:00 0                          [stack:28185]
+7f6ff55cf000-7f6ff5601000 r-xp 00000000 fd:01 150600                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libsunec.so
+7f6ff5601000-7f6ff5800000 ---p 00032000 fd:01 150600                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libsunec.so
+7f6ff5800000-7f6ff5806000 rw-p 00031000 fd:01 150600                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libsunec.so
+7f6ff5806000-7f6ff5816000 rw-p 00000000 00:00 0 
+7f6ff5816000-7f6ff5819000 ---p 00000000 00:00 0 
+7f6ff5819000-7f6ff5917000 rw-p 00000000 00:00 0                          [stack:28184]
+7f6ff5917000-7f6ff591a000 ---p 00000000 00:00 0 
+7f6ff591a000-7f6ff5a18000 rw-p 00000000 00:00 0                          [stack:28183]
+7f6ff5a18000-7f6ff5a1b000 ---p 00000000 00:00 0 
+7f6ff5a1b000-7f6ff5b19000 rw-p 00000000 00:00 0 
+7f6ff5b19000-7f6ff5b1c000 ---p 00000000 00:00 0 
+7f6ff5b1c000-7f6ff5c1a000 rw-p 00000000 00:00 0 
+7f6ff5c1a000-7f6ff5c82000 r-xp 00000000 fd:01 150601                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libt2k.so
+7f6ff5c82000-7f6ff5e81000 ---p 00068000 fd:01 150601                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libt2k.so
+7f6ff5e81000-7f6ff5e88000 rw-p 00067000 fd:01 150601                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libt2k.so
+7f6ff5e88000-7f6ff5e98000 rw-p 00000000 00:00 0 
+7f6ff5e98000-7f6ff5eae000 r-xp 00000000 fd:01 1836000                    /usr/lib64/libresolv-2.18.so
+7f6ff5eae000-7f6ff60ae000 ---p 00016000 fd:01 1836000                    /usr/lib64/libresolv-2.18.so
+7f6ff60ae000-7f6ff60af000 r--p 00016000 fd:01 1836000                    /usr/lib64/libresolv-2.18.so
+7f6ff60af000-7f6ff60b0000 rw-p 00017000 fd:01 1836000                    /usr/lib64/libresolv-2.18.so
+7f6ff60b0000-7f6ff60b2000 rw-p 00000000 00:00 0 
+7f6ff60b2000-7f6ff60b7000 r-xp 00000000 fd:01 1835988                    /usr/lib64/libnss_dns-2.18.so
+7f6ff60b7000-7f6ff62b6000 ---p 00005000 fd:01 1835988                    /usr/lib64/libnss_dns-2.18.so
+7f6ff62b6000-7f6ff62b7000 r--p 00004000 fd:01 1835988                    /usr/lib64/libnss_dns-2.18.so
+7f6ff62b7000-7f6ff62b8000 rw-p 00005000 fd:01 1835988                    /usr/lib64/libnss_dns-2.18.so
+7f6ff62b8000-7f6ff62c8000 r-xp 00000000 fd:01 150592                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnio.so
+7f6ff62c8000-7f6ff64c8000 ---p 00010000 fd:01 150592                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnio.so
+7f6ff64c8000-7f6ff64c9000 rw-p 00010000 fd:01 150592                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnio.so
+7f6ff64c9000-7f6ff64de000 r-xp 00000000 fd:01 150591                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnet.so
+7f6ff64de000-7f6ff66de000 ---p 00015000 fd:01 150591                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnet.so
+7f6ff66de000-7f6ff66df000 rw-p 00015000 fd:01 150591                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libnet.so
+7f6ff66df000-7f6ff66f4000 r-xp 00000000 fd:01 1835023                    /usr/lib64/libgcc_s-4.8.2-20131212.so.1
+7f6ff66f4000-7f6ff68f3000 ---p 00015000 fd:01 1835023                    /usr/lib64/libgcc_s-4.8.2-20131212.so.1
+7f6ff68f3000-7f6ff68f4000 r--p 00014000 fd:01 1835023                    /usr/lib64/libgcc_s-4.8.2-20131212.so.1
+7f6ff68f4000-7f6ff68f5000 rw-p 00015000 fd:01 1835023                    /usr/lib64/libgcc_s-4.8.2-20131212.so.1
+7f6ff68f5000-7f6ff6955000 r-xp 00000000 fd:01 150563                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libfontmanager.so
+7f6ff6955000-7f6ff6b54000 ---p 00060000 fd:01 150563                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libfontmanager.so
+7f6ff6b54000-7f6ff6b58000 rw-p 0005f000 fd:01 150563                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libfontmanager.so
+7f6ff6b58000-7f6ff6b69000 rw-p 00000000 00:00 0 
+7f6ff6b69000-7f6ff6b6c000 ---p 00000000 00:00 0 
+7f6ff6b6c000-7f6ff6c6a000 rw-p 00000000 00:00 0 
+7f6ff6c6a000-7f6ff6c6d000 ---p 00000000 00:00 0 
+7f6ff6c6d000-7f6ff6d6b000 rw-p 00000000 00:00 0                          [stack:28179]
+7f6ff6d6b000-7f6ff6d70000 r-xp 00000000 fd:01 1837282                    /usr/lib64/libXfixes.so.3.1.0
+7f6ff6d70000-7f6ff6f6f000 ---p 00005000 fd:01 1837282                    /usr/lib64/libXfixes.so.3.1.0
+7f6ff6f6f000-7f6ff6f70000 r--p 00004000 fd:01 1837282                    /usr/lib64/libXfixes.so.3.1.0
+7f6ff6f70000-7f6ff6f71000 rw-p 00005000 fd:01 1837282                    /usr/lib64/libXfixes.so.3.1.0
+7f6ff6f71000-7f6ff6f7b000 r-xp 00000000 fd:01 1837298                    /usr/lib64/libXcursor.so.1.0.2
+7f6ff6f7b000-7f6ff717a000 ---p 0000a000 fd:01 1837298                    /usr/lib64/libXcursor.so.1.0.2
+7f6ff717a000-7f6ff717b000 r--p 00009000 fd:01 1837298                    /usr/lib64/libXcursor.so.1.0.2
+7f6ff717b000-7f6ff717c000 rw-p 0000a000 fd:01 1837298                    /usr/lib64/libXcursor.so.1.0.2
+7f6ff717c000-7f6ff717f000 ---p 00000000 00:00 0 
+7f6ff717f000-7f6ff727d000 rw-p 00000000 00:00 0                          [stack:28178]
+7f6ff727d000-7f6ff727f000 r-xp 00000000 fd:01 1837228                    /usr/lib64/libXau.so.6.0.0
+7f6ff727f000-7f6ff747f000 ---p 00002000 fd:01 1837228                    /usr/lib64/libXau.so.6.0.0
+7f6ff747f000-7f6ff7480000 r--p 00002000 fd:01 1837228                    /usr/lib64/libXau.so.6.0.0
+7f6ff7480000-7f6ff7481000 rw-p 00003000 fd:01 1837228                    /usr/lib64/libXau.so.6.0.0
+7f6ff7481000-7f6ff74a1000 r-xp 00000000 fd:01 1837274                    /usr/lib64/libxcb.so.1.1.0
+7f6ff74a1000-7f6ff76a0000 ---p 00020000 fd:01 1837274                    /usr/lib64/libxcb.so.1.1.0
+7f6ff76a0000-7f6ff76a1000 r--p 0001f000 fd:01 1837274                    /usr/lib64/libxcb.so.1.1.0
+7f6ff76a1000-7f6ff76a2000 rw-p 00020000 fd:01 1837274                    /usr/lib64/libxcb.so.1.1.0
+7f6ff76a2000-7f6ff76b1000 r-xp 00000000 fd:01 1837284                    /usr/lib64/libXi.so.6.1.0
+7f6ff76b1000-7f6ff78b0000 ---p 0000f000 fd:01 1837284                    /usr/lib64/libXi.so.6.1.0
+7f6ff78b0000-7f6ff78b1000 r--p 0000e000 fd:01 1837284                    /usr/lib64/libXi.so.6.1.0
+7f6ff78b1000-7f6ff78b2000 rw-p 0000f000 fd:01 1837284                    /usr/lib64/libXi.so.6.1.0
+7f6ff78b2000-7f6ff78b7000 r-xp 00000000 fd:01 1837294                    /usr/lib64/libXtst.so.6.1.0
+7f6ff78b7000-7f6ff7ab6000 ---p 00005000 fd:01 1837294                    /usr/lib64/libXtst.so.6.1.0
+7f6ff7ab6000-7f6ff7ab7000 r--p 00004000 fd:01 1837294                    /usr/lib64/libXtst.so.6.1.0
+7f6ff7ab7000-7f6ff7ab8000 rw-p 00005000 fd:01 1837294                    /usr/lib64/libXtst.so.6.1.0
+7f6ff7ab8000-7f6ff7ac1000 r-xp 00000000 fd:01 1837290                    /usr/lib64/libXrender.so.1.3.0
+7f6ff7ac1000-7f6ff7cc0000 ---p 00009000 fd:01 1837290                    /usr/lib64/libXrender.so.1.3.0
+7f6ff7cc0000-7f6ff7cc1000 r--p 00008000 fd:01 1837290                    /usr/lib64/libXrender.so.1.3.0
+7f6ff7cc1000-7f6ff7cc2000 rw-p 00009000 fd:01 1837290                    /usr/lib64/libXrender.so.1.3.0
+7f6ff7cc2000-7f6ff7dfa000 r-xp 00000000 fd:01 1837278                    /usr/lib64/libX11.so.6.3.0
+7f6ff7dfa000-7f6ff7ffa000 ---p 00138000 fd:01 1837278                    /usr/lib64/libX11.so.6.3.0
+7f6ff7ffa000-7f6ff7ffb000 r--p 00138000 fd:01 1837278                    /usr/lib64/libX11.so.6.3.0
+7f6ff7ffb000-7f6ff8000000 rw-p 00139000 fd:01 1837278                    /usr/lib64/libX11.so.6.3.0
+7f6ff8000000-7f6ff8021000 rw-p 00000000 00:00 0 
+7f6ff8021000-7f6ffc000000 ---p 00000000 00:00 0 
+7f6ffc077000-7f6ffc0a8000 rw-p 00000000 00:00 0 
+7f6ffc0a8000-7f6ffc0b9000 r-xp 00000000 fd:01 1837280                    /usr/lib64/libXext.so.6.4.0
+7f6ffc0b9000-7f6ffc2b8000 ---p 00011000 fd:01 1837280                    /usr/lib64/libXext.so.6.4.0
+7f6ffc2b8000-7f6ffc2b9000 r--p 00010000 fd:01 1837280                    /usr/lib64/libXext.so.6.4.0
+7f6ffc2b9000-7f6ffc2ba000 rw-p 00011000 fd:01 1837280                    /usr/lib64/libXext.so.6.4.0
+7f6ffc2db000-7f6ffc2de000 r--s 0002d000 fd:01 524550                     /usr/java/jdk1.7.0_25/jre/lib/ext/sunjce_provider.jar
+7f6ffc2de000-7f6ffc2df000 r--s 00003000 fd:01 524549                     /usr/java/jdk1.7.0_25/jre/lib/ext/sunec.jar
+7f6ffc2df000-7f6ffc2e2000 r--s 00018000 fd:01 150702                     /usr/java/jdk1.7.0_25/jre/lib/jce.jar
+7f6ffc2e2000-7f6ffc2e6000 r--s 0008a000 fd:01 150727                     /usr/java/jdk1.7.0_25/jre/lib/jsse.jar
+7f6ffc2e6000-7f6ffc2f2000 r--s 000b0000 fd:01 150726                     /usr/java/jdk1.7.0_25/jre/lib/resources.jar
+7f6ffc2f2000-7f6ffc2f3000 r--p 00000000 fd:01 1835955                    /usr/share/locale/en_GB/LC_MESSAGES/libc.mo
+7f6ffc2f3000-7f6ffc343000 r-xp 00000000 fd:01 150610                     /usr/java/jdk1.7.0_25/jre/lib/amd64/xawt/libmawt.so
+7f6ffc343000-7f6ffc543000 ---p 00050000 fd:01 150610                     /usr/java/jdk1.7.0_25/jre/lib/amd64/xawt/libmawt.so
+7f6ffc543000-7f6ffc547000 rw-p 00050000 fd:01 150610                     /usr/java/jdk1.7.0_25/jre/lib/amd64/xawt/libmawt.so
+7f6ffc547000-7f6ffc548000 rw-p 00000000 00:00 0 
+7f6ffc548000-7f6ffc5eb000 r-xp 00000000 fd:01 150559                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libawt.so
+7f6ffc5eb000-7f6ffc7eb000 ---p 000a3000 fd:01 150559                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libawt.so
+7f6ffc7eb000-7f6ffc7f7000 rw-p 000a3000 fd:01 150559                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libawt.so
+7f6ffc7f7000-7f6ffc81b000 rw-p 00000000 00:00 0 
+7f6ffc81b000-7f6ffc825000 r--s 00371000 fd:01 150706                     /usr/java/jdk1.7.0_25/jre/lib/charsets.jar
+7f6ffc825000-7f6ffc863000 r--s 0025d000 00:30 55973996                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/bin/soapui-pro-5.1.2.jar
+7f6ffc863000-7f6ffc86e000 r--s 0005f000 00:30 55973945                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xstream-1.3.1.jar
+7f6ffc86e000-7f6ffc875000 r--s 00063000 00:30 55973925                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xom-1.1.jar
+7f6ffc875000-7f6ffc878000 r--s 00015000 00:30 55973935                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xmlunit-1.2.jar
+7f6ffc878000-7f6ffc888000 r--s 00086000 00:30 55973893                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xmltooling-1.3.2-1.jar
+7f6ffc888000-7f6ffc894000 r--s 00063000 00:30 55973890                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xmlsec-1.4.5.jar
+7f6ffc894000-7f6ffc8a9000 r--s 00055000 00:30 55973842                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xmlpublic-2.4.0.jar
+7f6ffc8a9000-7f6ffc8af000 r--s 00019000 00:30 55973926                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xmlParserAPIs-2.6.2.jar
+7f6ffc8af000-7f6ffc8b7000 r--s 00028000 00:30 55973949                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xml-apis-2.9.1.jar
+7f6ffc8b7000-7f6ffc8bf000 r--s 00028000 00:30 55973899                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xml-apis-1.3.02.jar
+7f6ffc8bf000-7f6ffc8d7000 r--s 00115000 00:30 55973903                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xercesImpl-2.9.1.jar
+7f6ffc8d7000-7f6ffc8d8000 r--s 00001000 00:30 55973831                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xbean_xpath-2.4.0.jar
+7f6ffc8d8000-7f6ffc916000 r--s 00255000 00:30 55973829                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xbean-fixed-2.4.0.jar
+7f6ffc916000-7f6ffc93b000 r--s 002e3000 00:30 55973897                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/xalan-2.7.1.jar
+7f6ffc93b000-7f6ffc941000 r--s 00067000 00:30 55973889                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/wss4j-1.6.14.jar
+7f6ffc941000-7f6ffc945000 r--s 00020000 00:30 55973919                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/wsdl4j-1.6.2-fixed.jar
+7f6ffc945000-7f6ffc947000 r--s 00007000 00:30 55973951                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/ws-commons-util-1.0.2.jar
+7f6ffc947000-7f6ffc95c000 r--s 00106000 00:30 55973930                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/swingx-soapui.jar
+7f6ffc95c000-7f6ffc997000 rw-p 00000000 00:00 0 
+7f6ffc997000-7f6ffcabb000 r--s 009e9000 00:30 55973819                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar
+7f6ffcabb000-7f6ffcabd000 r--s 00005000 00:30 55973894                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/slf4j-api-1.6.1.jar
+7f6ffcabd000-7f6ffcabf000 r--s 0001f000 00:30 55973888                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/servlet-api-2.5-20081211.jar
+7f6ffcabf000-7f6ffcac2000 r--s 00041000 00:30 55973898                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/serializer-2.7.1.jar
+7f6ffcac2000-7f6ffcac4000 r--s 0001e000 00:30 55973934                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/saxon-dom-9.1.0.8j.jar
+7f6ffcac4000-7f6ffcadf000 r--s 004b6000 00:30 55973933                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/saxon-9.1.0.8j.jar
+7f6ffcadf000-7f6ffcae0000 r--s 00003000 00:30 55973906                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/sac-1.3.jar
+7f6ffcae0000-7f6ffcaeb000 r--s 000e2000 00:30 55973885                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/rsyntaxtextarea-2.5.0.jar
+7f6ffcaeb000-7f6ffcaed000 r--s 0000b000 00:30 55973984                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/reports-1.0.jar
+7f6ffcaed000-7f6ffcaf0000 r--s 0001b000 00:30 55973985                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/reflections-0.9.9-RC1.jar
+7f6ffcaf0000-7f6ffcaf3000 r--s 0002d000 00:30 55973952                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/proxy-vole-20131209.jar
+7f6ffcaf3000-7f6ffcb8b000 r--s 00420000 00:30 55973979                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/poi-ooxml-schemas-3.10-FINAL.jar
+7f6ffcb8b000-7f6ffcb99000 r--s 000ee000 00:30 55973978                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/poi-ooxml-3.10-FINAL.jar
+7f6ffcb99000-7f6ffcbbb000 r--s 001bb000 00:30 55973977                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/poi-3.10-FINAL.jar
+7f6ffcbbb000-7f6ffcbbd000 r--s 00001000 00:30 55973879                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/out-app-analytics-provider-5.1.0.jar
+7f6ffcbbd000-7f6ffcbbe000 r--s 00002000 00:30 55973915                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/org.apache.oltu.oauth2.httpclient4-0.31.jar
+7f6ffcbbe000-7f6ffcbc0000 r--s 0000b000 00:30 55973913                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/org.apache.oltu.oauth2.common-0.31.jar
+7f6ffcbc0000-7f6ffcbc2000 r--s 00006000 00:30 55973912                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/org.apache.oltu.oauth2.client-0.31.jar
+7f6ffcbc2000-7f6ffcbd6000 r--s 00077000 00:30 55973892                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/openws-1.4.2-1.jar
+7f6ffcbd6000-7f6ffcbfe000 r--s 00123000 00:30 55973891                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/opensaml-2.5.1-1.jar
+7f6ffcbfe000-7f6ffcc00000 r--s 00001000 00:30 55973955                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/opencsv-1.8.jar
+7f6ffcc00000-7f6ffcc05000 r--s 0003e000 00:30 55973920                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/not-yet-commons-ssl-0.3.11.jar
+7f6ffcc05000-7f6ffcc08000 r--s 00014000 00:30 55973976                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/netcomponents-1.3.8a.jar
+7f6ffcc08000-7f6ffcc0b000 r--s 0001c000 00:30 55973904                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/nekohtml-1.9.14.jar
+7f6ffcc0b000-7f6ffcc0d000 r--s 00002000 00:30 55973993                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/mixpanel-java-1.4.2.jar
+7f6ffcc0d000-7f6ffcc0e000 r--s 00002000 00:30 55973916                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/maven-plugin-api-2.0.jar
+7f6ffcc0e000-7f6ffcc14000 r--s 00059000 00:30 55973918                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/mail-1.4.jar
+7f6ffcc14000-7f6ffcc1d000 r--s 0005f000 00:30 55973881                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/looks-2.2.0.jar
+7f6ffcc1d000-7f6ffcc24000 r--s 00053000 00:30 55973876                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/log4j-1.2.14.jar
+7f6ffcc24000-7f6ffcc25000 r--s 00003000 00:30 55973981                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/license4j-1.3.jar
+7f6ffcc25000-7f6ffcc29000 r--s 0001b000 00:30 55973948                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/l2fprod-common-fontchooser-7.3.jar
+7f6ffcc29000-7f6ffcc2b000 r--s 00011000 00:30 55973947                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/l2fprod-common-directorychooser-7.3.jar
+7f6ffcc2b000-7f6ffcc32000 r--s 00037000 00:30 55973817                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/junit-4.10.jar
+7f6ffcc32000-7f6ffcc34000 r--s 00008000 00:30 55973961                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jug-protection.jar
+7f6ffcc34000-7f6ffcc38000 r--s 00041000 00:30 55973937                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jtidy-r872-jdk15.jar
+7f6ffcc38000-7f6ffcc3a000 r--s 0000b000 00:30 55973844                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jsr173_api-1.0.jar
+7f6ffcc3a000-7f6ffcc3c000 r--s 0000c000 00:30 55973954                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/json-smart-1.2.jar
+7f6ffcc3c000-7f6ffcc3f000 r--s 00015000 00:30 55973953                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/json-path-0.9.1.jar
+7f6ffcc3f000-7f6ffcc43000 r--s 00020000 00:30 55973923                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/json-lib-2.2.2-jdk15.jar
+7f6ffcc43000-7f6ffcc45000 r--s 0000a000 00:30 55973994                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/json-20090211.jar
+7f6ffcc45000-7f6ffcc4e000 r--s 000cc000 00:30 55973932                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/js-1.7R2.jar
+7f6ffcc4e000-7f6ffcc5d000 r--s 00076000 00:30 55973895                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/joda-time-1.6.2.jar
+7f6ffcc5d000-7f6ffcc5f000 r--s 00005000 00:30 55973938                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jms-1.1.jar
+7f6ffcc5f000-7f6ffcc68000 r--s 00080000 00:30 55973960                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jhall-protection.jar
+7f6ffcc68000-7f6ffcc78000 r--s 0013f000 00:30 55973974                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jfreechart-1.0.12.jar
+7f6ffcc78000-7f6ffcc7c000 r--s 00028000 00:30 55973887                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jetty-util-6.1.26.jar
+7f6ffcc7c000-7f6ffcc83000 r--s 0007d000 00:30 55973886                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jetty-6.1.26.jar
+7f6ffcc83000-7f6ffcc85000 r--s 00010000 00:30 55973914                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jettison-1.2.jar
+7f6ffcc85000-7f6ffcca9000 r--s 00341000 00:30 55973975                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jdtcore-3.1.0.jar
+7f6ffcca9000-7f6ffccac000 r--s 00023000 00:30 55973929                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jdom-1.0.jar
+7f6ffccac000-7f6ffccb2000 r--s 00046000 00:30 55973973                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jcommon-1.0.15.jar
+7f6ffccb2000-7f6ffccb6000 r--s 0003e000 00:30 55973946                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jcifs-1.2.9.jar
+7f6ffccb6000-7f6ffccb9000 r--s 0001c000 00:30 55973983                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jcalendar-1.3.2.jar
+7f6ffccb9000-7f6ffccbb000 r--s 00006000 00:30 55973959                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jaxrpc-protection.jar
+7f6ffccbb000-7f6ffccc1000 r--s 00033000 00:30 55973927                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jaxen-1.1-beta-8.jar
+7f6ffccc1000-7f6ffccca000 r--s 00098000 00:30 55973986                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/javassist-3.16.1-GA.jar
+7f6ffccca000-7f6ffcd00000 r--s 002c4000 00:30 55973965                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jasperreports-4.0.2.jar
+7f6ffcd00000-7f6ffcd10000 r--s 000d1000 00:30 55973988                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jackson-databind-2.1.0.jar
+7f6ffcd10000-7f6ffcd14000 r--s 0002f000 00:30 55973990                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jackson-core-2.1.0.jar
+7f6ffcd14000-7f6ffcd17000 r--s 00006000 00:30 55973989                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/jackson-annotations-2.1.0.jar
+7f6ffcd17000-7f6ffcd23000 r--s 00108000 00:30 55973967                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/itext-2.1.7.jar
+7f6ffcd23000-7f6ffcd37000 r--s 0009e000 00:30 55973982                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/idw-1.6.1.jar
+7f6ffcd37000-7f6ffcd39000 r--s 00005000 00:30 55973909                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/httpmime-4.1.1.jar
+7f6ffcd39000-7f6ffcd3e000 r--s 0002b000 00:30 55973911                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/httpcore-nio-4.1.1.jar
+7f6ffcd3e000-7f6ffcd43000 r--s 00028000 00:30 55973908                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/httpcore-4.1.1.jar
+7f6ffcd43000-7f6ffcd45000 r--s 00018000 00:30 55973910                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/httpclient-cache-4.1.1.jar
+7f6ffcd45000-7f6ffcd4d000 r--s 0004e000 00:30 55973907                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/httpclient-4.1.1.jar
+7f6ffcd4d000-7f6ffcd59000 r--s 000d3000 00:30 55973902                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/htmlunit-core-js-2.7.jar
+7f6ffcd59000-7f6ffcd69000 r--s 000cc000 00:30 55973896                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/htmlunit-2.7.jar
+7f6ffcd69000-7f6ffcd81000 r--s 00132000 00:30 55973939                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/hermes-1.14.jar
+7f6ffcd81000-7f6ffcd83000 r--s 00011000 00:30 55973818                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/hamcrest-core-1.1.jar
+7f6ffcd83000-7f6ffcdac000 r--s 001ee000 00:30 55973845                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/guava-14.0.jar
+7f6ffcdac000-7f6ffce10000 r--s 005b1000 00:30 55973931                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/groovy-all-2.1.7.jar
+7f6ffce10000-7f6ffce13000 r--s 00013000 00:30 55973880                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/forms-1.0.7.jar
+7f6ffce13000-7f6ffce15000 r--s 00003000 00:30 55973944                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/flex-messaging-remoting-1.0.jar
+7f6ffce15000-7f6ffce18000 r--s 0000e000 00:30 55973943                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/flex-messaging-proxy-1.0.jar
+7f6ffce18000-7f6ffce1a000 r--s 00004000 00:30 55973942                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/flex-messaging-opt-1.0.jar
+7f6ffce1a000-7f6ffce25000 r--s 00093000 00:30 55973941                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/flex-messaging-core-1.0.jar
+7f6ffce25000-7f6ffce27000 r--s 00014000 00:30 55973940                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/flex-messaging-common-1.0.jar
+7f6ffce27000-7f6ffce2a000 r--s 00013000 00:30 55973924                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/ezmorph-1.0.5.jar
+7f6ffce2a000-7f6ffce2f000 r--s 00048000 00:30 55973928                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/dom4j-1.6.1.jar
+7f6ffce2f000-7f6ffce32000 r--s 0003b000 00:30 55973905                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/cssparser-0.9.5.jar
+7f6ffce32000-7f6ffce34000 r--s 0000d000 00:30 55973877                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-logging-1.1.1.jar
+7f6ffce34000-7f6ffce38000 r--s 0003c000 00:30 55973865                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-lang-2.4.jar
+7f6ffce38000-7f6ffce3c000 r--s 0002a000 00:30 55973866                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-io-2.4.jar
+7f6ffce3c000-7f6ffce42000 r--s 00045000 00:30 55973900                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-httpclient-3.1.jar
+7f6ffce42000-7f6ffce45000 r--s 0000f000 00:30 55973980                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-discovery-0.2.jar
+7f6ffce45000-7f6ffce49000 r--s 0001f000 00:30 55973966                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-digester-1.7.jar
+7f6ffce49000-7f6ffce57000 r--s 0007f000 00:30 55973846                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-collections-3.2.1.jar
+7f6ffce57000-7f6ffce59000 r--s 0000a000 00:30 55973901                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-codec-1.3.jar
+7f6ffce59000-7f6ffce5b000 r--s 00006000 00:30 55973921                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-cli-1.0.jar
+7f6ffce5b000-7f6ffce60000 r--s 0002a000 00:30 55973922                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/commons-beanutils-1.7.0.jar
+7f6ffce60000-7f6ffce63000 r--s 0000d000 00:30 55973992                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/client-1.0.jar
+7f6ffce63000-7f6ffce66000 r--s 0000d000 00:30 55973950                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/cajo-1.142.jar
+7f6ffce66000-7f6ffce6b000 r--s 00024000 00:30 55973884                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/binding-2.0.1.jar
+7f6ffce6b000-7f6ffce8f000 r--s 0016e000 00:30 55973936                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bcprov-jdk15-144.jar
+7f6ffce8f000-7f6ffceb0000 r--s 0015a000 00:30 55973969                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bcprov-jdk14-138.jar
+7f6ffceb0000-7f6ffced1000 r--s 0015a000 00:30 55973971                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bcprov-jdk14-1.38.jar
+7f6ffced1000-7f6ffced5000 r--s 0002b000 00:30 55973968                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bcmail-jdk14-138.jar
+7f6ffced5000-7f6ffced9000 r--s 0002b000 00:30 55973972                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bcmail-jdk14-1.38.jar
+7f6ffced9000-7f6ffceed000 r--s 0016c000 00:30 55973957                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/axis-protection.jar
+7f6ffceed000-7f6ffceff000 r--s 001f9000 00:30 55973956                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/activeQueryBuilder-activeQueryBuilder.jar
+7f6ffceff000-7f6ffcf00000 ---p 00000000 00:00 0 
+7f6ffcf00000-7f6ffd000000 rw-p 00000000 00:00 0                          [stack:28177]
+7f6ffd000000-7f6ffd003000 ---p 00000000 00:00 0 
+7f6ffd003000-7f6ffd101000 rw-p 00000000 00:00 0                          [stack:28176]
+7f6ffd101000-7f6ffd104000 ---p 00000000 00:00 0 
+7f6ffd104000-7f6ffd202000 rw-p 00000000 00:00 0                          [stack:28175]
+7f6ffd202000-7f6ffd205000 ---p 00000000 00:00 0 
+7f6ffd205000-7f6ffd303000 rw-p 00000000 00:00 0                          [stack:28174]
+7f6ffd303000-7f6ffd306000 ---p 00000000 00:00 0 
+7f6ffd306000-7f6ffd404000 rw-p 00000000 00:00 0                          [stack:28173]
+7f6ffd404000-7f6ffd407000 ---p 00000000 00:00 0 
+7f6ffd407000-7f6ffd505000 rw-p 00000000 00:00 0                          [stack:28172]
+7f6ffd505000-7f6ffd508000 ---p 00000000 00:00 0 
+7f6ffd508000-7f6ffd606000 rw-p 00000000 00:00 0                          [stack:28171]
+7f6ffd606000-7f6ffd607000 ---p 00000000 00:00 0 
+7f6ffd607000-7f6ffd707000 rw-p 00000000 00:00 0                          [stack:28170]
+7f6ffd707000-7f6ffd808000 rw-p 00000000 00:00 0 
+7f6ffd808000-7f6ffd909000 rw-p 00000000 00:00 0 
+7f6ffd909000-7f6ffda0a000 rw-p 00000000 00:00 0 
+7f6ffda0a000-7f6ffdb0b000 rw-p 00000000 00:00 0 
+7f6ffdb0b000-7f6ffdc0c000 rw-p 00000000 00:00 0 
+7f6ffdc0c000-7f6ffdc2d000 rw-p 00000000 00:00 0 
+7f6ffdc2d000-7f6ffdd2e000 rw-p 00000000 00:00 0 
+7f6ffdd2e000-7f6ffdd4f000 rw-p 00000000 00:00 0 
+7f6ffdd4f000-7f6ffde50000 rw-p 00000000 00:00 0 
+7f6ffde50000-7f6ffde71000 rw-p 00000000 00:00 0 
+7f6ffde71000-7f6ffdf72000 rw-p 00000000 00:00 0 
+7f6ffdf72000-7f6ffe073000 rw-p 00000000 00:00 0 
+7f6ffe073000-7f6ffe174000 rw-p 00000000 00:00 0 
+7f6ffe174000-7f6ffe275000 rw-p 00000000 00:00 0 
+7f6ffe275000-7f6ffe376000 rw-p 00000000 00:00 0 
+7f6ffe376000-7f6ffe477000 rw-p 00000000 00:00 0 
+7f6ffe477000-7f6ffe578000 rw-p 00000000 00:00 0 
+7f6ffe578000-7f6ffe679000 rw-p 00000000 00:00 0 
+7f6ffe679000-7f6ffe6e9000 rw-p 00000000 00:00 0 
+7f6ffe6e9000-7f6ffe8a6000 r--s 039f9000 fd:01 150819                     /usr/java/jdk1.7.0_25/jre/lib/rt.jar
+7f6ffe8a6000-7f6fff8b6000 rw-p 00000000 00:00 0 
+7f6fff8b6000-7f6fff8b7000 ---p 00000000 00:00 0 
+7f6fff8b7000-7f6fff9b7000 rw-p 00000000 00:00 0                          [stack:28169]
+7f6fff9b7000-7f6fff9b8000 ---p 00000000 00:00 0 
+7f6fff9b8000-7f6fffab8000 rw-p 00000000 00:00 0                          [stack:28168]
+7f6fffab8000-7f6fffab9000 ---p 00000000 00:00 0 
+7f6fffab9000-7f6fffbb9000 rw-p 00000000 00:00 0                          [stack:28167]
+7f6fffbb9000-7f6fffbba000 ---p 00000000 00:00 0 
+7f6fffbba000-7f6fffcba000 rw-p 00000000 00:00 0                          [stack:28166]
+7f6fffcba000-7f6fffce4000 rw-p 00000000 00:00 0 
+7f6fffce4000-7f6ffff4c000 rw-p 00000000 00:00 0 
+7f6ffff4c000-7f6ffff57000 rw-p 00000000 00:00 0 
+7f6ffff57000-7f6ffff58000 rw-p 00000000 00:00 0 
+7f6ffff58000-7f6ffff59000 rw-p 00000000 00:00 0 
+7f6ffff59000-7f6ffff5a000 rw-p 00000000 00:00 0 
+7f6ffff5a000-7f6ffff75000 rw-p 00000000 00:00 0 
+7f6ffff75000-7f6ffff9f000 rw-p 00000000 00:00 0 
+7f6ffff9f000-7f7000207000 rw-p 00000000 00:00 0 
+7f7000207000-7f700021c000 rw-p 00000000 00:00 0 
+7f700021c000-7f700022b000 rw-p 00000000 00:00 0 
+7f700022b000-7f7000350000 rw-p 00000000 00:00 0 
+7f7000350000-7f7000351000 rw-p 00000000 00:00 0 
+7f7000351000-7f70005c1000 rwxp 00000000 00:00 0 
+7f70005c1000-7f7003351000 rw-p 00000000 00:00 0 
+7f7003351000-7f700336c000 r-xp 00000000 fd:01 150604                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libzip.so
+7f700336c000-7f700356b000 ---p 0001b000 fd:01 150604                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libzip.so
+7f700356b000-7f700356c000 rw-p 0001a000 fd:01 150604                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libzip.so
+7f700356c000-7f7003bea000 r--s 00000000 fd:01 1317513                    /var/lib/sss/mc/passwd
+7f7003bea000-7f7003bf2000 r-xp 00000000 fd:01 1843474                    /usr/lib64/libnss_sss.so.2
+7f7003bf2000-7f7003df1000 ---p 00008000 fd:01 1843474                    /usr/lib64/libnss_sss.so.2
+7f7003df1000-7f7003df2000 r--p 00007000 fd:01 1843474                    /usr/lib64/libnss_sss.so.2
+7f7003df2000-7f7003df3000 rw-p 00008000 fd:01 1843474                    /usr/lib64/libnss_sss.so.2
+7f7003df3000-7f7003dff000 r-xp 00000000 fd:01 1835990                    /usr/lib64/libnss_files-2.18.so
+7f7003dff000-7f7003ffe000 ---p 0000c000 fd:01 1835990                    /usr/lib64/libnss_files-2.18.so
+7f7003ffe000-7f7003fff000 r--p 0000b000 fd:01 1835990                    /usr/lib64/libnss_files-2.18.so
+7f7003fff000-7f7004000000 rw-p 0000c000 fd:01 1835990                    /usr/lib64/libnss_files-2.18.so
+7f7004000000-7f7004c13000 rw-p 00000000 00:00 0 
+7f7004c13000-7f7008000000 ---p 00000000 00:00 0 
+7f7008000000-7f7008001000 r--s 00003000 00:30 55973987                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/keen-client-api-java-1.0.2.jar
+7f7008001000-7f7008002000 r--s 00005000 00:30 55973970                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/bctsp-jdk14-1.38.jar
+7f7008002000-7f7008004000 r--s 00007000 00:30 55973958                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/axis-ant-protection.jar
+7f7008004000-7f7008009000 r--s 00024000 00:30 55973991                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/analyticsmonitor-3.2.61.jar
+7f7008009000-7f700800b000 r--s 0000e000 00:30 55973917                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/activation-1.1.jar
+7f700800b000-7f7008010000 r--s 00033000 00:30 55973964                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/ProtectionPriv-4.6.jar
+7f7008010000-7f700801f000 r--s 000f5000 00:30 55973962                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/Protection-4.6.jar
+7f700801f000-7f7008040000 rw-p 00000000 00:00 0 
+7f7008040000-7f7008061000 rw-p 00000000 00:00 0 
+7f7008061000-7f7008089000 rw-p 00000000 00:00 0 
+7f7008089000-7f70080b2000 r-xp 00000000 fd:01 150573                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libjava.so
+7f70080b2000-7f70082b2000 ---p 00029000 fd:01 150573                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libjava.so
+7f70082b2000-7f70082b4000 rw-p 00029000 fd:01 150573                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libjava.so
+7f70082b4000-7f70082c1000 r-xp 00000000 fd:01 150603                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libverify.so
+7f70082c1000-7f70084c0000 ---p 0000d000 fd:01 150603                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libverify.so
+7f70084c0000-7f70084c2000 rw-p 0000c000 fd:01 150603                     /usr/java/jdk1.7.0_25/jre/lib/amd64/libverify.so
+7f70084c2000-7f70084c9000 r-xp 00000000 fd:01 1836002                    /usr/lib64/librt-2.18.so
+7f70084c9000-7f70086c8000 ---p 00007000 fd:01 1836002                    /usr/lib64/librt-2.18.so
+7f70086c8000-7f70086c9000 r--p 00006000 fd:01 1836002                    /usr/lib64/librt-2.18.so
+7f70086c9000-7f70086ca000 rw-p 00007000 fd:01 1836002                    /usr/lib64/librt-2.18.so
+7f70086ca000-7f70087cf000 r-xp 00000000 fd:01 1835980                    /usr/lib64/libm-2.18.so
+7f70087cf000-7f70089cf000 ---p 00105000 fd:01 1835980                    /usr/lib64/libm-2.18.so
+7f70089cf000-7f70089d0000 r--p 00105000 fd:01 1835980                    /usr/lib64/libm-2.18.so
+7f70089d0000-7f70089d1000 rw-p 00106000 fd:01 1835980                    /usr/lib64/libm-2.18.so
+7f70089d1000-7f7009412000 r-xp 00000000 fd:01 150608                     /usr/java/jdk1.7.0_25/jre/lib/amd64/server/libjvm.so
+7f7009412000-7f7009612000 ---p 00a41000 fd:01 150608                     /usr/java/jdk1.7.0_25/jre/lib/amd64/server/libjvm.so
+7f7009612000-7f70096b5000 rw-p 00a41000 fd:01 150608                     /usr/java/jdk1.7.0_25/jre/lib/amd64/server/libjvm.so
+7f70096b5000-7f70096f1000 rw-p 00000000 00:00 0 
+7f70096f1000-7f70098a5000 r-xp 00000000 fd:01 1835972                    /usr/lib64/libc-2.18.so
+7f70098a5000-7f7009aa5000 ---p 001b4000 fd:01 1835972                    /usr/lib64/libc-2.18.so
+7f7009aa5000-7f7009aa9000 r--p 001b4000 fd:01 1835972                    /usr/lib64/libc-2.18.so
+7f7009aa9000-7f7009aab000 rw-p 001b8000 fd:01 1835972                    /usr/lib64/libc-2.18.so
+7f7009aab000-7f7009ab0000 rw-p 00000000 00:00 0 
+7f7009ab0000-7f7009ab3000 r-xp 00000000 fd:01 1835978                    /usr/lib64/libdl-2.18.so
+7f7009ab3000-7f7009cb2000 ---p 00003000 fd:01 1835978                    /usr/lib64/libdl-2.18.so
+7f7009cb2000-7f7009cb3000 r--p 00002000 fd:01 1835978                    /usr/lib64/libdl-2.18.so
+7f7009cb3000-7f7009cb4000 rw-p 00003000 fd:01 1835978                    /usr/lib64/libdl-2.18.so
+7f7009cb4000-7f7009cca000 r-xp 00000000 fd:01 150555                     /usr/java/jdk1.7.0_25/jre/lib/amd64/jli/libjli.so
+7f7009cca000-7f7009eca000 ---p 00016000 fd:01 150555                     /usr/java/jdk1.7.0_25/jre/lib/amd64/jli/libjli.so
+7f7009eca000-7f7009ecb000 rw-p 00016000 fd:01 150555                     /usr/java/jdk1.7.0_25/jre/lib/amd64/jli/libjli.so
+7f7009ecb000-7f7009ee3000 r-xp 00000000 fd:01 1835998                    /usr/lib64/libpthread-2.18.so
+7f7009ee3000-7f700a0e2000 ---p 00018000 fd:01 1835998                    /usr/lib64/libpthread-2.18.so
+7f700a0e2000-7f700a0e3000 r--p 00017000 fd:01 1835998                    /usr/lib64/libpthread-2.18.so
+7f700a0e3000-7f700a0e4000 rw-p 00018000 fd:01 1835998                    /usr/lib64/libpthread-2.18.so
+7f700a0e4000-7f700a0e8000 rw-p 00000000 00:00 0 
+7f700a0e8000-7f700a108000 r-xp 00000000 fd:01 1835965                    /usr/lib64/ld-2.18.so
+7f700a108000-7f700a112000 rw-p 00000000 00:00 0 
+7f700a112000-7f700a1c8000 rw-p 00000000 00:00 0 
+7f700a1c8000-7f700a1cb000 ---p 00000000 00:00 0 
+7f700a1cb000-7f700a2c9000 rw-p 00000000 00:00 0                          [stack:28165]
+7f700a2c9000-7f700a2cb000 rw-p 00000000 00:00 0 
+7f700a2cb000-7f700a2cc000 rw-p 00000000 00:00 0 
+7f700a2cc000-7f700a2cd000 rw-p 00000000 00:00 0 
+7f700a2cd000-7f700a2ce000 r--s 00002000 00:30 55973878                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/analytics-core-5.1.0.jar
+7f700a2ce000-7f700a2d3000 r--s 004de000 00:30 55973963                   /homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/ProtectionHelp-4.6.jar
+7f700a2d3000-7f700a2de000 rw-p 00000000 00:00 0 
+7f700a2de000-7f700a2df000 rw-p 00000000 00:00 0 
+7f700a2df000-7f700a2e0000 rw-p 00000000 00:00 0 
+7f700a2e0000-7f700a2e1000 rw-p 00000000 00:00 0 
+7f700a2e1000-7f700a2fc000 rw-p 00000000 00:00 0 
+7f700a2fc000-7f700a304000 rw-s 00000000 00:21 262158                     /tmp/hsperfdata_my301/28161
+7f700a304000-7f700a305000 rw-p 00000000 00:00 0 
+7f700a305000-7f700a306000 r--p 00000000 00:00 0 
+7f700a306000-7f700a307000 rw-p 00000000 00:00 0 
+7f700a307000-7f700a308000 r--p 0001f000 fd:01 1835965                    /usr/lib64/ld-2.18.so
+7f700a308000-7f700a309000 rw-p 00020000 fd:01 1835965                    /usr/lib64/ld-2.18.so
+7f700a309000-7f700a30a000 rw-p 00000000 00:00 0 
+7fff29531000-7fff29555000 rw-p 00000000 00:00 0                          [stack]
+7fff295b5000-7fff295b7000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: final_year_project_SoupUI_V1.Wsdl_Parsing
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/java/latest
+CLASSPATH=/usr/local/java/jar/acm.jar:/usr/local/java/jar/hansen.jar:/usr/local/java/jar/mysql-connector-java-3.1.7-bin.jar:/usr/local/java/jar/postgresql-8.0-310.jdbc3.jar:/usr/local/java/jar/twitter4j-core-2.2.5.jar:/usr/local/java/jar/xerces.jar:.
+PATH=/usr/lib64/openmpi/bin:/usr/local/bin:/opt/eecs/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/lib64/qt-3.3/bin:/usr/libexec/lightdm
+LD_LIBRARY_PATH=/usr/java/latest/jre/lib/amd64:/usr/java/latest/jre/lib/i386:/usr/lib64/openmpi/lib
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8a26a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x8a26a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x73f3d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x73f3d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x73f3d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x73f3d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x73ed20], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x7410b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [libjvm.so+0x7410b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x7410b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 20 (Heisenbug)
+
+uname:Linux 3.12.6-300.fc20.x86_64 #1 SMP Mon Dec 23 16:44:31 UTC 2013 x86_64
+libc:glibc 2.18 NPTL 2.18 
+rlimit: STACK 8192k, CORE 0k, NPROC 1024, NOFILE 4096, AS infinity
+load average:0.40 0.19 0.16
+
+/proc/meminfo:
+MemTotal:        8083004 kB
+MemFree:         2073544 kB
+Buffers:           85208 kB
+Cached:          3478232 kB
+SwapCached:            0 kB
+Active:          2635804 kB
+Inactive:        3040608 kB
+Active(anon):    1638832 kB
+Inactive(anon):   606588 kB
+Active(file):     996972 kB
+Inactive(file):  2434020 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:      10485756 kB
+SwapFree:       10485756 kB
+Dirty:              2180 kB
+Writeback:             8 kB
+AnonPages:       2113508 kB
+Mapped:           216628 kB
+Shmem:            132092 kB
+Slab:             190252 kB
+SReclaimable:     138672 kB
+SUnreclaim:        51580 kB
+KernelStack:        7040 kB
+PageTables:        26088 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    14527256 kB
+Committed_AS:    5248332 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      381076 kB
+VmallocChunk:   34359352900 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    995328 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      108332 kB
+DirectMap2M:     8185856 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz
+stepping	: 7
+microcode	: 0x29
+cpu MHz		: 3401.191
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6584.98
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz
+stepping	: 7
+microcode	: 0x29
+cpu MHz		: 3401.964
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6584.98
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz
+stepping	: 7
+microcode	: 0x29
+cpu MHz		: 3405.445
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6584.98
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz
+stepping	: 7
+microcode	: 0x29
+cpu MHz		: 3403.898
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6584.98
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8083004k(2073544k free), swap 10485756k(10485756k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (23.25-b01) for linux-amd64 JRE (1.7.0_25-b15), built on Jun  5 2013 20:48:36 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Mon Nov 10 13:15:42 2014
+elapsed time: 9033 seconds
+
