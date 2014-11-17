@@ -1,32 +1,58 @@
-2014-11-11 18:12:56,907 WARN  [SoapUI] Missing folder [/homes/my301/year2/Software engineering/new/Final_year_project_v1/ext] for external libraries
-2014-11-11 18:12:56,907 INFO  [DefaultSoapUICore] Creating new settings at [/homes/my301/soapui-settings.xml]
-2014-11-11 18:12:57,674 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
-2014-11-11 18:12:57,714 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
-2014-11-11 18:12:57,716 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
-2014-11-11 18:12:57,717 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
-2014-11-11 18:12:57,718 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
-2014-11-11 18:12:57,719 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
-2014-11-11 18:12:57,721 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
-2014-11-11 18:12:57,727 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
-2014-11-11 18:12:57,729 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
-2014-11-11 18:12:57,735 INFO  [SchemaUtils] Added default schema from file:/homes/my301/year3/Project/SoapUI-Pro-5.1.2/SoapUI-Pro-5.1.2/lib/soapui-5.1.2.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
-2014-11-11 18:12:58,685 INFO  [SchemaUtils] Loading schema types from [http://www.webservicex.net/geoipservice.asmx?WSDL]
-2014-11-11 18:12:58,686 INFO  [SchemaUtils] Getting schema http://www.webservicex.net/geoipservice.asmx?WSDL
-2014-11-11 18:12:58,927 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
-2014-11-11 18:12:58,929 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
-2014-11-11 18:12:58,929 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
-2014-11-11 18:12:58,929 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
-2014-11-11 18:12:58,930 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceSoap
-2014-11-11 18:12:58,930 INFO  [WsdlImporter] Importing binding {http://www.webservicex.net/}GeoIPServiceSoap
-2014-11-11 18:12:58,943 INFO  [Soap11HttpBindingImporter] importing endpoint http://www.webservicex.net/geoipservice.asmx
-2014-11-11 18:12:58,972 INFO  [Soap11HttpBindingImporter] importing operation GetGeoIP
-2014-11-11 18:12:58,981 INFO  [Soap11HttpBindingImporter] importing operation GetGeoIPContext
-2014-11-11 18:12:59,027 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceSoap12
-2014-11-11 18:12:59,027 INFO  [WsdlImporter] Importing binding {http://www.webservicex.net/}GeoIPServiceSoap12
-2014-11-11 18:12:59,027 INFO  [Soap12HttpBindingImporter] importing endpoint http://www.webservicex.net/geoipservice.asmx
-2014-11-11 18:12:59,028 INFO  [Soap12HttpBindingImporter] importing operation GetGeoIP
-2014-11-11 18:12:59,028 INFO  [Soap12HttpBindingImporter] importing operation GetGeoIPContext
-2014-11-11 18:12:59,029 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
-2014-11-11 18:12:59,029 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpGet
-2014-11-11 18:12:59,029 INFO  [WsdlImporter] Finding importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
-2014-11-11 18:12:59,029 INFO  [WsdlImporter] Missing importer for {http://www.webservicex.net/}GeoIPServiceHttpPost
+2014-11-17 17:30:18,798 WARN  [SoapUI] Missing folder [/homes/my301/year2/Software engineering/new/Final_year_project_v1/ext] for external libraries
+2014-11-17 17:30:18,798 INFO  [DefaultSoapUICore] Creating new settings at [/homes/my301/soapui-settings.xml]
+2014-11-17 17:30:20,096 ERROR [SoapUI] An error occurred [Failed to load project from file [http://www.webservicex.net/geoipservice.asmx?WSDL]], see error log for details
+2014-11-17 17:30:20,097 ERROR [errorlog] com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://www.webservicex.net/geoipservice.asmx?WSDL]
+com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://www.webservicex.net/geoipservice.asmx?WSDL]
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:318)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:234)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:201)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:189)
+	at final_year_project_code_v1.CheckWsdl.checkWSDLAvailable(CheckWsdl.java:27)
+	at final_year_project_GUI_v1.WelcomePage.okButtonActionPerformed(WelcomePage.java:129)
+	at final_year_project_GUI_v1.WelcomePage.access$000(WelcomePage.java:15)
+	at final_year_project_GUI_v1.WelcomePage$1.actionPerformed(WelcomePage.java:50)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6505)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
+	at java.awt.Component.processEvent(Component.java:6270)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4861)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4687)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4687)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: org.apache.xmlbeans.XmlException: Element definitions@http://schemas.xmlsoap.org/wsdl/ is not a valid soapui-project@http://eviware.com/soapui/config document or a valid substitution.
+	at org.apache.xmlbeans.impl.store.Locale.autoTypeDocument(Locale.java:328)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1279)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1263)
+	at org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse(SchemaTypeLoaderBase.java:345)
+	at com.eviware.soapui.config.SoapuiProjectDocumentConfig$Factory.parse(SoapuiProjectDocumentConfig.java:71)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProjectFromInputStream(WsdlProject.java:340)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:301)
+	... 43 more
