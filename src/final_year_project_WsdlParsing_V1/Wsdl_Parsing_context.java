@@ -1,4 +1,4 @@
-package final_year_project_SoupUI_V1;
+package final_year_project_WsdlParsing_V1;
 
 import com.eviware.soapui.config.DefinitionCacheTypeConfig;
 import com.eviware.soapui.config.DefintionPartConfig;
