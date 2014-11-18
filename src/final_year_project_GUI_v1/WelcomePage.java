@@ -133,6 +133,11 @@ public class WelcomePage extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
+        
+        //      http://www.webservicex.net/geoipservice.asmx?WSDL
+        //      http://www.webservicex.net/genericbarcode.asmx?WSDL
+        //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
+        
         wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL");
         
         if(wsdlInput.getText().equals("")){
