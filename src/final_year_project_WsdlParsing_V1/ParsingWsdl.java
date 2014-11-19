@@ -15,6 +15,7 @@ import com.predic8.schema.SchemaComponent;
 import com.predic8.schema.SimpleType;
 import com.predic8.soamodel.Consts;
 import com.predic8.wsdl.*;
+import final_year_project_code_v1.*;
 import java.util.ArrayList;
 
 /**
@@ -23,10 +24,17 @@ import java.util.ArrayList;
  */
 public class ParsingWsdl {
     
-    
+    private ArrayList<StoreWsdlData> wsdlData;
+ 
     // constractor
-    public ParsingWsdl(){
+    public ParsingWsdl(){        
         
+        wsdlData = new ArrayList<>() ;              
+    }
+    
+    public ArrayList<StoreWsdlData> getWsdlData()
+    {
+        return this.wsdlData;
     }
     
     public void listOfMethod(String wsdl)
@@ -46,7 +54,7 @@ public class ParsingWsdl {
                 System.out.println(pt.getName());
                 
                 for (Operation op : pt.getOperations()) {
-
+                    
                     System.out.println("-444444444444-" + op.getName());
                     
                     System.out.println("22221222");
@@ -61,10 +69,7 @@ public class ParsingWsdl {
     
     public void parseWsdl (String wsdl){
         
-        
-        ArrayList<String> methodNames = new ArrayList<>();
-        
-        // delete this: wsdl = "http://www.webservicex.net/sendsmsworld.asmx?WSDL";
+
         String portSOAP;
         
         WSDLParser parser = new WSDLParser();
@@ -80,16 +85,15 @@ public class ParsingWsdl {
                 System.out.println(pt.getName());
                 
                 for (Operation op : pt.getOperations()) {
-                    
-                    methodNames.add(op.getName());
-                    
+          
                     System.out.println("--" + op.getName());
                     
                     System.out.println("Request Parameters");
                     
                     Element x =   op.getInput().getMessage().getParts().get(0).getElement();
-                    
-                    listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()));
+                    StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
+                    wsdlData.add(storeWsdlDataObj);
+                    listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
                     /* we don't need next two lines yet */
                     //System.out.println("Response Parameters");
                     
@@ -99,6 +103,8 @@ public class ParsingWsdl {
                     
                 }
                 
+                System.out.println("****************************the end*************************************");
+                
             }
             
         }
@@ -106,49 +112,59 @@ public class ParsingWsdl {
     }
     
     
-    private static void listParameters(Element element) {
+    private static void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
         
         
         ComplexType ct = (ComplexType) element.getEmbeddedType();
-        if (ct == null){            
-            try{                
+        if (ct == null){
+            try{
                 ct = element.getSchema().getComplexType(element.getType().getLocalPart());
-               
+                
             }catch(Exception e){
                 
                 if (element.getSchema().getSimpleTypes().size() > 0) {
                     out("  Schema SimpleTypes: ");
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        out("    SimpleType Name: " + st.getName());
-                        out("    SimpleType Restriction: " + st.getRestriction());
-                        out("    SimpleType Union: " + st.getUnion());
-                        out("    SimpleType List: " + st.getList());
-                    } 
+                        if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
+                            out("    SimpleType Name: " + st.getName());
+                            out("    SimpleType Restriction: " + st.getRestriction());
+                            out("    SimpleType Union: " + st.getUnion());
+                            out("    SimpleType List: " + st.getList());
+                            
+                              storeWsdlDataObj.addElmentName(st.getName());
+                                storeWsdlDataObj.addElmentType(st.getRestriction().toString());
+                            break;
+                        }
+                    }
                 }
                 
-                System.out.println("****************************the end*************************************");
+                
                 return;
             }
-           
+            
         }
         if(ct.getModel()!=null){
             
             for (Element e : ct.getSequence().getElements()) {
                 
-                // Fix for invalid schema                
+                // Fix for invalid schema
                 if (e.getType() == null) {
-                    System.out.println("Element eeeeeeeeeeeeeeeeeeee: " + element.getName());
+                    System.out.println("Element: " + element.getName());
                     return;
                 }
                 
                 if (e.getType().getNamespaceURI() == Consts.SCHEMA_NS) {
                     
-                    System.out.println("bbbbbbbbbbbbbbbb"+e.getName() + " " + e.getType());
+                    System.out.println("Element Name:  "+e.getName() + "Element Type: " + e.getType());
+                    storeWsdlDataObj.addElmentName(e.getName());
+                    storeWsdlDataObj.addElmentType(e.getType().toString());
                     
                 } else {
                     
-                    out("eeeeeeeeeeeeeeeeeeeeee: "+e.getType());                   
-                    listParameters(e);
+                    System.out.println("/n");
+                    System.out.println("Element Name:  "+e.getName() + "Element Type: " + e.getType());
+                    listParameters(e,i, storeWsdlDataObj);
+                    i++;
                 }
                 
             }
@@ -224,7 +240,7 @@ public class ParsingWsdl {
         
     }
     
-     // delete this method
+    // delete this method
     private static void annotationOut(SchemaComponent sc) {
         if (sc.getAnnotation().getAppinfos().size() > 0) {
             System.out

@@ -1,22 +1,37 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package final_year_project_GUI_v1;
+
+import final_year_project_WsdlParsing_V1.ParsingWsdl;
+import final_year_project_code_v1.StoreWsdlData;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
  * @author my301
  */
 public class ShowMethods extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ShowMethods
      */
+    
+    private ParsingWsdl parsingWsdlObj;
+    
     public ShowMethods() {
-        initComponents();
+        initComponents();        
     }
-
+    
+    public ShowMethods(ParsingWsdl parsingWsdlObj) {
+        initComponents();
+        this.parsingWsdlObj = parsingWsdlObj;
+        displayWsdlData();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,76 +42,163 @@ public class ShowMethods extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
         testButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        noteLable = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        methodjTree = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Automated Test Case Generator");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
         testButton.setText("Test");
+        testButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testButtonActionPerformed(evt);
+            }
+        });
 
         exitButton.setText("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Note:");
+        noteLable.setText("Note:");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        methodjTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(methodjTree);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 34, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(testButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(60, 60, 60)
                                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(testButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel1)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(noteLable))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(testButton))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(testButton)))
+                .addGap(31, 31, 31)
+                .addComponent(noteLable)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exitButton)
                     .addComponent(backButton))
-                .addGap(19, 19, 19))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        WelcomePage welcomePageFrame = new WelcomePage();
+        welcomePageFrame.setSize(550,300);
+        welcomePageFrame.setLocationRelativeTo(null);
+        welcomePageFrame.setDefaultCloseOperation(WelcomePage.DISPOSE_ON_CLOSE);
+        welcomePageFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
+    
+    @SuppressWarnings("empty-statement")
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
+        // TODO add your handling code here:
+        
+        noteLable.setText("Note:");
+        if(methodjTree.getSelectionCount()!= 0 )
+        {
+            String selectedMethod  =  methodjTree.getSelectionPath().getLastPathComponent().toString();
+            if(selectedMethod.charAt(0)=='r'){
+                noteLable.setText("Note: Please select a method.");
+            }
+            else{
+                selectedMethod = selectedMethod.substring(14,selectedMethod.length());
+            }
+            boolean check = false;
+            for(StoreWsdlData swd :parsingWsdlObj.getWsdlData()){
+                if(swd.getMethodName().equals(selectedMethod)){
+                    check = true;
+                }
+                if(check){
+                    break;
+                }
+            }
+            if(!check){
+                JOptionPane.showMessageDialog(null,"Please select a valid method");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"You have selected a Valid method : "+selectedMethod);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select a method");
+        }
+    }//GEN-LAST:event_testButtonActionPerformed
+    
+    private void displayWsdlData()
+    {
+        //create the root node
+        DefaultTreeModel model = (DefaultTreeModel) methodjTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        //create the child nodes
+        DefaultMutableTreeNode methodNode;
+        
+        for(StoreWsdlData swd :parsingWsdlObj.getWsdlData() )
+        {
+            methodNode = new DefaultMutableTreeNode("Method Name : " + swd.getMethodName());
+            int i =0;
+            for(String x: swd.getElmentName()){
+                methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+x+"   Datatype :  "+swd.getElmentType().get(i)));
+                i++;
+            }
+            root.add(methodNode);
+        }
+        model.reload(root);
+    }
     /**
      * @param args the command line arguments
      */
@@ -104,8 +206,8 @@ public class ShowMethods extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -123,7 +225,7 @@ public class ShowMethods extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ShowMethods.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -135,9 +237,9 @@ public class ShowMethods extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTree methodjTree;
+    private javax.swing.JLabel noteLable;
     private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
 }

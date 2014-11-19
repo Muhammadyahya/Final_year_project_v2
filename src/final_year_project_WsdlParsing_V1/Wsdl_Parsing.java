@@ -20,10 +20,10 @@ import java.io.IOException;
 import java.util.*;
 import javax.xml.parsers.ParserConfigurationException;
 import org.apache.xmlbeans.XmlException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+//import org.jsoup.Jsoup;
+//import org.jsoup.nodes.Document;
+//import org.jsoup.nodes.Element;
+//import org.jsoup.select.Elements;
 
 
 
@@ -31,7 +31,7 @@ public class Wsdl_Parsing {
     
     
 
-    
+    /*
     
     public static void main(String[] args) throws ParserConfigurationException, FileNotFoundException, XmlException, IOException, SoapUIException {
         
@@ -107,7 +107,7 @@ public class Wsdl_Parsing {
     private static void out(String str) {
         System.out.println(str);
     }
-    
+    */
     
     
 }

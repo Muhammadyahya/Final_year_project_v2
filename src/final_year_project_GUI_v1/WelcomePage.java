@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package final_year_project_GUI_v1;
 
 /**
@@ -13,7 +13,7 @@ import final_year_project_code_v1.*;
 import final_year_project_WsdlParsing_V1.*;
 
 public class WelcomePage extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form WelcomePage
      */
@@ -21,7 +21,7 @@ public class WelcomePage extends javax.swing.JFrame {
         initComponents();
         checkMethodButton.setEnabled(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,8 +138,10 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         
-        wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL");
+        wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
         
+        
+        ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: Please enter a Wsdl.");
             checkMethodButton.setEnabled(false);
@@ -149,17 +151,23 @@ public class WelcomePage extends javax.swing.JFrame {
             CheckWsdl checkWsdlObj =  new CheckWsdl();
             
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
-                ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setText("Note: Wsdl is correct.");
                 checkMethodButton.setEnabled(true);
             }
-            else{           
-                 noteLabel.setText("Note: Wsdl is invalid.");
-                 checkMethodButton.setEnabled(false);
+            else{
+                noteLabel.setText("Note: Wsdl is invalid.");
+                checkMethodButton.setEnabled(false);
             }
         }
-            
+        
+        System.out.println("");
+        System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_okButtonActionPerformed
 
@@ -175,29 +183,42 @@ public class WelcomePage extends javax.swing.JFrame {
 
     private void checkMethodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMethodButtonActionPerformed
         // TODO add your handling code here:
-        wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
+        //wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
         
+        ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: Please enter a Wsdl.");
             checkMethodButton.setEnabled(false);
         }
-        else{            
-            CheckWsdl checkWsdlObj =  new CheckWsdl();            
+        else{
+            CheckWsdl checkWsdlObj =  new CheckWsdl();
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
-                ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
+                
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 parsingWsdlObj.listOfMethod(wsdlInput.getText());
                 noteLabel.setText("Note: Wsdl is correct.");
                 checkMethodButton.setEnabled(true);
+                
+                this.setVisible(false);
+                ShowMethods showMethodPanel = new ShowMethods(parsingWsdlObj);
+                showMethodPanel.setSize(500,500);
+                showMethodPanel.setLocationRelativeTo(null);
+                showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+                showMethodPanel.setVisible(true);
+                this.dispose();
             }
-            else{           
-                 noteLabel.setText("Note: Wsdl is invalid.");
-                 checkMethodButton.setEnabled(false);
+            else{
+                noteLabel.setText("Note: Wsdl is invalid.");
+                checkMethodButton.setEnabled(false);
             }
         }
         
+        
+        
+        
+        
     }//GEN-LAST:event_checkMethodButtonActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -205,8 +226,8 @@ public class WelcomePage extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -224,7 +245,7 @@ public class WelcomePage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(WelcomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
