@@ -120,9 +120,6 @@ public class ParsingWsdl {
                             storeWsdlDataObj.addElmentName(st.getName());
                             
                             StoreEnum ss = storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName());
-                            
-                            
-                            
                             storeWsdlDataObj.addElmentType(ss);
       
                             break;

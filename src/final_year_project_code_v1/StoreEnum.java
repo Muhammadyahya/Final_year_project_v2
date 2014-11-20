@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author my301
  */
-public class StoreEnum {
+public class StoreEnum extends Object{
     
     private String resElementName;
     private ArrayList <String> enumValue;

@@ -15,7 +15,7 @@ import java.util.*;
 public class StoreWsdlData {
     
     private String methodName;
-    private ArrayList <String> elementType;
+    private ArrayList <Object> elementType;
     private ArrayList <String> elementName;
     
     
@@ -35,13 +35,14 @@ public class StoreWsdlData {
      // This method store input prammeter elment data type.
     
     // i need to work on storing complex types sepratly.
-    public <T extends String> void addElmentType(T elementType)
+    public <T> void addElmentType(T elementType)
     {
-        if(elementType.charAt(1)=='b'){
-            this.elementType.add(elementType);
+        if(elementType instanceof StoreEnum){   
+            this.elementType.add((StoreEnum)elementType);
         }
-        else{
-            this.elementType.add(elementType.substring(34,elementType.length()));
+        else{            
+            String castElementType = (String)elementType;
+            this.elementType.add(castElementType.substring(34,castElementType.length()));
         }        
     }
     
@@ -55,11 +56,10 @@ public class StoreWsdlData {
         
         return storeEnumObj;
     }
-    
-  
+
     
     // This method get input prammeter elment data type. It returns Arraylist.
-    public ArrayList<String> getElmentType()
+    public ArrayList<Object> getElmentType()
     {
         return this.elementType;
     }

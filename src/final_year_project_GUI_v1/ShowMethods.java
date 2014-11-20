@@ -213,7 +213,7 @@ public class ShowMethods extends javax.swing.JFrame {
         {
             methodNode = new DefaultMutableTreeNode("Method Name : " + swd.getMethodName());
             int i =0;
-            for(String x: swd.getElmentName()){
+            for(Object x: swd.getElmentName()){
                 methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+x+"   Datatype :  "+swd.getElmentType().get(i)));
                 i++;
             }
