@@ -141,6 +141,9 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
         //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
+        //       http://www.webservicex.net/WeatherForecast.asmx?WSDL
+        //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
+
         
         wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL");
  
