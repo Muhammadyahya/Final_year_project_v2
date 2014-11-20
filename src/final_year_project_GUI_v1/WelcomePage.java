@@ -140,10 +140,10 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
+        //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
         
-        wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
-        
-        
+        wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL");
+ 
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: Please enter a Wsdl.");
@@ -163,15 +163,8 @@ public class WelcomePage extends javax.swing.JFrame {
                 checkMethodButton.setEnabled(false);
             }
         }
-        
-        System.out.println("");
-        System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");
-        
-        
-        
-        
-        
-        
+        // delete below line
+        System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");     
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed

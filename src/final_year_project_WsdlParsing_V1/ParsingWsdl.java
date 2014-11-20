@@ -19,34 +19,35 @@ import java.util.ArrayList;
 public class ParsingWsdl {
     
     private ArrayList<StoreWsdlData> wsdlData;
- 
+    
     // constractor
-    public ParsingWsdl(){       
-        wsdlData = new ArrayList<>() ;              
+    public ParsingWsdl(){
+        wsdlData = new ArrayList<>() ;
     }
     
     public ArrayList<StoreWsdlData> getWsdlData()
     {
         return this.wsdlData;
-    }  
+    }
     
-    public void parseWsdl (String wsdl){        
-
+    public void parseWsdl (String wsdl){
+        
         String portSOAP;
-        
-        WSDLParser parser = new WSDLParser();
-        
+        boolean checkTypeTwo = false;
+        boolean checkTypeOne = false;        
+        WSDLParser parser = new WSDLParser();        
         Definitions defs = parser.parse(wsdl);
         
         for (PortType pt : defs.getPortTypes()) {
             
             portSOAP = pt.getName();
             
-            if (portSOAP.endsWith("Soap")) {                
-                System.out.println(pt.getName());                
-                for (Operation op : pt.getOperations()) {          
-                    System.out.println("--" + op.getName());                    
-                    System.out.println("Request Parameters");                    
+            if (portSOAP.endsWith("Soap")) {
+                checkTypeOne = true;
+                System.out.println(pt.getName());
+                for (Operation op : pt.getOperations()) {
+                    System.out.println("--" + op.getName());
+                    System.out.println("Request Parameters");
                     Element x =   op.getInput().getMessage().getParts().get(0).getElement();
                     StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
                     wsdlData.add(storeWsdlDataObj);
@@ -56,14 +57,50 @@ public class ParsingWsdl {
                     
                     // listParameters(defs.getElement(op.getOutput().getMessage().getParts().get(0).getElement().getQname()));
                     
-                    System.out.println("======= Next Method============");                    
-                }             
-            }            
-        }       
+                    System.out.println("======= Next Method============");
+                }
+            }
+            else if(!checkTypeOne)
+            {
+                System.out.println("nothing");
+                checkTypeTwo = true;
+                break;
+            }
+        }
+        
+        if(checkTypeTwo)
+        {
+            wsdlTypeTwo(wsdl);
+        }
     }
     
     
-    private static void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {       
+    private void wsdlTypeTwo (String wsdl) 
+    {        
+        WSDLParser parser = new WSDLParser();        
+        Definitions defs = parser.parse(wsdl);
+        
+        for (PortType pt : defs.getPortTypes()) {            
+
+            for (Operation op : pt.getOperations()) {
+                System.out.println("--" + op.getName());
+                System.out.println("Request Parameters");
+                Element x =   op.getInput().getMessage().getParts().get(0).getElement();
+                StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
+                wsdlData.add(storeWsdlDataObj);
+                listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                /* we don't need next two lines yet */
+                //System.out.println("Response Parameters");
+                
+                // listParameters(defs.getElement(op.getOutput().getMessage().getParts().get(0).getElement().getQname()));
+                
+                System.out.println("======= Next Method============");
+            }            
+        }
+    }// End of the method
+    
+    
+    private static void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
         
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
@@ -76,19 +113,22 @@ public class ParsingWsdl {
                     out("  Schema SimpleTypes: ");
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
                         if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
-                            out("    SimpleType Name: " + st.getName());
-                            out("    SimpleType Restriction: " + st.getRestriction());
-                            out("    SimpleType Union: " + st.getUnion());
-                            out("    SimpleType List: " + st.getList());
                             
-                              storeWsdlDataObj.addElmentName(st.getName());
-                                storeWsdlDataObj.addElmentType(st.getRestriction().toString());
+                            System.out.println("000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+                            out("    SimpleType Name: " + st.getName());
+                            out("    SimpleType Restriction: " + st.getRestriction());  
+                            out("    ssssssssssssssssss: " + st.getRestriction() );
+                            out("    SimpleType List: " + st.getList());
+                            System.out.println("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
+                            
+                            storeWsdlDataObj.addElmentName(st.getName());
+                            storeWsdlDataObj.addElmentType(st.getRestriction().toString());
                             break;
                         }
                     }
-                }               
+                }
                 return;
-            }            
+            }
         }
         if(ct.getModel()!=null){
             
@@ -98,21 +138,21 @@ public class ParsingWsdl {
                 if (e.getType() == null) {
                     System.out.println("Element: " + element.getName());
                     return;
-                }                
+                }
                 if (e.getType().getNamespaceURI() == Consts.SCHEMA_NS) {
                     
                     System.out.println("Element Name:  "+e.getName() + "Element Type: " + e.getType());
                     storeWsdlDataObj.addElmentName(e.getName());
-                    storeWsdlDataObj.addElmentType(e.getType().toString());                    
-                } 
-                else {                    
+                    storeWsdlDataObj.addElmentType(e.getType().toString());
+                }
+                else {
                     System.out.println("/n");
                     System.out.println("Element Name:  "+e.getName() + "Element Type: " + e.getType());
                     listParameters(e,i, storeWsdlDataObj);
                     i++;
-                }                
+                }
             }
-        }        
+        }
     }
     
     private static void out(String str) {
