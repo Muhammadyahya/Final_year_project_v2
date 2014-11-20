@@ -143,9 +143,10 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
         //       http://www.webservicex.net/WeatherForecast.asmx?WSDL
         //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
+        //      /homes/my301/year3/Project/other/genericbarcode.wsdl
 
         
-        wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL");
+        wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
  
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
@@ -209,12 +210,7 @@ public class WelcomePage extends javax.swing.JFrame {
                 noteLabel.setText("Note: Wsdl is invalid.");
                 checkMethodButton.setEnabled(false);
             }
-        }
-        
-        
-        
-        
-        
+        }        
     }//GEN-LAST:event_checkMethodButtonActionPerformed
     
     /**

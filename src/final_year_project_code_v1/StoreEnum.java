@@ -27,7 +27,7 @@ public class StoreEnum extends Object{
         this.enumValue.add(value);
     }
     
-    public ArrayList<String> getEnumValue(String enumValue)
+    public ArrayList<String> getEnumValue()
     {
         return this.enumValue;
     }

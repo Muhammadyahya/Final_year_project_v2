@@ -214,7 +214,21 @@ public class ShowMethods extends javax.swing.JFrame {
             methodNode = new DefaultMutableTreeNode("Method Name : " + swd.getMethodName());
             int i =0;
             for(Object x: swd.getElmentName()){
-                methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+x+"   Datatype :  "+swd.getElmentType().get(i)));
+                
+                if(x instanceof StoreEnum)
+                {
+                    System.out.println("111111111111111111111111111111111111111111111111");
+                    StoreEnum temp = (StoreEnum)x;
+                    int tempPosistion=0;
+                    for(String storeEnumObj: temp.getEnumValue())
+                    {
+                        System.out.println("222222222222222222222222222222222");
+                        methodNode.add(new DefaultMutableTreeNode("  ---- Enum values :  "+storeEnumObj));
+                    }
+                }
+                else{
+                    methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+x+"   Datatype :  "+swd.getElmentType().get(i)));
+                }                
                 i++;
             }
             root.add(methodNode);
