@@ -34,8 +34,8 @@ public class ParsingWsdl {
         
         String portSOAP;
         boolean checkTypeTwo = false;
-        boolean checkTypeOne = false;        
-        WSDLParser parser = new WSDLParser();        
+        boolean checkTypeOne = false;
+        WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
         
         for (PortType pt : defs.getPortTypes()) {
@@ -75,13 +75,13 @@ public class ParsingWsdl {
     }
     
     
-    private void wsdlTypeTwo (String wsdl) 
-    {        
-        WSDLParser parser = new WSDLParser();        
+    private void wsdlTypeTwo (String wsdl)
+    {
+        WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
         
-        for (PortType pt : defs.getPortTypes()) {            
-
+        for (PortType pt : defs.getPortTypes()) {
+            
             for (Operation op : pt.getOperations()) {
                 System.out.println("--" + op.getName());
                 System.out.println("Request Parameters");
@@ -95,7 +95,7 @@ public class ParsingWsdl {
                 // listParameters(defs.getElement(op.getOutput().getMessage().getParts().get(0).getElement().getQname()));
                 
                 System.out.println("======= Next Method============");
-            }            
+            }
         }
     }// End of the method
     
@@ -116,9 +116,11 @@ public class ParsingWsdl {
                             
                             System.out.println("000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
                             out("    SimpleType Name: " + st.getName());
-                            out("    SimpleType Restriction: " + st.getRestriction());  
-                            out("    ssssssssssssssssss: " + st.getRestriction() );
-                            out("    SimpleType List: " + st.getList());
+                            out("    SimpleType Restriction: " + st.getRestriction().getSimpleType());
+                            out("    ssssssssssssssssss: " + st.getBuildInTypeName());
+                            out("    dddddddddddddddddddd: " + st.toString());
+                            out("    kkkkkkkkkkkkkkkkkkkk: "+ st);
+        
                             System.out.println("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
                             
                             storeWsdlDataObj.addElmentName(st.getName());
@@ -127,6 +129,10 @@ public class ParsingWsdl {
                         }
                     }
                 }
+                     for (ComplexType ct1 : element.getSchema().getComplexTypes()) {
+                                out("    ComplexType Name nnnnnnnnnnnnnnn    : " + ct1.getName() + " kkkkkkk   "+ ct1.getBuildInTypeName());
+                             }
+                
                 return;
             }
         }
