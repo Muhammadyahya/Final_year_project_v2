@@ -7,10 +7,12 @@ package final_year_project_WsdlParsing_V1;
 import com.predic8.schema.ComplexType;
 import com.predic8.schema.Element;
 import com.predic8.schema.SimpleType;
+import com.predic8.schema.restriction.facet.EnumerationFacet;
 import com.predic8.soamodel.Consts;
 import com.predic8.wsdl.*;
 import final_year_project_code_v1.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -74,9 +76,11 @@ public class ParsingWsdl {
         }
     }
     
+
+    
     
     private void wsdlTypeTwo (String wsdl)
-    {
+    {        
         WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
         
@@ -113,18 +117,14 @@ public class ParsingWsdl {
                     out("  Schema SimpleTypes: ");
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
                         if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
-                            
-                            System.out.println("000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-                            out("    SimpleType Name: " + st.getName());
-                            out("    SimpleType Restriction: " + st.getRestriction().getSimpleType());
-                            out("    ssssssssssssssssss: " + st.getBuildInTypeName());
-                            out("    dddddddddddddddddddd: " + st.toString());
-                            out("    kkkkkkkkkkkkkkkkkkkk: "+ st);
-        
-                            System.out.println("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
-                            
                             storeWsdlDataObj.addElmentName(st.getName());
-                            storeWsdlDataObj.addElmentType(st.getRestriction().toString());
+                            
+                            StoreEnum ss = storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName());
+                            
+                            
+                            
+                            storeWsdlDataObj.addElmentType(ss);
+      
                             break;
                         }
                     }

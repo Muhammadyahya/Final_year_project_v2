@@ -27,10 +27,12 @@ public class CheckWsdl {
     public boolean checkWSDLAvailable(String wsdl) {
         
         int length = wsdl.length();
-        System.out.println("length"+length+"   ?  :  "+wsdl.charAt(length-5)+"  W  :  "+wsdl.charAt(length-4)+" S  :  "+wsdl.charAt(length-3)+" D :  "+wsdl.charAt(length-2)+" L :  "+wsdl.charAt(length-1));
-        if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){
+        if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))
+        {
+            return Common.checkPath(wsdl);
+        }
+        else if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){
             URL url = null;
-            System.out.println("sssssssssssssssssssssss");
             URLConnection urlConnection = null;
             try {
                 url = new URL(wsdl);
