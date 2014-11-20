@@ -15,17 +15,22 @@ import java.net.URLConnection;
  */
 public class CheckWsdl {
     
+    
+    /* This class has only one method which checks if the given Wsdl is correct or not, it returns a boolean
+     * I call this class every time user enters a new wsdl
+    */
     public CheckWsdl(){
         
     }
     
+    /* This method returns true, if the wsdl is correct else it returns false */
     public boolean checkWSDLAvailable(String wsdl) {
         
         int length = wsdl.length();
-        if(wsdl.charAt(length-5) == ('?') && wsdl.charAt(length-4) == ('W') && wsdl.charAt(length-3) == ('S') && wsdl.charAt(length-2) == ('D') && wsdl.charAt(length-1) == ('L')){
-            
-            
+        System.out.println("length"+length+"   ?  :  "+wsdl.charAt(length-5)+"  W  :  "+wsdl.charAt(length-4)+" S  :  "+wsdl.charAt(length-3)+" D :  "+wsdl.charAt(length-2)+" L :  "+wsdl.charAt(length-1));
+        if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){
             URL url = null;
+            System.out.println("sssssssssssssssssssssss");
             URLConnection urlConnection = null;
             try {
                 url = new URL(wsdl);
@@ -33,22 +38,17 @@ public class CheckWsdl {
                 
                 if(urlConnection.getContent() == null) {
                     return false;
-                }
-                
+                }                
             } catch (MalformedURLException ex) {
                 return false;
             } catch (IOException ex) {
                 return false;
-            }
-            
+            }            
             return true;
-        }
-        
-        else{
-            
+        }        
+        else{            
             return false;
-        }
-        
+        }        
     }
     
 }

@@ -5,6 +5,7 @@
 package final_year_project_GUI_v1;
 
 import final_year_project_WsdlParsing_V1.ParsingWsdl;
+import final_year_project_code_v1.*;
 import final_year_project_code_v1.StoreWsdlData;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -23,7 +24,7 @@ public class ShowMethods extends javax.swing.JFrame {
     private ParsingWsdl parsingWsdlObj;
     
     public ShowMethods() {
-        initComponents();        
+        initComponents();
     }
     
     public ShowMethods(ParsingWsdl parsingWsdlObj) {
@@ -74,6 +75,7 @@ public class ShowMethods extends javax.swing.JFrame {
             }
         });
 
+        noteLable.setForeground(new java.awt.Color(204, 0, 0));
         noteLable.setText("Note:");
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
@@ -145,6 +147,12 @@ public class ShowMethods extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
     
     @SuppressWarnings("empty-statement")
+    
+    /* 
+    *  This method checks if the user has selected correct method from the jtree.
+    *  Also it checks if the user has entered an Int in the dialog box for number of test cases.
+    *  Number of test case value has to be greater than 0.
+    */
     private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
         // TODO add your handling code here:
         
@@ -153,7 +161,7 @@ public class ShowMethods extends javax.swing.JFrame {
         {
             String selectedMethod  =  methodjTree.getSelectionPath().getLastPathComponent().toString();
             if(selectedMethod.charAt(0)=='r'){
-                noteLable.setText("Note: Please select a method.");
+                noteLable.setText("Note: Please select a valid method.");
             }
             else{
                 selectedMethod = selectedMethod.substring(14,selectedMethod.length());
@@ -171,7 +179,21 @@ public class ShowMethods extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Please select a valid method");
             }
             else{
-                JOptionPane.showMessageDialog(null,"You have selected a Valid method : "+selectedMethod);
+                String input = JOptionPane.showInputDialog(null,"Please enter a number of Test Cases");
+                
+                if(Common.isInt(input)){
+                    int numTestCase = Integer.parseInt(input);
+                    if(numTestCase <=0){
+                        JOptionPane.showMessageDialog(null,"Please enter an interger value greater than 0.");
+                    }
+                    else{
+                        // need to work on this. not sure yet which way i will go from here....
+                        JOptionPane.showMessageDialog(null, "I am currently working on this :)");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please enter an interger( e.g 1 , 22 ).");
+                }
             }
         }
         else{

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_GUI_v1;
+package final_year_project_code_v1;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class TestDataGEN {
     
-    TestDataGEN()
+    public TestDataGEN()
     {
         
     }

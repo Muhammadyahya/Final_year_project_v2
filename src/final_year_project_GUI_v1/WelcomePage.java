@@ -67,6 +67,8 @@ public class WelcomePage extends javax.swing.JFrame {
             }
         });
 
+        noteLabel.setForeground(new java.awt.Color(204, 0, 0));
+
         checkMethodButton.setText("Check Methods");
         checkMethodButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +139,9 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://www.webservicex.net/geoipservice.asmx?WSDL
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
+        //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
         
-        wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
+        wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
         
         
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
@@ -195,7 +198,6 @@ public class WelcomePage extends javax.swing.JFrame {
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
                 
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
-                parsingWsdlObj.listOfMethod(wsdlInput.getText());
                 noteLabel.setText("Note: Wsdl is correct.");
                 checkMethodButton.setEnabled(true);
                 

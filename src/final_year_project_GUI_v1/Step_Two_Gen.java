@@ -4,6 +4,8 @@
  */
 package final_year_project_GUI_v1;
 
+import final_year_project_code_v1.*;
+
 /**
  *
  * @author my301
