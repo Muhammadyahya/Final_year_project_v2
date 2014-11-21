@@ -4,9 +4,8 @@
 */
 package final_year_project_GUI_v1;
 
-import final_year_project_WsdlParsing_V1.ParsingWsdl;
+import final_year_project_WsdlParsing_V1.*;
 import final_year_project_code_v1.*;
-import final_year_project_code_v1.StoreWsdlData;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;

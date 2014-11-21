@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_code_v1;
+package final_year_project_WsdlParsing_V1;
 
 import com.predic8.schema.restriction.facet.EnumerationFacet;
 import java.util.*;
