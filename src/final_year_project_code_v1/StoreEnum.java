@@ -13,8 +13,7 @@ import java.util.ArrayList;
 public class StoreEnum extends Object{
     
     private String resElementName;
-    private ArrayList <String> enumValue;
-    
+    private ArrayList <String> enumValue;    
     
     public StoreEnum(String elementName)
     {

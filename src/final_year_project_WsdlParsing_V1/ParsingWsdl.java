@@ -1,18 +1,16 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package final_year_project_WsdlParsing_V1;
 
 import com.predic8.schema.ComplexType;
 import com.predic8.schema.Element;
 import com.predic8.schema.SimpleType;
-import com.predic8.schema.restriction.facet.EnumerationFacet;
 import com.predic8.soamodel.Consts;
 import com.predic8.wsdl.*;
 import final_year_project_code_v1.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -76,11 +74,11 @@ public class ParsingWsdl {
         }
     }
     
-
+    
     
     
     private void wsdlTypeTwo (String wsdl)
-    {        
+    {
         WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
         
@@ -118,18 +116,11 @@ public class ParsingWsdl {
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
                         if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
                             storeWsdlDataObj.addElmentName(st.getName());
-                            
-                            StoreEnum ss = storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName());
-                            storeWsdlDataObj.addElmentType(ss);
-      
+                            storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
                             break;
                         }
                     }
                 }
-                     for (ComplexType ct1 : element.getSchema().getComplexTypes()) {
-                                out("    ComplexType Name nnnnnnnnnnnnnnn    : " + ct1.getName() + " kkkkkkk   "+ ct1.getBuildInTypeName());
-                             }
-                
                 return;
             }
         }

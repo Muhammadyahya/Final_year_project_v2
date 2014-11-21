@@ -6,6 +6,7 @@ package final_year_project_code_v1;
 
 import com.predic8.schema.restriction.facet.EnumerationFacet;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  * This class store all the Wsdl Data for each element, such as method Name, it prammeters and data types. 
@@ -35,15 +36,18 @@ public class StoreWsdlData {
      // This method store input prammeter elment data type.
     
     // i need to work on storing complex types sepratly.
-    public <T> void addElmentType(T elementType)
+    public void addElmentType(Object elementType)
     {
         if(elementType instanceof StoreEnum){   
             this.elementType.add((StoreEnum)elementType);
         }
-        else{            
+        else if(elementType instanceof String){            
             String castElementType = (String)elementType;
             this.elementType.add(castElementType.substring(34,castElementType.length()));
-        }        
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Warning! Unable to add element Type!. Please check class name: StoreWsdl and method name: addElement Type.");
+        }
     }
     
     public StoreEnum addEnumValue(List<EnumerationFacet> enumValue, String elementName)
@@ -52,8 +56,7 @@ public class StoreWsdlData {
         for(EnumerationFacet ef: enumValue)
         {
             storeEnumObj.addEnumValue(ef.getValue());
-        } 
-        
+        }         
         return storeEnumObj;
     }
 

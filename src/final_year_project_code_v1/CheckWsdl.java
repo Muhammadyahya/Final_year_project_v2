@@ -19,8 +19,9 @@ public class CheckWsdl {
     /* This class has only one method which checks if the given Wsdl is correct or not, it returns a boolean
      * I call this class every time user enters a new wsdl
     */
+    private String message;
     public CheckWsdl(){
-        
+       message = "Wsdl is invalid.";
     }
     
     /* This method returns true, if the wsdl is correct else it returns false */
@@ -29,7 +30,16 @@ public class CheckWsdl {
         int length = wsdl.length();
         if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))
         {
-            return Common.checkPath(wsdl);
+            if(Common.checkPath(wsdl))
+            {
+                message = "Wsdl is correct.";
+                return true;
+            }
+            else
+            {
+                message = "Unable to find the file.";
+                return false;
+            }
         }
         else if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){
             URL url = null;
@@ -45,12 +55,18 @@ public class CheckWsdl {
                 return false;
             } catch (IOException ex) {
                 return false;
-            }            
+            }
+            message = "Wsdl is correct.";
             return true;
         }        
         else{            
             return false;
         }        
-    }
     
+        
+    }
+     public String getMessage()
+        {
+            return message;
+        }
 }

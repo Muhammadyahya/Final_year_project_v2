@@ -144,26 +144,26 @@ public class WelcomePage extends javax.swing.JFrame {
         //       http://www.webservicex.net/WeatherForecast.asmx?WSDL
         //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
         //      /homes/my301/year3/Project/other/genericbarcode.wsdl
-
+        //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
         
-        wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
- 
+        
+        wsdlInput.setText("http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl");
+        
+        CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
-            noteLabel.setText("Note: Please enter a Wsdl.");
+            noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
         }
-        else{
-            
-            CheckWsdl checkWsdlObj =  new CheckWsdl();
-            
+        else
+        {          
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
-                noteLabel.setText("Note: Wsdl is correct.");
+                noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
             }
             else{
-                noteLabel.setText("Note: Wsdl is invalid.");
+                noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
             }
         }
@@ -173,6 +173,8 @@ public class WelcomePage extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
+        wsdlInput.setText("");
+        checkMethodButton.setEnabled(false);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -185,19 +187,19 @@ public class WelcomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         //wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
         
+        CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
-            noteLabel.setText("Note: Please enter a Wsdl.");
+            noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
         }
         else{
-            CheckWsdl checkWsdlObj =  new CheckWsdl();
-            if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
-                
+            if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText()))
+            {
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
-                noteLabel.setText("Note: Wsdl is correct.");
+                noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-                
+                /* calling Show Method Class */
                 this.setVisible(false);
                 ShowMethods showMethodPanel = new ShowMethods(parsingWsdlObj);
                 showMethodPanel.setSize(500,500);
@@ -207,7 +209,7 @@ public class WelcomePage extends javax.swing.JFrame {
                 this.dispose();
             }
             else{
-                noteLabel.setText("Note: Wsdl is invalid.");
+                noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
             }
         }        

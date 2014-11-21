@@ -148,7 +148,7 @@ public class ShowMethods extends javax.swing.JFrame {
     
     @SuppressWarnings("empty-statement")
     
-    /* 
+    /*
     *  This method checks if the user has selected correct method from the jtree.
     *  Also it checks if the user has entered an Int in the dialog box for number of test cases.
     *  Number of test case value has to be greater than 0.
@@ -206,29 +206,32 @@ public class ShowMethods extends javax.swing.JFrame {
         //create the root node
         DefaultTreeModel model = (DefaultTreeModel) methodjTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-        //create the child nodes
+        //create the child node
         DefaultMutableTreeNode methodNode;
+        //create the an other child node
+        DefaultMutableTreeNode enumNode;
         
         for(StoreWsdlData swd :parsingWsdlObj.getWsdlData() )
         {
             methodNode = new DefaultMutableTreeNode("Method Name : " + swd.getMethodName());
             int i =0;
-            for(Object x: swd.getElmentName()){
+            for(Object x: swd.getElmentType()){
                 
                 if(x instanceof StoreEnum)
                 {
-                    System.out.println("111111111111111111111111111111111111111111111111");
                     StoreEnum temp = (StoreEnum)x;
+                    // i will need this if i do the type for enum values.
                     int tempPosistion=0;
+                    enumNode = new DefaultMutableTreeNode("  -Data Name : "+temp.getResElementName());
                     for(String storeEnumObj: temp.getEnumValue())
                     {
-                        System.out.println("222222222222222222222222222222222");
-                        methodNode.add(new DefaultMutableTreeNode("  ---- Enum values :  "+storeEnumObj));
+                        enumNode.add(new DefaultMutableTreeNode("  ---- Enum values :  "+storeEnumObj));
                     }
+                    methodNode.add(enumNode);
                 }
                 else{
-                    methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+x+"   Datatype :  "+swd.getElmentType().get(i)));
-                }                
+                    methodNode.add(new DefaultMutableTreeNode("  -Data Name : "+swd.getElmentName().get(i)+"   Datatype :  "+x));
+                }
                 i++;
             }
             root.add(methodNode);

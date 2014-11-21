@@ -6,11 +6,7 @@
 
 package final_year_project_code_v1;
 
-import com.predic8.wsdl.Definitions;
 import com.predic8.wsdl.WSDLParser;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 /**
  * I have made this class to make my life easy. All the commonly used methods will be store in this class.
