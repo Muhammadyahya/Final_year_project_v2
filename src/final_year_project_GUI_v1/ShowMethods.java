@@ -159,6 +159,7 @@ public class ShowMethods extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         noteLable.setText("Note:");
+        StoreWsdlData swdObj = null;
         if(methodjTree.getSelectionCount()!= 0 )
         {
             String selectedMethod  =  methodjTree.getSelectionPath().getLastPathComponent().toString();
@@ -169,14 +170,18 @@ public class ShowMethods extends javax.swing.JFrame {
                 selectedMethod = selectedMethod.substring(14,selectedMethod.length());
             }
             boolean check = false;
+            
+            
             for(StoreWsdlData swd :parsingWsdlObj.getWsdlData()){
                 if(swd.getMethodName().equals(selectedMethod)){
+                    swdObj = swd;
                     check = true;
                 }
                 if(check){
                     break;
                 }
             }
+            
             if(!check){
                 JOptionPane.showMessageDialog(null,"Please select a valid method");
             }
@@ -189,9 +194,9 @@ public class ShowMethods extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"Please enter an interger value greater than 0.");
                     }
                     else{
-                        // need to work on this. not sure yet which way i will go from here....
-                        TestDataGen genObj = new TestDataGen(parsingWsdlObj);
-                        JOptionPane.showMessageDialog(null, "I am currently working on this :)");
+                        TestDataGen genObj = new TestDataGen(swdObj,input);
+                        genObj.TestCase();
+                        //JOptionPane.showMessageDialog(null, "I am currently working on this :)");
                     }
                 }
                 else{

@@ -147,7 +147,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
         
         
-        wsdlInput.setText("http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl");
+        wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         
         CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();

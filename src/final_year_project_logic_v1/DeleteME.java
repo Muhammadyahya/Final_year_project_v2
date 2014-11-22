@@ -14,41 +14,66 @@ package final_year_project_logic_v1;
  * @author Muhammad Yahya
  */
 
-import com.predic8.wsdl.Definitions;
-import com.predic8.wsdl.WSDLParser;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JFrame;
-import javax.swing.JTree;
-import javax.swing.SwingUtilities;
-import javax.swing.tree.DefaultMutableTreeNode;
 
+@SuppressWarnings("serial")
 public class DeleteME extends JFrame
 {
     
-    private static void tryCatch()
-            
-    {
-        try{ 
-        WSDLParser parser = new WSDLParser();
-        Definitions defs = parser.parse("/homes/my301/year3/Project/other/GoogleSearch.wsdl");
-        InputStream stream = null;
-        stream = new FileInputStream(new File("/homes/my301/year3/Project/other/file.txt"));
-            System.out.println(":)");
-        }
-        catch(Exception e){
-            System.out.println(e.toString());
-            System.out.println(":(");
-        }
-        
-    }     
 
+
+    public void Test() {
+        Set<Object> options = new HashSet<>();
+        options.add(new Option<Integer>("One", 1));
+        options.add(new Option<Integer>("Two", 2));
+        options.add(new Option<Integer>("Three", 3));
+        options.add(new Option<Integer>("Four", 4));
+        //CheckComboBox s = new CheckComboBox(options);
+        
+        CheckComboBox c = new CheckComboBox();
+        this.add(this);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.pack();
+    }
+
+    private static class CheckComboBox {
+
+        public CheckComboBox() {
+        }
+    }
     
-    public static void main(String[] args)
-    {
-        tryCatch();
+  
+
+
+    private class Option<T> implements Comparable<T> {
+        private String label;
+        private T value;
+
+        public Option(String label, T value) {
+            this.label = label;
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.label;
+        }
+
+        @Override
+        public int compareTo(T o) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+    }
+    
+    
+       public static void main(String[] args) {
+       DeleteME x = new DeleteME();
+       
+        x.Test();
     }
 }
 

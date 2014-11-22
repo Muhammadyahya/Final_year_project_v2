@@ -7,6 +7,9 @@
 package final_year_project_logic_v1;
 
 import com.predic8.wsdl.WSDLParser;
+import final_year_project_data_V1.*;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  * I have made this class to make my life easy. All the commonly used methods will be store in this class.
@@ -14,6 +17,9 @@ import com.predic8.wsdl.WSDLParser;
  * @author Muhammad Yahya
  */
 public class Common {
+    
+
+    
     
     // this method checks if the given value is an int or not.
     public static boolean isInt(String pram)
@@ -26,6 +32,7 @@ public class Common {
         }
     }
     
+    /**********************************************************/
     public static boolean checkPath(String pram)
     {
         try{
@@ -37,4 +44,11 @@ public class Common {
             return false;
         }        
     }
+    
+    /*******************************************************/
+
+    
+    
+    
+    
 }
