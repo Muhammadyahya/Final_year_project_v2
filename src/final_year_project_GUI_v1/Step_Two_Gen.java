@@ -4,7 +4,7 @@
  */
 package final_year_project_GUI_v1;
 
-import final_year_project_code_v1.*;
+import final_year_project_logic_v1.TestDataGen;
 
 /**
  *
@@ -145,7 +145,7 @@ public class Step_Two_Gen extends javax.swing.JFrame {
         // TODO add your handling code here:
     
         
-        TestDataGEN obj = new TestDataGEN();
+        TestDataGen obj = new TestDataGen();
         obj.intGen(rangeFrom.getText(),rangeTO.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 

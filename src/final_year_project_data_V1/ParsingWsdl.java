@@ -2,14 +2,13 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package final_year_project_WsdlParsing_V1;
+package final_year_project_data_V1;
 
 import com.predic8.schema.ComplexType;
 import com.predic8.schema.Element;
 import com.predic8.schema.SimpleType;
 import com.predic8.soamodel.Consts;
 import com.predic8.wsdl.*;
-import final_year_project_code_v1.*;
 import java.util.ArrayList;
 
 /**

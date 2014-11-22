@@ -9,8 +9,8 @@ package final_year_project_GUI_v1;
  * @author my301
  */
 
-import final_year_project_code_v1.*;
-import final_year_project_WsdlParsing_V1.*;
+import final_year_project_logic_v1.CheckWsdl;
+import final_year_project_data_V1.ParsingWsdl;
 
 public class WelcomePage extends javax.swing.JFrame {
     

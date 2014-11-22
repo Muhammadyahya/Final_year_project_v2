@@ -7,7 +7,7 @@
 
 
 
-package final_year_project_code_v1;
+package final_year_project_logic_v1;
 
 /**
  *

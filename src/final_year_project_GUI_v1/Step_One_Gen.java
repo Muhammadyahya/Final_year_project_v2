@@ -4,7 +4,7 @@
  */
 package final_year_project_GUI_v1;
 
-import final_year_project_code_v1.*;
+import final_year_project_logic_v1.TestDataGen;
 
 /**
  *
@@ -199,7 +199,7 @@ public class Step_One_Gen extends javax.swing.JFrame {
                 }
                 else{                        
                     
-                TestDataGEN obj = new TestDataGEN();
+                TestDataGen obj = new TestDataGen();
                 obj.intGen(rangeFrom.getText(),rangeTO.getText());
            
                 

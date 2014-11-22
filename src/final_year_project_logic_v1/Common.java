@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package final_year_project_code_v1;
+package final_year_project_logic_v1;
 
 import com.predic8.wsdl.WSDLParser;
 

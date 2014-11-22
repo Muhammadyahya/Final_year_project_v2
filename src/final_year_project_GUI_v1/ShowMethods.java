@@ -4,8 +4,11 @@
 */
 package final_year_project_GUI_v1;
 
-import final_year_project_WsdlParsing_V1.*;
-import final_year_project_code_v1.*;
+import final_year_project_logic_v1.Common;
+import final_year_project_logic_v1.TestDataGen;
+import final_year_project_data_V1.StoreEnum;
+import final_year_project_data_V1.StoreWsdlData;
+import final_year_project_data_V1.ParsingWsdl;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -187,6 +190,7 @@ public class ShowMethods extends javax.swing.JFrame {
                     }
                     else{
                         // need to work on this. not sure yet which way i will go from here....
+                        TestDataGen genObj = new TestDataGen(parsingWsdlObj);
                         JOptionPane.showMessageDialog(null, "I am currently working on this :)");
                     }
                 }
