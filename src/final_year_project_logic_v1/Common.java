@@ -11,6 +11,7 @@ import final_year_project_data_V1.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
+
 /**
  * I have made this class to make my life easy. All the commonly used methods will be store in this class.
  * It will save time and code will be less complex to read and understand.
@@ -18,8 +19,8 @@ import javax.swing.DefaultListModel;
  */
 public class Common {
     
-
     
+    private static boolean next;
     
     // this method checks if the given value is an int or not.
     public static boolean isInt(String pram)
@@ -37,18 +38,34 @@ public class Common {
     {
         try{
             WSDLParser parser = new WSDLParser();
-            parser.parse(pram);  
+            parser.parse(pram);
             return true;
         }
         catch(Exception e){
             return false;
-        }        
+        }
     }
     
     /*******************************************************/
-
     
+    public static void stopLoop()
+    {
+        next = false;
+//        while(!Common.getNext())
+//        {
+//            
+//        }
+    }
     
+    public static void StartLoop()
+    {
+        next = true;
+    }
     
+    public static boolean getNext()
+    {
+        return next;
+    }
     
+    /*********************************************************/
 }

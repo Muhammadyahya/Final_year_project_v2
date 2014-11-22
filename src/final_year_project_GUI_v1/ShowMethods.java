@@ -194,6 +194,7 @@ public class ShowMethods extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"Please enter an interger value greater than 0.");
                     }
                     else{
+                        //this.dispose();
                         TestDataGen genObj = new TestDataGen(swdObj,input);
                         genObj.TestCase();
                         //JOptionPane.showMessageDialog(null, "I am currently working on this :)");

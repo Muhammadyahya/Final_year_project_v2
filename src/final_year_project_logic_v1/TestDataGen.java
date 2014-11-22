@@ -14,11 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author my301
  */
-public class TestDataGen extends JFrame {
+public class TestDataGen {
     
     
     private StoreWsdlData swdObj;
     int numOfCase;
+    private Thread one;
     
     public TestDataGen(StoreWsdlData swdObj, String numOfCase)
     {
@@ -28,6 +29,7 @@ public class TestDataGen extends JFrame {
     
     public void TestCase()
     {
+        boolean del = false; 
         for (int i = 0; i < numOfCase; i++)
         {
             int j = 1;
@@ -40,26 +42,48 @@ public class TestDataGen extends JFrame {
                 if(obj instanceof StoreEnum)
                 {
                     
-                    //System.out.println("ssssssssssssssssssssss         "+obj);
                     StoreEnum x =   (StoreEnum)obj; 
                     
-                    System.out.println("          "+j++);
+                    MyThread r = new MyThread(x);
+                    r.start();
                     
-                    EnumGenGui enumGenGuiFrame = new EnumGenGui(x);
-                    enumGenGuiFrame.setSize(550,500);
-                    enumGenGuiFrame.setLocationRelativeTo(null);
-                    enumGenGuiFrame.setDefaultCloseOperation(EnumGenGui.DISPOSE_ON_CLOSE);
-                    enumGenGuiFrame.setVisible(true);
-                    this.dispose();
+//                    TestFrame xx = new TestFrame();
+//                    xx.setSize(50,50);
+//                    xx.setLocationRelativeTo(null);
+//                    xx.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+//                    xx.setVisible(true);
+//                    
+                     
+                    del = true;
+
                     
                 }
                 else if(obj instanceof String)
                 {
-                    System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee                "+j++);
+                    System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee                e   "+j++);
                 }
+                
+                if(del)
+                {
+                    this.check();
+                    //Common.stopLoop();
+                } 
+                   
             }
         }
         
+    }
+    
+
+    
+    public void check()
+    {
+        Common.stopLoop();
+        while(!Common.getNext())
+        {
+            System.out.println("lol");
+        }
+        System.out.println("check!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
     
     

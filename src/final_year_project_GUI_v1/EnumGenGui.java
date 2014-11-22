@@ -21,6 +21,7 @@ public class EnumGenGui extends javax.swing.JFrame {
     
     private StoreEnum storeEnumObj;
     DefaultListModel model = new DefaultListModel();
+
     
     public EnumGenGui() {
         initComponents();
@@ -122,6 +123,7 @@ public class EnumGenGui extends javax.swing.JFrame {
             JOptionPane.showInputDialog(null,"Please select one or more option from the list or check selet all.");
         }
         else{
+            Common.StartLoop();
             JOptionPane.showInputDialog(null,"else.");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
@@ -136,7 +138,7 @@ public class EnumGenGui extends javax.swing.JFrame {
         {
             model.addElement(stringObj);
         }
-        enumJList.setModel(model);
+        this.enumJList.setModel(model);
     }
     
     
