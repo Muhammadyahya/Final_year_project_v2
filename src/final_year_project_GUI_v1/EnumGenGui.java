@@ -5,7 +5,7 @@
 package final_year_project_GUI_v1;
 
 import final_year_project_data_V1.*;
-import final_year_project_logic_v1.Common;
+import final_year_project_logic_v1.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -21,16 +21,18 @@ public class EnumGenGui extends javax.swing.JFrame {
     
     private StoreEnum storeEnumObj;
     DefaultListModel model = new DefaultListModel();
-
+    private TestDataGen tdgObj;
+    
     
     public EnumGenGui() {
         initComponents();
     }
     
-    public EnumGenGui(StoreEnum storeEnumObj) {
+    public EnumGenGui(StoreEnum storeEnumObj, TestDataGen tdgObj) {
         initComponents();
         this.storeEnumObj = storeEnumObj;
         this.setDefaultListModel();
+        this.tdgObj = tdgObj;
     }
     
     /**
@@ -112,19 +114,35 @@ public class EnumGenGui extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
+        
+        //            int[] selectedIx = this.nameListArea.getSelectedIndices();
+        //            String [] StaffSpec = new String[selectedIx.length];
+        //            for (int i = 0; i < selectedIx.length; i++)
+        //            {
+        //                StaffSpec[i] = (String)nameListArea.getModel().getElementAt(selectedIx[i]);
+        //                System.out.println(StaffSpec[i]);
+        //            }
+
+        
         if(randomCheckBox.isSelected())
         {
             // randomly pick one
-            JOptionPane.showInputDialog(null,"if.");
-            
+            if(checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly.")))
+            {
+                this.dispose();
+                tdgObj.TestCase(tdgObj);
+            }
         }
-        else if (!enumJList.isSelectionEmpty() )
+        else if (enumJList.getSelectedIndices().length > 0)
         {
-            JOptionPane.showInputDialog(null,"Please select one or more option from the list or check selet all.");
+            if(this.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
+            {
+                this.dispose();
+                tdgObj.TestCase(tdgObj);
+            }
         }
         else{
-            Common.StartLoop();
-            JOptionPane.showInputDialog(null,"else.");
+            JOptionPane.showMessageDialog(null,"Please select one or more option from the list or check select all.");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
     
@@ -139,6 +157,18 @@ public class EnumGenGui extends javax.swing.JFrame {
             model.addElement(stringObj);
         }
         this.enumJList.setModel(model);
+    }
+    
+    public boolean checkConfirm(int pram)
+    {
+        if(pram==0)
+        {
+            System.out.println("00000000000000"+pram);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     

@@ -23,12 +23,7 @@ public class MyThread extends SwingWorker<Object, Object> {
 
    public void start() {
        
-                    EnumGenGui enumGenGuiFrame = new EnumGenGui(storeEnumObj);
-                    enumGenGuiFrame.setSize(550,500);
-                    enumGenGuiFrame.setLocationRelativeTo(null);
-                    enumGenGuiFrame.setDefaultCloseOperation(EnumGenGui.DISPOSE_ON_CLOSE);
-                    enumGenGuiFrame.setVisible(true);
-                    enumGenGuiFrame.revalidate();
+  
 
    }
 

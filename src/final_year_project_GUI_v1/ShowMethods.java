@@ -196,7 +196,7 @@ public class ShowMethods extends javax.swing.JFrame {
                     else{
                         //this.dispose();
                         TestDataGen genObj = new TestDataGen(swdObj,input);
-                        genObj.TestCase();
+                        genObj.TestCase(genObj);
                         //JOptionPane.showMessageDialog(null, "I am currently working on this :)");
                     }
                 }
