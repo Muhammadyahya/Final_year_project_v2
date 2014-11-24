@@ -51,10 +51,10 @@ public class Common {
     public static void stopLoop()
     {
         next = false;
-//        while(!Common.getNext())
-//        {
-//            
-//        }
+        while(!Common.getNext())
+        {
+            
+        }
     }
     
     public static void StartLoop()
@@ -68,4 +68,15 @@ public class Common {
     }
     
     /*********************************************************/
+    
+    public static boolean checkConfirm(int pram)
+    {
+        if(pram==0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

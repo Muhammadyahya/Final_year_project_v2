@@ -127,7 +127,7 @@ public class EnumGenGui extends javax.swing.JFrame {
         if(randomCheckBox.isSelected())
         {
             // randomly pick one
-            if(checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly.")))
+            if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly.")))
             {
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
@@ -135,7 +135,7 @@ public class EnumGenGui extends javax.swing.JFrame {
         }
         else if (enumJList.getSelectedIndices().length > 0)
         {
-            if(this.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
+            if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
             {
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
@@ -159,17 +159,7 @@ public class EnumGenGui extends javax.swing.JFrame {
         this.enumJList.setModel(model);
     }
     
-    public boolean checkConfirm(int pram)
-    {
-        if(pram==0)
-        {
-            System.out.println("00000000000000"+pram);
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+ 
     
     
     
