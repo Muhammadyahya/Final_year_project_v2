@@ -131,6 +131,7 @@ public class EnumGenGui extends javax.swing.JFrame {
             {
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
+                System.out.println("delete this line");
             }
         }
         else if (enumJList.getSelectedIndices().length > 0)
@@ -140,6 +141,7 @@ public class EnumGenGui extends javax.swing.JFrame {
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
             }
+            
         }
         else{
             JOptionPane.showMessageDialog(null,"Please select one or more option from the list or check select all.");
