@@ -5,9 +5,12 @@
 package final_year_project_GUI_v1;
 
 import final_year_project_logic_v1.Common;
-import java.awt.GridLayout;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -22,12 +25,18 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     public CustomIntGui() {
         initComponents();
+        comboBoxColumn(jTable1.getColumnModel().getColumn(2));
+        addRowsTable(0);
     }
     
     public CustomIntGui(int length) {
         initComponents();
         this.length = length;
-        printCustomFields();
+        //printCustomFields();
+        comboBoxColumn(jTable1.getColumnModel().getColumn(1));
+        comboBoxColumn(jTable1.getColumnModel().getColumn(2));
+        comboBoxColumn(jTable1.getColumnModel().getColumn(3));
+        addRowsTable(length);
     }
     
     /**
@@ -47,8 +56,8 @@ public class CustomIntGui extends javax.swing.JFrame {
         nextButton = new javax.swing.JButton();
         mainButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        mainPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,50 +91,61 @@ public class CustomIntGui extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
-        );
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jScrollPane1.setViewportView(mainPanel);
+            },
+            new String [] {
+                "Digit", "Specific", "Value one", "Value two", "Random"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(headerLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
-                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(mainButton)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lengthTextField)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(164, 164, 164)
+                            .addComponent(headerLabel))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lengthTextField)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(69, 69, 69)
+                            .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
+                            .addComponent(mainButton)
+                            .addGap(39, 39, 39)
+                            .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,14 +159,14 @@ public class CustomIntGui extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addGap(50, 50, 50))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,15 +175,7 @@ public class CustomIntGui extends javax.swing.JFrame {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
         System.out.println("next");
-        mainPanel.setLayout(new GridLayout(5,1));
-        JTextField test1[] = new JTextField[9];
-        JTextField test2[] = new JTextField[5];
-        for (int i = 0; i < 5; i++){
-            test1[i] = new JTextField(10);
-            test2[i] = new JTextField(10);
-            mainPanel.add(test1[i]);
-            mainPanel.add(test2[i]);
-        }
+
     }//GEN-LAST:event_nextButtonActionPerformed
     
     private void lengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthTextFieldActionPerformed
@@ -181,25 +193,47 @@ public class CustomIntGui extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_lengthTextFieldActionPerformed
-
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeButtonActionPerformed
-    public void printCustomFields()
-    {
 
-
-        mainPanel.setLayout(new GridLayout(length,1));
-        JTextField specificTextField[] = new JTextField[length];
-        for(int i=0; i<length; i++)
+    
+    public void addRowsTable(int length) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        jTable1 = new JTable(model);
+        for(int i = 0; i<length; i++)
         {
-            specificTextField[i] = new JTextField(10);
-            
-            specificTextField[i].setBounds(1500 , 350 , 22 , 11 );
-            mainPanel.add(specificTextField[i]);
+            model.addRow(new Object[]{i+1, "",
+                "", "", new Boolean(false)});
         }
+        
+        
     }
+    
+    public void comboBoxColumn(TableColumn columnNum) {
+        
+        JComboBox comboBox = new JComboBox();
+        comboBox.addItem("1");
+        comboBox.addItem("2");
+        comboBox.addItem("3");
+        comboBox.addItem("4");
+        comboBox.addItem("5");
+        comboBox.addItem("6");
+        comboBox.addItem("7");
+        comboBox.addItem("8");
+        comboBox.addItem("9");
+        comboBox.addItem("0");
+        columnNum.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        //Set up tool tips for the sport cells.
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        columnNum.setCellRenderer(renderer);
+        
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -240,10 +274,10 @@ public class CustomIntGui extends javax.swing.JFrame {
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField lengthTextField;
     private javax.swing.JButton mainButton;
-    private javax.swing.JPanel mainPanel;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel pramLabel;
     // End of variables declaration//GEN-END:variables
