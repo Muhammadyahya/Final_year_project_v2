@@ -76,6 +76,11 @@ public class CustomIntGui extends javax.swing.JFrame {
         mainButton.setText("Main Menu");
 
         closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -176,6 +181,11 @@ public class CustomIntGui extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_lengthTextFieldActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_closeButtonActionPerformed
     public void printCustomFields()
     {
 
@@ -185,6 +195,8 @@ public class CustomIntGui extends javax.swing.JFrame {
         for(int i=0; i<length; i++)
         {
             specificTextField[i] = new JTextField(10);
+            
+            specificTextField[i].setBounds(1500 , 350 , 22 , 11 );
             mainPanel.add(specificTextField[i]);
         }
     }
