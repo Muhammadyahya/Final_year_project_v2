@@ -67,9 +67,6 @@ public class TestDataGen {
             
             System.out.println("Generated : " + randomInt);
         }
-        
-        System.out.println("some thing is happening!!!!!");
-        
     }
     
 }

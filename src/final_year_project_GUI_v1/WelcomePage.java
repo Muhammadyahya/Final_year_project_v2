@@ -147,7 +147,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
         
         
-        wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+        wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
         CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
@@ -168,7 +168,7 @@ public class WelcomePage extends javax.swing.JFrame {
             }
         }
         // delete below line
-        System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");     
+        //System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");     
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
