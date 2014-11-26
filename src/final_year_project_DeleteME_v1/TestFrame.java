@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
+
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -40,8 +41,9 @@ public class TestFrame extends javax.swing.JFrame {
     public TestFrame(TestDataGen obj) {
         initComponents();
         this.obj = obj;
-        
+        System.out.println("delete me ");
     }
+    
     
     public void SimpleTableDemo() {
         
