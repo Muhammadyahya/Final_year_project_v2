@@ -2,10 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_DeleteME_v1;
+package aFinal_Year_Project_DeleteME_V1;
 
-import final_year_project_data_V1.*;
-import final_year_project_logic_v1.*;
+import Final_Year_Project_Logic_V1.TestDataGen;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.DefaultCellEditor;

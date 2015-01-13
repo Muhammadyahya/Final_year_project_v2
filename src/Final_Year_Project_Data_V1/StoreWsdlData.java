@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_data_V1;
+package Final_Year_Project_Data_V1;
 
 import com.predic8.schema.restriction.facet.EnumerationFacet;
 import java.util.*;
@@ -33,7 +33,7 @@ public class StoreWsdlData {
         this.elementName.add(elementName);
     }    
     
-     // This method store input prammeter elment data type.
+     // This method store input prammeter element data type.
     
     // i need to work on storing complex types sepratly.
     public void addElmentType(Object elementType)
@@ -59,8 +59,7 @@ public class StoreWsdlData {
         }         
         return storeEnumObj;
     }
-
-    
+ 
     // This method get input prammeter elment data type. It returns Arraylist.
     public ArrayList<Object> getElmentType()
     {

@@ -2,13 +2,13 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package final_year_project_GUI_v1;
+package Final_Year_Project_GUI_V1;
 
-import final_year_project_logic_v1.Common;
-import final_year_project_logic_v1.TestDataGen;
-import final_year_project_data_V1.StoreEnum;
-import final_year_project_data_V1.StoreWsdlData;
-import final_year_project_data_V1.ParsingWsdl;
+import Final_Year_Project_Logic_V1.Common;
+import Final_Year_Project_Logic_V1.TestDataGen;
+import Final_Year_Project_Data_V1.StoreEnum;
+import Final_Year_Project_Data_V1.StoreWsdlData;
+import Final_Year_Project_Data_V1.ParsingWsdl;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -148,13 +148,14 @@ public class ShowMethods extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
     
-    @SuppressWarnings("empty-statement")
     
     /*
     *  This method checks if the user has selected correct method from the jtree.
     *  Also it checks if the user has entered an Int in the dialog box for number of test cases.
     *  Number of test case value has to be greater than 0.
-    */
+    */    
+    
+    @SuppressWarnings("empty-statement")
     private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
         // TODO add your handling code here:
         

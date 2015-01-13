@@ -2,10 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_DeleteME_v1;
+package aFinal_Year_Project_DeleteME_V1;
 
-import final_year_project_GUI_v1.*;
-import final_year_project_data_V1.*;
+import Final_Year_Project_Data_V1.StoreEnum;
 import javax.swing.SwingWorker;
 
 /**

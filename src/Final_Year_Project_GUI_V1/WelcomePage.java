@@ -2,15 +2,15 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package final_year_project_GUI_v1;
+package Final_Year_Project_GUI_V1;
 
 /**
  *
  * @author my301
  */
 
-import final_year_project_logic_v1.CheckWsdl;
-import final_year_project_data_V1.ParsingWsdl;
+import Final_Year_Project_Logic_V1.CheckWsdl;
+import Final_Year_Project_Data_V1.ParsingWsdl;
 
 public class WelcomePage extends javax.swing.JFrame {
     
@@ -134,7 +134,10 @@ public class WelcomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+        
+        /* 
+         * Below are different wsdl for testing 
+         */
         
         //      http://www.webservicex.net/geoipservice.asmx?WSDL
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
@@ -153,38 +156,48 @@ public class WelcomePage extends javax.swing.JFrame {
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
-        }
-        else
+        }//end if
+        else 
         {          
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-            }
+            } 
             else{
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
-            }
-        }
-        // delete below line
-        //System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println(""); System.out.println("");     
+            } 
+        }// end else
+     // end method   
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        // TODO add your handling code here:
+        
+        /* 
+         * this method clear the text in the wsld input textfeild
+         */
         wsdlInput.setText("");
         checkMethodButton.setEnabled(false);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
+       /*
+        * closes the program 
+        */
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void checkMethodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMethodButtonActionPerformed
-        // TODO add your handling code here:
-        //wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
+
+        /* 
+         * This method checks if the if the wsdl is correct or not... 
+         * If wsdl is correct if opens new window in which it shows all the methods
+         */
         
+        /*
+         * checking if the wsdl is correct
+         */
         CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
@@ -197,7 +210,10 @@ public class WelcomePage extends javax.swing.JFrame {
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-                /* calling Show Method Class */
+               
+                /* 
+                 * calling Show Method Class 
+                 */
                 this.setVisible(false);
                 ShowMethods showMethodPanel = new ShowMethods(parsingWsdlObj);
                 showMethodPanel.setSize(500,500);

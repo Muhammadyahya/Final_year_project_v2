@@ -2,10 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_GUI_v1;
+package Final_Year_Project_GUI_V1;
 
-import final_year_project_data_V1.*;
-import final_year_project_logic_v1.*;
+import Final_Year_Project_Logic_V1.Common;
+import Final_Year_Project_Logic_V1.TestDataGen;
+import Final_Year_Project_Data_V1.StoreEnum;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 

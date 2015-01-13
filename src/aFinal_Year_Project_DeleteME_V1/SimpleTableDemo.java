@@ -1,4 +1,4 @@
-package final_year_project_DeleteME_v1;
+package aFinal_Year_Project_DeleteME_V1;
 
 /*
  * To change this template, choose Tools | Templates

@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
-package final_year_project_logic_v1;
+package Final_Year_Project_Logic_V1;
 
 import com.predic8.wsdl.WSDLParser;
-import final_year_project_data_V1.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
