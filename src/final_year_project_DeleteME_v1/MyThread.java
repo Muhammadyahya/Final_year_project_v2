@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_year_project_logic_v1;
+package final_year_project_DeleteME_v1;
 
 import final_year_project_GUI_v1.*;
 import final_year_project_data_V1.*;
