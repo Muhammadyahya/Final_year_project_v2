@@ -5,6 +5,7 @@
 package Final_Year_Project_GUI_V1;
 
 import Final_Year_Project_Logic_V1.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,13 +29,15 @@ public class IntGenGUI extends javax.swing.JFrame {
         this.radioButton();
     }
     
+    /*
+     * adding the radio button in group so only one is selected
+     */
     public void radioButton()
     {
         groupRadioButton.add(randomRadioButton);
         groupRadioButton.add(specificRadioButton);
         groupRadioButton.add(randomBetweenRadioButton);
         groupRadioButton.add(customRadioButton);
-        
     }
     
     /**
@@ -192,14 +195,21 @@ public class IntGenGUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
-        if(customRadioButton.isSelected())
-        {
+        
+        if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()||customRadioButton.isSelected()){
             
+            if(customRadioButton.isSelected())
+            {
+                // go the custom int GUI
+            }
+            else
+            {
+                this.dispose();
+                obj.TestCase(obj);
+            }
         }
-        else
-        {
-            this.dispose();
-            obj.TestCase(obj);
+        else{
+            JOptionPane.showMessageDialog(null,"Please select one of the option. Thanks");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
     
