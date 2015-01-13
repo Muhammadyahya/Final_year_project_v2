@@ -28,6 +28,16 @@ public class TestDataGen {
         this.count=0;
     }
     
+    public StoreWsdlData getStoreWsdlData()
+    {
+        return swdObj;
+    }
+    
+    public int getCount()
+    {
+        return count;
+    }
+    
     public void TestCase(TestDataGen tdgObj)
     {
         if(count < prameterLength)
@@ -37,10 +47,10 @@ public class TestDataGen {
             if(obj instanceof StoreEnum)
             {
                 StoreEnum x =   (StoreEnum)obj;
-                EnumGenGui enumGenGuiFrame = new EnumGenGui(x, tdgObj);
+                EnumGUI enumGenGuiFrame = new EnumGUI(x, tdgObj);
                 enumGenGuiFrame.setSize(550,500);
                 enumGenGuiFrame.setLocationRelativeTo(null);
-                enumGenGuiFrame.setDefaultCloseOperation(EnumGenGui.DISPOSE_ON_CLOSE);
+                enumGenGuiFrame.setDefaultCloseOperation(EnumGUI.DISPOSE_ON_CLOSE);
                 enumGenGuiFrame.setVisible(true);
                 enumGenGuiFrame.revalidate();
                 
@@ -51,10 +61,10 @@ public class TestDataGen {
                 String tempElementType = (String)swdObj.getElmentType().get(count);
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
-                    IntGenGUI intGenGUIFrame = new IntGenGUI(tdgObj);
+                    IntGUI intGenGUIFrame = new IntGUI(tdgObj);
                     intGenGUIFrame.setSize(450,600);
                     intGenGUIFrame.setLocationRelativeTo(null);
-                    intGenGUIFrame.setDefaultCloseOperation(IntGenGUI.DISPOSE_ON_CLOSE);
+                    intGenGUIFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
                     intGenGUIFrame.setVisible(true);
                     intGenGUIFrame.revalidate();
                 }

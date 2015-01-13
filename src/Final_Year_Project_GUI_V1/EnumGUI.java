@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  *
  * @author my301
  */
-public class EnumGenGui extends javax.swing.JFrame {
+public class EnumGUI extends javax.swing.JFrame {
     
     /**
-     * Creates new form EnumGenGui
+     * Creates new form EnumGUI
      */
     
     private StoreEnum storeEnumObj;
@@ -25,11 +25,11 @@ public class EnumGenGui extends javax.swing.JFrame {
     private TestDataGen tdgObj;
     
     
-    public EnumGenGui() {
+    public EnumGUI() {
         initComponents();
     }
     
-    public EnumGenGui(StoreEnum storeEnumObj, TestDataGen tdgObj) {
+    public EnumGUI(StoreEnum storeEnumObj, TestDataGen tdgObj) {
         initComponents();
         this.storeEnumObj = storeEnumObj;
         this.setDefaultListModel();
@@ -184,20 +184,20 @@ public class EnumGenGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnumGenGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnumGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnumGenGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnumGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnumGenGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnumGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EnumGenGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnumGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EnumGenGui().setVisible(true);
+                new EnumGUI().setVisible(true);
             }
         });
     }

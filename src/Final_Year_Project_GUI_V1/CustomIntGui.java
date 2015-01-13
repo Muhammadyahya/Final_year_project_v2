@@ -1,13 +1,15 @@
 /*
-* To change this template, choose Tools | Templates
-* and open the template in the editor.
-*/
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Final_Year_Project_GUI_V1;
 
 import Final_Year_Project_Logic_V1.Common;
 import Final_Year_Project_Data_V1.StoreWsdlData;
+import Final_Year_Project_Logic_V1.TestDataGen;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -22,23 +24,24 @@ public class CustomIntGui extends javax.swing.JFrame {
      * Creates new form CustomIntGui
      */
     private int length;
-    private StoreWsdlData swdObj;
+    private TestDataGen tdgObj;
     
     public CustomIntGui() {
         initComponents();
         comboBoxColumn(jTable1.getColumnModel().getColumn(2));
-        addRowsTable(0);        
+        addRowsTable(0);
     }
     
-    public CustomIntGui(int length,StoreWsdlData swdObj) {
+    public CustomIntGui(TestDataGen obj, int length) {
         initComponents();
         this.length = length;
-        this.swdObj = swdObj;
         comboBoxColumn(jTable1.getColumnModel().getColumn(1));
         comboBoxColumn(jTable1.getColumnModel().getColumn(2));
         comboBoxColumn(jTable1.getColumnModel().getColumn(3));
         addRowsTable(length);
         setDecimalPoint();
+        this.tdgObj= obj;
+        pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
     }
     
     /**
@@ -62,7 +65,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         pointPositionComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         pointPositionTextField = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        lengthComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +83,11 @@ public class CustomIntGui extends javax.swing.JFrame {
         });
 
         mainButton.setText("Back");
+        mainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainButtonActionPerformed(evt);
+            }
+        });
 
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -118,8 +126,13 @@ public class CustomIntGui extends javax.swing.JFrame {
 
         jLabel4.setText("Or");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
-        jComboBox1.setToolTipText("");
+        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        lengthComboBox.setToolTipText("");
+        lengthComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lengthComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +148,7 @@ public class CustomIntGui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +178,7 @@ public class CustomIntGui extends javax.swing.JFrame {
                 .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,15 +200,45 @@ public class CustomIntGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        // TODO add your handling code here:
-        System.out.println("next");
-
-    }//GEN-LAST:event_nextButtonActionPerformed
+        this.dispose();
+        tdgObj.TestCase(tdgObj);
         
+    }//GEN-LAST:event_nextButtonActionPerformed
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_closeButtonActionPerformed
+    
+    private void lengthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthComboBoxActionPerformed
+        // TODO add your handling code here:
+        int tempLength = lengthComboBox.getSelectedIndex();
+        this.dispose();
+        CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,tempLength);
+        customIntGuiFrame.setSize(550,550);
+        customIntGuiFrame.setLocationRelativeTo(null);
+        customIntGuiFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+        customIntGuiFrame.setVisible(true);
+        customIntGuiFrame.revalidate();
+        
+    }//GEN-LAST:event_lengthComboBoxActionPerformed
+    
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
+        {
+            this.dispose();
+            IntGUI intGenGUIFrame = new IntGUI(tdgObj);
+            intGenGUIFrame.setSize(450,600);
+            intGenGUIFrame.setLocationRelativeTo(null);
+            intGenGUIFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+            intGenGUIFrame.setVisible(true);
+            intGenGUIFrame.revalidate();
+        }
+    }//GEN-LAST:event_mainButtonActionPerformed
     
     
     public void addRowsTable(int length) {
@@ -222,7 +265,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         comboBox.addItem("9");
         comboBox.addItem("0");
         columnNum.setCellEditor(new DefaultCellEditor(comboBox));
-                
+        
     }
     
     public void setDecimalPoint()
@@ -240,8 +283,8 @@ public class CustomIntGui extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-        */
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -270,12 +313,12 @@ public class CustomIntGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel headerLabel;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JComboBox pointPositionComboBox;

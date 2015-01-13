@@ -11,6 +11,7 @@ package Final_Year_Project_GUI_V1;
 
 import Final_Year_Project_Logic_V1.CheckWsdl;
 import Final_Year_Project_Data_V1.ParsingWsdl;
+import javax.swing.JOptionPane;
 
 public class WelcomePage extends javax.swing.JFrame {
     
@@ -173,7 +174,6 @@ public class WelcomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        
         /* 
          * this method clear the text in the wsld input textfeild
          */
@@ -185,7 +185,10 @@ public class WelcomePage extends javax.swing.JFrame {
        /*
         * closes the program 
         */
-        System.exit(0);
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void checkMethodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMethodButtonActionPerformed
