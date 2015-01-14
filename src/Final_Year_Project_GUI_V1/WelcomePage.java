@@ -149,8 +149,8 @@ public class WelcomePage extends javax.swing.JFrame {
         //      /homes/my301/year3/Project/other/GoogleSearch.wsdl 
         //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
         
-        wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
-       // wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
+       // wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+        wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
         CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();

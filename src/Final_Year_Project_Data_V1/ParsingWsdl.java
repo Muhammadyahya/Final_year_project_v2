@@ -51,7 +51,7 @@ public class ParsingWsdl {
                     StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
                     wsdlData.add(storeWsdlDataObj);
                     listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
-                    /* we don't need next two lines yet */
+                    /* I don't need next two lines yet */
                     //System.out.println("Response Parameters");
                     
                     // listParameters(defs.getElement(op.getOutput().getMessage().getParts().get(0).getElement().getQname()));
@@ -146,10 +146,5 @@ public class ParsingWsdl {
                 }
             }
         }
-    }
-    
-//    private static void out(String str) {
-//        System.out.println(str);
-//    }
-    
-}
+    } // end method   
+}// end class

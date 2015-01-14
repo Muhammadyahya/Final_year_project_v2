@@ -53,9 +53,7 @@ public class TestFrame extends javax.swing.JFrame {
             {
                 model.addRow(new Object[]{"Kathy", "Smith",
                 "Snowboarding", new Integer(5), new Boolean(false)});
-            }
-            
-            
+            }   
         }
         
         

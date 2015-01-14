@@ -27,18 +27,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="randomRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="customRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="noteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="pramLabel" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                  <Component id="specificRadioButton" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -83,6 +71,19 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pramTypeLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="randomRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="customRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="noteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="pramNameLabel" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                  <Component id="specificRadioButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -91,8 +92,10 @@
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="pramLabel" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="pramNameLabel" min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pramTypeLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="randomRadioButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -137,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="TEST DATA GENERATOR"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="pramLabel">
+    <Component class="javax.swing.JLabel" name="pramNameLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parameter Name :"/>
       </Properties>
@@ -235,6 +238,11 @@
             <StringItem index="19" value="20"/>
           </StringArray>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pramTypeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Parameter Type :"/>
       </Properties>
     </Component>
   </SubComponents>

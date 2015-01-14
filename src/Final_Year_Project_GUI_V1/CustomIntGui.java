@@ -42,6 +42,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         setDecimalPoint();
         this.tdgObj= obj;
         pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
     }
     
     /**
@@ -66,6 +67,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         pointPositionTextField = new javax.swing.JTextField();
         lengthComboBox = new javax.swing.JComboBox();
+        pramTypeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +136,8 @@ public class CustomIntGui extends javax.swing.JFrame {
             }
         });
 
+        pramTypeLabel.setText("Parameter Type :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,7 +170,8 @@ public class CustomIntGui extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pramTypeLabel))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,9 +179,11 @@ public class CustomIntGui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(headerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pramTypeLabel)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,7 +200,7 @@ public class CustomIntGui extends javax.swing.JFrame {
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -324,5 +331,6 @@ public class CustomIntGui extends javax.swing.JFrame {
     private javax.swing.JComboBox pointPositionComboBox;
     private javax.swing.JTextField pointPositionTextField;
     private javax.swing.JLabel pramLabel;
+    private javax.swing.JLabel pramTypeLabel;
     // End of variables declaration//GEN-END:variables
 }

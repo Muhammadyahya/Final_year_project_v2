@@ -57,7 +57,6 @@ public class TestDataGen {
             }
             else if(obj instanceof String)
             {
-                System.out.println(""+swdObj.getElmentType());
                 String tempElementType = (String)swdObj.getElmentType().get(count);
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
@@ -70,12 +69,12 @@ public class TestDataGen {
                 }
                 
                 else if(tempElementType.equals("string")){
-                    TestFrame testFrame = new TestFrame(tdgObj);
-                    testFrame.setSize(550,500);
-                    testFrame.setLocationRelativeTo(null);
-                    testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-                    testFrame.setVisible(true);
-                    testFrame.revalidate();
+                    StringGUI stringGUIFrame = new StringGUI(tdgObj);
+                    stringGUIFrame.setSize(450,600);
+                    stringGUIFrame.setLocationRelativeTo(null);
+                    stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    stringGUIFrame.setVisible(true);
+                    stringGUIFrame.revalidate();
                 }
                 
                 else if(tempElementType.equals("boolean")){

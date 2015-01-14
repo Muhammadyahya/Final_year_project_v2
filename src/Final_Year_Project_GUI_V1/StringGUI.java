@@ -27,7 +27,9 @@ public class StringGUI extends javax.swing.JFrame {
         initComponents();
         this.tdgObj = obj;
         this.radioButton();              
-        pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
+        pramNameLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));     
+        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+
     }
     
     /*
@@ -52,7 +54,7 @@ public class StringGUI extends javax.swing.JFrame {
 
         groupRadioButton = new javax.swing.ButtonGroup();
         headerLabel = new javax.swing.JLabel();
-        pramLabel = new javax.swing.JLabel();
+        pramNameLabel = new javax.swing.JLabel();
         randomRadioButton = new javax.swing.JRadioButton();
         specificRadioButton = new javax.swing.JRadioButton();
         randomBetweenRadioButton = new javax.swing.JRadioButton();
@@ -68,12 +70,13 @@ public class StringGUI extends javax.swing.JFrame {
         specificTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        pramTypeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         headerLabel.setText("TEST DATA GENERATOR");
 
-        pramLabel.setText("Parameter Name :");
+        pramNameLabel.setText("Parameter Name :");
 
         randomRadioButton.setText("Random String");
 
@@ -109,20 +112,12 @@ public class StringGUI extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
+        pramTypeLabel.setText("Parameter Type :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(randomBetweenRadioButton)
-                    .addComponent(randomRadioButton)
-                    .addComponent(customRadioButton)
-                    .addComponent(noteLabel)
-                    .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(specificRadioButton))
-                .addGap(195, 195, 195))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -155,6 +150,17 @@ public class StringGUI extends javax.swing.JFrame {
                                     .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(specificTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pramTypeLabel)
+                    .addComponent(randomBetweenRadioButton)
+                    .addComponent(randomRadioButton)
+                    .addComponent(customRadioButton)
+                    .addComponent(noteLabel)
+                    .addComponent(pramNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(specificRadioButton))
+                .addGap(195, 195, 195))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,8 +168,10 @@ public class StringGUI extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(headerLabel)
                 .addGap(27, 27, 27)
-                .addComponent(pramLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(pramNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pramTypeLabel)
+                .addGap(10, 10, 10)
                 .addComponent(randomRadioButton)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -289,7 +297,8 @@ public class StringGUI extends javax.swing.JFrame {
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel noteLabel;
-    private javax.swing.JLabel pramLabel;
+    private javax.swing.JLabel pramNameLabel;
+    private javax.swing.JLabel pramTypeLabel;
     private javax.swing.JRadioButton randomBetweenRadioButton;
     private javax.swing.JRadioButton randomRadioButton;
     private javax.swing.JRadioButton specificRadioButton;
