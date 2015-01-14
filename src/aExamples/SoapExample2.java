@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aDeleteME_V1.soapRequest;
+package aExamples;
 
 import javax.xml.soap.*;
 
@@ -12,14 +12,14 @@ import javax.xml.soap.*;
  * code copied from : http://stackoverflow.com/questions/15948927/working-soap-client-example
  * @author my301
  */
-public class SOAPClientSAAJ {
+public class SoapExample2 {
      public static void main(String args[]) throws Exception {
         // Create SOAP Connection
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL";
+        String url = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         // print SOAP Response
         System.out.print("Response SOAP Message:");
@@ -33,19 +33,21 @@ public class SOAPClientSAAJ {
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
-        String serverURI = "http://ws.cdyne.com/";
+        String serverURI = "http://ws.cdyne.com/WeatherWS/";
+
 
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
 
         
-       String [] e = {"email","LicenseKey"};
+        /* not working code */
+       String [] e = {"ZIP"};
         
-       String [] v = {"mutantninja@gmail.com","123" };
+       String [] v = {"21045" };
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement("GetCityForecastByZIP", "example");
        
        // my code
         for (int i = 0; i < v.length; i++) {
@@ -58,7 +60,8 @@ public class SOAPClientSAAJ {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "VerifyEmail");
+        headers.addHeader("SOAPAction", serverURI  + "GetCityForecastByZIP");
+        /* end of not working code*/
 
         soapMessage.saveChanges();
 

@@ -227,7 +227,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,tempLength);
         customIntGuiFrame.setSize(550,550);
         customIntGuiFrame.setLocationRelativeTo(null);
-        customIntGuiFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+        customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
         customIntGuiFrame.setVisible(true);
         customIntGuiFrame.revalidate();
         
@@ -238,10 +238,10 @@ public class CustomIntGui extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
         {
             this.dispose();
-            IntGUI intGenGUIFrame = new IntGUI(tdgObj);
+            IntegerGUI intGenGUIFrame = new IntegerGUI(tdgObj);
             intGenGUIFrame.setSize(450,600);
             intGenGUIFrame.setLocationRelativeTo(null);
-            intGenGUIFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+            intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
             intGenGUIFrame.setVisible(true);
             intGenGUIFrame.revalidate();
         }

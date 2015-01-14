@@ -11,19 +11,19 @@ import javax.swing.JOptionPane;
  *
  * @author my301
  */
-public class IntGUI extends javax.swing.JFrame {
+public class IntegerGUI extends javax.swing.JFrame {
     
     /**
-     * Creates new form IntGUI
+     * Creates new form IntegerGUI
      */
     private TestDataGen tdgObj;
     
-    public IntGUI() {
+    public IntegerGUI() {
         initComponents();
         this.radioButton();
     }
     
-    public IntGUI(TestDataGen obj) {
+    public IntegerGUI(TestDataGen obj) {
         initComponents();
         this.tdgObj = obj;
         this.radioButton();              
@@ -219,7 +219,7 @@ public class IntGUI extends javax.swing.JFrame {
                 CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,1);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
-                customIntGuiFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+                customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
                 customIntGuiFrame.setVisible(true);
                 customIntGuiFrame.revalidate();
             }
@@ -269,20 +269,20 @@ public class IntGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntGUI().setVisible(true);
+                new IntegerGUI().setVisible(true);
             }
         });
     }

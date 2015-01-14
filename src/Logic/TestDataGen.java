@@ -4,13 +4,11 @@
  */
 package Logic;
 
-import UserInterface.StringGUI;
-import UserInterface.EnumGUI;
-import UserInterface.IntGUI;
-import Data.StoreWsdlData;
-import Data.StoreEnum;
-import aDeleteME.TestFrame;
+import UserInterface.*;
+import Data.*;
+import aDeleteME.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,10 +61,10 @@ public class TestDataGen {
                 String tempElementType = (String)swdObj.getElmentType().get(count);
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
-                    IntGUI intGenGUIFrame = new IntGUI(tdgObj);
+                    IntegerGUI intGenGUIFrame = new IntegerGUI(tdgObj);
                     intGenGUIFrame.setSize(450,600);
                     intGenGUIFrame.setLocationRelativeTo(null);
-                    intGenGUIFrame.setDefaultCloseOperation(IntGUI.DISPOSE_ON_CLOSE);
+                    intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
                     intGenGUIFrame.setVisible(true);
                     intGenGUIFrame.revalidate();
                 }
@@ -81,15 +79,17 @@ public class TestDataGen {
                 }
                 
                 else if(tempElementType.equals("boolean")){
-                    TestFrame testFrame = new TestFrame(tdgObj);
-                    testFrame.setSize(550,500);
-                    testFrame.setLocationRelativeTo(null);
-                    testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-                    testFrame.setVisible(true);
-                    testFrame.revalidate();
+                    BooleanGUI booleanGUIFrame = new BooleanGUI(tdgObj);
+                    booleanGUIFrame.setSize(500,400);
+                    booleanGUIFrame.setLocationRelativeTo(null);
+                    booleanGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    booleanGUIFrame.setVisible(true);
+                    booleanGUIFrame.revalidate();
                 }
                 
                 else{
+                    
+                    JOptionPane.showMessageDialog(null, "Unknow dataType... Class: TestDataGen!");
                     TestFrame testFrame = new TestFrame(tdgObj);
                     testFrame.setSize(550,500);
                     testFrame.setLocationRelativeTo(null);

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aDeleteME_V1.soapRequest;
+package aExamples;
 
 import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.StandaloneSoapUICore;
