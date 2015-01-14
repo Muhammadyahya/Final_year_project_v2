@@ -4,7 +4,7 @@
  */
 package UserInterface;
 
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,14 +16,14 @@ public class StringGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntGenGUI
      */
-    private TestDataGen tdgObj;
+    private CollectTestData tdgObj;
     
     public StringGUI() {
         initComponents();
         this.radioButton();
     }
     
-    public StringGUI(TestDataGen obj) {
+    public StringGUI(CollectTestData obj) {
         initComponents();
         this.tdgObj = obj;
         this.radioButton();              

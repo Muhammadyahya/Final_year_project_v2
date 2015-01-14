@@ -5,10 +5,10 @@
 package UserInterface;
 
 import Logic.Common;
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import Data.StoreEnum;
 import Data.StoreWsdlData;
-import Data.ParsingWsdl;
+import Logic.ParsingWsdl;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -198,7 +198,7 @@ public class ShowMethods extends javax.swing.JFrame {
                     }
                     else{
                         //this.dispose();
-                        TestDataGen genObj = new TestDataGen(swdObj,input);
+                        CollectTestData genObj = new CollectTestData(swdObj,input);
                         genObj.TestCase(genObj);
                         //JOptionPane.showMessageDialog(null, "I am currently working on this :)");
                     }

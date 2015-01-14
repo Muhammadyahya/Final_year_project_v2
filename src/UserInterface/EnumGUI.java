@@ -5,7 +5,7 @@
 package UserInterface;
 
 import Logic.Common;
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import Data.StoreEnum;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -22,14 +22,14 @@ public class EnumGUI extends javax.swing.JFrame {
     
     private StoreEnum storeEnumObj;
     DefaultListModel model = new DefaultListModel();
-    private TestDataGen tdgObj;
+    private CollectTestData tdgObj;
     
     
     public EnumGUI() {
         initComponents();
     }
     
-    public EnumGUI(StoreEnum storeEnumObj, TestDataGen tdgObj) {
+    public EnumGUI(StoreEnum storeEnumObj, CollectTestData tdgObj) {
         initComponents();
         this.storeEnumObj = storeEnumObj;
         this.setDefaultListModel();

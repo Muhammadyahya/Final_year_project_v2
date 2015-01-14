@@ -4,7 +4,7 @@
  */
 package aDeleteME;
 
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.DefaultCellEditor;
@@ -29,7 +29,7 @@ public class TestFrame extends javax.swing.JFrame {
      * Creates new form TestFrame
      */
     
-    TestDataGen obj;
+    CollectTestData obj;
     public TestFrame() {
         initComponents();
         setUpSportColumn(jTable1, jTable1.getColumnModel().getColumn(2));
@@ -37,7 +37,7 @@ public class TestFrame extends javax.swing.JFrame {
         SimpleTableDemo();
     }
     
-    public TestFrame(TestDataGen obj) {
+    public TestFrame(CollectTestData obj) {
         initComponents();
         this.obj = obj;
         System.out.println("delete me ");

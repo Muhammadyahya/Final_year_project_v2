@@ -2,8 +2,9 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package Data;
+package Logic;
 
+import Data.StoreWsdlData;
 import com.predic8.schema.ComplexType;
 import com.predic8.schema.Element;
 import com.predic8.schema.SimpleType;

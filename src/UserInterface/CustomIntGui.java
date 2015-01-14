@@ -6,7 +6,7 @@ package UserInterface;
 
 import Logic.Common;
 import Data.StoreWsdlData;
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -24,7 +24,7 @@ public class CustomIntGui extends javax.swing.JFrame {
      * Creates new form CustomIntGui
      */
     private int length;
-    private TestDataGen tdgObj;
+    private CollectTestData tdgObj;
     
     public CustomIntGui() {
         initComponents();
@@ -32,7 +32,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         addRowsTable(0);
     }
     
-    public CustomIntGui(TestDataGen obj, int length) {
+    public CustomIntGui(CollectTestData obj, int length) {
         initComponents();
         this.length = length;
         comboBoxColumn(jTable1.getColumnModel().getColumn(1));

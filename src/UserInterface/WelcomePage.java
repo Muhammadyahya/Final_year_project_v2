@@ -10,7 +10,7 @@ package UserInterface;
  */
 
 import Logic.CheckWsdl;
-import Data.ParsingWsdl;
+import Logic.ParsingWsdl;
 import javax.swing.JOptionPane;
 
 public class WelcomePage extends javax.swing.JFrame {
@@ -157,7 +157,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
         
                 /* for ITL */
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+              wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         

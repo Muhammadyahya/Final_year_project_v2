@@ -14,32 +14,22 @@ import javax.swing.JOptionPane;
  *
  * @author my301
  */
-public class TestDataGen {
+public class CollectTestData {
     
     
     private StoreWsdlData swdObj;
     private int numOfCase;
     private int prameterLength;
     private int count;
-    public TestDataGen(StoreWsdlData swdObj, String numOfCase)
+    public CollectTestData(StoreWsdlData swdObj, String numOfCase)
     {
         this.swdObj = swdObj;
         this.numOfCase = Integer.parseInt(numOfCase);
         this.prameterLength =  swdObj.getElmentType().size();
         this.count=0;
     }
-    
-    public StoreWsdlData getStoreWsdlData()
-    {
-        return swdObj;
-    }
-    
-    public int getCount()
-    {
-        return count;
-    }
-    
-    public void TestCase(TestDataGen tdgObj)
+        
+    public void TestCase(CollectTestData tdgObj)
     {
         if(count < prameterLength)
         {
@@ -62,7 +52,7 @@ public class TestDataGen {
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
                     IntegerGUI intGenGUIFrame = new IntegerGUI(tdgObj);
-                    intGenGUIFrame.setSize(450,600);
+                    intGenGUIFrame.setSize(500,600);
                     intGenGUIFrame.setLocationRelativeTo(null);
                     intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
                     intGenGUIFrame.setVisible(true);
@@ -98,19 +88,19 @@ public class TestDataGen {
                     testFrame.revalidate();
                 }                
             }
+            /* This count++ is very important because i check it against parameter length to keep it in the limit */
             count++;
         }
     }// end method
     
     
-    public void intGen(String rangeFrom, String rangeTo)
+    public StoreWsdlData getStoreWsdlData()
     {
-        Random randomGenerator = new Random();
-        for (int idx = 1; idx <= 100; ++idx){
-            int randomInt = randomGenerator.nextInt((Integer.parseInt(rangeFrom) - Integer.parseInt(rangeTo) + 1) + Integer.parseInt(rangeTo));
-            
-            System.out.println("Generated : " + randomInt);
-        }
+        return swdObj;
     }
     
+    public int getCount()
+    {
+        return count;
+    }   
 }

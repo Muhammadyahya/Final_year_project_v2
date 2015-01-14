@@ -4,7 +4,7 @@
  */
 package UserInterface;
 
-import Logic.TestDataGen;
+import Logic.CollectTestData;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,13 +16,13 @@ public class BooleanGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntGUI
      */
-    private TestDataGen tdgObj;
+    private CollectTestData tdgObj;
     
     public BooleanGUI() {
         initComponents();
     }
     
-    public BooleanGUI(TestDataGen obj) {
+    public BooleanGUI(CollectTestData obj) {
         initComponents();
         this.tdgObj = obj;             
         pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
