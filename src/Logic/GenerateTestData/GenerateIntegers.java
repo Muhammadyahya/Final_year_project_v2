@@ -20,6 +20,5 @@ public class GenerateIntegers {
             
             System.out.println("Generated : " + randomInt);
         }
-    }
-    
+    }    
 }
