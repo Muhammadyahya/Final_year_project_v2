@@ -21,23 +21,24 @@ public class RunWsdlTest {
         
         WSDLParser parser = new WSDLParser();
         
-        Definitions wsdl = parser.parse("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
+        Definitions wsdl = parser.parse("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
         
         StringWriter writer = new StringWriter();
         
-            HashMap<String, String> formParams = new HashMap<String, String>();
-            formParams.put("xpath:/create/article/name", "foo");
-            formParams.put("xpath:/create/article/description", "bar");
-            formParams.put("xpath:/create/article/price/amount", "00.00");
-            formParams.put("xpath:/create/article/price/currency", "USD");
-            formParams.put("xpath:/create/article/id", "1");
+        HashMap<String, String> formParams = new HashMap<String, String>();
+        formParams.put("xpath:/create/article/name", "foo");
+        formParams.put("xpath:/create/article/description", "bar");
+        formParams.put("xpath:/create/article/price/amount", "00.00");
+        formParams.put("xpath:/create/article/price/currency", "USD");
+        formParams.put("xpath:/create/article/id", "1");
         
-        //SOAPRequestCreator constructor: SOARequestCreator(Definitions, Creator, MarkupBuilder)
-        SOARequestCreator creator = new SOARequestCreator(wsdl, new RequestTemplateCreator(), new MarkupBuilder(writer));
+        //SOARequestCreator constructor: SOARequestCreator(Definitions, Creator, MarkupBuilder)
+        SOARequestCreator creator = new SOARequestCreator(wsdl, new RequestCreator(), new MarkupBuilder(writer));
+        creator.setFormParams(formParams);
         
         //creator.createRequest(PortType name, Operation name, Binding name);
-        creator.createRequest("ArticleServicePT", "create", "ArticleServicePTBinding");
-        
+        creator.createRequest("WeatherSoap", "GetWeatherInformation", "WeatherSoap");
+        System.out.println("lol");
         System.out.println(writer);
     }
 }

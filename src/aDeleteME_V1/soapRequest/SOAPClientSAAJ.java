@@ -9,6 +9,7 @@ import javax.xml.soap.*;
 
 /**
  *
+ * 
  * @author my301
  */
 public class SOAPClientSAAJ {
@@ -18,9 +19,8 @@ public class SOAPClientSAAJ {
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx";
+        String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
-
         // print SOAP Response
         System.out.print("Response SOAP Message:");
         soapResponse.writeTo(System.out);
@@ -39,27 +39,24 @@ public class SOAPClientSAAJ {
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
 
-        /*
-        Constructed SOAP Request Message:
-        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:example="http://ws.cdyne.com/">
-            <SOAP-ENV:Header/>
-            <SOAP-ENV:Body>
-                <example:VerifyEmail>
-                    <example:email>mutantninja@gmail.com</example:email>
-                    <example:LicenseKey>123</example:LicenseKey>
-                </example:VerifyEmail>
-            </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-         */
+        
+       String [] e = {"email","LicenseKey"};
+        
+       String [] v = {"mutantninja@gmail.com","123" };
+       
+       SOAPBody soapBody = envelope.getBody();
+       SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
+       
+       // my code
+        for (int i = 0; i < v.length; i++) {
+           
+            SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e[i], "example");
+            soapBodyElem1.addTextNode(v[i]);
+            
+        }
 
-        // SOAP Body
-        SOAPBody soapBody = envelope.getBody();
-        SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
-        SOAPElement soapBodyElem1 = soapBodyElem.addChildElement("email", "example");
-        soapBodyElem1.addTextNode("mutantninja@gmail.com");
-        SOAPElement soapBodyElem2 = soapBodyElem.addChildElement("LicenseKey", "example");
-        soapBodyElem2.addTextNode("123");
-
+        // end of my code
+           
         MimeHeaders headers = soapMessage.getMimeHeaders();
         headers.addHeader("SOAPAction", serverURI  + "VerifyEmail");
 
