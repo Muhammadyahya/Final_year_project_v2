@@ -1,7 +1,7 @@
 /*
-* To change this template, choose Tools | Templates
-* and open the template in the editor.
-*/
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package UserInterface;
 
 /**
@@ -133,26 +133,32 @@ public class WelcomePage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         
-        /* 
-         * Below are different wsdl for testing 
+        /*
+         * Below are different wsdl for testing
          */
         
-        //      http://www.webservicex.net/geoipservice.asmx?WSDL
+        //      
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
         //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
         //      http://www.webservicex.net/WeatherForecast.asmx?WSDL
-              wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
-        //      /homes/my301/year3/Project/other/GoogleSearch.wsdl 
+        //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
+        
+        //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
+        //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
+        //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
+        //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx");
+  
+                /* for laptop */
         //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
-        //        wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");        
-       //       wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
-       
-       //       wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
+        
+                /* for ITL */
+        //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+        //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         
         
@@ -162,43 +168,43 @@ public class WelcomePage extends javax.swing.JFrame {
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
         }//end if
-        else 
-        {          
+        else
+        {
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-            } 
+            }
             else{
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
-            } 
+            }
         }// end else
-     // end method   
+        // end method   
     }//GEN-LAST:event_okButtonActionPerformed
-
+    
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        /* 
+        /*
          * this method clear the text in the wsld input textfeild
          */
         wsdlInput.setText("");
         checkMethodButton.setEnabled(false);
     }//GEN-LAST:event_clearButtonActionPerformed
-
+    
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-       /*
-        * closes the program 
-        */
+        /*
+         * closes the program
+         */
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
         {
             System.exit(0);
         }
     }//GEN-LAST:event_exitButtonActionPerformed
-
+    
     private void checkMethodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMethodButtonActionPerformed
-
-        /* 
-         * This method checks if the if the wsdl is correct or not... 
+        
+        /*
+         * This method checks if the if the wsdl is correct or not...
          * If wsdl is correct if opens new window in which it shows all the methods
          */
         
@@ -217,9 +223,9 @@ public class WelcomePage extends javax.swing.JFrame {
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-               
-                /* 
-                 * calling Show Method Class 
+                
+                /*
+                 * calling Show Method Class
                  */
                 this.setVisible(false);
                 ShowMethods showMethodPanel = new ShowMethods(parsingWsdlObj);
@@ -243,8 +249,8 @@ public class WelcomePage extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-        */
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

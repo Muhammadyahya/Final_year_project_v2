@@ -1,8 +1,8 @@
-2015-01-14 16:59:57,118 WARN  [SoapUI] Could not find jfxrt.jar. Internal browser will be disabled.
-2015-01-14 16:59:57,120 WARN  [SoapUI] Missing folder [/homes/my301/year2/Software engineering/new/Final_year_project_v1/ext] for external libraries
-2015-01-14 16:59:57,195 INFO  [DefaultSoapUICore] Creating new settings at [/homes/my301/soapui-settings.xml]
-2015-01-14 16:59:58,436 ERROR [SoapUI] An error occurred [Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]], see error log for details
-2015-01-14 16:59:58,437 ERROR [errorlog] com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]
+2015-01-14 17:40:08,340 WARN  [SoapUI] Could not find jfxrt.jar. Internal browser will be disabled.
+2015-01-14 17:40:08,344 WARN  [SoapUI] Missing folder [/homes/my301/year2/Software engineering/new/Final_year_project_v1/ext] for external libraries
+2015-01-14 17:40:08,404 INFO  [DefaultSoapUICore] Creating new settings at [/homes/my301/soapui-settings.xml]
+2015-01-14 17:40:09,727 ERROR [SoapUI] An error occurred [Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]], see error log for details
+2015-01-14 17:40:09,727 ERROR [errorlog] com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]
 com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]
 	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:318)
 	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:234)

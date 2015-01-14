@@ -9,7 +9,7 @@ import UserInterface.EnumGUI;
 import UserInterface.IntGUI;
 import Data.StoreWsdlData;
 import Data.StoreEnum;
-import aDeleteME_V2.TestFrame;
+import aDeleteME.TestFrame;
 import java.util.*;
 
 /**

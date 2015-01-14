@@ -1,4 +1,4 @@
-package aDeleteME_V2;
+package aDeleteME;
 
 /*
  * To change this template, choose Tools | Templates

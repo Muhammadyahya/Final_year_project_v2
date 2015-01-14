@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aDeleteME_V2;
+package aDeleteME;
 
 import java.awt.Component;
 import java.awt.Dimension;

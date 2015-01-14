@@ -186,3 +186,20 @@ Caused by: org.apache.xmlbeans.XmlException: Element definitions@http://schemas.
 	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProjectFromInputStream(WsdlProject.java:340)
 	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:301)
 	... 5 more
+2015-01-14 17:40:09,727 ERROR [errorlog] com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]
+com.eviware.soapui.support.SoapUIException: Failed to load project from file [http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL]
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:318)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:234)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:201)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.<init>(WsdlProject.java:189)
+	at aDeleteME_V1.soapRequest.SoapUIRequest.runSoap(SoapUIRequest.java:34)
+	at aDeleteME_V1.soapRequest.SoapUIRequest.main(SoapUIRequest.java:23)
+Caused by: org.apache.xmlbeans.XmlException: Element definitions@http://schemas.xmlsoap.org/wsdl/ is not a valid soapui-project@http://eviware.com/soapui/config document or a valid substitution.
+	at org.apache.xmlbeans.impl.store.Locale.autoTypeDocument(Locale.java:328)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1279)
+	at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:1263)
+	at org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse(SchemaTypeLoaderBase.java:345)
+	at com.eviware.soapui.config.SoapuiProjectDocumentConfig$Factory.parse(SoapuiProjectDocumentConfig.java:71)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProjectFromInputStream(WsdlProject.java:340)
+	at com.eviware.soapui.impl.wsdl.WsdlProject.loadProject(WsdlProject.java:301)
+	... 5 more

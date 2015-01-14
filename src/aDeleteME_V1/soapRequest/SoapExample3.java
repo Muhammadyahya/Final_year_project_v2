@@ -12,14 +12,14 @@ import javax.xml.soap.*;
  * code copied from : http://stackoverflow.com/questions/15948927/working-soap-client-example
  * @author my301
  */
-public class SOAPClientSAAJ {
+public class SoapExample3 {
      public static void main(String args[]) throws Exception {
         // Create SOAP Connection
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL";
+        String url = "http://www.webservicex.net/geoipservice.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         // print SOAP Response
         System.out.print("Response SOAP Message:");
@@ -33,32 +33,31 @@ public class SOAPClientSAAJ {
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
-        String serverURI = "http://ws.cdyne.com/";
+        String serverURI = "http://www.webservicex.net/";
+
 
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
 
+       String [] e = {"IPAddress"};
         
-       String [] e = {"email","LicenseKey"};
-        
-       String [] v = {"mutantninja@gmail.com","123" };
+       String [] v = {"131.228.17.26" };
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement("GetGeoIP", "example");
        
-       // my code
+
         for (int i = 0; i < v.length; i++) {
            
             SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e[i], "example");
             soapBodyElem1.addTextNode(v[i]);
-            
         }
 
-        // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "VerifyEmail");
+        headers.addHeader("SOAPAction", serverURI  + "GetGeoIP");
+
 
         soapMessage.saveChanges();
 
