@@ -2,13 +2,13 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package Final_Year_Project_GUI_V1;
+package UserInterface;
 
-import Final_Year_Project_Logic_V1.Common;
-import Final_Year_Project_Logic_V1.TestDataGen;
-import Final_Year_Project_Data_V1.StoreEnum;
-import Final_Year_Project_Data_V1.StoreWsdlData;
-import Final_Year_Project_Data_V1.ParsingWsdl;
+import Logic.Common;
+import Logic.TestDataGen;
+import Data.StoreEnum;
+import Data.StoreWsdlData;
+import Data.ParsingWsdl;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;

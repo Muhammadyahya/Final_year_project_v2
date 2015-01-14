@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aFinal_Year_Project_DeleteME_V1;
+package aDeleteME_V1.soapRequest;
 
 import javax.xml.soap.*;
 

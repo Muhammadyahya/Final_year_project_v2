@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Final_Year_Project_Data_V1;
+package Data;
 
 /**
  *

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Final_Year_Project_Logic_V1;
+package Logic;
 
 import groovy.xml.MarkupBuilder;
 import java.io.StringWriter;

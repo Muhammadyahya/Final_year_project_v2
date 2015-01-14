@@ -2,15 +2,15 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-package Final_Year_Project_GUI_V1;
+package UserInterface;
 
 /**
  *
  * @author my301
  */
 
-import Final_Year_Project_Logic_V1.CheckWsdl;
-import Final_Year_Project_Data_V1.ParsingWsdl;
+import Logic.CheckWsdl;
+import Data.ParsingWsdl;
 import javax.swing.JOptionPane;
 
 public class WelcomePage extends javax.swing.JFrame {

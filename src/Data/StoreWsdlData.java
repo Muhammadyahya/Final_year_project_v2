@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Final_Year_Project_Data_V1;
+package Data;
 
 import com.predic8.schema.restriction.facet.EnumerationFacet;
 import java.util.*;

@@ -2,11 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Final_Year_Project_Logic_V1;
+package Logic;
 
-import Final_Year_Project_Data_V1.*;
-import Final_Year_Project_GUI_V1.*;
-import aFinal_Year_Project_DeleteME_V1.TestFrame;
+import UserInterface.StringGUI;
+import UserInterface.EnumGUI;
+import UserInterface.IntGUI;
+import Data.StoreWsdlData;
+import Data.StoreEnum;
+import aDeleteME_V2.TestFrame;
 import java.util.*;
 
 /**
