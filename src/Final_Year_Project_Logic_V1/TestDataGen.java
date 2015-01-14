@@ -70,7 +70,7 @@ public class TestDataGen {
                 
                 else if(tempElementType.equals("string")){
                     StringGUI stringGUIFrame = new StringGUI(tdgObj);
-                    stringGUIFrame.setSize(450,600);
+                    stringGUIFrame.setSize(500,600);
                     stringGUIFrame.setLocationRelativeTo(null);
                     stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
                     stringGUIFrame.setVisible(true);

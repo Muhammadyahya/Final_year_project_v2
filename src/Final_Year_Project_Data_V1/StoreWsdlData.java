@@ -76,6 +76,5 @@ public class StoreWsdlData {
     public String getMethodName()
     {
         return this.methodName;
-    }
-    
+    }    
 }
