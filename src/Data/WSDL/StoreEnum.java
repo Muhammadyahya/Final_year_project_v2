@@ -35,6 +35,4 @@ public class StoreEnum extends Object{
     {
         return resElementName;
     }
-    
-    
 }
