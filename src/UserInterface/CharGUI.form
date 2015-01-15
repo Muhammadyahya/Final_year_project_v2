@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="groupRadioButton">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+              <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="alphaTwoComboBox" min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="alphaOneComboBox" min="-2" pref="109" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="21" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="randomRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="specificRadioButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="specificComboBox" min="-2" pref="109" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="closeButton" min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="mainButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="nextButton" min="-2" pref="84" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="pramNameLabel" pref="411" max="32767" attributes="0"/>
+                      <Component id="pramTypeLabel" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="noteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="pramNameLabel" min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pramTypeLabel" min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="randomRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="specificRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="specificComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="alphaOneComboBox" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="alphaTwoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="nextButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mainButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="headerLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TEST DATA GENERATOR"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pramNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Parameter Name :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="randomRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Random Char"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="specificRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Specific Char"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="randomBetweenRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Randomly select between two alphabets"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alphabet One"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alphabet Two"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="nextButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Next"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="noteLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Note"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="closeButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Close"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="mainButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Main Menu"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pramTypeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Parameter Type :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="specificComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="26">
+            <StringItem index="0" value="a"/>
+            <StringItem index="1" value="b"/>
+            <StringItem index="2" value="c"/>
+            <StringItem index="3" value="d"/>
+            <StringItem index="4" value="e"/>
+            <StringItem index="5" value="f"/>
+            <StringItem index="6" value="g"/>
+            <StringItem index="7" value="h"/>
+            <StringItem index="8" value="i"/>
+            <StringItem index="9" value="j"/>
+            <StringItem index="10" value="k"/>
+            <StringItem index="11" value="l"/>
+            <StringItem index="12" value="m"/>
+            <StringItem index="13" value="n"/>
+            <StringItem index="14" value="o"/>
+            <StringItem index="15" value="p"/>
+            <StringItem index="16" value="q"/>
+            <StringItem index="17" value="r"/>
+            <StringItem index="18" value="s"/>
+            <StringItem index="19" value="t"/>
+            <StringItem index="20" value="u"/>
+            <StringItem index="21" value="v"/>
+            <StringItem index="22" value="w"/>
+            <StringItem index="23" value="x"/>
+            <StringItem index="24" value="y"/>
+            <StringItem index="25" value="z"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="alphaTwoComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="26">
+            <StringItem index="0" value="a"/>
+            <StringItem index="1" value="b"/>
+            <StringItem index="2" value="c"/>
+            <StringItem index="3" value="d"/>
+            <StringItem index="4" value="e"/>
+            <StringItem index="5" value="f"/>
+            <StringItem index="6" value="g"/>
+            <StringItem index="7" value="h"/>
+            <StringItem index="8" value="i"/>
+            <StringItem index="9" value="j"/>
+            <StringItem index="10" value="k"/>
+            <StringItem index="11" value="l"/>
+            <StringItem index="12" value="m"/>
+            <StringItem index="13" value="n"/>
+            <StringItem index="14" value="o"/>
+            <StringItem index="15" value="p"/>
+            <StringItem index="16" value="q"/>
+            <StringItem index="17" value="r"/>
+            <StringItem index="18" value="s"/>
+            <StringItem index="19" value="t"/>
+            <StringItem index="20" value="u"/>
+            <StringItem index="21" value="v"/>
+            <StringItem index="22" value="w"/>
+            <StringItem index="23" value="x"/>
+            <StringItem index="24" value="y"/>
+            <StringItem index="25" value="z"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="alphaOneComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="26">
+            <StringItem index="0" value="a"/>
+            <StringItem index="1" value="b"/>
+            <StringItem index="2" value="c"/>
+            <StringItem index="3" value="d"/>
+            <StringItem index="4" value="e"/>
+            <StringItem index="5" value="f"/>
+            <StringItem index="6" value="g"/>
+            <StringItem index="7" value="h"/>
+            <StringItem index="8" value="i"/>
+            <StringItem index="9" value="j"/>
+            <StringItem index="10" value="k"/>
+            <StringItem index="11" value="l"/>
+            <StringItem index="12" value="m"/>
+            <StringItem index="13" value="n"/>
+            <StringItem index="14" value="o"/>
+            <StringItem index="15" value="p"/>
+            <StringItem index="16" value="q"/>
+            <StringItem index="17" value="r"/>
+            <StringItem index="18" value="s"/>
+            <StringItem index="19" value="t"/>
+            <StringItem index="20" value="u"/>
+            <StringItem index="21" value="v"/>
+            <StringItem index="22" value="w"/>
+            <StringItem index="23" value="x"/>
+            <StringItem index="24" value="y"/>
+            <StringItem index="25" value="z"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
