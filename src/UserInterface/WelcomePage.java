@@ -154,10 +154,10 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx");
   
                 /* for laptop */
-        //      C:\Users\Muhammad Yahya\Documents\NetBeansProjects\wsdl\genericbarcode.wsdl
+              wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
                 /* for ITL */
-              wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+        //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         

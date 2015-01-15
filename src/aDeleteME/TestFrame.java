@@ -4,7 +4,7 @@
  */
 package aDeleteME;
 
-import Logic.CollectTestData;
+import Data.User.CollectTestData;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.DefaultCellEditor;

@@ -5,8 +5,8 @@
 package UserInterface;
 
 import Logic.Common;
-import Logic.CollectTestData;
-import Data.StoreEnum;
+import Data.User.CollectTestData;
+import Data.WSDL.StoreEnum;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 

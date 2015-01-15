@@ -4,7 +4,7 @@
  */
 package aDeleteME;
 
-import Data.StoreEnum;
+import Data.WSDL.StoreEnum;
 import javax.swing.SwingWorker;
 
 /**

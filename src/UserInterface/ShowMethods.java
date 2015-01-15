@@ -5,9 +5,9 @@
 package UserInterface;
 
 import Logic.Common;
-import Logic.CollectTestData;
-import Data.StoreEnum;
-import Data.StoreWsdlData;
+import Data.User.CollectTestData;
+import Data.WSDL.StoreEnum;
+import Data.WSDL.StoreWsdlData;
 import Logic.ParsingWsdl;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;

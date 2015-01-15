@@ -4,7 +4,7 @@
  */
 package UserInterface;
 
-import Logic.CollectTestData;
+import Data.User.CollectTestData;
 import javax.swing.JOptionPane;
 
 /**

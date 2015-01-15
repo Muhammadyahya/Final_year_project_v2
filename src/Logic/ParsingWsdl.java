@@ -4,7 +4,7 @@
 */
 package Logic;
 
-import Data.StoreWsdlData;
+import Data.WSDL.StoreWsdlData;
 import com.predic8.schema.ComplexType;
 import com.predic8.schema.Element;
 import com.predic8.schema.SimpleType;

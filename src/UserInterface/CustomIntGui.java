@@ -5,8 +5,8 @@
 package UserInterface;
 
 import Logic.Common;
-import Data.StoreWsdlData;
-import Logic.CollectTestData;
+import Data.WSDL.StoreWsdlData;
+import Data.User.CollectTestData;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;

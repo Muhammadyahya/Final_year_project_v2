@@ -4,7 +4,7 @@
  */
 package UserInterface;
 
-import Logic.CollectTestData;
+import Data.User.CollectTestData;
 import javax.swing.JOptionPane;
 
 /**
@@ -84,9 +84,9 @@ public class StringGUI extends javax.swing.JFrame {
 
         randomBetweenRadioButton.setText("Random String between two alfabets");
 
-        jLabel1.setText("Alfabet One");
+        jLabel1.setText("Alphabet One");
 
-        jLabel2.setText("Alfabet Two");
+        jLabel2.setText("Alphabet Two");
 
         nextButton.setText("Next");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
