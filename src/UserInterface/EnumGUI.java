@@ -123,6 +123,13 @@ public class EnumGUI extends javax.swing.JFrame {
             // randomly pick one
             if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly.")))
             {
+                String temp="";
+                for(String stringObj: storeEnumObj.getEnumValue())
+                {
+                    temp=temp+stringObj+" , ";
+                }
+                temp= temp.substring(0, temp.length()-3);
+                tdgObj.addTestCaseInfo(Common.concatenateString(temp));
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
             }
@@ -131,6 +138,13 @@ public class EnumGUI extends javax.swing.JFrame {
         {
             if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
             {
+                String temp="";
+                for(Object enumObj: enumJList.getSelectedValuesList())
+                {
+                   temp=temp+enumObj+" , "; 
+                }
+                temp= temp.substring(0, temp.length()-3);
+                tdgObj.addTestCaseInfo(Common.concatenateString(temp));
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
             }   

@@ -29,13 +29,14 @@ public class CollectTestData {
         this.numOfCase = Integer.parseInt(numOfCase);
         this.prameterLength =  swdObj.getElmentType().size();
         this.count=0;
+        this.testCaseInfo=new ArrayList<String>();
     }
     
     public void addTestCaseInfo(String pram)
     {
         this.testCaseInfo.add(pram);
     }
-        
+    
     public void TestCase(CollectTestData tdgObj)
     {
         if(count < prameterLength)
@@ -93,10 +94,16 @@ public class CollectTestData {
                     testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
                     testFrame.setVisible(true);
                     testFrame.revalidate();
-                }                
+                }
             }
             /* This count++ is very important because i check it against parameter length to keep it in the limit */
             count++;
+        }
+        else{
+            for(String a: testCaseInfo)
+            {
+                System.out.println("ppppppppppppppp:   "+a);
+            }
         }
     }// end method
     
@@ -109,5 +116,5 @@ public class CollectTestData {
     public int getCount()
     {
         return count;
-    }   
+    }
 }

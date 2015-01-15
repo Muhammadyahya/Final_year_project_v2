@@ -55,13 +55,10 @@ public class Common {
     }
     
    /**********************************************************/
-    
-    
-
-    
+        
     public static String concatenateString(String pram)
     {
-        String temp="con"+pram+"]";
+        String temp="["+pram+"]";
         return temp;
     }
     

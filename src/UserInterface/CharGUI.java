@@ -5,6 +5,7 @@
 package UserInterface;
 
 import Data.User.CollectTestData;
+import Logic.Common;
 import javax.swing.JOptionPane;
 
 /**
@@ -198,20 +199,41 @@ public class CharGUI extends javax.swing.JFrame {
         
         if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()){
             
-            if(specificRadioButton.isSelected())
+          if(specificRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+                if(!specificComboBox.getSelectedItem().equals("Please Select"))
+                {
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString(""+specificComboBox.getSelectedItem()));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please select an alphabet.");
+                }
             }
             else if(randomBetweenRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+                
+                if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select"))
+                {   
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString("0-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please select Alphabet One and Alphabet Two.");
+                }
             }
             else if(randomRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+               
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+ 
             }
         }
         else{

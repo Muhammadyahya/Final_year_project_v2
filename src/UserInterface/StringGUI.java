@@ -251,7 +251,7 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
                 {   
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    tdgObj.addTestCaseInfo(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
                     tdgObj.TestCase(tdgObj);
                 }
