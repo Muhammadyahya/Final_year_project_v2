@@ -82,7 +82,7 @@ public class StringGUI extends javax.swing.JFrame {
 
         specificRadioButton.setText("Specific String");
 
-        randomBetweenRadioButton.setText("Random String between two alfabets");
+        randomBetweenRadioButton.setText("Random String between two alphabets");
 
         jLabel1.setText("Alphabet One");
 

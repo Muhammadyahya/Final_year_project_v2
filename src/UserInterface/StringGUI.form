@@ -157,7 +157,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="randomBetweenRadioButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Random String between two alfabets"/>
+        <Property name="text" type="java.lang.String" value="Random String between two alphabets"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="valueOneTextField">

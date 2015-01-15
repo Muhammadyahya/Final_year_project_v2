@@ -52,7 +52,6 @@ public class SoapRequest {
            
             SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e[i], "example");
             soapBodyElem1.addTextNode(v[i]);
-            
         }
 
         // end of my code
