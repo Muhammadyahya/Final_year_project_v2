@@ -5,6 +5,7 @@
 package UserInterface;
 
 import Data.User.CollectTestData;
+import Logic.Common;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,9 +59,7 @@ public class StringGUI extends javax.swing.JFrame {
         randomRadioButton = new javax.swing.JRadioButton();
         specificRadioButton = new javax.swing.JRadioButton();
         randomBetweenRadioButton = new javax.swing.JRadioButton();
-        valueOneTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        valueTwoTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         nextButton = new javax.swing.JButton();
         noteLabel = new javax.swing.JLabel();
@@ -69,8 +68,10 @@ public class StringGUI extends javax.swing.JFrame {
         customRadioButton = new javax.swing.JRadioButton();
         specificTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
+        alphaTwoComboBox = new javax.swing.JComboBox();
+        alphaOneComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,9 +111,15 @@ public class StringGUI extends javax.swing.JFrame {
 
         jLabel3.setText("E.g length 5 (abcde or eadfd etc).");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         pramTypeLabel.setText("Parameter Type :");
+
+        alphaTwoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please Select", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" }));
+        alphaTwoComboBox.setToolTipText("");
+
+        alphaOneComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please Select", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" }));
+        alphaOneComboBox.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,26 +136,7 @@ public class StringGUI extends javax.swing.JFrame {
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(182, 182, 182)
-                        .addComponent(headerLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(21, 21, 21)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(valueOneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(specificTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(headerLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 74, Short.MAX_VALUE)
@@ -161,6 +149,26 @@ public class StringGUI extends javax.swing.JFrame {
                     .addComponent(pramNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
                     .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(specificTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(alphaTwoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(alphaOneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(22, 22, 22)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,18 +188,20 @@ public class StringGUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(randomBetweenRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(alphaOneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueOneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alphaTwoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(noteLabel)
@@ -200,7 +210,7 @@ public class StringGUI extends javax.swing.JFrame {
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -224,18 +234,43 @@ public class StringGUI extends javax.swing.JFrame {
             }
             else if(specificRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+                if(!specificTextField.getText().equals(""))
+                {
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
+                }
             }
             else if(randomBetweenRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+                
+                if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
+                {   
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please select Alphabet One, Alphabet Two and Length.");
+                }
             }
             else if(randomRadioButton.isSelected())
             {
-                this.dispose();
-                tdgObj.TestCase(tdgObj);
+                if(!lengthComboBox.getSelectedItem().equals("0"))
+                {
+                    // below line store and concatenate the String 
+                    tdgObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
+                    this.dispose();
+                    tdgObj.TestCase(tdgObj);
+                 }
+                else{
+                    JOptionPane.showMessageDialog(null,"Please select a length.");
+                }
             }
         }
         else{
@@ -286,14 +321,16 @@ public class StringGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox alphaOneComboBox;
+    private javax.swing.JComboBox alphaTwoComboBox;
     private javax.swing.JButton closeButton;
     private javax.swing.JRadioButton customRadioButton;
     private javax.swing.ButtonGroup groupRadioButton;
     private javax.swing.JLabel headerLabel;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel noteLabel;
@@ -303,7 +340,5 @@ public class StringGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton randomRadioButton;
     private javax.swing.JRadioButton specificRadioButton;
     private javax.swing.JTextField specificTextField;
-    private javax.swing.JTextField valueOneTextField;
-    private javax.swing.JTextField valueTwoTextField;
     // End of variables declaration//GEN-END:variables
 }

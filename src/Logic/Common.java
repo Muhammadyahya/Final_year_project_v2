@@ -21,6 +21,52 @@ public class Common {
     
     private static boolean next;
     
+    
+    /**********************************************************/
+    
+    public static String smallerChar(Object pramOne, Object pramTwo)
+    {
+        String TempOne = (String)pramOne;
+        String TempTwo = (String)pramTwo;
+
+        if(TempOne.charAt(0)>TempTwo.charAt(0))
+        {
+            return TempTwo;
+        }
+        else    
+        {
+            return TempOne;
+        }
+    }
+    
+    public static String biggerChar(Object pramOne, Object pramTwo)
+    {
+        String TempOne = (String)pramOne;
+        String TempTwo = (String)pramTwo;
+
+        if(TempOne.charAt(0)>TempTwo.charAt(0))
+        {
+            return TempOne;
+        }
+        else    
+        {
+            return TempTwo;
+        }
+    }
+    
+   /**********************************************************/
+    
+    
+
+    
+    public static String concatenateString(String pram)
+    {
+        String temp="con"+pram+"]";
+        return temp;
+    }
+    
+    
+    
     // this method checks if the given value is an int or not.
     public static boolean isInt(String pram)
     {

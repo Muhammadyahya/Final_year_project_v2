@@ -225,6 +225,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             }
             else if(specificRadioButton.isSelected())
             {
+                
                 this.dispose();
                 tdgObj.TestCase(tdgObj);
             }

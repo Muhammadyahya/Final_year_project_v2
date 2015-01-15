@@ -41,33 +41,6 @@
                       <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jComboBox1" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="valueOneTextField" min="-2" pref="213" max="-2" attributes="0"/>
-                                  <Component id="valueTwoTextField" min="-2" pref="213" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="specificTextField" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -83,6 +56,34 @@
                   <Component id="pramTypeLabel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="specificTextField" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lengthComboBox" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="alphaTwoComboBox" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="alphaOneComboBox" min="-2" pref="136" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,21 +106,24 @@
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="valueOneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="alphaOneComboBox" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="valueTwoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="alphaTwoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lengthComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="customRadioButton" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
@@ -129,7 +133,7 @@
                   <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mainButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,14 +164,10 @@
         <Property name="text" type="java.lang.String" value="Random String between two alphabets"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="valueOneTextField">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alphabet One"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="valueTwoTextField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -212,30 +212,31 @@
         <Property name="text" type="java.lang.String" value="E.g length 5 (abcde or eadfd etc)."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="lengthComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="20">
-            <StringItem index="0" value="1"/>
-            <StringItem index="1" value="2"/>
-            <StringItem index="2" value="3"/>
-            <StringItem index="3" value="4"/>
-            <StringItem index="4" value="5"/>
-            <StringItem index="5" value="6"/>
-            <StringItem index="6" value="7"/>
-            <StringItem index="7" value="8"/>
-            <StringItem index="8" value="9"/>
-            <StringItem index="9" value="10"/>
-            <StringItem index="10" value="11"/>
-            <StringItem index="11" value="12"/>
-            <StringItem index="12" value="13"/>
-            <StringItem index="13" value="14"/>
-            <StringItem index="14" value="15"/>
-            <StringItem index="15" value="16"/>
-            <StringItem index="16" value="17"/>
-            <StringItem index="17" value="18"/>
-            <StringItem index="18" value="19"/>
-            <StringItem index="19" value="20"/>
+          <StringArray count="21">
+            <StringItem index="0" value="0"/>
+            <StringItem index="1" value="1"/>
+            <StringItem index="2" value="2"/>
+            <StringItem index="3" value="3"/>
+            <StringItem index="4" value="4"/>
+            <StringItem index="5" value="5"/>
+            <StringItem index="6" value="6"/>
+            <StringItem index="7" value="7"/>
+            <StringItem index="8" value="8"/>
+            <StringItem index="9" value="9"/>
+            <StringItem index="10" value="10"/>
+            <StringItem index="11" value="11"/>
+            <StringItem index="12" value="12"/>
+            <StringItem index="13" value="13"/>
+            <StringItem index="14" value="14"/>
+            <StringItem index="15" value="15"/>
+            <StringItem index="16" value="16"/>
+            <StringItem index="17" value="17"/>
+            <StringItem index="18" value="18"/>
+            <StringItem index="19" value="19"/>
+            <StringItem index="20" value="20"/>
           </StringArray>
         </Property>
       </Properties>
@@ -243,6 +244,78 @@
     <Component class="javax.swing.JLabel" name="pramTypeLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parameter Type :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="alphaTwoComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="27">
+            <StringItem index="0" value="Please Select"/>
+            <StringItem index="1" value="a"/>
+            <StringItem index="2" value="b"/>
+            <StringItem index="3" value="c"/>
+            <StringItem index="4" value="d"/>
+            <StringItem index="5" value="e"/>
+            <StringItem index="6" value="f"/>
+            <StringItem index="7" value="g"/>
+            <StringItem index="8" value="h"/>
+            <StringItem index="9" value="i"/>
+            <StringItem index="10" value="j"/>
+            <StringItem index="11" value="k"/>
+            <StringItem index="12" value="l"/>
+            <StringItem index="13" value="m"/>
+            <StringItem index="14" value="n"/>
+            <StringItem index="15" value="o"/>
+            <StringItem index="16" value="p"/>
+            <StringItem index="17" value="q"/>
+            <StringItem index="18" value="r"/>
+            <StringItem index="19" value="s"/>
+            <StringItem index="20" value="t"/>
+            <StringItem index="21" value="u"/>
+            <StringItem index="22" value="v"/>
+            <StringItem index="23" value="w"/>
+            <StringItem index="24" value="x"/>
+            <StringItem index="25" value="y"/>
+            <StringItem index="26" value="z"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="alphaOneComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="27">
+            <StringItem index="0" value="Please Select"/>
+            <StringItem index="1" value="a"/>
+            <StringItem index="2" value="b"/>
+            <StringItem index="3" value="c"/>
+            <StringItem index="4" value="d"/>
+            <StringItem index="5" value="e"/>
+            <StringItem index="6" value="f"/>
+            <StringItem index="7" value="g"/>
+            <StringItem index="8" value="h"/>
+            <StringItem index="9" value="i"/>
+            <StringItem index="10" value="j"/>
+            <StringItem index="11" value="k"/>
+            <StringItem index="12" value="l"/>
+            <StringItem index="13" value="m"/>
+            <StringItem index="14" value="n"/>
+            <StringItem index="15" value="o"/>
+            <StringItem index="16" value="p"/>
+            <StringItem index="17" value="q"/>
+            <StringItem index="18" value="r"/>
+            <StringItem index="19" value="s"/>
+            <StringItem index="20" value="t"/>
+            <StringItem index="21" value="u"/>
+            <StringItem index="22" value="v"/>
+            <StringItem index="23" value="w"/>
+            <StringItem index="24" value="x"/>
+            <StringItem index="25" value="y"/>
+            <StringItem index="26" value="z"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
   </SubComponents>

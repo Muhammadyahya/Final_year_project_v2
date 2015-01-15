@@ -42,20 +42,20 @@
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="alphaTwoComboBox" min="-2" pref="109" max="-2" attributes="0"/>
-                              <Component id="alphaOneComboBox" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="alphaOneComboBox" pref="135" max="32767" attributes="0"/>
+                              <Component id="alphaTwoComboBox" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="21" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                           <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
                           <Component id="randomRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="specificRadioButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="specificComboBox" min="-2" pref="109" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="specificComboBox" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -95,13 +95,10 @@
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="alphaOneComboBox" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabel1" max="32767" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="alphaOneComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -116,7 +113,7 @@
                   <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mainButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -191,33 +188,34 @@
     <Component class="javax.swing.JComboBox" name="specificComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="26">
-            <StringItem index="0" value="a"/>
-            <StringItem index="1" value="b"/>
-            <StringItem index="2" value="c"/>
-            <StringItem index="3" value="d"/>
-            <StringItem index="4" value="e"/>
-            <StringItem index="5" value="f"/>
-            <StringItem index="6" value="g"/>
-            <StringItem index="7" value="h"/>
-            <StringItem index="8" value="i"/>
-            <StringItem index="9" value="j"/>
-            <StringItem index="10" value="k"/>
-            <StringItem index="11" value="l"/>
-            <StringItem index="12" value="m"/>
-            <StringItem index="13" value="n"/>
-            <StringItem index="14" value="o"/>
-            <StringItem index="15" value="p"/>
-            <StringItem index="16" value="q"/>
-            <StringItem index="17" value="r"/>
-            <StringItem index="18" value="s"/>
-            <StringItem index="19" value="t"/>
-            <StringItem index="20" value="u"/>
-            <StringItem index="21" value="v"/>
-            <StringItem index="22" value="w"/>
-            <StringItem index="23" value="x"/>
-            <StringItem index="24" value="y"/>
-            <StringItem index="25" value="z"/>
+          <StringArray count="27">
+            <StringItem index="0" value="Please Select"/>
+            <StringItem index="1" value="a"/>
+            <StringItem index="2" value="b"/>
+            <StringItem index="3" value="c"/>
+            <StringItem index="4" value="d"/>
+            <StringItem index="5" value="e"/>
+            <StringItem index="6" value="f"/>
+            <StringItem index="7" value="g"/>
+            <StringItem index="8" value="h"/>
+            <StringItem index="9" value="i"/>
+            <StringItem index="10" value="j"/>
+            <StringItem index="11" value="k"/>
+            <StringItem index="12" value="l"/>
+            <StringItem index="13" value="m"/>
+            <StringItem index="14" value="n"/>
+            <StringItem index="15" value="o"/>
+            <StringItem index="16" value="p"/>
+            <StringItem index="17" value="q"/>
+            <StringItem index="18" value="r"/>
+            <StringItem index="19" value="s"/>
+            <StringItem index="20" value="t"/>
+            <StringItem index="21" value="u"/>
+            <StringItem index="22" value="v"/>
+            <StringItem index="23" value="w"/>
+            <StringItem index="24" value="x"/>
+            <StringItem index="25" value="y"/>
+            <StringItem index="26" value="z"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -226,33 +224,34 @@
     <Component class="javax.swing.JComboBox" name="alphaTwoComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="26">
-            <StringItem index="0" value="a"/>
-            <StringItem index="1" value="b"/>
-            <StringItem index="2" value="c"/>
-            <StringItem index="3" value="d"/>
-            <StringItem index="4" value="e"/>
-            <StringItem index="5" value="f"/>
-            <StringItem index="6" value="g"/>
-            <StringItem index="7" value="h"/>
-            <StringItem index="8" value="i"/>
-            <StringItem index="9" value="j"/>
-            <StringItem index="10" value="k"/>
-            <StringItem index="11" value="l"/>
-            <StringItem index="12" value="m"/>
-            <StringItem index="13" value="n"/>
-            <StringItem index="14" value="o"/>
-            <StringItem index="15" value="p"/>
-            <StringItem index="16" value="q"/>
-            <StringItem index="17" value="r"/>
-            <StringItem index="18" value="s"/>
-            <StringItem index="19" value="t"/>
-            <StringItem index="20" value="u"/>
-            <StringItem index="21" value="v"/>
-            <StringItem index="22" value="w"/>
-            <StringItem index="23" value="x"/>
-            <StringItem index="24" value="y"/>
-            <StringItem index="25" value="z"/>
+          <StringArray count="27">
+            <StringItem index="0" value="Please Select"/>
+            <StringItem index="1" value="a"/>
+            <StringItem index="2" value="b"/>
+            <StringItem index="3" value="c"/>
+            <StringItem index="4" value="d"/>
+            <StringItem index="5" value="e"/>
+            <StringItem index="6" value="f"/>
+            <StringItem index="7" value="g"/>
+            <StringItem index="8" value="h"/>
+            <StringItem index="9" value="i"/>
+            <StringItem index="10" value="j"/>
+            <StringItem index="11" value="k"/>
+            <StringItem index="12" value="l"/>
+            <StringItem index="13" value="m"/>
+            <StringItem index="14" value="n"/>
+            <StringItem index="15" value="o"/>
+            <StringItem index="16" value="p"/>
+            <StringItem index="17" value="q"/>
+            <StringItem index="18" value="r"/>
+            <StringItem index="19" value="s"/>
+            <StringItem index="20" value="t"/>
+            <StringItem index="21" value="u"/>
+            <StringItem index="22" value="v"/>
+            <StringItem index="23" value="w"/>
+            <StringItem index="24" value="x"/>
+            <StringItem index="25" value="y"/>
+            <StringItem index="26" value="z"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -261,33 +260,34 @@
     <Component class="javax.swing.JComboBox" name="alphaOneComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="26">
-            <StringItem index="0" value="a"/>
-            <StringItem index="1" value="b"/>
-            <StringItem index="2" value="c"/>
-            <StringItem index="3" value="d"/>
-            <StringItem index="4" value="e"/>
-            <StringItem index="5" value="f"/>
-            <StringItem index="6" value="g"/>
-            <StringItem index="7" value="h"/>
-            <StringItem index="8" value="i"/>
-            <StringItem index="9" value="j"/>
-            <StringItem index="10" value="k"/>
-            <StringItem index="11" value="l"/>
-            <StringItem index="12" value="m"/>
-            <StringItem index="13" value="n"/>
-            <StringItem index="14" value="o"/>
-            <StringItem index="15" value="p"/>
-            <StringItem index="16" value="q"/>
-            <StringItem index="17" value="r"/>
-            <StringItem index="18" value="s"/>
-            <StringItem index="19" value="t"/>
-            <StringItem index="20" value="u"/>
-            <StringItem index="21" value="v"/>
-            <StringItem index="22" value="w"/>
-            <StringItem index="23" value="x"/>
-            <StringItem index="24" value="y"/>
-            <StringItem index="25" value="z"/>
+          <StringArray count="27">
+            <StringItem index="0" value="Please Select"/>
+            <StringItem index="1" value="a"/>
+            <StringItem index="2" value="b"/>
+            <StringItem index="3" value="c"/>
+            <StringItem index="4" value="d"/>
+            <StringItem index="5" value="e"/>
+            <StringItem index="6" value="f"/>
+            <StringItem index="7" value="g"/>
+            <StringItem index="8" value="h"/>
+            <StringItem index="9" value="i"/>
+            <StringItem index="10" value="j"/>
+            <StringItem index="11" value="k"/>
+            <StringItem index="12" value="l"/>
+            <StringItem index="13" value="m"/>
+            <StringItem index="14" value="n"/>
+            <StringItem index="15" value="o"/>
+            <StringItem index="16" value="p"/>
+            <StringItem index="17" value="q"/>
+            <StringItem index="18" value="r"/>
+            <StringItem index="19" value="s"/>
+            <StringItem index="20" value="t"/>
+            <StringItem index="21" value="u"/>
+            <StringItem index="22" value="v"/>
+            <StringItem index="23" value="w"/>
+            <StringItem index="24" value="x"/>
+            <StringItem index="25" value="y"/>
+            <StringItem index="26" value="z"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>

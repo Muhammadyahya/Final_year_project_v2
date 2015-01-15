@@ -17,17 +17,23 @@ import javax.swing.JOptionPane;
  */
 public class CollectTestData {
     
-    
+    private ArrayList<String> testCaseInfo;
     private StoreWsdlData swdObj;
     private int numOfCase;
     private int prameterLength;
     private int count;
+    
     public CollectTestData(StoreWsdlData swdObj, String numOfCase)
     {
         this.swdObj = swdObj;
         this.numOfCase = Integer.parseInt(numOfCase);
         this.prameterLength =  swdObj.getElmentType().size();
         this.count=0;
+    }
+    
+    public void addTestCaseInfo(String pram)
+    {
+        this.testCaseInfo.add(pram);
     }
         
     public void TestCase(CollectTestData tdgObj)
