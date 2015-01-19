@@ -30,6 +30,9 @@ public class LogicCustomString {
                 comboBox.addItem(valueOne[i]);
             }
         }
+        
+        
+        /* dddddddd*/
         else if (valueCheck.equals("valueTwo"))
         {
             for (int i = 0; i < valueOne.length; i++) {
