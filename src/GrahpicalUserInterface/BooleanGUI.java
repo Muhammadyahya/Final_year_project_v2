@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface;
+package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
@@ -141,7 +141,7 @@ public class BooleanGUI extends javax.swing.JFrame {
         
         if(!valueComboBox.getSelectedItem().equals("Please Select"))
         {
-                collectTestDataObj.addTestCaseInfo(Common.concatenateString(""+valueComboBox.getSelectedItem()));
+                collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(""+valueComboBox.getSelectedItem())));
                 this.dispose();
                 collectTestDataObj.TestCase(collectTestDataObj);
         }

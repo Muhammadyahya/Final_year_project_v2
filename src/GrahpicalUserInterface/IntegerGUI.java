@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface;
+package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
@@ -229,7 +229,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
+                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
                     this.dispose();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
@@ -244,7 +244,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {   
                     // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText())));
+                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
                     this.dispose();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
@@ -257,7 +257,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
                     // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
+                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.TestCase(collectTestDataObj);
                  }

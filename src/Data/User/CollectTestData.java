@@ -4,9 +4,12 @@
  */
 package Data.User;
 
+import GrahpicalUserInterface.BooleanGUI;
+import GrahpicalUserInterface.StringGUI;
+import GrahpicalUserInterface.IntegerGUI;
+import GrahpicalUserInterface.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
-import UserInterface.*;
 import aDeleteME.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -17,11 +20,12 @@ import javax.swing.JOptionPane;
  */
 public class CollectTestData {
     
-    private ArrayList<String> testCaseInfo;
+    private ArrayList<ArrayList<String>> testCaseInfo;
     private StoreWsdlData swdObj;
     private int numOfCase;
     private int prameterLength;
     private int count;
+
     
     public CollectTestData(StoreWsdlData swdObj, String numOfCase)
     {
@@ -29,10 +33,10 @@ public class CollectTestData {
         this.numOfCase = Integer.parseInt(numOfCase);
         this.prameterLength =  swdObj.getElmentType().size();
         this.count=0;
-        this.testCaseInfo=new ArrayList<String>();
+        this.testCaseInfo=new ArrayList<ArrayList<String>>();
     }
     
-    public void addTestCaseInfo(String pram)
+    public void addTestCaseInfo(ArrayList<String> pram)
     {
         this.testCaseInfo.add(pram);
     }
@@ -99,10 +103,15 @@ public class CollectTestData {
             /* This count++ is very important because i check it against parameter length to keep it in the limit */
             count++;
         }
+        /* delete else case after testing */ 
         else{
-            for(String a: testCaseInfo)
-            {
-                System.out.println("ppppppppppppppp:   "+a);
+            
+            for (int i = 0; i < testCaseInfo.size(); i++) {
+                System.out.println("iiiiiiiiiiiiiiiiiiiii  " + testCaseInfo.size());
+                for (int j = 0; j < testCaseInfo.get(i).size(); j++) {
+                    System.out.println("jjjjjjjjjjjjjjj  " + testCaseInfo.get(i).size());
+                    System.out.println(testCaseInfo.get(i).get(j)  +"ppppppppppppppp:   ");
+                }
             }
         }
     }// end method

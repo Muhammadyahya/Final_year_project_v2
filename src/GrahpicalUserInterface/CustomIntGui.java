@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface;
+package GrahpicalUserInterface;
 
 import Logic.Common;
 import Data.WSDL.StoreWsdlData;
-import Data.User.CollectTestData;
+import Data.User.*;
+import Logic.*;
+import Logic.UserInterface.*;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -28,23 +30,35 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     public CustomIntGui() {
         initComponents();
-        comboBoxColumn(jTable1.getColumnModel().getColumn(2));
-        addRowsTable(0);
+        //comboBoxColumn(jTable1.getColumnModel().getColumn(2));
+        //addRowsTable(0);
+        /* delete this below lines after testing  and un commit above lines*/
+        
+        this.length = 4;
+        
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        addRowsTable(length);
+        
+        
+        /* delete finished */
+        
     }
     
     public CustomIntGui(CollectTestData obj, int length) {
         initComponents();
         this.length = length;
-        comboBoxColumn(jTable1.getColumnModel().getColumn(1));
-        comboBoxColumn(jTable1.getColumnModel().getColumn(2));
-        comboBoxColumn(jTable1.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
         addRowsTable(length);
         setDecimalPoint();
         this.collectTestDataObj= obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
-    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +75,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         mainButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        inputTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         pointPositionComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
@@ -98,7 +112,7 @@ public class CustomIntGui extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        inputTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,8 +135,8 @@ public class CustomIntGui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
+        inputTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(inputTable);
 
         jLabel3.setText("Decimal Point position:-");
 
@@ -207,8 +221,16 @@ public class CustomIntGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        this.dispose();
-        collectTestDataObj.TestCase(collectTestDataObj);
+        
+        if(CustomInt.checkAllFeilds(inputTable.getModel()))
+        {
+            
+            this.dispose();
+            //collectTestDataObj.TestCase(collectTestDataObj); 
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Error on line "+CustomInt.getErrorLine()+" .");
+        }
         
     }//GEN-LAST:event_nextButtonActionPerformed
     
@@ -224,7 +246,9 @@ public class CustomIntGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
         this.dispose();
-        CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
+        // CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
+        /* delete below line after testing and uncoment the top line*/
+        CustomIntGui customIntGuiFrame = new CustomIntGui();
         customIntGuiFrame.setSize(550,550);
         customIntGuiFrame.setLocationRelativeTo(null);
         customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -249,8 +273,8 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     
     public void addRowsTable(int length) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        jTable1 = new JTable(model);
+        DefaultTableModel model = (DefaultTableModel) inputTable.getModel();
+        inputTable = new JTable(model);
         for(int i = 0; i<length; i++)
         {
             model.addRow(new Object[]{i+1, "",
@@ -320,11 +344,11 @@ public class CustomIntGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel headerLabel;
+    private javax.swing.JTable inputTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;

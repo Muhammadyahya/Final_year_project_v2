@@ -22,6 +22,15 @@ public class Common {
     private static boolean next;
     
     
+    public static ArrayList<String> addToArray(String pram)
+    {
+        ArrayList<String> temp = new ArrayList<>();
+        temp.add(pram);
+        
+        return temp;
+    }
+    
+    
     /**********************************************************/
     
     public static String smallerChar(Object pramOne, Object pramTwo)

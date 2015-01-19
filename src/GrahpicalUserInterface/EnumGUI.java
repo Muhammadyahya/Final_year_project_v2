@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface;
+package GrahpicalUserInterface;
 
 import Logic.Common;
 import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
+import Logic.UserInterface.LogicEnum;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -120,31 +122,17 @@ public class EnumGUI extends javax.swing.JFrame {
         
         if(randomCheckBox.isSelected())
         {
-            // randomly pick one
-            if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly.")))
-            {
-                String temp="";
-                for(String stringObj: storeEnumObj.getEnumValue())
-                {
-                    temp=temp+stringObj+" , ";
-                }
-                temp= temp.substring(0, temp.length()-3);
-                collectTestDataObj.addTestCaseInfo(Common.concatenateString(temp));
+                LogicEnum logicEnumObj = new LogicEnum(storeEnumObj);
+                collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray());
                 this.dispose();
                 collectTestDataObj.TestCase(collectTestDataObj);
-            }
         }
         else if (enumJList.getSelectedIndices().length > 0)
         {
             if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
             {
-                String temp="";
-                for(Object enumObj: enumJList.getSelectedValuesList())
-                {
-                   temp=temp+enumObj+" , "; 
-                }
-                temp= temp.substring(0, temp.length()-3);
-                collectTestDataObj.addTestCaseInfo(Common.concatenateString(temp));
+                LogicEnum logicEnumObj = new LogicEnum(storeEnumObj);
+                collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray());
                 this.dispose();
                 collectTestDataObj.TestCase(collectTestDataObj);
             }   
@@ -167,10 +155,7 @@ public class EnumGUI extends javax.swing.JFrame {
         }
         this.enumJList.setModel(model);
     }
-    
- 
-    
-    
+
     
     /**
      * @param args the command line arguments
