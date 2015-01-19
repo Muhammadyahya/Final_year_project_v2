@@ -17,7 +17,7 @@ public class StringGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntGenGUI
      */
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     public StringGUI() {
         initComponents();
@@ -26,10 +26,10 @@ public class StringGUI extends javax.swing.JFrame {
     
     public StringGUI(CollectTestData obj) {
         initComponents();
-        this.tdgObj = obj;
+        this.collectTestDataObj = obj;
         this.radioButton();              
-        pramNameLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));     
-        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));     
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
 
     }
     
@@ -225,7 +225,7 @@ public class StringGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,1);
+                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,1);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
                 customIntGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
@@ -237,9 +237,9 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
@@ -251,9 +251,9 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
                 {   
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select Alphabet One, Alphabet Two and Length.");
@@ -264,9 +264,9 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                  }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select a length.");

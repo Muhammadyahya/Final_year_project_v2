@@ -17,7 +17,7 @@ public class IntegerGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntegerGUI
      */
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     public IntegerGUI() {
         initComponents();
@@ -26,10 +26,10 @@ public class IntegerGUI extends javax.swing.JFrame {
     
     public IntegerGUI(CollectTestData obj) {
         initComponents();
-        this.tdgObj = obj;
+        this.collectTestDataObj = obj;
         this.radioButton();              
-        pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
-        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+        pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
     
     /*
@@ -217,7 +217,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,1);
+                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,1);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
                 customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -229,9 +229,9 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(specificTextField.getText()));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
@@ -244,9 +244,9 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {   
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText())));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText())));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select Value One and Value Two.");
@@ -257,9 +257,9 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem()));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                  }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select a length.");

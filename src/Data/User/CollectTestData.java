@@ -37,7 +37,7 @@ public class CollectTestData {
         this.testCaseInfo.add(pram);
     }
     
-    public void TestCase(CollectTestData tdgObj)
+    public void TestCase(CollectTestData collectTestDataObj)
     {
         if(count < prameterLength)
         {
@@ -46,7 +46,7 @@ public class CollectTestData {
             if(obj instanceof StoreEnum)
             {
                 StoreEnum x =   (StoreEnum)obj;
-                EnumGUI enumGenGuiFrame = new EnumGUI(x, tdgObj);
+                EnumGUI enumGenGuiFrame = new EnumGUI(x, collectTestDataObj);
                 enumGenGuiFrame.setSize(550,500);
                 enumGenGuiFrame.setLocationRelativeTo(null);
                 enumGenGuiFrame.setDefaultCloseOperation(EnumGUI.DISPOSE_ON_CLOSE);
@@ -59,7 +59,7 @@ public class CollectTestData {
                 String tempElementType = (String)swdObj.getElmentType().get(count);
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
-                    IntegerGUI intGenGUIFrame = new IntegerGUI(tdgObj);
+                    IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
                     intGenGUIFrame.setSize(500,600);
                     intGenGUIFrame.setLocationRelativeTo(null);
                     intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -68,7 +68,7 @@ public class CollectTestData {
                 }
                 
                 else if(tempElementType.equals("string")){
-                    StringGUI stringGUIFrame = new StringGUI(tdgObj);
+                    StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
                     stringGUIFrame.setSize(500,600);
                     stringGUIFrame.setLocationRelativeTo(null);
                     stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
@@ -77,7 +77,7 @@ public class CollectTestData {
                 }
                 
                 else if(tempElementType.equals("boolean")){
-                    BooleanGUI booleanGUIFrame = new BooleanGUI(tdgObj);
+                    BooleanGUI booleanGUIFrame = new BooleanGUI(collectTestDataObj);
                     booleanGUIFrame.setSize(500,400);
                     booleanGUIFrame.setLocationRelativeTo(null);
                     booleanGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
@@ -88,7 +88,7 @@ public class CollectTestData {
                 else{
                     
                     JOptionPane.showMessageDialog(null, "Unknow dataType... Class: TestDataGen!");
-                    TestFrame testFrame = new TestFrame(tdgObj);
+                    TestFrame testFrame = new TestFrame(collectTestDataObj);
                     testFrame.setSize(550,500);
                     testFrame.setLocationRelativeTo(null);
                     testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);

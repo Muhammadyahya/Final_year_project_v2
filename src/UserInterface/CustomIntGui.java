@@ -24,7 +24,7 @@ public class CustomIntGui extends javax.swing.JFrame {
      * Creates new form CustomIntGui
      */
     private int length;
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     public CustomIntGui() {
         initComponents();
@@ -40,9 +40,9 @@ public class CustomIntGui extends javax.swing.JFrame {
         comboBoxColumn(jTable1.getColumnModel().getColumn(3));
         addRowsTable(length);
         setDecimalPoint();
-        this.tdgObj= obj;
-        pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
-        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+        this.collectTestDataObj= obj;
+        pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
     
     /**
@@ -208,7 +208,7 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         this.dispose();
-        tdgObj.TestCase(tdgObj);
+        collectTestDataObj.TestCase(collectTestDataObj);
         
     }//GEN-LAST:event_nextButtonActionPerformed
     
@@ -224,7 +224,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
         this.dispose();
-        CustomIntGui customIntGuiFrame = new CustomIntGui(tdgObj,tempLength);
+        CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
         customIntGuiFrame.setSize(550,550);
         customIntGuiFrame.setLocationRelativeTo(null);
         customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -238,7 +238,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
         {
             this.dispose();
-            IntegerGUI intGenGUIFrame = new IntegerGUI(tdgObj);
+            IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
             intGenGUIFrame.setSize(450,600);
             intGenGUIFrame.setLocationRelativeTo(null);
             intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);

@@ -22,18 +22,18 @@ public class EnumGUI extends javax.swing.JFrame {
     
     private StoreEnum storeEnumObj;
     DefaultListModel model = new DefaultListModel();
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     
     public EnumGUI() {
         initComponents();
     }
     
-    public EnumGUI(StoreEnum storeEnumObj, CollectTestData tdgObj) {
+    public EnumGUI(StoreEnum storeEnumObj, CollectTestData collectTestDataObj) {
         initComponents();
         this.storeEnumObj = storeEnumObj;
         this.setDefaultListModel();
-        this.tdgObj = tdgObj;
+        this.collectTestDataObj = collectTestDataObj;
         this.pramNameLabel.setText("Prameter Name : "+this.storeEnumObj.getResElementName());
     }
     
@@ -129,9 +129,9 @@ public class EnumGUI extends javax.swing.JFrame {
                     temp=temp+stringObj+" , ";
                 }
                 temp= temp.substring(0, temp.length()-3);
-                tdgObj.addTestCaseInfo(Common.concatenateString(temp));
+                collectTestDataObj.addTestCaseInfo(Common.concatenateString(temp));
                 this.dispose();
-                tdgObj.TestCase(tdgObj);
+                collectTestDataObj.TestCase(collectTestDataObj);
             }
         }
         else if (enumJList.getSelectedIndices().length > 0)
@@ -144,9 +144,9 @@ public class EnumGUI extends javax.swing.JFrame {
                    temp=temp+enumObj+" , "; 
                 }
                 temp= temp.substring(0, temp.length()-3);
-                tdgObj.addTestCaseInfo(Common.concatenateString(temp));
+                collectTestDataObj.addTestCaseInfo(Common.concatenateString(temp));
                 this.dispose();
-                tdgObj.TestCase(tdgObj);
+                collectTestDataObj.TestCase(collectTestDataObj);
             }   
         }
         else{

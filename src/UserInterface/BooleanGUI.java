@@ -17,7 +17,7 @@ public class BooleanGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntGUI
      */
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     public BooleanGUI() {
         initComponents();
@@ -25,9 +25,9 @@ public class BooleanGUI extends javax.swing.JFrame {
     
     public BooleanGUI(CollectTestData obj) {
         initComponents();
-        this.tdgObj = obj;             
-        pramLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));
-        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+        this.collectTestDataObj = obj;             
+        pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
 
     
@@ -141,9 +141,9 @@ public class BooleanGUI extends javax.swing.JFrame {
         
         if(!valueComboBox.getSelectedItem().equals("Please Select"))
         {
-                tdgObj.addTestCaseInfo(Common.concatenateString(""+valueComboBox.getSelectedItem()));
+                collectTestDataObj.addTestCaseInfo(Common.concatenateString(""+valueComboBox.getSelectedItem()));
                 this.dispose();
-                tdgObj.TestCase(tdgObj);
+                collectTestDataObj.TestCase(collectTestDataObj);
         }
         else
         {

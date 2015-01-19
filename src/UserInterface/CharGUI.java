@@ -17,7 +17,7 @@ public class CharGUI extends javax.swing.JFrame {
     /**
      * Creates new form IntGenGUI
      */
-    private CollectTestData tdgObj;
+    private CollectTestData collectTestDataObj;
     
     public CharGUI() {
         initComponents();
@@ -26,10 +26,10 @@ public class CharGUI extends javax.swing.JFrame {
     
     public CharGUI(CollectTestData obj) {
         initComponents();
-        this.tdgObj = obj;
+        this.collectTestDataObj = obj;
         this.radioButton();              
-        pramNameLabel.setText("Parameter Name : "+ tdgObj.getStoreWsdlData().getElmentName().get(tdgObj.getCount()));     
-        pramTypeLabel.setText("Parameter Type : "+ tdgObj.getStoreWsdlData().getElmentType().get(tdgObj.getCount()));
+        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));     
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
 
     }
     
@@ -204,9 +204,9 @@ public class CharGUI extends javax.swing.JFrame {
                 if(!specificComboBox.getSelectedItem().equals("Please Select"))
                 {
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString(""+specificComboBox.getSelectedItem()));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString(""+specificComboBox.getSelectedItem()));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select an alphabet.");
@@ -218,9 +218,9 @@ public class CharGUI extends javax.swing.JFrame {
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select"))
                 {   
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString("0-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString("0-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select Alphabet One and Alphabet Two.");
@@ -230,9 +230,9 @@ public class CharGUI extends javax.swing.JFrame {
             {
                
                     // below line store and concatenate the String 
-                    tdgObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"));
+                    collectTestDataObj.addTestCaseInfo(Common.concatenateString("!R!A!N!D!O!M!"));
                     this.dispose();
-                    tdgObj.TestCase(tdgObj);
+                    collectTestDataObj.TestCase(collectTestDataObj);
  
             }
         }
