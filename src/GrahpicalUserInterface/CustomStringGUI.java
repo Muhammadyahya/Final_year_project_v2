@@ -129,13 +129,11 @@ public class CustomStringGUI extends javax.swing.JFrame {
         });
         inputTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(inputTable);
-        if (inputTable.getColumnModel().getColumnCount() > 0) {
-            inputTable.getColumnModel().getColumn(0).setMaxWidth(50);
-            inputTable.getColumnModel().getColumn(1).setMaxWidth(55);
-            inputTable.getColumnModel().getColumn(2).setMaxWidth(65);
-            inputTable.getColumnModel().getColumn(3).setMaxWidth(65);
-            inputTable.getColumnModel().getColumn(4).setMaxWidth(60);
-        }
+        inputTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        inputTable.getColumnModel().getColumn(1).setMaxWidth(55);
+        inputTable.getColumnModel().getColumn(2).setMaxWidth(65);
+        inputTable.getColumnModel().getColumn(3).setMaxWidth(65);
+        inputTable.getColumnModel().getColumn(4).setMaxWidth(60);
 
         lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         lengthComboBox.setToolTipText("");
@@ -205,14 +203,22 @@ public class CustomStringGUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-        if(LogicCustomInt.checkAllFeilds(inputTable.getModel()))
+     
+        LogicCustomString logicCustomStringObj = new LogicCustomString();
+        if(logicCustomStringObj.checkAllFeilds(inputTable.getModel()))
         {
+            collectTestDataObj.addTestCaseInfo(logicCustomStringObj.getCustomArrayListData());
             
+            /* delete this for loop after testing
+            for(String a : logicCustomStringObj.getCustomArrayListData())
+            {
+                System.out.println("aaaaa "+a);
+            }*/
             this.dispose();
-            //collectTestDataObj.TestCase(collectTestDataObj); 
+            collectTestDataObj.TestCase(collectTestDataObj); 
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error on line "+LogicCustomInt.getErrorLine()+" .");
+            JOptionPane.showMessageDialog(null,"Error on line "+logicCustomStringObj.getErrorLine()+" .");
         }
         
     }//GEN-LAST:event_nextButtonActionPerformed
@@ -253,14 +259,13 @@ public class CustomStringGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mainButtonActionPerformed
     
-    
     public void addRowsTable(int length) {
         DefaultTableModel model = (DefaultTableModel) inputTable.getModel();
         inputTable = new JTable(model);
         for(int i = 0; i<length; i++)
         {
             model.addRow(new Object[]{i+1, "",
-                "", "", new Boolean(false)});
+                "", "", new Boolean(false), new Boolean(false)});
         }
     }
     
