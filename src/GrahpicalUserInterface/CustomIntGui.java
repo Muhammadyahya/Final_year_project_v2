@@ -225,7 +225,13 @@ public class CustomIntGui extends javax.swing.JFrame {
         LogicCustomInt logicCustomIntObj = new LogicCustomInt();
         
         if(logicCustomIntObj.checkAllFeilds(inputTable.getModel()))
-        {            
+        {        
+            
+            // delete this for loop after testing
+            for(String a : logicCustomIntObj.getCustomArrayListData())
+            {
+                System.out.println("aaaaa "+a);
+            }
             collectTestDataObj.addTestCaseInfo(logicCustomIntObj.getCustomArrayListData());
             this.dispose();
             //collectTestDataObj.TestCase(collectTestDataObj); 
