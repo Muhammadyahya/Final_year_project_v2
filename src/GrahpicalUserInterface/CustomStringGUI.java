@@ -33,9 +33,9 @@ public class CustomStringGUI extends javax.swing.JFrame {
         
         this.length = 4;
         
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
         addRowsTable(length);
         
         
@@ -46,11 +46,10 @@ public class CustomStringGUI extends javax.swing.JFrame {
     public CustomStringGUI(CollectTestData obj, int length) {
         initComponents();
         this.length = length;
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
         addRowsTable(length);
-        setDecimalPoint();
         this.collectTestDataObj= obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
@@ -73,10 +72,6 @@ public class CustomStringGUI extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         inputTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        pointPositionComboBox = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        pointPositionTextField = new javax.swing.JTextField();
         lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
 
@@ -114,14 +109,14 @@ public class CustomStringGUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Digit", "Specific", "Value one", "Value two", "Random"
+                "Digit", "Specific", "Value one", "Value two", "Random", "Random with Punctuation"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                false, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -134,10 +129,13 @@ public class CustomStringGUI extends javax.swing.JFrame {
         });
         inputTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(inputTable);
-
-        jLabel3.setText("Decimal Point position:-");
-
-        jLabel4.setText("Or");
+        if (inputTable.getColumnModel().getColumnCount() > 0) {
+            inputTable.getColumnModel().getColumn(0).setMaxWidth(50);
+            inputTable.getColumnModel().getColumn(1).setMaxWidth(55);
+            inputTable.getColumnModel().getColumn(2).setMaxWidth(65);
+            inputTable.getColumnModel().getColumn(3).setMaxWidth(65);
+            inputTable.getColumnModel().getColumn(4).setMaxWidth(60);
+        }
 
         lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         lengthComboBox.setToolTipText("");
@@ -165,25 +163,19 @@ public class CustomStringGUI extends javax.swing.JFrame {
                                 .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
-                            .addComponent(jScrollPane2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(6, 6, 6)
-                                .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                            .addComponent(pramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                            .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,20 +190,14 @@ public class CustomStringGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -219,14 +205,14 @@ public class CustomStringGUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-        if(CustomInt.checkAllFeilds(inputTable.getModel()))
+        if(LogicCustomInt.checkAllFeilds(inputTable.getModel()))
         {
             
             this.dispose();
             //collectTestDataObj.TestCase(collectTestDataObj); 
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error on line "+CustomInt.getErrorLine()+" .");
+            JOptionPane.showMessageDialog(null,"Error on line "+LogicCustomInt.getErrorLine()+" .");
         }
         
     }//GEN-LAST:event_nextButtonActionPerformed
@@ -250,8 +236,7 @@ public class CustomStringGUI extends javax.swing.JFrame {
         customIntGuiFrame.setLocationRelativeTo(null);
         customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
         customIntGuiFrame.setVisible(true);
-        customIntGuiFrame.revalidate();
-        
+        customIntGuiFrame.revalidate();     
     }//GEN-LAST:event_lengthComboBoxActionPerformed
     
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
@@ -279,21 +264,13 @@ public class CustomStringGUI extends javax.swing.JFrame {
         }
     }
     
-    public void comboBoxColumn(TableColumn columnNum) {
+    public void comboBoxColumn(TableColumn columnNum, String value) {
         
         LogicCustomString logicCustomStringObj = new LogicCustomString();
-        columnNum.setCellEditor(new DefaultCellEditor(logicCustomStringObj.addValueToJComboBox()));
+        columnNum.setCellEditor(new DefaultCellEditor(logicCustomStringObj.addValueToJComboBox(value)));
+       
+    }
         
-    }
-    
-    public void setDecimalPoint()
-    {
-        for (int i = 0; i < length; i++) {
-            pointPositionComboBox.addItem(i+1);
-        }
-    }
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -333,14 +310,10 @@ public class CustomStringGUI extends javax.swing.JFrame {
     private javax.swing.JLabel headerLabel;
     private javax.swing.JTable inputTable;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
-    private javax.swing.JComboBox pointPositionComboBox;
-    private javax.swing.JTextField pointPositionTextField;
     private javax.swing.JLabel pramLabel;
     private javax.swing.JLabel pramTypeLabel;
     // End of variables declaration//GEN-END:variables

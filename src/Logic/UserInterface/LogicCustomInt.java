@@ -11,7 +11,7 @@ import javax.swing.table.TableModel;
  *
  * @author my301
  */
-public class CustomInt {
+public class LogicCustomInt {
     
     static int errorLine = 0;
     
@@ -23,6 +23,7 @@ public class CustomInt {
           // /* 
             if(inputTable.getValueAt(i, 4).equals(true))
             {
+                
                 System.out.println("1111111111    "+inputTable.getValueAt(i, 4));
 
             }

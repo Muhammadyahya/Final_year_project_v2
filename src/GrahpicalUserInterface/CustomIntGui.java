@@ -222,14 +222,14 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-        if(CustomInt.checkAllFeilds(inputTable.getModel()))
+        if(LogicCustomInt.checkAllFeilds(inputTable.getModel()))
         {
             
             this.dispose();
             //collectTestDataObj.TestCase(collectTestDataObj); 
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error on line "+CustomInt.getErrorLine()+" .");
+            JOptionPane.showMessageDialog(null,"Error on line "+LogicCustomInt.getErrorLine()+" .");
         }
         
     }//GEN-LAST:event_nextButtonActionPerformed
