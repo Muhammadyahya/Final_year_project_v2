@@ -6,6 +6,7 @@ package GrahpicalUserInterface;
 
 import Data.User.*;
 import Logic.UserInterface.*;
+import aDeleteME.TestFrame;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -54,7 +55,7 @@ public class CustomStringGUI extends javax.swing.JFrame {
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
-        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -203,24 +204,18 @@ public class CustomStringGUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-     
+        
         LogicCustomString logicCustomStringObj = new LogicCustomString();
         if(logicCustomStringObj.checkAllFeilds(inputTable.getModel()))
         {
             collectTestDataObj.addTestCaseInfo(logicCustomStringObj.getCustomArrayListData());
-            
-            /* delete this for loop after testing
-            for(String a : logicCustomStringObj.getCustomArrayListData())
-            {
-                System.out.println("aaaaa "+a);
-            }*/
             this.dispose();
-            collectTestDataObj.TestCase(collectTestDataObj); 
+            collectTestDataObj.increaseCount(); 
+            collectTestDataObj.TestCase(collectTestDataObj);
         }
         else{
             JOptionPane.showMessageDialog(null,"Error on line "+logicCustomStringObj.getErrorLine()+" .");
-        }
-        
+        }        
     }//GEN-LAST:event_nextButtonActionPerformed
     
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -234,15 +229,14 @@ public class CustomStringGUI extends javax.swing.JFrame {
     private void lengthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthComboBoxActionPerformed
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
+        
         this.dispose();
-        // CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
-        /* delete below line after testing and uncoment the top line*/
-        CustomStringGUI customIntGuiFrame = new CustomStringGUI();
-        customIntGuiFrame.setSize(550,550);
-        customIntGuiFrame.setLocationRelativeTo(null);
-        customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-        customIntGuiFrame.setVisible(true);
-        customIntGuiFrame.revalidate();     
+        CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,tempLength);
+        customStringGuiFrame.setSize(550,550);
+        customStringGuiFrame.setLocationRelativeTo(null);
+        customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
+        customStringGuiFrame.setVisible(true);
+        customStringGuiFrame.revalidate();   
     }//GEN-LAST:event_lengthComboBoxActionPerformed
     
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
@@ -250,12 +244,12 @@ public class CustomStringGUI extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
         {
             this.dispose();
-            IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
-            intGenGUIFrame.setSize(450,600);
-            intGenGUIFrame.setLocationRelativeTo(null);
-            intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            intGenGUIFrame.setVisible(true);
-            intGenGUIFrame.revalidate();
+            StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
+            stringGUIFrame.setSize(500,600);
+            stringGUIFrame.setLocationRelativeTo(null);
+            stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            stringGUIFrame.setVisible(true);
+            stringGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
     
@@ -273,9 +267,9 @@ public class CustomStringGUI extends javax.swing.JFrame {
         
         LogicCustomString logicCustomStringObj = new LogicCustomString();
         columnNum.setCellEditor(new DefaultCellEditor(logicCustomStringObj.addValueToJComboBox(value)));
-       
-    }
         
+    }
+    
     /**
      * @param args the command line arguments
      */

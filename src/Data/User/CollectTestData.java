@@ -25,7 +25,7 @@ public class CollectTestData {
     private int numOfCase;
     private int prameterLength;
     private int count;
-
+    
     
     public CollectTestData(StoreWsdlData swdObj, String numOfCase)
     {
@@ -43,8 +43,12 @@ public class CollectTestData {
     
     public void TestCase(CollectTestData collectTestDataObj)
     {
+        System.out.println("cccccccccccccccccccccc"+ count);
+        System.out.println("ttttttttttttttttttttttttttttttttt");
         if(count < prameterLength)
         {
+            
+            System.out.println("ppppppppppppppppppppppppppppppppppppp");
             Object obj = swdObj.getElmentType().get(count);
             
             if(obj instanceof StoreEnum)
@@ -56,7 +60,6 @@ public class CollectTestData {
                 enumGenGuiFrame.setDefaultCloseOperation(EnumGUI.DISPOSE_ON_CLOSE);
                 enumGenGuiFrame.setVisible(true);
                 enumGenGuiFrame.revalidate();
-                
             }
             else if(obj instanceof String)
             {
@@ -100,20 +103,18 @@ public class CollectTestData {
                     testFrame.revalidate();
                 }
             }
-            /* This count++ is very important because i check it against parameter length to keep it in the limit */
-            count++;
         }
-        /* delete else case after testing */ 
         else{
-            
+            /* delete this at very end */
             for (int i = 0; i < testCaseInfo.size(); i++) {
-                System.out.println("iiiiiiiiiiiiiiiiiiiii  " + testCaseInfo.size());
+                
                 for (int j = 0; j < testCaseInfo.get(i).size(); j++) {
-                    System.out.println("jjjjjjjjjjjjjjj  " + testCaseInfo.get(i).size());
-                    System.out.println(testCaseInfo.get(i).get(j)  +"ppppppppppppppp:   ");
+                    System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
                 }
+                
             }
         }
+        
     }// end method
     
     
@@ -125,5 +126,10 @@ public class CollectTestData {
     public int getCount()
     {
         return count;
+    }
+    
+    public void increaseCount()
+    {
+        count++;
     }
 }

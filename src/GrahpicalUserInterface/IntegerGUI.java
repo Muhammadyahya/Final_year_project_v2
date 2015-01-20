@@ -231,6 +231,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
                     this.dispose();
+                    collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -246,6 +247,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
                     this.dispose();
+                    collectTestDataObj.increaseCount();                   
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -259,6 +261,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
+                    collectTestDataObj.increaseCount();                   
                     collectTestDataObj.TestCase(collectTestDataObj);
                  }
                 else{

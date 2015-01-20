@@ -33,26 +33,21 @@ public class LogicCustomString {
             if(inputTable.getValueAt(i, 4).equals(true))
             { 
                 inputTableData.add((String)"Random withOut "+inputTable.getValueAt(i, 4));
-                //System.out.println("1111111111    "+inputTable.getValueAt(i, 4));                
             }
             else if(inputTable.getValueAt(i,5).equals(true))
             {
                 inputTableData.add((String)"Random with "+inputTable.getValueAt(i, 5));
-               // System.out.println("111111........    "+inputTable.getValueAt(i, 5));                
             }
             else if(!inputTable.getValueAt(i, 1).equals(""))
             {
                 inputTableData.add((String)inputTable.getValueAt(i, 1));
-                //System.out.println("222222222222222222    "+inputTable.getValueAt(i, 1));
             }
             else if(!inputTable.getValueAt(i, 2).equals("") && !inputTable.getValueAt(i, 3).equals(""))
             {
                 inputTableData.add((String)inputTable.getValueAt(i, 2)+" "+(String)inputTable.getValueAt(i, 3));
-                //System.out.println("333333333333333333    "+inputTable.getValueAt(i, 2)+"    "+inputTable.getValueAt(i, 3));
             }
             else
             {                
-                //System.out.println("44444444444444444   false");
                 errorLine = i+1;
                 check =  false;
                 break;
@@ -93,27 +88,6 @@ public class LogicCustomString {
                 comboBox.addItem(valueTwo[i]);
             }
         }
-        /* delete below two for loops 
-        for (int i = 0; i < valueOne.length; i++) {
-            
-            System.out.println("   " + valueOne[i]);
-        }
-        
-        
-        for (int i = 0; i < valueTwo.length; i++) {
-            
-            System.out.println("   " + valueTwo[i]);
-        }        
-        * 
-        * */
         return comboBox;
-    }
-    
-    /* delete the main method */
-    public static void main(String [] agrs)
-    {
-        LogicCustomString o = new LogicCustomString();
-        o.addValueToJComboBox("valueTwo");
-    }
-    
+    }    
 }

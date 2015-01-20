@@ -18,6 +18,7 @@ public class StringGUI extends javax.swing.JFrame {
      * Creates new form IntGenGUI
      */
     private CollectTestData collectTestDataObj;
+    private boolean countChecked;
     
     public StringGUI() {
         initComponents();
@@ -27,10 +28,10 @@ public class StringGUI extends javax.swing.JFrame {
     public StringGUI(CollectTestData obj) {
         initComponents();
         this.collectTestDataObj = obj;
-        this.radioButton();              
+        this.radioButton();
+        this.countChecked = false;
         pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));     
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
-
     }
     
     /*
@@ -224,13 +225,14 @@ public class StringGUI extends javax.swing.JFrame {
             if(customRadioButton.isSelected())
             {
                 // go the custom int GUI
+                System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssss");
                 this.dispose();
-                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,1);
-                customIntGuiFrame.setSize(550,550);
-                customIntGuiFrame.setLocationRelativeTo(null);
-                customIntGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
-                customIntGuiFrame.setVisible(true);
-                customIntGuiFrame.revalidate();
+                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,1);
+                customStringGuiFrame.setSize(550,550);
+                customStringGuiFrame.setLocationRelativeTo(null);
+                customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
+                customStringGuiFrame.setVisible(true);
+                customStringGuiFrame.revalidate();
             }
             else if(specificRadioButton.isSelected())
             {
@@ -239,6 +241,7 @@ public class StringGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
                     this.dispose();
+                    collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -246,12 +249,12 @@ public class StringGUI extends javax.swing.JFrame {
                 }
             }
             else if(randomBetweenRadioButton.isSelected())
-            {
-                
+            {   
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
                 {   
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem()))));                    this.dispose();
+                    collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -265,6 +268,7 @@ public class StringGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
+                    collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
                  }
                 else{

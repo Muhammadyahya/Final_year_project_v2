@@ -206,6 +206,7 @@ public class CharGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(""+specificComboBox.getSelectedItem())));
                     this.dispose();
+                    collectTestDataObj.increaseCount();  
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -219,6 +220,8 @@ public class CharGUI extends javax.swing.JFrame {
                 {   
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("0-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem()))));                    this.dispose();
+                    this.dispose();
+                    collectTestDataObj.increaseCount();  
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -231,6 +234,7 @@ public class CharGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String 
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!")));
                     this.dispose();
+                    collectTestDataObj.increaseCount();  
                     collectTestDataObj.TestCase(collectTestDataObj);
  
             }

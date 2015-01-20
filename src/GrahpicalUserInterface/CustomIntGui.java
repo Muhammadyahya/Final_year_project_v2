@@ -226,15 +226,10 @@ public class CustomIntGui extends javax.swing.JFrame {
         
         if(logicCustomIntObj.checkAllFeilds(inputTable.getModel()))
         {        
-            
-            // delete this for loop after testing
-            for(String a : logicCustomIntObj.getCustomArrayListData())
-            {
-                System.out.println("aaaaa "+a);
-            }
             collectTestDataObj.addTestCaseInfo(logicCustomIntObj.getCustomArrayListData());
             this.dispose();
-            //collectTestDataObj.TestCase(collectTestDataObj); 
+            collectTestDataObj.increaseCount();                    
+            collectTestDataObj.TestCase(collectTestDataObj); 
         }
         else{
             JOptionPane.showMessageDialog(null,"Error on line "+logicCustomIntObj.getErrorLine()+" .");
@@ -254,9 +249,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
         this.dispose();
-        // CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
-        /* delete below line after testing and uncoment the top line*/
-        CustomIntGui customIntGuiFrame = new CustomIntGui();
+        CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
         customIntGuiFrame.setSize(550,550);
         customIntGuiFrame.setLocationRelativeTo(null);
         customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);

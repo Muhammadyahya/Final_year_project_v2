@@ -143,6 +143,7 @@ public class BooleanGUI extends javax.swing.JFrame {
         {
                 collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(""+valueComboBox.getSelectedItem())));
                 this.dispose();
+                collectTestDataObj.increaseCount();  
                 collectTestDataObj.TestCase(collectTestDataObj);
         }
         else
