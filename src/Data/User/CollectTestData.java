@@ -10,7 +10,7 @@ import GrahpicalUserInterface.IntegerGUI;
 import GrahpicalUserInterface.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
-import Logic.GenerateTestData.DecodeArrayList;
+import Logic.GenerateTestData.DecryptArrayList;
 import aDeleteME.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -107,14 +107,19 @@ public class CollectTestData {
             
             for (int a = 0; a < numTestCase; a++)
             {
-                for (int i = 0; i < testCaseInfo.size(); i++) {
+                for (int i = 0; i < testCaseInfo.size(); i++) 
+                {                    
+                    for (int j = 0; j < testCaseInfo.get(i).size(); j++) 
+                    {
+                        //System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
+                        
+                    } //end 3rd for loop inside else case
+                   
+                    DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i));
+                    decodeArrayList.startDecoding(i);
                     
-                    for (int j = 0; j < testCaseInfo.get(i).size(); j++) {
-                        System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
-                    }
-                    DecodeArrayList decodeArrayList = new DecodeArrayList(swdObj,testCaseInfo.get(i));
-                }
-            }
+                }// end 2nd for loop inside else case
+            }// end 1st for loop inside else
         }// else of 1st IF 
     }// end method
     

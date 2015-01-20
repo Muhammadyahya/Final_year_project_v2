@@ -6,6 +6,7 @@ package Logic.UserInterface;
 
 import Data.WSDL.StoreEnum;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -24,9 +25,21 @@ public class LogicEnum {
     public ArrayList<String> addEnumToArray()
     {
         ArrayList<String> temp = new ArrayList<>();
+        temp.add("Enum");
         for(String stringObj: storeEnumObj.getEnumValue())
         {
             temp.add(stringObj);
+        }
+        return temp;
+    }
+    
+    public ArrayList<String> addEnumToArray(List obj)
+    {
+        ArrayList<String> temp = new ArrayList<>();
+        temp.add("Enum");
+        for(Object stringObj: obj)
+        {
+            temp.add(""+stringObj);
         }
         return temp;
     }

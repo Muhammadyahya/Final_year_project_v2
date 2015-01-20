@@ -23,6 +23,7 @@ public class LogicCustomInt {
     public boolean checkAllFeilds(TableModel inputTable)
     {
         inputTableData = new ArrayList<String>();
+        inputTableData.add("Custom Int");
         int rowSize = inputTable.getRowCount();
         boolean check = true;
         for (int i = 0; i < rowSize; i++) {

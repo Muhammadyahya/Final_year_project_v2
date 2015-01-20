@@ -149,7 +149,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
         
         //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
-              wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
+        //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
         //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
   
@@ -157,7 +157,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
                 /* for ITL */
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
+              wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         

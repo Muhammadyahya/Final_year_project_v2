@@ -25,6 +25,7 @@ public class LogicCustomString {
     public boolean checkAllFeilds(TableModel inputTable)
     {
         inputTableData = new ArrayList<String>();
+        inputTableData.add("Custom String");
         int rowSize = inputTable.getRowCount();
         boolean check = true;
 

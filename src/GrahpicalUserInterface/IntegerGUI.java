@@ -7,6 +7,7 @@ package GrahpicalUserInterface;
 import Data.User.CollectTestData;
 import Logic.Common;
 import javax.swing.JOptionPane;
+import Logic.GenerateTestData.*;
 
 /**
  *
@@ -229,7 +230,11 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                   // collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
+                    
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
@@ -246,7 +251,12 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
+                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
+                    
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue", Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText())));
+                   
+                    ***** above line is not correct need to fix it,,,, it should not be biggerchar.... ******************
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);

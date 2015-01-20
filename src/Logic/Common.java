@@ -21,7 +21,7 @@ public class Common {
     
     private static boolean next;
     
-    
+    /*
     public static ArrayList<String> addToArray(String pram)
     {
         ArrayList<String> temp = new ArrayList<>();

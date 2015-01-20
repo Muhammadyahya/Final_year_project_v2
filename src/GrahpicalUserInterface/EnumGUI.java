@@ -133,7 +133,7 @@ public class EnumGUI extends javax.swing.JFrame {
             if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
             {
                 LogicEnum logicEnumObj = new LogicEnum(storeEnumObj);
-                collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray());
+                collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray(enumJList.getSelectedValuesList()));
                 this.dispose();
                 collectTestDataObj.increaseCount();  
                 collectTestDataObj.TestCase(collectTestDataObj);
