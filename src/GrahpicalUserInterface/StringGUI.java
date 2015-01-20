@@ -225,9 +225,8 @@ public class StringGUI extends javax.swing.JFrame {
             if(customRadioButton.isSelected())
             {
                 // go the custom int GUI
-                System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssss");
                 this.dispose();
-                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,1);
+                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,0);
                 customStringGuiFrame.setSize(550,550);
                 customStringGuiFrame.setLocationRelativeTo(null);
                 customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);

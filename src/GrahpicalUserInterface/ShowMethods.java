@@ -9,6 +9,7 @@ import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
 import Data.WSDL.StoreWsdlData;
 import Logic.ParsingWsdl;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -198,9 +199,8 @@ public class ShowMethods extends javax.swing.JFrame {
                     }
                     else{
                         //this.dispose();
-                        CollectTestData genObj = new CollectTestData(swdObj,input);
-                        genObj.TestCase(genObj);
-                        //JOptionPane.showMessageDialog(null, "I am currently working on this :)");
+                        CollectTestData collectTestDataObj = new CollectTestData(swdObj,numTestCase);
+                        collectTestDataObj.TestCase(collectTestDataObj);
                     }
                 }
                 else{

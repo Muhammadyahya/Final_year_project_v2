@@ -48,17 +48,17 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     public CustomIntGui(CollectTestData obj, int length) {
         initComponents();
-        this.length = length;
+        this.length = length+1;
         comboBoxColumn(inputTable.getColumnModel().getColumn(1));
         comboBoxColumn(inputTable.getColumnModel().getColumn(2));
         comboBoxColumn(inputTable.getColumnModel().getColumn(3));
-        addRowsTable(length);
+        addRowsTable(this.length);
         setDecimalPoint();
         this.collectTestDataObj= obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
-        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,11 +225,11 @@ public class CustomIntGui extends javax.swing.JFrame {
         LogicCustomInt logicCustomIntObj = new LogicCustomInt();
         
         if(logicCustomIntObj.checkAllFeilds(inputTable.getModel()))
-        {        
+        {
             collectTestDataObj.addTestCaseInfo(logicCustomIntObj.getCustomArrayListData());
             this.dispose();
-            collectTestDataObj.increaseCount();                    
-            collectTestDataObj.TestCase(collectTestDataObj); 
+            collectTestDataObj.increaseCount();
+            collectTestDataObj.TestCase(collectTestDataObj);
         }
         else{
             JOptionPane.showMessageDialog(null,"Error on line "+logicCustomIntObj.getErrorLine()+" .");

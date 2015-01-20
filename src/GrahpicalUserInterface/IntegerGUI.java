@@ -27,7 +27,7 @@ public class IntegerGUI extends javax.swing.JFrame {
     public IntegerGUI(CollectTestData obj) {
         initComponents();
         this.collectTestDataObj = obj;
-        this.radioButton();              
+        this.radioButton();
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
@@ -217,7 +217,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,1);
+                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,0);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
                 customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -228,29 +228,31 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 if(!specificTextField.getText().equals(""))
                 {
-                    // below line store and concatenate the String 
+                    // below line store and concatenate the String
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
                     this.dispose();
-                    collectTestDataObj.increaseCount();                    
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
-                else{
+                else
+                {
                     JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
                 }
             }
-
+            
             else if(randomBetweenRadioButton.isSelected())
             {
                 
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
-                {   
-                    // below line store and concatenate the String 
+                {
+                    // below line store and concatenate the String
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
                     this.dispose();
-                    collectTestDataObj.increaseCount();                   
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
-                else{
+                else
+                {
                     JOptionPane.showMessageDialog(null,"Please select Value One and Value Two.");
                 }
             }
@@ -258,13 +260,14 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
-                    // below line store and concatenate the String 
+                    // below line store and concatenate the String
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
-                    collectTestDataObj.increaseCount();                   
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
-                 }
-                else{
+                }
+                else
+                {
                     JOptionPane.showMessageDialog(null,"Please select a length.");
                 }
             }
@@ -273,9 +276,9 @@ public class IntegerGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please select one of the option. Thanks");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
-
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-
+        
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
         {
             System.exit(0);

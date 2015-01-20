@@ -44,13 +44,15 @@ public class CustomStringGUI extends javax.swing.JFrame {
         
     }
     
+
+    
     public CustomStringGUI(CollectTestData obj, int length) {
         initComponents();
-        this.length = length;
+        this.length = length+1;
         comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
         comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
         comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
-        addRowsTable(length);
+        addRowsTable(this.length);
         this.collectTestDataObj= obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
@@ -230,13 +232,16 @@ public class CustomStringGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
         
-        this.dispose();
+        
         CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,tempLength);
+        
+        //CustomStringGUI customStringGuiFrame =  new CustomStringGUI(tempLength);
         customStringGuiFrame.setSize(550,550);
         customStringGuiFrame.setLocationRelativeTo(null);
         customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
         customStringGuiFrame.setVisible(true);
-        customStringGuiFrame.revalidate();   
+        customStringGuiFrame.revalidate();
+        this.dispose();
     }//GEN-LAST:event_lengthComboBoxActionPerformed
     
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed

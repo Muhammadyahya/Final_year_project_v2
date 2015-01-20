@@ -10,6 +10,7 @@ import GrahpicalUserInterface.IntegerGUI;
 import GrahpicalUserInterface.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
+import Logic.GenerateTestData.DecodeArrayList;
 import aDeleteME.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -22,18 +23,20 @@ public class CollectTestData {
     
     private ArrayList<ArrayList<String>> testCaseInfo;
     private StoreWsdlData swdObj;
-    private int numOfCase;
     private int prameterLength;
     private int count;
+    private boolean checkCompleted;
+    private int numTestCase;
     
     
-    public CollectTestData(StoreWsdlData swdObj, String numOfCase)
+    public CollectTestData(StoreWsdlData swdObj, int numTestCase)
     {
+        this.numTestCase= numTestCase;
         this.swdObj = swdObj;
-        this.numOfCase = Integer.parseInt(numOfCase);
         this.prameterLength =  swdObj.getElmentType().size();
         this.count=0;
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
+        this.checkCompleted = false;
     }
     
     public void addTestCaseInfo(ArrayList<String> pram)
@@ -43,12 +46,8 @@ public class CollectTestData {
     
     public void TestCase(CollectTestData collectTestDataObj)
     {
-        System.out.println("cccccccccccccccccccccc"+ count);
-        System.out.println("ttttttttttttttttttttttttttttttttt");
         if(count < prameterLength)
         {
-            
-            System.out.println("ppppppppppppppppppppppppppppppppppppp");
             Object obj = swdObj.getElmentType().get(count);
             
             if(obj instanceof StoreEnum)
@@ -105,16 +104,18 @@ public class CollectTestData {
             }
         }
         else{
-            /* delete this at very end */
-            for (int i = 0; i < testCaseInfo.size(); i++) {
-                
-                for (int j = 0; j < testCaseInfo.get(i).size(); j++) {
-                    System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
+            
+            for (int a = 0; a < numTestCase; a++)
+            {
+                for (int i = 0; i < testCaseInfo.size(); i++) {
+                    
+                    for (int j = 0; j < testCaseInfo.get(i).size(); j++) {
+                        System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
+                    }
+                    DecodeArrayList decodeArrayList = new DecodeArrayList(swdObj,testCaseInfo.get(i));
                 }
-                
             }
-        }
-        
+        }// else of 1st IF 
     }// end method
     
     
@@ -131,5 +132,15 @@ public class CollectTestData {
     public void increaseCount()
     {
         count++;
+    }
+    
+    public ArrayList<ArrayList<String>> getCollectTestDataArrayList()
+    {
+        return testCaseInfo;
+    }
+    
+    public boolean getCheckCompleted()
+    {
+        return checkCompleted;
     }
 }
