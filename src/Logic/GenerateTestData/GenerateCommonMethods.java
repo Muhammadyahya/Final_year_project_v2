@@ -34,7 +34,7 @@ public class GenerateCommonMethods {
     
     public static  void main(String [] agrs)
     {
-        char character = 'b'; // This gives the character 'a'
+        char character = '0'; // This gives the character 'a'
         int ascii = (int) character;
         System.out.println(ascii);
         

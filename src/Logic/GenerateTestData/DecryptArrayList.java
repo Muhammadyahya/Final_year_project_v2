@@ -66,7 +66,7 @@ public class DecryptArrayList {
                 for(String a: userInputDataArrayList)
                 {
                     System.out.println("   Enum   "+a);
-                    decryptButtonValue(userInputDataArrayList.get(1));
+                    //decryptButtonValue(userInputDataArrayList.get(1));
                 }
                 break;
                 
@@ -92,7 +92,7 @@ public class DecryptArrayList {
                 
             case "Date":
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                decryptButtonValue(userInputDataArrayList.get(1));
+                //decryptButtonValue(userInputDataArrayList.get(1));
                 break;
                 
             default :
@@ -108,35 +108,33 @@ public class DecryptArrayList {
     
     public String decryptButtonValue(String buttonValue)
     {
-        String userValue = userInputDataArrayList.get(2); // need to change this 
+        String userValue = userInputDataArrayList.get(2); // need to change this
         String className = userInputDataArrayList.get(0);
         String temp="";
         int size = 0;
+        GenerateRandom generateRandomObj = new GenerateRandom();
+        
         switch (buttonValue) {
             case "Random":
-                System.out.println("value is : " + userValue);
-                
-                size =  Integer.parseInt(""+userValue.charAt(0));
-                for (int i = 0; i < size ; i++) {
-                    //temp = temp+generateIntegersObj.intGen("0", "9"); // fix this...
-                }
+                System.out.println("value is : " + userValue);               
+                temp = generateRandomObj.generateRandomValue(className, userValue);
                 break;
             case "BetweenTwoValue":
                 System.out.println("value is : " + userValue);
-                if(className.equals(size))
-                
-                break;
-            case "Specific":
-                System.out.println("value is : " + userValue);
+                GenerateBetweenTwoValue generateBetweenTwoValueObj = new GenerateBetweenTwoValue();
+                temp = generateBetweenTwoValueObj.generateValue(className, userValue);
                 break;
             case "Random withOut":
                 System.out.println("value is : " + userValue);
+                temp = generateRandomObj.generateRandomWithOut();
                 break;
             case "Random with":
                 System.out.println("value is : " + userValue);
+                temp = generateRandomObj.generateRandomWith();
                 break;
             default :
                 System.out.println("default case... method: decryptButtonValue");
+                temp = userValue;
                 break;
         }// end switch
         System.out.println("tttttttttttttt    :"+ temp);
@@ -144,7 +142,7 @@ public class DecryptArrayList {
     }// end decryptbuttonvalue
     
     
-   
+    
     
     
     /* delete at the end of project*/
@@ -152,11 +150,11 @@ public class DecryptArrayList {
     {
         String randomWith ="RANDOMOUT";
         Random r = new Random();
-
-    String alphabet = "123xyz";
-    for (int i = 0; i < 5; i++) {
-        System.out.println(alphabet.charAt(r.nextInt(alphabet.length())));
-    } 
+        
+        String alphabet = "123xyz";
+        for (int i = 0; i < 5; i++) {
+            System.out.println(alphabet.charAt(r.nextInt(alphabet.length())));
+        }
         coder(randomWith);
     }
     
