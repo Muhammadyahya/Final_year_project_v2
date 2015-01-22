@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Logic.GenerateTestData;
 
 import Data.WSDL.StoreWsdlData;
@@ -16,6 +16,11 @@ public class DecryptArrayList {
     StoreWsdlData storeWsdlDataObj;
     ArrayList<String> userInputDataArrayList;
     
+    /*
+    * To change this template, choose Tools | Templates
+    * and open the template in the editor.
+    */
+    
     public DecryptArrayList(StoreWsdlData storeWsdlDataObj, ArrayList<String> userInputDataArrayList)
     {
         this.storeWsdlDataObj = storeWsdlDataObj;
@@ -24,47 +29,76 @@ public class DecryptArrayList {
     
     public void startDecoding(int count)
     {
+        String className = userInputDataArrayList.get(0);
         
-        if(userInputDataArrayList.get(0).equals("Custom Int") )
-        {
-            System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-
-            for(String a: userInputDataArrayList)
-            {
-                System.out.println("   Custom int   "+a);
-            }
-        }
+        switch (className) {
+            case "Custom Int":
+                
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                
+                for(String a: userInputDataArrayList)
+                {
+                    System.out.println("   Custom int   "+a);
+                }
+                break;
+                
+            case "Custom String":
+                
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                for(String a: userInputDataArrayList)
+                {
+                    System.out.println("   Custom String   "+a);
+                }
+                
+                break;
+            case "Enum":
+                
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                for(String a: userInputDataArrayList)
+                {
+                    System.out.println("   Enum   "+a);
+                }
+                
+                break;
+                
+            case "String":
+                
+                decryptButtonValue(userInputDataArrayList.get(0));
+                
+                break;
+            case "Int":
+                decryptButtonValue(userInputDataArrayList.get(0));
+                break;
+            case "Char":
+                decryptButtonValue(userInputDataArrayList.get(0));
+                break;
+            case "Boolean":
+                decryptButtonValue(userInputDataArrayList.get(0));
+                break;
+            case "Date":
+                decryptButtonValue(userInputDataArrayList.get(0));
+                break;
+        }// end Switch
         
-        else if( userInputDataArrayList.get(0).equals("Custom String"))
-        {
-            System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-            for(String a: userInputDataArrayList)
-            {
-                System.out.println("   Custom String   "+a);
-            }
-            
-        }
-        else if( userInputDataArrayList.get(0).equals("Enum"))
-        {
-            System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-            for(String a: userInputDataArrayList)
-            {
-                System.out.println("   Enum   "+a);
-            }
-            
-        }
-        else if(userInputDataArrayList.size()<=1)
-        {
-            System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count) +"         value "+userInputDataArrayList.get(0));
-            System.out.println("");
-
-        }
-        else
-        {
-            System.out.println("else case");
-        }
-        
-    }
+    }// end method start decoding
+    
+    
+    public void decryptButtonValue(String buttonValue)
+    {
+        switch (buttonValue) {
+            case "Random":
+                
+                break;
+            case "betweenTwoValue":
+                
+                break;
+            case "Specific":
+                
+                break;
+        }// end switch
+    }// end decryptbuttonvalue
+    
+    publicd // need to somehow work out how to decryt the value... some way generic  
     
     /* delete at the end of project*/
     public static void main(String [] args)
@@ -103,5 +137,6 @@ public class DecryptArrayList {
         System.out.println("coder result : "+temp);
         
     }
-    
-}
+} // end class
+
+

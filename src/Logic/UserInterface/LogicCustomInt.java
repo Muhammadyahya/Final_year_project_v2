@@ -20,6 +20,10 @@ public class LogicCustomInt {
     private String smallerValue;
     private String biggerValue;
     
+    public LogicCustomInt(){
+        
+    }
+    
     public boolean checkAllFeilds(TableModel inputTable)
     {
         inputTableData = new ArrayList<String>();
@@ -76,5 +80,15 @@ public class LogicCustomInt {
             smallerValue = ""+valueA;
             biggerValue = ""+valueB;
         }
+    }
+    
+    public String getBiggerValue()
+    {
+        return biggerValue;
+    }
+    
+     public String getSmalerValue()
+    {
+        return smallerValue;
     }
 }// End Class

@@ -1,13 +1,14 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
 import javax.swing.JOptionPane;
 import Logic.GenerateTestData.*;
+import Logic.UserInterface.*;
 
 /**
  *
@@ -34,8 +35,8 @@ public class IntegerGUI extends javax.swing.JFrame {
     }
     
     /*
-     * adding the radio button in group so only one is selected
-     */
+    * adding the radio button in group so only one is selected
+    */
     public void radioButton()
     {
         groupRadioButton.add(randomRadioButton);
@@ -232,7 +233,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String
                     
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                   // collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    // delete this once below line is working collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
                     
                     this.dispose();
@@ -241,7 +242,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
+                    JOptionPane.showMessageDialog(null,"Please enter a number in the specific text field.");
                 }
             }
             
@@ -252,18 +253,24 @@ public class IntegerGUI extends javax.swing.JFrame {
                 {
                     // below line store and concatenate the String
                     //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
-                    
-                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue", Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText())));
-                   
-                    ***** above line is not correct need to fix it,,,, it should not be biggerchar.... ******************
-                    this.dispose();
-                    collectTestDataObj.increaseCount();
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    if(Common.isInt(valueOneTextField.getText())&& Common.isInt(valueTwoTextField.getText()))
+                    {
+                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                        LogicCustomInt logicCustomIntObj = new LogicCustomInt();
+                        logicCustomIntObj.smallerAndBigger(valueOneTextField.getText(),valueTwoTextField.getText());
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue",logicCustomIntObj.getSmalerValue()+"-"+logicCustomIntObj.getBiggerValue()));
+                        this.dispose();
+                        collectTestDataObj.increaseCount();
+                        collectTestDataObj.TestCase(collectTestDataObj);
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"Please select a number in value one and two feild.");
+                    }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Please select Value One and Value Two.");
+                    JOptionPane.showMessageDialog(null,"Please enter a number in value one and two feild.");
                 }
             }
             else if(randomRadioButton.isSelected())
@@ -271,6 +278,8 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
                     // below line store and concatenate the String
+                    ppppppp
+                            // need to change the below line.
                     collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
@@ -302,8 +311,8 @@ public class IntegerGUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
