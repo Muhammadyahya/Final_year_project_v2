@@ -6,6 +6,7 @@ package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
+import Logic.GenerateTestData.EncryptArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,10 +28,10 @@ public class CharGUI extends javax.swing.JFrame {
     public CharGUI(CollectTestData obj) {
         initComponents();
         this.collectTestDataObj = obj;
-        this.radioButton();              
-        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));     
+        this.radioButton();
+        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
-
+        
     }
     
     /*
@@ -199,14 +200,15 @@ public class CharGUI extends javax.swing.JFrame {
         
         if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()){
             
-          if(specificRadioButton.isSelected())
+            if(specificRadioButton.isSelected())
             {
                 if(!specificComboBox.getSelectedItem().equals("Please Select"))
                 {
-                    // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(""+specificComboBox.getSelectedItem())));
+                    // below line store and concatenate the String
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "Specific", ""+specificComboBox.getSelectedItem()));
                     this.dispose();
-                    collectTestDataObj.increaseCount();  
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -217,11 +219,12 @@ public class CharGUI extends javax.swing.JFrame {
             {
                 
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select"))
-                {   
-                    // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("0-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem()))));                    this.dispose();
+                {
+                    // below line store and concatenate the String
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "BetweenTwoValue",1+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
-                    collectTestDataObj.increaseCount();  
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
                 else{
@@ -229,23 +232,22 @@ public class CharGUI extends javax.swing.JFrame {
                 }
             }
             else if(randomRadioButton.isSelected())
-            {
-               
-                    // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!")));
-                    this.dispose();
-                    collectTestDataObj.increaseCount();  
-                    collectTestDataObj.TestCase(collectTestDataObj);
- 
+            {                
+                // below line store and concatenate the String
+                EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "Random",""+1));
+                this.dispose();
+                collectTestDataObj.increaseCount();
+                collectTestDataObj.TestCase(collectTestDataObj);                
             }
         }
         else{
             JOptionPane.showMessageDialog(null,"Please select one of the option. Thanks");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
-
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-
+        
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
         {
             System.exit(0);

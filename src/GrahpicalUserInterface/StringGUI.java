@@ -6,6 +6,8 @@ package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
+import Logic.GenerateTestData.EncryptArrayList;
+import Logic.UserInterface.LogicCustomInt;
 import javax.swing.JOptionPane;
 
 /**
@@ -238,7 +240,9 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));                    
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
@@ -251,8 +255,10 @@ public class StringGUI extends javax.swing.JFrame {
             {   
                 if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
                 {   
-                    // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem()))));                    this.dispose();
+                    // below code store user value in the arraylist and increase the count 
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    this.dispose();
                     collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);
                 }
@@ -264,8 +270,8 @@ public class StringGUI extends javax.swing.JFrame {
             {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
-                    // below line store and concatenate the String 
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Random",""+lengthComboBox.getSelectedItem()));  
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
                     collectTestDataObj.TestCase(collectTestDataObj);

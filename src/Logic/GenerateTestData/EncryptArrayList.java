@@ -5,6 +5,8 @@
 package Logic.GenerateTestData;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,12 +15,14 @@ import java.util.ArrayList;
 public class EncryptArrayList {
     
     private ArrayList<String> encryptArrayList;
+    private boolean lock;
     public EncryptArrayList()
     {
         this.encryptArrayList = new ArrayList<>();
+        lock = true;
     }
     
-    public ArrayList<String> startEncrypt(String className, String buttonValue, String userValue)
+    public synchronized ArrayList<String> startEncrypt(String className, String buttonValue, String userValue)
     {
         switch (className) {
             case "String":
@@ -43,20 +47,23 @@ public class EncryptArrayList {
                 break;
         }
         
-        /* finally add the value */
+        /* finally add the value */         
         this.encryptArrayList.add(userValue);
-        
+
         return this.encryptArrayList;
         
     }
     
+
+
     public void addButtonValue(String button)
     {
+
         switch (button) {
             case "Random":
                 this.encryptArrayList.add("Random");
                 break;
-            case "betweenTwoValue":
+            case "BetweenTwoValue":
                 this.encryptArrayList.add("BetweenTwoValue");
                 break;
             case "Specific":

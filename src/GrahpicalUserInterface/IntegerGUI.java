@@ -277,10 +277,10 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 if(!lengthComboBox.getSelectedItem().equals("0"))
                 {
-                    // below line store and concatenate the String
-                    ppppppp
-                            // need to change the below line.
-                    collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
+                    // below line store the user value in the arraylist
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Random",""+lengthComboBox.getSelectedItem()));
+                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.TestCase(collectTestDataObj);

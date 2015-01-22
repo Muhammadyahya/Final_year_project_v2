@@ -61,3 +61,306 @@ Response SOAP Message:
 </soap:Body>
 
 </soap:Envelope>BUILD SUCCESSFUL (total time: 2 seconds)
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+
+------ Start --------
+
+Elemnet Name Height
+Exception in thread "AWT-EventQueue-0" java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+value is : 4
+Generated : 3
+Generated : 0
+Generated : 5
+Generated : 0
+tttttttttttttt    :3050
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Width
+value is : 222
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Angle
+value is : 2231-2131231
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Ratio
+value is : 324-45432542
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Module
+   Custom int   Custom Int
+value is : 5
+tttttttttttttt    :
+   Custom int   Specific
+value is : 5
+tttttttttttttt    :
+   Custom int   5
+value is : 5
+tttttttttttttt    :
+   Custom int   BetweenTwoValue
+value is : 5
+tttttttttttttt    :
+   Custom int   1 3
+value is : 5
+tttttttttttttt    :
+   Custom int   BetweenTwoValue
+value is : 5
+tttttttttttttt    :
+   Custom int   1 4
+value is : 5
+tttttttttttttt    :
+   Custom int   Random
+value is : 5
+tttttttttttttt    :
+   Custom int   1
+value is : 5
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Left
+value is : 5
+Generated : 1
+Generated : 7
+Generated : 5
+Generated : 4
+Generated : 4
+tttttttttttttt    :17544
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name Top
+value is : 3
+Generated : 4
+Generated : 6
+Generated : 7
+tttttttttttttt    :467
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name CheckSum
+value is : True
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name FontName
+value is : 5
+Generated : 0
+Generated : 4
+Generated : 5
+Generated : 8
+Generated : 9
+tttttttttttttt    :04589
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name BarColor
+value is : aaaaaa
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name BGColor
+value is : 5-d-e
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name FontSize
+value is : sdf
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name BarcodeOption
+   Enum   Enum
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   None
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Typ
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Both
+default case... method: decryptButtonValue
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name BarcodeType
+   Enum   Enum
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code_2_5_interleaved
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code_2_5_industrial
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code_2_5_matrix
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code39
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code39Extended
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code128A
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code128B
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code128C
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code93
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Code93Extended
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeMSI
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodePostNet
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeCodabar
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeEAN8
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeEAN13
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeUPC_A
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeUPC_E0
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeUPC_E1
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeUPC_Supp2
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeUPC_Supp5
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeEAN128A
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeEAN128B
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   CodeEAN128C
+default case... method: decryptButtonValue
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name CheckSumMethod
+   Enum   Enum
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   None
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   Modulo10
+default case... method: decryptButtonValue
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name ShowTextPosition
+   Enum   Enum
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   TopLeft
+default case... method: decryptButtonValue
+tttttttttttttt    :
+   Enum   TopCenter
+default case... method: decryptButtonValue
+tttttttttttttt    :
+
+------ end --------
+
+
+------ Start --------
+
+Elemnet Name ImageFormats
+   Enum   Enum
+
+
+
+**********************************************************************************************************

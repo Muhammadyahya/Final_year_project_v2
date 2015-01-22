@@ -6,6 +6,7 @@ package GrahpicalUserInterface;
 
 import Data.User.CollectTestData;
 import Logic.Common;
+import Logic.GenerateTestData.EncryptArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,13 +24,14 @@ public class BooleanGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public BooleanGUI(CollectTestData obj) {
+    public BooleanGUI(CollectTestData obj) 
+    {
         initComponents();
-        this.collectTestDataObj = obj;             
+        this.collectTestDataObj = obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
-
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,19 +143,20 @@ public class BooleanGUI extends javax.swing.JFrame {
         
         if(!valueComboBox.getSelectedItem().equals("Please Select"))
         {
-                collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(""+valueComboBox.getSelectedItem())));
-                this.dispose();
-                collectTestDataObj.increaseCount();  
-                collectTestDataObj.TestCase(collectTestDataObj);
+            EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+            collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Boolean", "Specific", ""+valueComboBox.getSelectedItem()));
+            this.dispose();
+            collectTestDataObj.increaseCount();
+            collectTestDataObj.TestCase(collectTestDataObj);
         }
         else
         {
             JOptionPane.showMessageDialog(null,"Please select a value True Or False.");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
-
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-
+        
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
         {
             System.exit(0);

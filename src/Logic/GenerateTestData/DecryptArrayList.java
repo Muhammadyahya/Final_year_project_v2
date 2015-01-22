@@ -1,11 +1,12 @@
 /*
-* To change this template, choose Tools | Templates
-* and open the template in the editor.
-*/
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Logic.GenerateTestData;
 
 import Data.WSDL.StoreWsdlData;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -17,9 +18,9 @@ public class DecryptArrayList {
     ArrayList<String> userInputDataArrayList;
     
     /*
-    * To change this template, choose Tools | Templates
-    * and open the template in the editor.
-    */
+     * To change this template, choose Tools | Templates
+     * and open the template in the editor.
+     */
     
     public DecryptArrayList(StoreWsdlData storeWsdlDataObj, ArrayList<String> userInputDataArrayList)
     {
@@ -30,15 +31,22 @@ public class DecryptArrayList {
     public void startDecoding(int count)
     {
         String className = userInputDataArrayList.get(0);
+        System.out.println("");
+        System.out.println("");
+        System.out.println("------ Start --------");
+        System.out.println("");
+        
         
         switch (className) {
+            
             case "Custom Int":
                 
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                
+                String createValue = "";
                 for(String a: userInputDataArrayList)
                 {
                     System.out.println("   Custom int   "+a);
+                    decryptButtonValue(userInputDataArrayList.get(1));
                 }
                 break;
                 
@@ -48,63 +56,107 @@ public class DecryptArrayList {
                 for(String a: userInputDataArrayList)
                 {
                     System.out.println("   Custom String   "+a);
+                    decryptButtonValue(userInputDataArrayList.get(1));
                 }
-                
                 break;
+                
             case "Enum":
                 
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for(String a: userInputDataArrayList)
                 {
                     System.out.println("   Enum   "+a);
+                    decryptButtonValue(userInputDataArrayList.get(1));
                 }
-                
                 break;
                 
             case "String":
-                
-                decryptButtonValue(userInputDataArrayList.get(0));
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                decryptButtonValue(userInputDataArrayList.get(1));
                 
                 break;
+                
             case "Int":
-                decryptButtonValue(userInputDataArrayList.get(0));
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                decryptButtonValue(userInputDataArrayList.get(1));
                 break;
+                
             case "Char":
-                decryptButtonValue(userInputDataArrayList.get(0));
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                decryptButtonValue(userInputDataArrayList.get(1));
                 break;
             case "Boolean":
-                decryptButtonValue(userInputDataArrayList.get(0));
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                decryptButtonValue(userInputDataArrayList.get(1));
                 break;
+                
             case "Date":
-                decryptButtonValue(userInputDataArrayList.get(0));
+                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                decryptButtonValue(userInputDataArrayList.get(1));
                 break;
+                
+            default :
+                System.out.println("default case... method: startDecoding");
+                break;
+                
         }// end Switch
         
+        System.out.println("");
+        System.out.println("------ end --------");
     }// end method start decoding
     
     
-    public void decryptButtonValue(String buttonValue)
+    public String decryptButtonValue(String buttonValue)
     {
+        String userValue = userInputDataArrayList.get(2); // need to change this 
+        String className = userInputDataArrayList.get(0);
+        String temp="";
+        int size = 0;
         switch (buttonValue) {
             case "Random":
+                System.out.println("value is : " + userValue);
                 
+                size =  Integer.parseInt(""+userValue.charAt(0));
+                for (int i = 0; i < size ; i++) {
+                    //temp = temp+generateIntegersObj.intGen("0", "9"); // fix this...
+                }
                 break;
-            case "betweenTwoValue":
+            case "BetweenTwoValue":
+                System.out.println("value is : " + userValue);
+                if(className.equals(size))
                 
                 break;
             case "Specific":
-                
+                System.out.println("value is : " + userValue);
+                break;
+            case "Random withOut":
+                System.out.println("value is : " + userValue);
+                break;
+            case "Random with":
+                System.out.println("value is : " + userValue);
+                break;
+            default :
+                System.out.println("default case... method: decryptButtonValue");
                 break;
         }// end switch
+        System.out.println("tttttttttttttt    :"+ temp);
+        return temp;
     }// end decryptbuttonvalue
     
-    publicd // need to somehow work out how to decryt the value... some way generic  
+    
+   
+    
     
     /* delete at the end of project*/
     public static void main(String [] args)
     {
         String randomWith ="RANDOMOUT";
-        
+        Random r = new Random();
+
+    String alphabet = "123xyz";
+    for (int i = 0; i < 5; i++) {
+        System.out.println(alphabet.charAt(r.nextInt(alphabet.length())));
+    } 
         coder(randomWith);
     }
     
@@ -117,8 +169,6 @@ public class DecryptArrayList {
         String[] parts = a.split("");
         
         for (int i = 1; i < parts.length; i++) {
-            
-            
             if(checked)
             {
                 temp=temp+"@"+parts[i];
@@ -129,7 +179,6 @@ public class DecryptArrayList {
                 temp=temp+"!"+parts[i];
                 checked= true;
             }
-            
         }
         
         temp = temp+"$%&£*-^";

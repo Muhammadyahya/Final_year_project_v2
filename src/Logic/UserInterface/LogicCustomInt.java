@@ -34,14 +34,17 @@ public class LogicCustomInt {
             
             if(inputTable.getValueAt(i, 4).equals(true))
             {
-                inputTableData.add((String)"Random"+inputTable.getValueAt(i, 4));
+                inputTableData.add("Random");
+                inputTableData.add("1");
             }
             else if(!inputTable.getValueAt(i, 1).equals(""))
             {
+                inputTableData.add("Specific");
                 inputTableData.add((String)inputTable.getValueAt(i, 1));
             }
             else if(!inputTable.getValueAt(i, 2).equals("") && !inputTable.getValueAt(i, 3).equals(""))
             {
+                inputTableData.add("BetweenTwoValue");
                 smallerAndBigger((String)inputTable.getValueAt(i, 2),(String)inputTable.getValueAt(i, 3));
                 inputTableData.add(smallerValue+" "+ biggerValue);
             }

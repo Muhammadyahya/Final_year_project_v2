@@ -33,18 +33,22 @@ public class LogicCustomString {
 
             if(inputTable.getValueAt(i, 4).equals(true))
             { 
-                inputTableData.add((String)"Random withOut "+inputTable.getValueAt(i, 4));
+                inputTableData.add("Random withOut");
+                inputTableData.add("1");
             }
             else if(inputTable.getValueAt(i,5).equals(true))
             {
-                inputTableData.add((String)"Random with "+inputTable.getValueAt(i, 5));
+                inputTableData.add("Random with");
+                inputTableData.add("1");
             }
             else if(!inputTable.getValueAt(i, 1).equals(""))
             {
+                inputTableData.add("Specific");
                 inputTableData.add((String)inputTable.getValueAt(i, 1));
             }
             else if(!inputTable.getValueAt(i, 2).equals("") && !inputTable.getValueAt(i, 3).equals(""))
             {
+                inputTableData.add("BetweenTwoValue");
                 inputTableData.add((String)inputTable.getValueAt(i, 2)+" "+(String)inputTable.getValueAt(i, 3));
             }
             else
