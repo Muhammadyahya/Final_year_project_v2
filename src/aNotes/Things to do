@@ -8,6 +8,11 @@
 . finish storing the data.
 . generate the data.
 . run the soap response automatically.
+. generate report 
+. check number of test case and stop if certain number of test fails
+. increase the string length
+. user output prammeters to check for pass and fail (trim and remove spaces + make is lower case ) .
+. 
 
 **** Completed ****
 

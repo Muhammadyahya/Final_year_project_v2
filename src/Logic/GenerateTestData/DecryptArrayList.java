@@ -132,6 +132,10 @@ public class DecryptArrayList {
                 System.out.println("value is : " + userValue);
                 temp = generateRandomObj.generateRandomWith();
                 break;
+            case "Specific":
+                System.out.println("value is : " + userValue);
+                temp = userValue;
+                break;
             default :
                 System.out.println("default case... method: decryptButtonValue");
                 temp = userValue;

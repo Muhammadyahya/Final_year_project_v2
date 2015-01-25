@@ -4,18 +4,15 @@
  */
 package aDeleteME;
 
-import com.eviware.soapui.SoapUI;
-import com.eviware.soapui.StandaloneSoapUICore;
-import com.eviware.soapui.impl.wsdl.*;
-import com.eviware.soapui.model.iface.Response;
-
 
 /**
  *
  * @author my301
  */
+
+
 public class SoapUIRequest {
-    
+/*    
     public static void main(String args[]) throws Exception
             
     {
@@ -104,5 +101,6 @@ public class SoapUIRequest {
         }
         
     }
+    */
 }
 
