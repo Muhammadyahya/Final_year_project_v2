@@ -147,7 +147,7 @@ public class BooleanGUI extends javax.swing.JFrame {
             collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Boolean", "Specific", ""+valueComboBox.getSelectedItem()));
             this.dispose();
             collectTestDataObj.increaseCount();
-            collectTestDataObj.TestCase(collectTestDataObj);
+            collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else
         {

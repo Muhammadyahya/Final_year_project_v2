@@ -164,9 +164,10 @@ public class ShowMethods extends javax.swing.JFrame {
         
         noteLable.setText("Note:");
         StoreWsdlData swdObj = null;
+        String selectedMethod;
         if(methodjTree.getSelectionCount()!= 0 )
         {
-            String selectedMethod  =  methodjTree.getSelectionPath().getLastPathComponent().toString();
+            selectedMethod  =  methodjTree.getSelectionPath().getLastPathComponent().toString();
             if(selectedMethod.charAt(0)=='r'){
                 noteLable.setText("Note: Please select a valid method.");
             }
@@ -198,9 +199,9 @@ public class ShowMethods extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"Please enter an interger value greater than 0.");
                     }
                     else{
-                        //this.dispose();
-                        CollectTestData collectTestDataObj = new CollectTestData(swdObj,numTestCase);
-                        collectTestDataObj.TestCase(collectTestDataObj);
+                        this.dispose();
+                        CollectTestData collectTestDataObj = new CollectTestData(swdObj,numTestCase,selectedMethod);
+                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                 }
                 else{

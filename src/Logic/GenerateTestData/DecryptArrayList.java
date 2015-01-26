@@ -36,15 +36,15 @@ public class DecryptArrayList {
         String generatedValue="";
         String className = userInputDataArrayList.get(0);
        
-        System.out.println("");
-        System.out.println("------ Start --------");
-        System.out.println("");
+//        System.out.println("");
+//        System.out.println("------ Start --------");
+//        System.out.println("");
 
         switch (className) {
             
             case "Custom Int":
                 
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for (int i = 1; i < userInputDataArrayList.size(); i++) {
                     generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
                 }
@@ -53,51 +53,51 @@ public class DecryptArrayList {
                 
             case "Custom String":
                 
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for (int i = 1; i < userInputDataArrayList.size(); i++) {
                     generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
                 }                
-                System.out.println("temp :  "+generatedValue);
+                //System.out.println("temp :  "+generatedValue);
                 break;
                 
             case "Enum":
                 
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for(String a: userInputDataArrayList)
                 {
-                    System.out.println("   Enum   "+a);
+                    //System.out.println("   Enum   "+a);
                     //decryptButtonValue(userInputDataArrayList.get(1));
                 }              
                 
                 break;
                 
             case "String":
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 
                 break;
                 
             case "Int":
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
                 
             case "Char":
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
             case "Boolean":
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
                 
             case "Date":
-                System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 //decryptButtonValue(userInputDataArrayList.get(1));
                 break;
                 
             default :
-                System.out.println("default case... method: startDecoding");
+                //System.out.println("default case... method: startDecoding");
                 break;
                 
         }// end Switch
@@ -106,8 +106,8 @@ public class DecryptArrayList {
         this.storeGeneratedValueObj.addGeneratedValue(generatedValue);
         
         
-        System.out.println("");
-        System.out.println("------ end --------");
+//        System.out.println("");
+//        System.out.println("------ end --------");
  
     }// end method start decoding
     
@@ -123,28 +123,28 @@ public class DecryptArrayList {
         
         switch (buttonValue) {
             case "Random":
-                System.out.println("value is : " + userValue);               
+                //System.out.println("value is : " + userValue);               
                 temp = generateRandomObj.generateRandomValue(className, userValue);
                 break;
             case "BetweenTwoValue":
-                System.out.println("value is : " + userValue);
+                //System.out.println("value is : " + userValue);
                 GenerateBetweenTwoValue generateBetweenTwoValueObj = new GenerateBetweenTwoValue();
                 temp = generateBetweenTwoValueObj.generateValue(className, userValue);
                 break;
             case "Random withOut":
-                System.out.println("value is : " + userValue);
+                //System.out.println("value is : " + userValue);
                 temp = generateRandomObj.generateRandomWithOut();
                 break;
             case "Random with":
-                System.out.println("value is : " + userValue);
+                //System.out.println("value is : " + userValue);
                 temp = generateRandomObj.generateRandomWith();
                 break;
             case "Specific":
-                System.out.println("value is : " + userValue);
+                //System.out.println("value is : " + userValue);
                 temp = userValue;
                 break;
             default :
-                System.out.println("default case... method: decryptButtonValue");
+                //System.out.println("default case... method: decryptButtonValue");
                 temp = userValue;
                 break;
         }// end switch

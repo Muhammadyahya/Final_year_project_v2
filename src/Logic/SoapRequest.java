@@ -4,7 +4,10 @@
  */
 package Logic;
 
+import Data.User.CollectTestData;
 import Data.User.StoreGeneratedValue;
+import Data.User.StoreReportData;
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import javax.xml.soap.*;
 
@@ -17,10 +20,14 @@ import javax.xml.soap.*;
 public class SoapRequest {
     
     private StoreGeneratedValue storeGeneratedValueObj;
+    private CollectTestData collectTestDataObj;
+    private StoreReportData storeReportDataObj;
     
-    public SoapRequest(StoreGeneratedValue obj)
+    public SoapRequest(StoreGeneratedValue storeGeneratedValueObj, CollectTestData collectTestDataObj,StoreReportData storeReportDataObj)
     {
-        this.storeGeneratedValueObj = obj;
+        this.storeGeneratedValueObj = storeGeneratedValueObj;
+        this.collectTestDataObj=collectTestDataObj;
+        this.storeReportDataObj= storeReportDataObj;
     }
      
     public void soapConnectionRequest() throws Exception {
@@ -31,6 +38,13 @@ public class SoapRequest {
         // Send SOAP Message to SOAP Server
         String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
+        
+        
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        soapResponse.writeTo(os);
+        String aString = new String(os.toByteArray(),"UTF-8");
+        storeReportDataObj.addOutPutResponse(aString);
+        
         // print SOAP Response
         System.out.print("Response SOAP Message:");
         soapResponse.writeTo(System.out);
@@ -54,7 +68,7 @@ public class SoapRequest {
         ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement(collectTestDataObj.getMethodName(), "example");
        
        // my code
         for (int i = 0; i < v.size(); i++) {
@@ -69,9 +83,17 @@ public class SoapRequest {
         headers.addHeader("SOAPAction", serverURI  + "VerifyEmail");
 
         soapMessage.saveChanges();
+        
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        soapMessage.writeTo(os);
+        String aString = new String(os.toByteArray(),"UTF-8");
+        
+        storeReportDataObj.addinputData(aString);
 
         /* Print the request message */
         System.out.print("Request SOAP Message:");
+        
+                
         soapMessage.writeTo(System.out);
         System.out.println();
 

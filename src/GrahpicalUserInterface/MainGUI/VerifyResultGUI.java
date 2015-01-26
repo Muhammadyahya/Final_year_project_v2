@@ -16,12 +16,16 @@ public class VerifyResultGUI extends javax.swing.JFrame {
     /**
      * Creates new form VerifyResultGUI
      */
+    
+    private CollectTestData collectTestDataObj;
+    
     public VerifyResultGUI() {
         initComponents();
     }
 
     public VerifyResultGUI(CollectTestData collectTestDataObj) {
-       
+       initComponents();
+       this.collectTestDataObj = collectTestDataObj;
     }
 
     /**
@@ -131,7 +135,8 @@ public class VerifyResultGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!tagNameTextField.getText().equals("")&&!tagValueTextArea.getText().equals(""))
         {
-            
+            this.dispose();
+            collectTestDataObj.runTestCases(collectTestDataObj);
         }
         else
         {

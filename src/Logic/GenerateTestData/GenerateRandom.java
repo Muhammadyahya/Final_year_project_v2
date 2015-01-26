@@ -20,7 +20,6 @@ public class GenerateRandom {
     public String generateRandomValue(String pram,String userValue)
     {
         String className = pram;
-        
         int size=0;
         switch (className) {
             
@@ -37,7 +36,8 @@ public class GenerateRandom {
                 break;
                 
             case "String":
-                size =  Integer.parseInt(""+userValue.charAt(0));
+                size =  Integer.parseInt(userValue);
+                
                 for (int i = 0; i < size ; i++)
                 {
                     temp = temp+GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
@@ -104,7 +104,7 @@ public class GenerateRandom {
     public static void main(String [] args)
     {
         GenerateRandom obj = new GenerateRandom();
-        obj.generateRandomWith();
+        obj.generateRandomValue("String", "12");
     }
     
     

@@ -126,7 +126,7 @@ public class EnumGUI extends javax.swing.JFrame {
                 collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray());
                 this.dispose();
                 collectTestDataObj.increaseCount();  
-                collectTestDataObj.TestCase(collectTestDataObj);
+                collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else if (enumJList.getSelectedIndices().length > 0)
         {
@@ -136,7 +136,7 @@ public class EnumGUI extends javax.swing.JFrame {
                 collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray(enumJList.getSelectedValuesList()));
                 this.dispose();
                 collectTestDataObj.increaseCount();  
-                collectTestDataObj.TestCase(collectTestDataObj);
+                collectTestDataObj.CollectTestCaseData(collectTestDataObj);
             }   
         }
         else{

@@ -229,7 +229,7 @@ public class CustomIntGui extends javax.swing.JFrame {
             collectTestDataObj.addTestCaseInfo(logicCustomIntObj.getCustomArrayListData());
             this.dispose();
             collectTestDataObj.increaseCount();
-            collectTestDataObj.TestCase(collectTestDataObj);
+            collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else{
             JOptionPane.showMessageDialog(null,"Error on line "+logicCustomIntObj.getErrorLine()+" .");

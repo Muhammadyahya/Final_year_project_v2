@@ -4,6 +4,7 @@
  */
 package aExamples;
 
+import java.io.ByteArrayOutputStream;
 import javax.xml.soap.*;
 
 
@@ -66,6 +67,21 @@ public class SoapExample2 {
         soapMessage.saveChanges();
 
         /* Print the request message */
+        
+        
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        soapMessage.writeTo(os);
+        String aString = new String(os.toByteArray(),"UTF-8");
+        
+        String z;
+
+        String s = "llllllllllllll     "+aString;
+        
+        System.out.println("ssss"+ s);
+        
+        System.out.println("");
+        System.out.println("");
+        
         System.out.print("Request SOAP Message:");
         soapMessage.writeTo(System.out);
         System.out.println();

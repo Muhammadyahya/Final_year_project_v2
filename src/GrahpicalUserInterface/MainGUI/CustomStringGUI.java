@@ -213,7 +213,7 @@ public class CustomStringGUI extends javax.swing.JFrame {
             collectTestDataObj.addTestCaseInfo(logicCustomStringObj.getCustomArrayListData());
             this.dispose();
             collectTestDataObj.increaseCount(); 
-            collectTestDataObj.TestCase(collectTestDataObj);
+            collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else{
             JOptionPane.showMessageDialog(null,"Error on line "+logicCustomStringObj.getErrorLine()+" .");

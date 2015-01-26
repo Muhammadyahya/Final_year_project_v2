@@ -245,7 +245,7 @@ public class StringGUI extends javax.swing.JFrame {
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));                    
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
@@ -260,7 +260,7 @@ public class StringGUI extends javax.swing.JFrame {
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select Alphabet One, Alphabet Two and Length.");
@@ -274,7 +274,7 @@ public class StringGUI extends javax.swing.JFrame {
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Random",""+lengthComboBox.getSelectedItem()));  
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                  }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select a length.");

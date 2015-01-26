@@ -238,7 +238,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     
                     this.dispose();
                     collectTestDataObj.increaseCount();
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else
                 {
@@ -261,7 +261,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                         collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue",logicCustomIntObj.getSmalerValue()+"-"+logicCustomIntObj.getBiggerValue()));
                         this.dispose();
                         collectTestDataObj.increaseCount();
-                        collectTestDataObj.TestCase(collectTestDataObj);
+                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                     else
                     {
@@ -283,7 +283,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else
                 {

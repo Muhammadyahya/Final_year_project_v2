@@ -220,7 +220,7 @@ public class TestFrame extends javax.swing.JFrame {
         
         
         this.dispose();
-        obj.TestCase(obj);
+        obj.CollectTestCaseData(obj);
     }//GEN-LAST:event_jButton1ActionPerformed
     
     /**

@@ -34,9 +34,10 @@ public class CollectTestData {
     private StoreGeneratedValue storeGeneratedValueObj;
     private String tagName;
     private String tagValue;
+    private String methodName;
     
     
-    public CollectTestData(StoreWsdlData swdObj, int numTestCase)
+    public CollectTestData(StoreWsdlData swdObj, int numTestCase, String methodName)
     {
         this.numTestCase= numTestCase;
         this.swdObj = swdObj;
@@ -44,6 +45,7 @@ public class CollectTestData {
         this.count=0;
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
         this.checkCompleted = false;
+        this.methodName = methodName;
         
     }
     
@@ -52,7 +54,7 @@ public class CollectTestData {
         this.testCaseInfo.add(pram);
     }
     
-    public void TestCase(CollectTestData collectTestDataObj)
+    public void CollectTestCaseData(CollectTestData collectTestDataObj)
     {
         if(count < prameterLength)
         {
@@ -112,20 +114,24 @@ public class CollectTestData {
             }
         }
         else{
-            
+            System.out.println("else case ");
             VerifyResultGUI verifyResultGUIFrame = new VerifyResultGUI(collectTestDataObj);
-            verifyResultGUIFrame.setSize(550,500);
+            verifyResultGUIFrame.setSize(450,450);
             verifyResultGUIFrame.setLocationRelativeTo(null);
             verifyResultGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
             verifyResultGUIFrame.setVisible(true);
             verifyResultGUIFrame.revalidate();
             
         }// else of 1st IF
-        
+        System.out.println("end method");
     }// end method
     
-    private void runTestCases()
+    public void runTestCases(CollectTestData collectTestDataObj)
     {
+        
+        
+        StoreReportData storeReportDataObj = new StoreReportData(collectTestDataObj);
+        
         for (int a = 0; a < numTestCase; a++)
         {
             this.storeGeneratedValueObj = new StoreGeneratedValue();
@@ -134,9 +140,23 @@ public class CollectTestData {
                 DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
                 decodeArrayList.startDecoding(i);
                 
+                /* for testing purpose */
+                ArrayList<String> m = this.storeGeneratedValueObj.getParameterNameList();
+                ArrayList<String> v = this.storeGeneratedValueObj.getGeneratedValueList();
+                
+                System.out.println("");
+                System.out.println("mmmmm + "+ m.size());
+                for (int x = 0; x < m.size(); x++) {
+                    
+                    System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+                }/* end of testing */
+                
+                
             }// end 2nd for loop inside else case
-            //runTestCases();
-            SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj);
+            
+            storeReportDataObj.addStoreGeneratedValue(storeGeneratedValueObj);
+            
+            SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj, collectTestDataObj,storeReportDataObj);
             try {
                 soapRequestObj.soapConnectionRequest();
             } catch (Exception ex) {
@@ -145,63 +165,50 @@ public class CollectTestData {
         }// end 1st for loop inside else
         
         
-        /* for testing purpose *//*
-         * ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
-         * ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
-         * 
-         * for (int x = 0; x < m.size(); x++) {
-         * 
-         * System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-         * }
-         * 
-         */
+        
+        
+        
     }
     
     
-    public StoreWsdlData getStoreWsdlData()
-    {
+    public StoreWsdlData getStoreWsdlData(){
         return swdObj;
     }
     
-    public int getCount()
-    {
+    public int getCount(){
         return count;
     }
     
-    public void increaseCount()
-    {
+    public void increaseCount(){
         count++;
     }
     
-    public ArrayList<ArrayList<String>> getCollectTestDataArrayList()
-    {
+    public ArrayList<ArrayList<String>> getCollectTestDataArrayList(){
         return testCaseInfo;
     }
     
-    public boolean getCheckCompleted()
-    {
+    public boolean getCheckCompleted(){
         return checkCompleted;
     }
     
-    public void addTagName(String pram)
-    {
+    public void addTagName(String pram){
         this.tagName = pram;
     }
     
-    public void addTagValue(String pram)
-    {
+    public void addTagValue(String pram){
         this.tagValue = pram;
     }
     
-    public String getTagValue()
-    {
+    public String getTagValue(){
         return tagValue;
     }
     
-    public String getTagName()
-    {
+    public String getTagName(){
         return tagName;
     }
     
+    public String getMethodName() {
+        return methodName;
+    }
     
-}
+}// end class

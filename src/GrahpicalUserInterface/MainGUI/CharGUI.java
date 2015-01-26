@@ -209,7 +209,7 @@ public class CharGUI extends javax.swing.JFrame {
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "Specific", ""+specificComboBox.getSelectedItem()));
                     this.dispose();
                     collectTestDataObj.increaseCount();
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select an alphabet.");
@@ -225,7 +225,7 @@ public class CharGUI extends javax.swing.JFrame {
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "BetweenTwoValue",1+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
-                    collectTestDataObj.TestCase(collectTestDataObj);
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please select Alphabet One and Alphabet Two.");
@@ -238,7 +238,7 @@ public class CharGUI extends javax.swing.JFrame {
                 collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "Random",""+1));
                 this.dispose();
                 collectTestDataObj.increaseCount();
-                collectTestDataObj.TestCase(collectTestDataObj);                
+                collectTestDataObj.CollectTestCaseData(collectTestDataObj);                
             }
         }
         else{
