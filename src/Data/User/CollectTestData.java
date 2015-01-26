@@ -4,14 +4,13 @@
  */
 package Data.User;
 
-import GrahpicalUserInterface.BooleanGUI;
-import GrahpicalUserInterface.StringGUI;
-import GrahpicalUserInterface.IntegerGUI;
-import GrahpicalUserInterface.EnumGUI;
+import GrahpicalUserInterface.MainGUI.BooleanGUI;
+import GrahpicalUserInterface.MainGUI.StringGUI;
+import GrahpicalUserInterface.MainGUI.IntegerGUI;
+import GrahpicalUserInterface.MainGUI.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import Logic.GenerateTestData.DecryptArrayList;
-import Logic.GenerateTestData.StoreGeneratedValue;
 import aDeleteME.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -119,12 +118,12 @@ public class CollectTestData {
                      * System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
                      * k=j;
                      * } //end 3rd for loop inside else case
-                     * 
+                     *
                      * System.out.println("k  :"+k);
                      * System.out.println("------ End for loop ------");
                      * System.out.println("");
                      * System.out.println("");
-                     * 
+                     *
                      */
                     
                     DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
@@ -133,7 +132,7 @@ public class CollectTestData {
                 }// end 2nd for loop inside else case
                 runTestCases();
             }// end 1st for loop inside else
-           
+            
             
             
         }// else of 1st IF
@@ -142,29 +141,25 @@ public class CollectTestData {
     
     private void runTestCases()
     {
-        //for (int i = 0; i < numTestCase; i++) {
-           
-           ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
-           ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
-            
-            for (int x = 0; x < m.size(); x++) {
-                
-                System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-            }
-            
-       // }
+        /* for testing purpose */
+        ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
+        ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
         
-        /* for testing purpose */ 
-           
-           /*
-           ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
-           ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+        for (int x = 0; x < m.size(); x++) {
             
-            for (int x = 0; x < m.size(); x++) {
-                
-                System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-            }
-            */
+            System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+        }              
+        
+        
+        /*
+         * ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
+         * ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+         *
+         * for (int x = 0; x < m.size(); x++) {
+         *
+         * System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+         * }
+         */
     }
     
     

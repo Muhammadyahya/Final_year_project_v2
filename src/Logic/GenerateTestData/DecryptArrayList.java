@@ -4,6 +4,7 @@
  */
 package Logic.GenerateTestData;
 
+import Data.User.StoreGeneratedValue;
 import Data.WSDL.StoreWsdlData;
 import java.util.ArrayList;
 import java.util.Random;
