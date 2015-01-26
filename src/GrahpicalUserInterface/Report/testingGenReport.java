@@ -29,6 +29,8 @@ public class testingGenReport {
 
         
         working on this.....
+        
+        nioo   adsfas
  
 	JasperReportBuilder report = DynamicReports.report();//a new report
 	report
