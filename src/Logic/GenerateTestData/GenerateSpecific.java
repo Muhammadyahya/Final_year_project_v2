@@ -12,7 +12,7 @@ public class GenerateSpecific {
     
     public GenerateSpecific()
     {
-        
+        // I don't think i need this... delete it at that the end
     }
     
     public void generateValue(String pram)

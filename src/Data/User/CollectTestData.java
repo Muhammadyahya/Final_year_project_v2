@@ -10,9 +10,13 @@ import GrahpicalUserInterface.MainGUI.IntegerGUI;
 import GrahpicalUserInterface.MainGUI.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
+import GrahpicalUserInterface.MainGUI.VerifyResultGUI;
 import Logic.GenerateTestData.DecryptArrayList;
+import Logic.SoapRequest;
 import aDeleteME.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +32,8 @@ public class CollectTestData {
     private boolean checkCompleted;
     private int numTestCase;
     private StoreGeneratedValue storeGeneratedValueObj;
+    private String tagName;
+    private String tagValue;
     
     
     public CollectTestData(StoreWsdlData swdObj, int numTestCase)
@@ -38,7 +44,7 @@ public class CollectTestData {
         this.count=0;
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
         this.checkCompleted = false;
-        this.storeGeneratedValueObj = new StoreGeneratedValue();
+        
     }
     
     public void addTestCaseInfo(ArrayList<String> pram)
@@ -106,34 +112,13 @@ public class CollectTestData {
             }
         }
         else{
-            for (int a = 0; a < numTestCase; a++)
-            {
-                for (int i = 0; i < testCaseInfo.size(); i++)
-                {
-                    /*
-                     * System.out.println("------ Start for loop ------");
-                     * int k =0;
-                     * for (int j = 0; j < testCaseInfo.get(i).size(); j++)
-                     * {
-                     * System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
-                     * k=j;
-                     * } //end 3rd for loop inside else case
-                     *
-                     * System.out.println("k  :"+k);
-                     * System.out.println("------ End for loop ------");
-                     * System.out.println("");
-                     * System.out.println("");
-                     *
-                     */
-                    
-                    DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
-                    decodeArrayList.startDecoding(i);
-                    
-                }// end 2nd for loop inside else case
-                runTestCases();
-            }// end 1st for loop inside else
             
-            
+            VerifyResultGUI verifyResultGUIFrame = new VerifyResultGUI(collectTestDataObj);
+            verifyResultGUIFrame.setSize(550,500);
+            verifyResultGUIFrame.setLocationRelativeTo(null);
+            verifyResultGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            verifyResultGUIFrame.setVisible(true);
+            verifyResultGUIFrame.revalidate();
             
         }// else of 1st IF
         
@@ -141,24 +126,34 @@ public class CollectTestData {
     
     private void runTestCases()
     {
-        /* for testing purpose */
-        ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
-        ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+        for (int a = 0; a < numTestCase; a++)
+        {
+            this.storeGeneratedValueObj = new StoreGeneratedValue();
+            for (int i = 0; i < testCaseInfo.size(); i++)
+            {
+                DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
+                decodeArrayList.startDecoding(i);
+                
+            }// end 2nd for loop inside else case
+            //runTestCases();
+            SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj);
+            try {
+                soapRequestObj.soapConnectionRequest();
+            } catch (Exception ex) {
+                Logger.getLogger(CollectTestData.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }// end 1st for loop inside else
         
-        for (int x = 0; x < m.size(); x++) {
-            
-            System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-        }              
         
-        
-        /*
+        /* for testing purpose *//*
          * ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
          * ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
-         *
+         * 
          * for (int x = 0; x < m.size(); x++) {
-         *
+         * 
          * System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
          * }
+         * 
          */
     }
     
@@ -187,4 +182,26 @@ public class CollectTestData {
     {
         return checkCompleted;
     }
+    
+    public void addTagName(String pram)
+    {
+        this.tagName = pram;
+    }
+    
+    public void addTagValue(String pram)
+    {
+        this.tagValue = pram;
+    }
+    
+    public String getTagValue()
+    {
+        return tagValue;
+    }
+    
+    public String getTagName()
+    {
+        return tagName;
+    }
+    
+    
 }

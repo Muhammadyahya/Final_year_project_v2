@@ -4,6 +4,8 @@
  */
 package Logic;
 
+import Data.User.StoreGeneratedValue;
+import java.util.ArrayList;
 import javax.xml.soap.*;
 
 
@@ -13,7 +15,15 @@ import javax.xml.soap.*;
  * @author my301
  */
 public class SoapRequest {
-     public static void main(String args[]) throws Exception {
+    
+    private StoreGeneratedValue storeGeneratedValueObj;
+    
+    public SoapRequest(StoreGeneratedValue obj)
+    {
+        this.storeGeneratedValueObj = obj;
+    }
+     
+    public void soapConnectionRequest() throws Exception {
         // Create SOAP Connection
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -28,7 +38,7 @@ public class SoapRequest {
         soapConnection.close();
     }
 
-    private static SOAPMessage createSOAPRequest() throws Exception {
+    private  SOAPMessage createSOAPRequest() throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
@@ -40,18 +50,17 @@ public class SoapRequest {
         envelope.addNamespaceDeclaration("example", serverURI);
 
         
-       String [] e = {"email","LicenseKey"};
-        
-       String [] v = {"mutantninja@gmail.com","123" };
+        ArrayList<String> e = storeGeneratedValueObj.getParameterNameList();
+        ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
        
        SOAPBody soapBody = envelope.getBody();
        SOAPElement soapBodyElem = soapBody.addChildElement("VerifyEmail", "example");
        
        // my code
-        for (int i = 0; i < v.length; i++) {
+        for (int i = 0; i < v.size(); i++) {
            
-            SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e[i], "example");
-            soapBodyElem1.addTextNode(v[i]);
+            SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e.get(i), "example");
+            soapBodyElem1.addTextNode(v.get(i));
         }
 
         // end of my code

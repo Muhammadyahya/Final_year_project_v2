@@ -14,6 +14,7 @@ public class StoreGeneratedValue {
     
     private ArrayList<String> parameterName;
     private ArrayList<String> generateValue;
+
     
     public StoreGeneratedValue()
     {
@@ -41,6 +42,8 @@ public class StoreGeneratedValue {
     {
         return this.generateValue;
     }
+    
+    
     
     
 }
