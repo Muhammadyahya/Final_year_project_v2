@@ -16,7 +16,7 @@ public class GenerateCommonMethods {
     {
         Random randomGenerator = new Random();
         int randomInt  = randomGenerator.nextInt(rangeTo - rangeFrom + 1) + rangeFrom;        
-        System.out.println("Generated : " + randomInt);
+        //System.out.println("Generated : " + randomInt);
         return randomInt;
     }
     
@@ -27,18 +27,21 @@ public class GenerateCommonMethods {
     
     public static String intTochar(int pram)
     {
-         return ""+Character.toChars(pram);
+         char c[] = Character.toChars(pram);
+         return ""+c[0];
     }
     
     
-    
+    /* delete at the end of project... use only for testing */
     public static  void main(String [] agrs)
     {
-        char character = '0'; // This gives the character 'a'
+        char character = 'a'; // This gives the character 'a'
         int ascii = (int) character;
         System.out.println(ascii);
         
-        System.out.println();
+        System.out.println(charToInt("a"));
+        
+        System.out.println(intTochar(122));
     }
 
 }

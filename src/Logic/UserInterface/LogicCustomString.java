@@ -49,7 +49,7 @@ public class LogicCustomString {
             else if(!inputTable.getValueAt(i, 2).equals("") && !inputTable.getValueAt(i, 3).equals(""))
             {
                 inputTableData.add("BetweenTwoValue");
-                inputTableData.add((String)inputTable.getValueAt(i, 2)+" "+(String)inputTable.getValueAt(i, 3));
+                inputTableData.add("1-"+(String)inputTable.getValueAt(i, 2)+"-"+(String)inputTable.getValueAt(i, 3));
             }
             else
             {                

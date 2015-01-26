@@ -4,6 +4,7 @@
  */
 package Logic.GenerateTestData;
 
+
 /**
  *
  * @author my301
@@ -13,7 +14,7 @@ public class GenerateRandom {
     private String temp;
     public GenerateRandom()
     {
-        temp="NOTHING IS ADDED CHECK THE CODE ";
+        temp="";
     }
     
     public String generateRandomValue(String pram,String userValue)
@@ -28,7 +29,7 @@ public class GenerateRandom {
                 break;
                 
             case "Custom String":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
                 break;
                 
             case "Enum":
@@ -39,7 +40,7 @@ public class GenerateRandom {
                 size =  Integer.parseInt(""+userValue.charAt(0));
                 for (int i = 0; i < size ; i++)
                 {
-                    temp = temp+GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                    temp = temp+GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
                 }
                 break;
                 
@@ -51,7 +52,7 @@ public class GenerateRandom {
                 break;
                 
             case "Char":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
                 break;
                 
             case "Date":
@@ -71,7 +72,9 @@ public class GenerateRandom {
     
     public String generateRandomWith()
     {
-        temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+       
+        temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
+        //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;
     }
     
@@ -91,6 +94,20 @@ public class GenerateRandom {
             valueTwo = 126;
         }
         temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne, valueTwo));
+        
+        //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;
     }
+    
+    
+    /* delete at the end of project... use only for testing */
+    public static void main(String [] args)
+    {
+        GenerateRandom obj = new GenerateRandom();
+        obj.generateRandomWith();
+    }
+    
+    
+    
+    
 }// end class

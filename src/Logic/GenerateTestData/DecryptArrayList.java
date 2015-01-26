@@ -14,50 +14,49 @@ import java.util.Random;
  */
 public class DecryptArrayList {
     
-    StoreWsdlData storeWsdlDataObj;
-    ArrayList<String> userInputDataArrayList;
+    private StoreWsdlData storeWsdlDataObj;
+    private ArrayList<String> userInputDataArrayList;
+    public StoreGeneratedValue storeGeneratedValueObj;
     
     /*
      * To change this template, choose Tools | Templates
      * and open the template in the editor.
      */
     
-    public DecryptArrayList(StoreWsdlData storeWsdlDataObj, ArrayList<String> userInputDataArrayList)
+    public DecryptArrayList(StoreWsdlData storeWsdlDataObj, ArrayList<String> userInputDataArrayList, StoreGeneratedValue storeGeneratedValueObj)
     {
         this.storeWsdlDataObj = storeWsdlDataObj;
         this.userInputDataArrayList = userInputDataArrayList;
+        this.storeGeneratedValueObj = storeGeneratedValueObj;
     }
     
     public void startDecoding(int count)
     {
+        String generatedValue="";
         String className = userInputDataArrayList.get(0);
-        System.out.println("");
+       
         System.out.println("");
         System.out.println("------ Start --------");
         System.out.println("");
-        
-        
+
         switch (className) {
             
             case "Custom Int":
                 
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                String createValue = "";
-                for(String a: userInputDataArrayList)
-                {
-                    System.out.println("   Custom int   "+a);
-                    decryptButtonValue(userInputDataArrayList.get(1));
+                for (int i = 1; i < userInputDataArrayList.size(); i++) {
+                    generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
                 }
+                System.out.println("temp :  "+generatedValue);
                 break;
                 
             case "Custom String":
                 
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                for(String a: userInputDataArrayList)
-                {
-                    System.out.println("   Custom String   "+a);
-                    decryptButtonValue(userInputDataArrayList.get(1));
-                }
+                for (int i = 1; i < userInputDataArrayList.size(); i++) {
+                    generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
+                }                
+                System.out.println("temp :  "+generatedValue);
                 break;
                 
             case "Enum":
@@ -67,27 +66,28 @@ public class DecryptArrayList {
                 {
                     System.out.println("   Enum   "+a);
                     //decryptButtonValue(userInputDataArrayList.get(1));
-                }
+                }              
+                
                 break;
                 
             case "String":
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                decryptButtonValue(userInputDataArrayList.get(1));
+                generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 
                 break;
                 
             case "Int":
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                decryptButtonValue(userInputDataArrayList.get(1));
+                generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
                 
             case "Char":
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                decryptButtonValue(userInputDataArrayList.get(1));
+                generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
             case "Boolean":
                 System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                decryptButtonValue(userInputDataArrayList.get(1));
+                generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
                 break;
                 
             case "Date":
@@ -101,18 +101,24 @@ public class DecryptArrayList {
                 
         }// end Switch
         
+        this.storeGeneratedValueObj.addParameterName(storeWsdlDataObj.getElmentName().get(count));
+        this.storeGeneratedValueObj.addGeneratedValue(generatedValue);
+        
+        
         System.out.println("");
         System.out.println("------ end --------");
+ 
     }// end method start decoding
     
     
-    public String decryptButtonValue(String buttonValue)
+    public String decryptButtonValue(String buttonValue, int position)
     {
-        String userValue = userInputDataArrayList.get(2); // need to change this
+        String userValue = userInputDataArrayList.get(position); // need to change this
         String className = userInputDataArrayList.get(0);
         String temp="";
-        int size = 0;
         GenerateRandom generateRandomObj = new GenerateRandom();
+        
+        System.out.println("button value : "+ buttonValue);
         
         switch (buttonValue) {
             case "Random":
@@ -141,7 +147,7 @@ public class DecryptArrayList {
                 temp = userValue;
                 break;
         }// end switch
-        System.out.println("tttttttttttttt    :"+ temp);
+        
         return temp;
     }// end decryptbuttonvalue
     
@@ -161,6 +167,8 @@ public class DecryptArrayList {
         }
         coder(randomWith);
     }
+    
+    
     
     
     public static void coder(String a)

@@ -11,6 +11,7 @@ import GrahpicalUserInterface.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import Logic.GenerateTestData.DecryptArrayList;
+import Logic.GenerateTestData.StoreGeneratedValue;
 import aDeleteME.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -27,6 +28,7 @@ public class CollectTestData {
     private int count;
     private boolean checkCompleted;
     private int numTestCase;
+    private StoreGeneratedValue storeGeneratedValueObj;
     
     
     public CollectTestData(StoreWsdlData swdObj, int numTestCase)
@@ -37,6 +39,7 @@ public class CollectTestData {
         this.count=0;
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
         this.checkCompleted = false;
+        this.storeGeneratedValueObj = new StoreGeneratedValue();
     }
     
     public void addTestCaseInfo(ArrayList<String> pram)
@@ -104,24 +107,65 @@ public class CollectTestData {
             }
         }
         else{
-            
             for (int a = 0; a < numTestCase; a++)
             {
-                for (int i = 0; i < testCaseInfo.size(); i++) 
-                {                    
-                    for (int j = 0; j < testCaseInfo.get(i).size(); j++) 
-                    {
-                        //System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
-                        
-                    } //end 3rd for loop inside else case
-                   
-                    DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i));
+                for (int i = 0; i < testCaseInfo.size(); i++)
+                {
+                    /*
+                     * System.out.println("------ Start for loop ------");
+                     * int k =0;
+                     * for (int j = 0; j < testCaseInfo.get(i).size(); j++)
+                     * {
+                     * System.out.println(" User Data      "+testCaseInfo.get(i).get(j));
+                     * k=j;
+                     * } //end 3rd for loop inside else case
+                     * 
+                     * System.out.println("k  :"+k);
+                     * System.out.println("------ End for loop ------");
+                     * System.out.println("");
+                     * System.out.println("");
+                     * 
+                     */
+                    
+                    DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
                     decodeArrayList.startDecoding(i);
                     
                 }// end 2nd for loop inside else case
+                runTestCases();
             }// end 1st for loop inside else
-        }// else of 1st IF 
+           
+            
+            
+        }// else of 1st IF
+        
     }// end method
+    
+    private void runTestCases()
+    {
+        //for (int i = 0; i < numTestCase; i++) {
+           
+           ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
+           ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+            
+            for (int x = 0; x < m.size(); x++) {
+                
+                System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+            }
+            
+       // }
+        
+        /* for testing purpose */ 
+           
+           /*
+           ArrayList<String> m = storeGeneratedValueObj.getParameterNameList();
+           ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+            
+            for (int x = 0; x < m.size(); x++) {
+                
+                System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+            }
+            */
+    }
     
     
     public StoreWsdlData getStoreWsdlData()

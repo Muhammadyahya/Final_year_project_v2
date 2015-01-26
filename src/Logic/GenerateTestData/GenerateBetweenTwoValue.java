@@ -24,6 +24,8 @@ public class GenerateBetweenTwoValue {
         String parts [];
         int valueOne;
         int valueTwo;
+        
+        System.out.println("ref#  GenerateBetweenTwoValue...  pramTwo : "+pramTwo);
         switch (className) {
             
             case "Custom Int":
@@ -35,6 +37,10 @@ public class GenerateBetweenTwoValue {
                 valueOne = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[1]));
                 valueTwo = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[2]));
                 temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne,valueTwo));
+                
+//                System.out.println("value one : "+ valueOne);
+//                System.out.println("value two : "+ valueTwo);
+//                System.out.println("temp : "+ temp);
                 break;                
                 
             case "String":
@@ -77,4 +83,14 @@ public class GenerateBetweenTwoValue {
         
         return temp;
     }
+    
+     /* delete at the end of project... use only for testing */
+    public static void main(String [] args)
+    {
+        GenerateBetweenTwoValue obj = new GenerateBetweenTwoValue();
+        obj.generateValue("Custom String", "4-d-e");
+    }
+    
+    
+    
 }
