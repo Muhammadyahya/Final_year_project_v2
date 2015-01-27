@@ -162,6 +162,9 @@ public class CollectTestData {
             } catch (Exception ex) {
                 Logger.getLogger(CollectTestData.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            
+            jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
         }// end 1st for loop inside else
         
         
