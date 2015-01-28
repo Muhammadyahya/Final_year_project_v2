@@ -36,6 +36,13 @@ public class StoreReportData {
     public void addOutPutResponse(String pram){
         this.outPutResponse.add(pram);
     }
+    
+    public ArrayList<String> getInputData(){
+        return this.inputData;
+    }
+    public ArrayList<String> getOutPutResponse(){
+        return this.outPutResponse;
+    }      
     public CollectTestData getCollectTestData(){
         return collectTestDataObj;
     }

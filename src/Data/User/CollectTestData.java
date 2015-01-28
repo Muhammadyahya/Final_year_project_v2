@@ -114,7 +114,6 @@ public class CollectTestData {
             }
         }
         else{
-            System.out.println("else case ");
             VerifyResultGUI verifyResultGUIFrame = new VerifyResultGUI(collectTestDataObj);
             verifyResultGUIFrame.setSize(450,450);
             verifyResultGUIFrame.setLocationRelativeTo(null);
@@ -123,7 +122,6 @@ public class CollectTestData {
             verifyResultGUIFrame.revalidate();
             
         }// else of 1st IF
-        System.out.println("end method");
     }// end method
     
     public void runTestCases(CollectTestData collectTestDataObj)
@@ -139,19 +137,6 @@ public class CollectTestData {
             {
                 DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
                 decodeArrayList.startDecoding(i);
-                
-                /* for testing purpose */
-                ArrayList<String> m = this.storeGeneratedValueObj.getParameterNameList();
-                ArrayList<String> v = this.storeGeneratedValueObj.getGeneratedValueList();
-                
-                System.out.println("");
-                System.out.println("mmmmm + "+ m.size());
-                for (int x = 0; x < m.size(); x++) {
-                    
-                    System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-                }/* end of testing */
-                
-                
             }// end 2nd for loop inside else case
             
             storeReportDataObj.addStoreGeneratedValue(storeGeneratedValueObj);
@@ -164,14 +149,45 @@ public class CollectTestData {
             }
             
             
-            jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
+            
         }// end 1st for loop inside else
         
+        jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
         
-        
-        
-        
-    }
+        /* for testing purpose */
+        for (int i = 0; i < numTestCase; i++) {
+            
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("");
+            System.out.println("");
+            
+                ArrayList<String> m = this.storeGeneratedValueObj.getParameterNameList();
+                ArrayList<String> v = this.storeGeneratedValueObj.getGeneratedValueList();
+                
+                System.out.println("");
+                for (int x = 0; x < m.size(); x++) {
+                    
+                    System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
+                }
+                System.out.println("");
+                System.out.println("**** Input Request ****");
+                System.out.println(storeReportDataObj.getInputData());
+                System.out.println("");
+                
+                System.out.println("");
+                System.out.println("**** OutPut Response ****");
+                System.out.println(storeReportDataObj.getOutPutResponse());
+                System.out.println("");
+            
+            System.out.println("");
+            System.out.println("");
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("");
+            System.out.println("");
+
+               }/* end of testing */
+        }
+
     
     
     public StoreWsdlData getStoreWsdlData(){

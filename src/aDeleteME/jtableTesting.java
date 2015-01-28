@@ -48,7 +48,7 @@ public class jtableTesting {
        
        
        
-        System.out.println("obj size "+ obj.length);
+        //System.out.println("obj size "+ obj.length);
         obj[0] = "Test Case #";
         for (int i = 0; i < obj.length-1; i++) {
             
@@ -58,7 +58,7 @@ public class jtableTesting {
              
         }
         for (int i = 0; i <  obj.length; i++) {
-            System.out.println("obj  : "+ obj[i]);
+           // System.out.println("obj  : "+ obj[i]);
         }
         return obj;
     }

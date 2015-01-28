@@ -46,8 +46,8 @@ public class SoapRequest {
         storeReportDataObj.addOutPutResponse(aString);
         
         // print SOAP Response
-        System.out.print("Response SOAP Message:");
-        soapResponse.writeTo(System.out);
+//        System.out.print("Response SOAP Message:");
+//        soapResponse.writeTo(System.out);
 
         soapConnection.close();
     }
@@ -91,11 +91,11 @@ public class SoapRequest {
         storeReportDataObj.addinputData(aString);
 
         /* Print the request message */
-        System.out.print("Request SOAP Message:");
-        
-                
-        soapMessage.writeTo(System.out);
-        System.out.println();
+//        System.out.print("Request SOAP Message:");
+//        
+//                
+//        soapMessage.writeTo(System.out);
+//        System.out.println();
 
         return soapMessage;
     }

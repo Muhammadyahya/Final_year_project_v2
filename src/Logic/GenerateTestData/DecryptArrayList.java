@@ -119,8 +119,6 @@ public class DecryptArrayList {
         String temp="";
         GenerateRandom generateRandomObj = new GenerateRandom();
         
-        System.out.println("button value : "+ buttonValue);
-        
         switch (buttonValue) {
             case "Random":
                 //System.out.println("value is : " + userValue);               
