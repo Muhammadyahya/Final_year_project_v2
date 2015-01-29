@@ -172,12 +172,14 @@ public class CollectTestData {
                 }
                 System.out.println("");
                 System.out.println("**** Input Request ****");
-                System.out.println(storeReportDataObj.getInputData());
+                System.out.println(storeReportDataObj.getInputData().get(i));
                 System.out.println("");
                 
                 System.out.println("");
                 System.out.println("**** OutPut Response ****");
-                System.out.println(storeReportDataObj.getOutPutResponse());
+                //System.out.println(storeReportDataObj.getOutPutResponse().get(i));
+                
+                System.out.println(new xmlFormatter().format(storeReportDataObj.getOutPutResponse().get(i)));
                 System.out.println("");
             
             System.out.println("");

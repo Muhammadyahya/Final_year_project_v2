@@ -36,10 +36,10 @@ public class TableRenderDemo extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
  
         //Set up column sizes.
-        initColumnSizes(table);
+       // initColumnSizes(table);
  
         //Fiddle with the Sport column's cell editors/renderers.
-        setUpSportColumn(table, table.getColumnModel().getColumn(2));
+       // setUpSportColumn(table, table.getColumnModel().getColumn(2));
  
         //Add the scroll pane to this panel.
         add(scrollPane);
@@ -57,10 +57,10 @@ public class TableRenderDemo extends JPanel {
         int headerWidth = 0;
         int cellWidth = 0;
         Object[] longValues = model.longValues;
-        TableCellRenderer headerRenderer =
+       // TableCellRenderer headerRenderer =
             table.getTableHeader().getDefaultRenderer();
  
-        for (int i = 0; i < 5; i++) {
+       /* for (int i = 0; i < 5; i++) {
             column = table.getColumnModel().getColumn(i);
  
             comp = headerRenderer.getTableCellRendererComponent(
@@ -82,7 +82,7 @@ public class TableRenderDemo extends JPanel {
             }
  
             column.setPreferredWidth(Math.max(headerWidth, cellWidth));
-        }
+        }*/
     }
  
     public void setUpSportColumn(JTable table,
@@ -203,7 +203,7 @@ public class TableRenderDemo extends JPanel {
             }
             System.out.println("--------------------------");
         }
-    }
+    }// end mytable class
  
     /**
      * Create the GUI and show it.  For thread safety,

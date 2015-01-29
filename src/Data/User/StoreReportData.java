@@ -46,4 +46,8 @@ public class StoreReportData {
     public CollectTestData getCollectTestData(){
         return collectTestDataObj;
     }
+    
+    public ArrayList<StoreGeneratedValue> getStoreGeneratedValue(){
+        return this.storeGeneratedValueObj;
+    }
 }

@@ -31,11 +31,11 @@ public class DeleteME extends JFrame
     }
     
     
+    public void a(){
+    b();    
+    }
     
-    public static void main(String[] args) {
-        
-
-        
+    public void b(){
         
     }
 }

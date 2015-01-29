@@ -7,8 +7,15 @@
 package Logic;
 
 import com.predic8.wsdl.WSDLParser;
+import java.io.StringReader;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Node;
+import org.w3c.dom.bootstrap.DOMImplementationRegistry;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSSerializer;
+import org.xml.sax.InputSource;
 
 
 /**
@@ -21,15 +28,29 @@ public class Common {
     
     private static boolean next;
     
-    /*
-    public static ArrayList<String> addToArray(String pram)
-    {
-        ArrayList<String> temp = new ArrayList<>();
-        temp.add(pram);
-        
-        return temp;
-    }
     
+    /************************ I have copied this code from ref # http://stackoverflow.com/questions/139076/how-to-pretty-print-xml-from-java **********************************/
+    /* Time 12:39 Date 29/01/2015 */
+    public static String format(String xml) {        
+        try {
+            final InputSource src = new InputSource(new StringReader(xml));
+            final Node document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(src).getDocumentElement();
+            final Boolean keepDeclaration = Boolean.valueOf(xml.startsWith("<?xml"));
+            
+            //May need this: System.setProperty(DOMImplementationRegistry.PROPERTY,"com.sun.org.apache.xerces.internal.dom.DOMImplementationSourceImpl");
+
+            final DOMImplementationRegistry registry = DOMImplementationRegistry.newInstance();
+            final DOMImplementationLS impl = (DOMImplementationLS) registry.getDOMImplementation("LS");
+            final LSSerializer writer = impl.createLSSerializer();
+            
+            writer.getDomConfig().setParameter("format-pretty-print", Boolean.TRUE); // Set this to true if the output needs to be beautified.
+            writer.getDomConfig().setParameter("xml-declaration", keepDeclaration); // Set this to true if the declaration is needed to be outputted.
+            
+            return writer.writeToString(document);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }// end of format method
     
     /**********************************************************/
     
@@ -37,12 +58,12 @@ public class Common {
     {
         String TempOne = (String)pramOne;
         String TempTwo = (String)pramTwo;
-
+        
         if(TempOne.charAt(0)>TempTwo.charAt(0))
         {
             return TempTwo;
         }
-        else    
+        else
         {
             return TempOne;
         }
@@ -52,19 +73,19 @@ public class Common {
     {
         String TempOne = (String)pramOne;
         String TempTwo = (String)pramTwo;
-
+        
         if(TempOne.charAt(0)>TempTwo.charAt(0))
         {
             return TempOne;
         }
-        else    
+        else
         {
             return TempTwo;
         }
     }
     
-   /**********************************************************/
-        
+    /**********************************************************/
+    
     public static String concatenateString(String pram)
     {
         String temp="["+pram+"]";

@@ -4,29 +4,31 @@
  */
 package Logic.CheckResult;
 
+import Data.User.StoreGeneratedValue;
+import Data.User.StoreReportData;
+
 /**
  *
  * @author my301
  */
 public class ResultChecker {
     
-    public void AfterReceiveReply(String reply, Object correlationState)
+    private StoreReportData storeReportDataObj;
+    private int position;
+    
+    public ResultChecker(StoreReportData storeReportDataObj, int position){
+        
+        this.storeReportDataObj= storeReportDataObj;        
+        this.position = position;
+    }
+    
+    
+    public String checkResponse()
     {
         
-        /*
-        // Write out http headers
-        foreach (var property in reply.Properties)
-        {
-            if (!(property.Value is HttpResponseMessageProperty)) continue;
-            var httpProperties = (HttpResponseMessageProperty)property.Value;
-            foreach (KeyValuePair<object, object> kvp in httpProperties.Headers)
-            {
-                Console.WriteLine(kvp.Key + ":" + kvp.Value);
-            }
-        }
-        // Write result message
-        Console.WriteLine(reply.ToString());
         
-    */
-    }    
+        
+        return "Failed";
+    }
+    
 }

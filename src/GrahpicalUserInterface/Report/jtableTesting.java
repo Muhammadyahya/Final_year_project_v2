@@ -4,77 +4,95 @@
  */
 package GrahpicalUserInterface.Report;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Data.User.*;
+import aDeleteME.TestFrame;
+import java.util.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author my301
  */
-public class jtableTesting {
+public final class jtableTesting {
     
     private static DefaultTableModel tableModel;
-    private static int columnNumber = 1;
-    
     private StoreReportData storeReportDataObj;
     
     
     public jtableTesting(StoreReportData storeReportDataObj)
     {
         this.storeReportDataObj = storeReportDataObj;
+        tableModel = new DefaultTableModel(setColumns(), 0);
+        setRows();
+        JTable table = new JTable(tableModel);
         
-           tableModel = new DefaultTableModel(createObject(), 5);
-                JTable table = new JTable(tableModel);
-                JFrame frame = new JFrame("Table Column Add");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setBounds(100, 100, 600, 300);
-                frame.add(new JScrollPane(table));
-                frame.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Unknow dataType... Class: TestDataGen!");
+        ReportGUI testFrame = new ReportGUI(table);
+        testFrame.setSize(1000,1000);
+        testFrame.setLocationRelativeTo(null);
+        testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+        testFrame.setVisible(true);
+        testFrame.revalidate();
+        
+        
+        /*
+         * JFrame frame = new JFrame("Report Generated");
+         * frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         * frame.setBounds(100, 100, 1000, 1000);
+         * frame.add(new JScrollPane(table));
+         * frame.setVisible(true);
+         */
     }
     
-    private Object [] createObject()
+    private Object [] setColumns()
     {
-       Object [] obj = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+4];
-        //System.out.println("obj size "+ obj.length);
+        Object [] obj = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+4];
         obj[0] = "Test Case #";
         int i =0;
-        for (; i < obj.length-4; i++) {    
-             obj[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().get(i);
-             
-        }   
-       i++;
-       obj[i]="Input request";
-       i++;
-       obj[i]= "Output response";
-       i++;
-       obj[i]= "Result";
-       
-       
-        
+        for (; i < obj.length-4; i++) {
+            obj[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().get(i);
+        }
+        i++;
+        obj[i]="Input request";
+        i++;
+        obj[i]= "Output response";
+        i++;
+        obj[i]= "Result";
         return obj;
     }
     
-    
-    public static void insertData()
+    public Object[][] setRows()
     {
-        int a = 1;
-        int b =1000;
-        Object[][] data = new Object[10][5];//[number of rows][number of colouums]
-        for(int x = 0; x< 10; x++)
+        Object[][] data = new Object[this.storeReportDataObj.getInputData().size()][this.storeReportDataObj.getStoreGeneratedValue().get(0).getGeneratedValueList().size()+4];//[number of rows][number of colouums]
+        
+        for(int x = 0; x< this.storeReportDataObj.getInputData().size(); x++)
         {
-            for (int i = 0; i < 5; i++) {
-                data[x][i] = a++;
-            }        
+            ArrayList<String> generatedValue =  this.storeReportDataObj.getStoreGeneratedValue().get(x).getGeneratedValueList();
+            data[x][0] = x+1;
+            int i = 0;
+            for (; i < generatedValue.size(); i++) {
+                data[x][i+1]=generatedValue.get(i);
+            }
+            i++;
+            data[x][i]=this.storeReportDataObj.getInputData().get(x);
+            i++;
+            data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
+            i++;
+            data[x][i]="Passed";
+            tableModel.addRow( data[x]);
         }
         
-        for(int x = 0; x< 10; x++)
+        
+        for(int x = 0; x< this.storeReportDataObj.getInputData().size(); x++)
         {
-            for (int i = 0; i < 5; i++) {
+            ArrayList<String> generatedValue =  this.storeReportDataObj.getStoreGeneratedValue().get(x).getGeneratedValueList();
+            int i = 0;
+            for (; i < generatedValue.size()+1; i++ ){
                 System.out.print(data[x][i]);
-            }   
+            }
             
             System.out.println("");
         }
@@ -83,25 +101,28 @@ public class jtableTesting {
         
         
         Object[][] data2 = {
-        {"Kathy", "Smith",
-         "Snowboarding", new Integer(5), new Boolean(false)},
-        {"John", "Doe",
-         "Rowing", new Integer(3), new Boolean(true)},
-        {"Sue", "Black",
-         "", new Integer(2), new Boolean(false)},
-        {"Jane", "White",
-         "Speed reading", new Integer(20), new Boolean(true)},
-        {"Joe", "Brown",
-         "Pool", new Integer(10), new Boolean(false)}
+            {"Kathy", "Smith",
+                "Snowboarding", new Integer(5), new Boolean(false)},
+            {"John", "Doe",
+                "Rowing", new Integer(3), new Boolean(true)},
+            {"Sue", "Black",
+                "", new Integer(2), new Boolean(false)},
+            {"Jane", "White",
+                "Speed reading", new Integer(20), new Boolean(true)},
+            {"Joe", "Brown",
+                "Pool", new Integer(10), new Boolean(false)}
         };
- 
+        
+        
+        return data;
+        
     }
     
     public static void main(String [] agrs)
     {
         //jtableTesting j = new jtableTesting();
         
-        insertData();
+        //insertData();
         
     }
     
