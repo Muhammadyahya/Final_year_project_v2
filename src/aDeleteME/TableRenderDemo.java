@@ -123,6 +123,8 @@ public class TableRenderDemo extends JPanel {
          "Pool", new Integer(10), new Boolean(false)}
         };
  
+        
+        
         public final Object[] longValues = {"Jane", "Kathy",
                                             "None of the above",
                                             new Integer(20), Boolean.TRUE};

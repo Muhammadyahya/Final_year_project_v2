@@ -4,6 +4,7 @@
  */
 package Data.User;
 
+import GrahpicalUserInterface.Report.jtableTesting;
 import GrahpicalUserInterface.MainGUI.BooleanGUI;
 import GrahpicalUserInterface.MainGUI.StringGUI;
 import GrahpicalUserInterface.MainGUI.IntegerGUI;
