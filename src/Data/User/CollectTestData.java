@@ -4,24 +4,16 @@
  */
 package Data.User;
 
-import GrahpicalUserInterface.Report.jtableTesting;
-import GrahpicalUserInterface.MainGUI.BooleanGUI;
-import GrahpicalUserInterface.MainGUI.StringGUI;
-import GrahpicalUserInterface.MainGUI.IntegerGUI;
-import GrahpicalUserInterface.MainGUI.EnumGUI;
+import GrahpicalUserInterface.MainGUI.*;;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
-import GrahpicalUserInterface.MainGUI.VerifyResultGUI;
 import GrahpicalUserInterface.Report.CustomReportGUI;
-import GrahpicalUserInterface.Report.GenReport;
 import Logic.GenerateTestData.DecryptArrayList;
 import Logic.SoapRequest;
 import aDeleteME.*;
-import java.awt.GridLayout;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -164,22 +156,6 @@ public class CollectTestData {
             customReportGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
             customReportGUIFrame.setVisible(true);
             customReportGUIFrame.revalidate();
-        
-        //jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
-        
-        
-        /*
-        JFrame f = new JFrame();
-        f.setVisible(true);
-        f.setSize(850,580);
-        f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
-        f.setLayout(new GridLayout());
-        f.add(new GenReport(storeReportDataObj));
-        f.revalidate();
-        
-        
-        
-        */
         
         /* for testing purpose */
        /*

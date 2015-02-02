@@ -107,6 +107,11 @@ public class IntegerGUI extends javax.swing.JFrame {
         });
 
         mainButton.setText("Main Menu");
+        mainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainButtonActionPerformed(evt);
+            }
+        });
 
         customRadioButton.setText("Custom ( More Options )");
 
@@ -303,6 +308,10 @@ public class IntegerGUI extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainButtonActionPerformed
     
     /**
      * @param args the command line arguments

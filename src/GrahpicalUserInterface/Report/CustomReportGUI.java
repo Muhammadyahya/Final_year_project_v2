@@ -6,10 +6,13 @@ package GrahpicalUserInterface.Report;
 
 import GrahpicalUserInterface.MainGUI.*;
 import Data.User.*;
+import Logic.CheckResult.ResultChecker;
+import Logic.Common;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -60,7 +63,7 @@ public class CustomReportGUI extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         reportTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        detailLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
@@ -68,7 +71,7 @@ public class CustomReportGUI extends javax.swing.JFrame {
 
         headerLabel.setText("TEST DATA GENERATOR");
 
-        mainButton.setText("Back");
+        mainButton.setText("Done");
         mainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainButtonActionPerformed(evt);
@@ -100,7 +103,7 @@ public class CustomReportGUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(reportTable);
 
-        jLabel1.setText("Detail");
+        detailLabel.setText("Detail");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -111,33 +114,34 @@ public class CustomReportGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(351, 351, 351)
-                            .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(149, 149, 149)
-                            .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(388, 388, 388)
-                            .addComponent(headerLabel))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(351, 351, 351)
+                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(149, 149, 149)
+                                .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(detailLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(400, 400, 400)
+                        .addComponent(headerLabel)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(26, 26, 26)
                 .addComponent(headerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(detailLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -175,13 +179,19 @@ public class CustomReportGUI extends javax.swing.JFrame {
     
     private void reportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportTableMouseClicked
         // TODO add your handling code here:
-     
+
         if(reportTable.isEnabled())
         {
-            jTextArea1.setText(reportTable.getModel().getValueAt(reportTable.getSelectedRow(), reportTable.getSelectedColumn()).toString());
+            this.detailLabel.setText("Detail:  "+reportTable.getModel().getColumnName(reportTable.getSelectedColumn()));
+            if(reportTable.getModel().getColumnCount()-2 == reportTable.getSelectedColumn() || reportTable.getModel().getColumnCount()-3 == reportTable.getSelectedColumn())
+            {
+                jTextArea1.setText(Common.format(reportTable.getModel().getValueAt(reportTable.getSelectedRow(), reportTable.getSelectedColumn()).toString()));
+            }
+            else
+            {
+                jTextArea1.setText(reportTable.getModel().getValueAt(reportTable.getSelectedRow(), reportTable.getSelectedColumn()).toString());
+            }
         }
-        
-        
     }//GEN-LAST:event_reportTableMouseClicked
     
     private void setColumns()
@@ -213,7 +223,6 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private Object [] [] setRows()
     {
         Object[][] data = new Object[this.storeReportDataObj.getInputData().size()][this.storeReportDataObj.getStoreGeneratedValue().get(0).getGeneratedValueList().size()+4];//[number of rows][number of colouums]
-        
         for(int x = 0; x< this.storeReportDataObj.getInputData().size(); x++)
         {
             ArrayList<String> generatedValue =  this.storeReportDataObj.getStoreGeneratedValue().get(x).getGeneratedValueList();
@@ -227,6 +236,8 @@ public class CustomReportGUI extends javax.swing.JFrame {
             i++;
             data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
             i++;
+            ResultChecker resultCheckerObj = new ResultChecker(storeReportDataObj, x);
+            resultCheckerObj.checkResponse();
             data[x][i]="Passed";
             DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
             model.addRow(data[x]);
@@ -275,8 +286,8 @@ public class CustomReportGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
+    private javax.swing.JLabel detailLabel;
     private javax.swing.JLabel headerLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
