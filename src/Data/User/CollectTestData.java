@@ -12,12 +12,16 @@ import GrahpicalUserInterface.MainGUI.EnumGUI;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import GrahpicalUserInterface.MainGUI.VerifyResultGUI;
+import GrahpicalUserInterface.Report.CustomReportGUI;
+import GrahpicalUserInterface.Report.GenReport;
 import Logic.GenerateTestData.DecryptArrayList;
 import Logic.SoapRequest;
 import aDeleteME.*;
+import java.awt.GridLayout;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -153,10 +157,33 @@ public class CollectTestData {
             
         }// end 1st for loop inside else
         
-        jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
+        
+            CustomReportGUI customReportGUIFrame = new CustomReportGUI(storeReportDataObj);
+            customReportGUIFrame.setSize(1000,800);
+            customReportGUIFrame.setLocationRelativeTo(null);
+            customReportGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            customReportGUIFrame.setVisible(true);
+            customReportGUIFrame.revalidate();
+        
+        //jtableTesting jTestingObj = new jtableTesting(storeReportDataObj);
+        
+        
+        /*
+        JFrame f = new JFrame();
+        f.setVisible(true);
+        f.setSize(850,580);
+        f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+        f.setLayout(new GridLayout());
+        f.add(new GenReport(storeReportDataObj));
+        f.revalidate();
+        
+        
+        
+        */
         
         /* for testing purpose */
-        for (int i = 0; i < numTestCase; i++) {
+       /*
+        * for (int i = 0; i < numTestCase; i++) {
             
             System.out.println("--------------------------------------------------------------");
             System.out.println("");
@@ -189,6 +216,8 @@ public class CollectTestData {
             System.out.println("");
 
                }/* end of testing */
+        
+        
         }
 
     

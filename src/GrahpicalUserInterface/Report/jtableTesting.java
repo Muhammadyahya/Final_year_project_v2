@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public final class jtableTesting {
     
-    private static DefaultTableModel tableModel;
+    private DefaultTableModel tableModel;
     private StoreReportData storeReportDataObj;
     
     
@@ -29,7 +29,6 @@ public final class jtableTesting {
         setRows();
         JTable table = new JTable(tableModel);
         
-        JOptionPane.showMessageDialog(null, "Unknow dataType... Class: TestDataGen!");
         ReportGUI testFrame = new ReportGUI(table);
         testFrame.setSize(1000,1000);
         testFrame.setLocationRelativeTo(null);

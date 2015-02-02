@@ -36,23 +36,24 @@ public class ReportGUI extends javax.swing.JFrame {
         initComponents();
 
         this.reportTable = reportTable;
-        
         JFrame frame = new JFrame("JTable Test Display");
 
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
        
         JTable table = reportTable;
+        
+        this.jScrollPane1 = new JScrollPane(table);
+        
+        this.jPanel1.add(this.jScrollPane1,BorderLayout.CENTER);
+        
         JScrollPane tableContainer = new JScrollPane(table);
 
         panel.add(tableContainer, BorderLayout.CENTER);
         frame.getContentPane().add(panel);
 
         frame.pack();
-        frame.setVisible(true);
-        JOptionPane.showInputDialog("2222222222222222222");
-
-        
+        frame.setVisible(true);        
         
         
     }
