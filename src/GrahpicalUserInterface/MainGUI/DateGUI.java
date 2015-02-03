@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
 import Logic.UserInterface.LogicCustomInt;
 import Logic.UserInterface.LogicDate;
@@ -252,7 +252,11 @@ public class DateGUI extends javax.swing.JFrame {
                     }
                     if(customRadioButton.isSelected())
                     {
-                        // go the custom int GUI
+                        /*
+                         * 
+                         * this is the only one not done yet
+                         * 
+                         */
                         this.dispose();
                         CustomDateGUI customDateGuiFrame =  new CustomDateGUI(collectTestDataObj,0);
                         customDateGuiFrame.setSize(550,550);
@@ -288,7 +292,7 @@ public class DateGUI extends javax.swing.JFrame {
                         {
                             if(obj.checkDate(dateOneTextField.getText())&& obj.checkDate(dateTwoTextField.getText()))
                             {
-                                EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                                
                                 String result = obj.compareDate(dateOneTextField.getText().toString(),dateTwoTextField.getText().toString(),format);
                                 String dateOne;
                                 String dateTwo;
@@ -304,7 +308,7 @@ public class DateGUI extends javax.swing.JFrame {
                                     dateOne  = dateOneTextField.getText().toString();
                                     dateTwo = dateTwoTextField.getText().toString();
                                 }
-                                
+                                EncryptArrayList encrytArrayListObj = new EncryptArrayList();
                                 collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "BetweenTwoValue",format+"&"+dateOne+"&"+dateTwo));
                                 this.dispose();
                                 collectTestDataObj.increaseCount();
@@ -320,8 +324,11 @@ public class DateGUI extends javax.swing.JFrame {
                     }
                     else if(randomRadioButton.isSelected()){
                         
-                        // produce random date
-                        
+                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Random",format));
+                        this.dispose();
+                        collectTestDataObj.increaseCount();
+                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                 }
                 else{

@@ -4,7 +4,7 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
 import Logic.UserInterface.LogicEnum;
@@ -130,7 +130,7 @@ public class EnumGUI extends javax.swing.JFrame {
         }
         else if (enumJList.getSelectedIndices().length > 0)
         {
-            if(Common.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
+            if(CommonMethodsOne.checkConfirm(JOptionPane.showConfirmDialog( null, "One of the value will be selected randomly from the selected values.")))
             {
                 LogicEnum logicEnumObj = new LogicEnum(storeEnumObj);
                 collectTestDataObj.addTestCaseInfo(logicEnumObj.addEnumToArray(enumJList.getSelectedValuesList()));

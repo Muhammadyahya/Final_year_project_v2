@@ -4,11 +4,9 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.CommonMethodsOne;
-import Data.WSDL.StoreWsdlData;
 import Data.User.*;
-import Logic.*;
 import Logic.UserInterface.*;
+import aDeleteME.TestFrame;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -20,7 +18,7 @@ import javax.swing.table.TableColumn;
  *
  * @author my301
  */
-public class CustomIntGui extends javax.swing.JFrame {
+public class CustomDateGUI extends javax.swing.JFrame {
     
     /**
      * Creates new form CustomIntGui
@@ -28,7 +26,7 @@ public class CustomIntGui extends javax.swing.JFrame {
     private int length;
     private CollectTestData collectTestDataObj;
     
-    public CustomIntGui() {
+    public CustomDateGUI() {
         initComponents();
         //comboBoxColumn(jTable1.getColumnModel().getColumn(2));
         //addRowsTable(0);
@@ -36,9 +34,9 @@ public class CustomIntGui extends javax.swing.JFrame {
         
         this.length = 4;
         
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
         addRowsTable(length);
         
         
@@ -46,14 +44,15 @@ public class CustomIntGui extends javax.swing.JFrame {
         
     }
     
-    public CustomIntGui(CollectTestData obj, int length) {
+
+    
+    public CustomDateGUI(CollectTestData obj, int length) {
         initComponents();
         this.length = length+1;
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
         addRowsTable(this.length);
-        setDecimalPoint();
         this.collectTestDataObj= obj;
         pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
@@ -76,10 +75,6 @@ public class CustomIntGui extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         inputTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        pointPositionComboBox = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        pointPositionTextField = new javax.swing.JTextField();
         lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
 
@@ -117,14 +112,14 @@ public class CustomIntGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Digit", "Specific", "Value one", "Value two", "Random"
+                "Digit", "Specific", "Value one", "Value two", "Random", "Random with Punctuation"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                false, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -137,10 +132,11 @@ public class CustomIntGui extends javax.swing.JFrame {
         });
         inputTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(inputTable);
-
-        jLabel3.setText("Decimal Point position:-");
-
-        jLabel4.setText("Or");
+        inputTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        inputTable.getColumnModel().getColumn(1).setMaxWidth(55);
+        inputTable.getColumnModel().getColumn(2).setMaxWidth(65);
+        inputTable.getColumnModel().getColumn(3).setMaxWidth(65);
+        inputTable.getColumnModel().getColumn(4).setMaxWidth(60);
 
         lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         lengthComboBox.setToolTipText("");
@@ -168,25 +164,19 @@ public class CustomIntGui extends javax.swing.JFrame {
                                 .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
-                            .addComponent(jScrollPane2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(6, 6, 6)
-                                .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                            .addComponent(pramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                            .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,20 +191,14 @@ public class CustomIntGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,19 +206,18 @@ public class CustomIntGui extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-        LogicCustomInt logicCustomIntObj = new LogicCustomInt();
         
-        if(logicCustomIntObj.checkAllFeilds(inputTable.getModel()))
+        LogicCustomString logicCustomStringObj = new LogicCustomString();
+        if(logicCustomStringObj.checkAllFeilds(inputTable.getModel()))
         {
-            collectTestDataObj.addTestCaseInfo(logicCustomIntObj.getCustomArrayListData());
+            collectTestDataObj.addTestCaseInfo(logicCustomStringObj.getCustomArrayListData());
             this.dispose();
-            collectTestDataObj.increaseCount();
+            collectTestDataObj.increaseCount(); 
             collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error on line "+logicCustomIntObj.getErrorLine()+" .");
-        }
-        
+            JOptionPane.showMessageDialog(null,"Error on line "+logicCustomStringObj.getErrorLine()+" .");
+        }        
     }//GEN-LAST:event_nextButtonActionPerformed
     
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -248,14 +231,17 @@ public class CustomIntGui extends javax.swing.JFrame {
     private void lengthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthComboBoxActionPerformed
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
-        this.dispose();
-        CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
-        customIntGuiFrame.setSize(550,550);
-        customIntGuiFrame.setLocationRelativeTo(null);
-        customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-        customIntGuiFrame.setVisible(true);
-        customIntGuiFrame.revalidate();
         
+        
+        CustomDateGUI customStringGuiFrame =  new CustomDateGUI(collectTestDataObj,tempLength);
+        
+        //CustomStringGUI customStringGuiFrame =  new CustomStringGUI(tempLength);
+        customStringGuiFrame.setSize(550,550);
+        customStringGuiFrame.setLocationRelativeTo(null);
+        customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
+        customStringGuiFrame.setVisible(true);
+        customStringGuiFrame.revalidate();
+        this.dispose();
     }//GEN-LAST:event_lengthComboBoxActionPerformed
     
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
@@ -263,15 +249,14 @@ public class CustomIntGui extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
         {
             this.dispose();
-            IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
-            intGenGUIFrame.setSize(450,600);
-            intGenGUIFrame.setLocationRelativeTo(null);
-            intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            intGenGUIFrame.setVisible(true);
-            intGenGUIFrame.revalidate();
+            StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
+            stringGUIFrame.setSize(500,600);
+            stringGUIFrame.setLocationRelativeTo(null);
+            stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            stringGUIFrame.setVisible(true);
+            stringGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-    
     
     public void addRowsTable(int length) {
         DefaultTableModel model = (DefaultTableModel) inputTable.getModel();
@@ -279,34 +264,16 @@ public class CustomIntGui extends javax.swing.JFrame {
         for(int i = 0; i<length; i++)
         {
             model.addRow(new Object[]{i+1, "",
-                "", "", new Boolean(false)});
+                "", "", new Boolean(false), new Boolean(false)});
         }
     }
     
-    public void comboBoxColumn(TableColumn columnNum) {
+    public void comboBoxColumn(TableColumn columnNum, String value) {
         
-        JComboBox comboBox = new JComboBox();
-        comboBox.addItem("1");
-        comboBox.addItem("2");
-        comboBox.addItem("3");
-        comboBox.addItem("4");
-        comboBox.addItem("5");
-        comboBox.addItem("6");
-        comboBox.addItem("7");
-        comboBox.addItem("8");
-        comboBox.addItem("9");
-        comboBox.addItem("0");
-        columnNum.setCellEditor(new DefaultCellEditor(comboBox));
+        LogicCustomString logicCustomStringObj = new LogicCustomString();
+        columnNum.setCellEditor(new DefaultCellEditor(logicCustomStringObj.addValueToJComboBox(value)));
         
     }
-    
-    public void setDecimalPoint()
-    {
-        for (int i = 0; i < length; i++) {
-            pointPositionComboBox.addItem(i+1);
-        }
-    }
-    
     
     /**
      * @param args the command line arguments
@@ -325,20 +292,20 @@ public class CustomIntGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDateGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDateGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDateGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDateGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomIntGui().setVisible(true);
+                new CustomDateGUI().setVisible(true);
             }
         });
     }
@@ -347,14 +314,10 @@ public class CustomIntGui extends javax.swing.JFrame {
     private javax.swing.JLabel headerLabel;
     private javax.swing.JTable inputTable;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
-    private javax.swing.JComboBox pointPositionComboBox;
-    private javax.swing.JTextField pointPositionTextField;
     private javax.swing.JLabel pramLabel;
     private javax.swing.JLabel pramTypeLabel;
     // End of variables declaration//GEN-END:variables

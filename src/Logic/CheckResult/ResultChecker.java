@@ -5,7 +5,7 @@
 package Logic.CheckResult;
 
 import Data.User.StoreReportData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -59,8 +59,8 @@ public class ResultChecker {
             }
             
         } catch (Exception e) {
-            result = "No such tag found. <"+storeReportDataObj.getOutPutResponse().get(position)+">.";
-            storeReportDataObj.getCollectTestData().addTagName(JOptionPane.showInputDialog(result+"\n"+ storeReportDataObj.getOutPutResponse().get(position)+"\n"+"Please enter a new Tag."));
+            String temp = "No such tag found. <"+storeReportDataObj.getCollectTestData().getTagName()+">.";
+            storeReportDataObj.getCollectTestData().addTagName(JOptionPane.showInputDialog(temp+"\n"+ CommonMethodsOne.format(storeReportDataObj.getOutPutResponse().get(position))+"\n"+"Please enter a new Tag."));
             checkResponse();
         }        
         return result;
@@ -82,7 +82,7 @@ public class ResultChecker {
         } catch (Exception e) {
             result = "No such tag found. <"+parm2+">";
             System.out.println("2222  "+parm2);
-            parm2 = JOptionPane.showInputDialog(result+"\n"+"\n"+ Common.format(parm)+"\n"+"\n"+"Please enter a new Tag.");  
+            parm2 = JOptionPane.showInputDialog(result+"\n"+"\n"+ CommonMethodsOne.format(parm)+"\n"+"\n"+"Please enter a new Tag.");  
             checkTag(parm,parm2);
         }  
         return result;

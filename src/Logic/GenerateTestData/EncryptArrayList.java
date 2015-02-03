@@ -24,6 +24,7 @@ public class EncryptArrayList {
     
     public synchronized ArrayList<String> startEncrypt(String className, String buttonValue, String userValue)
     {
+        /* i am not sure why i wrote all this 
         switch (className) {
             case "String":
                 this.encryptArrayList.add("String");
@@ -45,20 +46,22 @@ public class EncryptArrayList {
                 this.encryptArrayList.add("Date");
                 addButtonValue(buttonValue);
                 break;
-        }
+        }*/
         
-        /* finally add the value */         
+        /* finally add the value */
+        this.encryptArrayList.add(className);
+        this.encryptArrayList.add(buttonValue);
         this.encryptArrayList.add(userValue);
-
+        
         return this.encryptArrayList;
         
     }
     
-
-
+    
+    /* not sure why i wrote this
     public void addButtonValue(String button)
     {
-
+        
         switch (button) {
             case "Random":
                 this.encryptArrayList.add("Random");
@@ -70,6 +73,6 @@ public class EncryptArrayList {
                 this.encryptArrayList.add("Specific");
                 break;
         }
-    }
+    }*/
     
 }

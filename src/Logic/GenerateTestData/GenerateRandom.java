@@ -24,15 +24,15 @@ public class GenerateRandom {
         switch (className) {
             
             case "Custom Int":
-                temp = ""+GenerateCommonMethods.intGen(0, 9);
+                temp = ""+CommonMethodsTwo.intGen(0, 9);
                 break;
                 
             case "Custom String":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
                 break;
                 
             case "Enum":
-                temp = ""+GenerateCommonMethods.intGen(0, 9);
+                temp = ""+CommonMethodsTwo.intGen(0, 9);
                 break;
                 
             case "String":
@@ -40,19 +40,19 @@ public class GenerateRandom {
                 
                 for (int i = 0; i < size ; i++)
                 {
-                    temp = temp+GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
+                    temp = temp+CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
                 }
                 break;
                 
             case "Int":
                 size =  Integer.parseInt(""+userValue.charAt(0));
                 for (int i = 0; i < size ; i++) {
-                    temp = temp+GenerateCommonMethods.intGen(0, 9);
+                    temp = temp+CommonMethodsTwo.intGen(0, 9);
                 }
                 break;
                 
             case "Char":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
                 break;
                 
             case "Date":
@@ -73,7 +73,7 @@ public class GenerateRandom {
     public String generateRandomWith()
     {
        
-        temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(97,122));
+        temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
         //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;
     }
@@ -82,7 +82,7 @@ public class GenerateRandom {
     {
         int valueOne = 0;
         int valueTwo = 0;
-        int randomValue =  GenerateCommonMethods.intGen(1,2);
+        int randomValue =  CommonMethodsTwo.intGen(1,2);
         if(randomValue == 1)
         {
             valueOne = 33;
@@ -93,7 +93,7 @@ public class GenerateRandom {
             valueOne = 91;
             valueTwo = 126;
         }
-        temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne, valueTwo));
+        temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne, valueTwo));
         
         //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;

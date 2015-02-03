@@ -23,7 +23,7 @@ import org.xml.sax.InputSource;
  * It will save time and code will be less complex to read and understand.
  * @author Muhammad Yahya
  */
-public class Common {
+public class CommonMethodsOne {
     
     
     private static boolean next;
@@ -123,7 +123,7 @@ public class Common {
     public static void stopLoop()
     {
         next = false;
-        while(!Common.getNext())
+        while(!CommonMethodsOne.getNext())
         {
             
         }

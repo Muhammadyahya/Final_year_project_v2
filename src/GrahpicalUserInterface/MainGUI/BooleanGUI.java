@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
 import javax.swing.JOptionPane;
 

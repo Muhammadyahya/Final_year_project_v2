@@ -4,7 +4,7 @@
 */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
 import Data.WSDL.StoreWsdlData;
@@ -193,7 +193,7 @@ public class ShowMethods extends javax.swing.JFrame {
             else{
                 String input = JOptionPane.showInputDialog(null,"Please enter a number of Test Cases");
                 
-                if(Common.isInt(input)){
+                if(CommonMethodsOne.isInt(input)){
                     int numTestCase = Integer.parseInt(input);
                     if(numTestCase <=0){
                         JOptionPane.showMessageDialog(null,"Please enter an interger value greater than 0.");

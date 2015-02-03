@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
 import javax.swing.JOptionPane;
 
@@ -227,7 +227,7 @@ public class CharGUI extends javax.swing.JFrame {
                 {
                     // below line store and concatenate the String
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "BetweenTwoValue",1+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Char", "BetweenTwoValue",1+"-"+CommonMethodsOne.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+CommonMethodsOne.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);

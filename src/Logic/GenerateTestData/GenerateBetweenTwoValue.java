@@ -29,14 +29,14 @@ public class GenerateBetweenTwoValue {
         switch (className) {
             
             case "Custom Int":
-                temp = ""+GenerateCommonMethods.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
+                temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
                 break;
                 
             case "Custom String":
                 parts = userValue.split("-");                
-                valueOne = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[1]));
-                valueTwo = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[2]));
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne,valueTwo));
+                valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
+                valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne,valueTwo));
                 
 //                System.out.println("value one : "+ valueOne);
 //                System.out.println("value two : "+ valueTwo);
@@ -46,11 +46,11 @@ public class GenerateBetweenTwoValue {
             case "String":
                 size =  Integer.parseInt(""+userValue.charAt(0));
                 parts = userValue.split("-");                
-                valueOne = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[1]));
-                valueTwo = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[2]));
+                valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
+                valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
                 for (int i = 0; i < size ; i++) 
                 {
-                    temp = temp+GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne, valueTwo));
+                    temp = temp+CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne, valueTwo));
                 }
                 break;
                 
@@ -60,15 +60,15 @@ public class GenerateBetweenTwoValue {
                 
                 for (int i = 0; i < size ; i++) 
                 {
-                    temp = temp+GenerateCommonMethods.intGen(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+                    temp = temp+CommonMethodsTwo.intGen(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
                 }
                 break;
                 
             case "Char":
                 parts = userValue.split("-");                
-                valueOne = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[1]));
-                valueTwo = Integer.parseInt(""+GenerateCommonMethods.charToInt(parts[2]));
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(valueOne,valueTwo));
+                valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
+                valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne,valueTwo));
                 break;
                 
             case "Date":

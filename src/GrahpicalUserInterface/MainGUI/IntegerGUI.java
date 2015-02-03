@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import javax.swing.JOptionPane;
 import Logic.GenerateTestData.*;
 import Logic.UserInterface.*;
@@ -238,7 +238,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store and concatenate the String
                     
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    // delete this once below line is working collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    // delete this once below line is working collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
                     
                     this.dispose();
@@ -257,8 +257,8 @@ public class IntegerGUI extends javax.swing.JFrame {
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String
-                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(Common.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+Common.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
-                    if(Common.isInt(valueOneTextField.getText())&& Common.isInt(valueTwoTextField.getText()))
+                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(CommonMethodsOne.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+CommonMethodsOne.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
+                    if(CommonMethodsOne.isInt(valueOneTextField.getText())&& CommonMethodsOne.isInt(valueTwoTextField.getText()))
                     {
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
                         LogicCustomInt logicCustomIntObj = new LogicCustomInt();
@@ -285,7 +285,7 @@ public class IntegerGUI extends javax.swing.JFrame {
                     // below line store the user value in the arraylist
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Random",""+lengthComboBox.getSelectedItem()));
-                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
+                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);

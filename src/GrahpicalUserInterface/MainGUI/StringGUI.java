@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
 import Logic.UserInterface.LogicCustomInt;
 import javax.swing.JOptionPane;
@@ -240,7 +240,7 @@ public class StringGUI extends javax.swing.JFrame {
                 if(!specificTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String 
-                    //collectTestDataObj.addTestCaseInfo(Common.addToArray(Common.concatenateString(specificTextField.getText())));
+                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
                     collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));                    
                     this.dispose();
@@ -257,7 +257,7 @@ public class StringGUI extends javax.swing.JFrame {
                 {   
                     // below code store user value in the arraylist and increase the count 
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthComboBox.getSelectedItem()+"-"+Common.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+Common.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthComboBox.getSelectedItem()+"-"+CommonMethodsOne.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+CommonMethodsOne.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
                     this.dispose();
                     collectTestDataObj.increaseCount();                    
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);

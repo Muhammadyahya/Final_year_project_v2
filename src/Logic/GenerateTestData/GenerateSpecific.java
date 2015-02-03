@@ -22,11 +22,11 @@ public class GenerateSpecific {
         switch (className) {
             
             case "Custom Int":
-                temp = ""+GenerateCommonMethods.intGen(0, 9);
+                temp = ""+CommonMethodsTwo.intGen(0, 9);
                 break;
                 
             case "Custom String":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(1, 26));
                 break;
                 
             case "Enum":
@@ -34,15 +34,15 @@ public class GenerateSpecific {
                 break;
                 
             case "String":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(1, 26));
                 break;
                 
             case "Int":
-                temp = ""+GenerateCommonMethods.intGen(0, 9);
+                temp = ""+CommonMethodsTwo.intGen(0, 9);
                 break;
                 
             case "Char":
-                temp = GenerateCommonMethods.intTochar(GenerateCommonMethods.intGen(1, 26));
+                temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(1, 26));
                 break;
             case "Boolean":
 

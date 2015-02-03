@@ -30,7 +30,7 @@ public class CheckWsdl {
         int length = wsdl.length();
         if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))
         {
-            if(Common.checkPath(wsdl))
+            if(CommonMethodsOne.checkPath(wsdl))
             {
                 message = "Wsdl is correct.";
                 return true;

@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author my301
  */
-public class GenerateCommonMethods {
+public class CommonMethodsTwo {
     
     public static int intGen(int rangeFrom, int rangeTo)
     {

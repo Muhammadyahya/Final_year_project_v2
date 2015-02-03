@@ -43,7 +43,7 @@ public class VerifyResultGUI extends javax.swing.JFrame {
         tagNameTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tagValueTextArea = new javax.swing.JTextArea();
-        nextButton = new javax.swing.JButton();
+        finishButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
         mainButton = new javax.swing.JButton();
 
@@ -59,10 +59,10 @@ public class VerifyResultGUI extends javax.swing.JFrame {
         tagValueTextArea.setRows(5);
         jScrollPane1.setViewportView(tagValueTextArea);
 
-        nextButton.setText("Finish");
-        nextButton.addActionListener(new java.awt.event.ActionListener() {
+        finishButton.setText("Finish");
+        finishButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextButtonActionPerformed(evt);
+                finishButtonActionPerformed(evt);
             }
         });
 
@@ -101,7 +101,7 @@ public class VerifyResultGUI extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(mainButton)
                         .addGap(39, 39, 39)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(finishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(jLabel1)))
@@ -122,7 +122,7 @@ public class VerifyResultGUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextButton)
+                    .addComponent(finishButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
                 .addContainerGap(69, Short.MAX_VALUE))
@@ -131,11 +131,13 @@ public class VerifyResultGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+    private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishButtonActionPerformed
         // TODO add your handling code here:
         if(!tagNameTextField.getText().equals("")&&!tagValueTextArea.getText().equals(""))
         {
             this.dispose();
+            collectTestDataObj.addTagName(tagNameTextField.getText());
+            collectTestDataObj.addTagValue(tagValueTextArea.getText());
             collectTestDataObj.runTestCases(collectTestDataObj);
         }
         else
@@ -143,7 +145,7 @@ public class VerifyResultGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter Tag Name and Tag Value.");
         }
         
-    }//GEN-LAST:event_nextButtonActionPerformed
+    }//GEN-LAST:event_finishButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
 
@@ -193,12 +195,12 @@ public class VerifyResultGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
+    private javax.swing.JButton finishButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton mainButton;
-    private javax.swing.JButton nextButton;
     private javax.swing.JTextField tagNameTextField;
     private javax.swing.JTextArea tagValueTextArea;
     // End of variables declaration//GEN-END:variables

@@ -7,7 +7,7 @@ package GrahpicalUserInterface.Report;
 import GrahpicalUserInterface.MainGUI.*;
 import Data.User.*;
 import Logic.CheckResult.*;
-import Logic.Common;
+import Logic.CommonMethodsOne;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -24,17 +24,17 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private StoreReportData storeReportDataObj;
     
     public CustomReportGUI() {
-        initComponents(); 
+        initComponents();
         setColumns();
         this.revalidate();
-         
+        
     }
     
     public CustomReportGUI(StoreReportData storeReportDataObj) {
         initComponents();
         this.storeReportDataObj = storeReportDataObj;
         setColumns();
-       // setRows();
+        // setRows();
         
     }
     
@@ -164,17 +164,17 @@ public class CustomReportGUI extends javax.swing.JFrame {
             intGenGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-
+    
     
     private void reportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportTableMouseClicked
         // TODO add your handling code here:
-
+        
         if(reportTable.isEnabled())
         {
             this.detailLabel.setText("Detail:  "+reportTable.getModel().getColumnName(reportTable.getSelectedColumn()));
-            if(reportTable.getModel().getColumnCount()-2 == reportTable.getSelectedColumn() || reportTable.getModel().getColumnCount()-3 == reportTable.getSelectedColumn())
+            if(reportTable.getModel().getColumnCount()-4 == reportTable.getSelectedColumn() || reportTable.getModel().getColumnCount()-3 == reportTable.getSelectedColumn())
             {
-                jTextArea1.setText(Common.format(reportTable.getModel().getValueAt(reportTable.getSelectedRow(), reportTable.getSelectedColumn()).toString()));
+                jTextArea1.setText(CommonMethodsOne.format(reportTable.getModel().getValueAt(reportTable.getSelectedRow(), reportTable.getSelectedColumn()).toString()));
             }
             else
             {
@@ -185,7 +185,7 @@ public class CustomReportGUI extends javax.swing.JFrame {
     
     private void setColumns()
     {
-  
+        
         Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+5];
         columnNames[0] = "Test Case #";
         int i =0;
@@ -197,16 +197,18 @@ public class CustomReportGUI extends javax.swing.JFrame {
         i++;
         columnNames[i]= "Output response";
         i++;i++;
+        System.out.println("3333 "+ i);
         columnNames[i]= "Result";
         i--;
+        System.out.println("4444 "+ i);
         columnNames[i]="Tag Value";
-       Object [] [] rowData =  setRows();
-      DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
-
-          model.setColumnIdentifiers(columnNames);
+        Object [] [] rowData =  setRows();
+        DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
+        
+        model.setColumnIdentifiers(columnNames);
         model.setDataVector(rowData, columnNames);
-    reportTable.setModel(model);
-
+        reportTable.setModel(model);
+        
     }
     
     
@@ -225,23 +227,20 @@ public class CustomReportGUI extends javax.swing.JFrame {
             data[x][i]=this.storeReportDataObj.getInputData().get(x);
             i++;
             data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
-            i++;
+            i++;i++;
+            System.out.println("11111 "+ i);
             ResultChecker resultCheckerObj = new ResultChecker(storeReportDataObj, x);
-            i++;
             data[x][i]= resultCheckerObj.checkResponse();
             i--;
+            System.out.println("2222 "+ i);
             data[x][i]= this.storeReportDataObj.getActualTagValue().get(x);
             DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
             model.addRow(data[x]);
-        }
-        
-        return data;
-
+        }        
+        return data;        
     }
     
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
