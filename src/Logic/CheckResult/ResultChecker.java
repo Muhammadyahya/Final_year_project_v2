@@ -5,6 +5,7 @@
 package Logic.CheckResult;
 
 import Data.User.StoreReportData;
+import Logic.Common;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -13,6 +14,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.io.StringReader;
+import javax.swing.JOptionPane;
 import org.xml.sax.InputSource;
 
 /**
@@ -33,8 +35,7 @@ public class ResultChecker {
     public ResultChecker(){
         
     }
-    
-    
+        
     public String checkResponse()
     {
         
@@ -45,24 +46,50 @@ public class ResultChecker {
             InputSource is = new InputSource(new StringReader(storeReportDataObj.getOutPutResponse().get(position)));
             Document doc = dBuilder.parse(is);
             doc.getDocumentElement().normalize();
-            String responce = doc.getElementsByTagName(storeReportDataObj.getCollectTestData().getTagName()).item(0).getTextContent();
+            String response = doc.getElementsByTagName(storeReportDataObj.getCollectTestData().getTagName()).item(0).getTextContent();
             
-            if(responce.equals(storeReportDataObj.getCollectTestData().getTagValue()))
+            if(response.equals(storeReportDataObj.getCollectTestData().getTagValue()))
             {
                 result= "Passed";
+                storeReportDataObj.addActualTagValue(response);
+            }
+            else
+            {
+                storeReportDataObj.addActualTagValue(response);
             }
             
         } catch (Exception e) {
-            result = "No such tag found.";
-        }
-        
+            result = "No such tag found. <"+storeReportDataObj.getOutPutResponse().get(position)+">.";
+            storeReportDataObj.getCollectTestData().addTagName(JOptionPane.showInputDialog(result+"\n"+ storeReportDataObj.getOutPutResponse().get(position)+"\n"+"Please enter a new Tag."));
+            checkResponse();
+        }        
         return result;
-        
+    }
+    
+    /* for testing porpose */
+    public String checkTag(String parm, String parm2){
+         String result = "Failed";
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            InputSource is = new InputSource(new StringReader(parm));
+            Document doc = dBuilder.parse(is);
+            
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName(parm);
+            System.out.println(""+doc.getElementsByTagName(parm2).item(0).getTextContent());
+            
+        } catch (Exception e) {
+            result = "No such tag found. <"+parm2+">";
+            System.out.println("2222  "+parm2);
+            parm2 = JOptionPane.showInputDialog(result+"\n"+"\n"+ Common.format(parm)+"\n"+"\n"+"Please enter a new Tag.");  
+            checkTag(parm,parm2);
+        }  
+        return result;
     }
     
     
     
-    /* for testing porpose */
     public String testmethod(String a)
     {
         String result = "Failed";
@@ -112,7 +139,7 @@ public class ResultChecker {
         
         
         ResultChecker obj = new ResultChecker();
-        obj.testmethod(output);
+        obj.checkTag(output, "Goodemail");
     }
     
     

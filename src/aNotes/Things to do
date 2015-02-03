@@ -1,19 +1,21 @@
 **** Think do to ****
 
-. Dates and other values 
-. Store the user information correctly
-. Automatic soap response
-. Generate data from store information
-. Check if the result is correct for not
-. finish storing the data.
-. generate the data.
-. run the soap response automatically.
-. generate report 
+. Dates and other values such as float, double etc. 
+. Automatic soap response.. try to get the url from WSDL
 . check number of test case and stop if certain number of test fails
 . increase the string length
 . user output prammeters to check for pass and fail (trim and remove spaces + make is lower case ) .
-. 
+. combine other data types togather.
+. print, save and email report;
+. testing 
 
 **** Completed ****
 
 Added Char GUI
+. Store the user information correctly
+. finish storing the data.
+. generate the data.
+. generate report 
+. Generate data from store information
+. run the soap response automatically.
+. Check if the result is correct for not

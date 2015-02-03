@@ -6,22 +6,11 @@ package GrahpicalUserInterface.Report;
 
 import GrahpicalUserInterface.MainGUI.*;
 import Data.User.*;
-import Logic.CheckResult.ResultChecker;
+import Logic.CheckResult.*;
 import Logic.Common;
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import static java.awt.image.ImageObserver.WIDTH;
 import java.util.ArrayList;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -197,19 +186,20 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private void setColumns()
     {
   
-        Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+4];
+        Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+5];
         columnNames[0] = "Test Case #";
         int i =0;
-        for (; i < columnNames.length-4; i++) {
+        for (; i < columnNames.length-5; i++) {
             columnNames[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().get(i);
         }
         i++;
         columnNames[i]="Input request";
         i++;
         columnNames[i]= "Output response";
-        i++;
+        i++;i++;
         columnNames[i]= "Result";
-
+        i--;
+        columnNames[i]="Tag Value";
        Object [] [] rowData =  setRows();
       DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
 
@@ -222,7 +212,7 @@ public class CustomReportGUI extends javax.swing.JFrame {
     
     private Object [] [] setRows()
     {
-        Object[][] data = new Object[this.storeReportDataObj.getInputData().size()][this.storeReportDataObj.getStoreGeneratedValue().get(0).getGeneratedValueList().size()+4];//[number of rows][number of colouums]
+        Object[][] data = new Object[this.storeReportDataObj.getInputData().size()][this.storeReportDataObj.getStoreGeneratedValue().get(0).getGeneratedValueList().size()+5];//[number of rows][number of colouums]
         for(int x = 0; x< this.storeReportDataObj.getInputData().size(); x++)
         {
             ArrayList<String> generatedValue =  this.storeReportDataObj.getStoreGeneratedValue().get(x).getGeneratedValueList();
@@ -237,8 +227,10 @@ public class CustomReportGUI extends javax.swing.JFrame {
             data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
             i++;
             ResultChecker resultCheckerObj = new ResultChecker(storeReportDataObj, x);
-            resultCheckerObj.checkResponse();
-            data[x][i]="Passed";
+            i++;
+            data[x][i]= resultCheckerObj.checkResponse();
+            i--;
+            data[x][i]= this.storeReportDataObj.getActualTagValue().get(x);
             DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
             model.addRow(data[x]);
         }
