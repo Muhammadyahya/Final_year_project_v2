@@ -93,6 +93,7 @@ public class DecryptArrayList {
                 
             case "Date":
                 //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                generatedValue =  decryptButtonValue(userInputDataArrayList.get(1),2);
                 //decryptButtonValue(userInputDataArrayList.get(1));
                 break;
                 

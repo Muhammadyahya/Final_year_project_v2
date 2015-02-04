@@ -293,23 +293,25 @@ public class DateGUI extends javax.swing.JFrame {
                             if(obj.checkDate(dateOneTextField.getText())&& obj.checkDate(dateTwoTextField.getText()))
                             {
                                 
-                                String result = obj.compareDate(dateOneTextField.getText().toString(),dateTwoTextField.getText().toString(),format);
+                                String result = obj.compareDate(dateOneTextField.getText(),dateTwoTextField.getText(),format);
                                 String dateOne;
                                 String dateTwo;
-                                if(result.equals("DateOne")){
-                                    dateOne  = dateOneTextField.getText().toString();
-                                    dateTwo = dateTwoTextField.getText().toString();
-                                }
-                                else if(result.equals("DateTwo")){
-                                    dateOne = dateTwoTextField.getText().toString();
-                                    dateTwo = dateOneTextField.getText().toString();
-                                }
-                                else{
-                                    dateOne  = dateOneTextField.getText().toString();
-                                    dateTwo = dateTwoTextField.getText().toString();
+                                switch (result) {
+                                    case "DateOne":
+                                        dateOne  = dateOneTextField.getText();
+                                        dateTwo = dateTwoTextField.getText();
+                                        break;
+                                    case "DateTwo":
+                                        dateOne = dateTwoTextField.getText();
+                                        dateTwo = dateOneTextField.getText();
+                                        break;
+                                    default:
+                                        dateOne  = dateOneTextField.getText();
+                                        dateTwo = dateTwoTextField.getText();
+                                        break;
                                 }
                                 EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "BetweenTwoValue",format+"&"+dateOne+"&"+dateTwo));
+                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "BetweenTwoValue",sepratorComboBox.getSelectedItem()+"&"+format+"&"+dateOne+"&"+dateTwo));
                                 this.dispose();
                                 collectTestDataObj.increaseCount();
                                 collectTestDataObj.CollectTestCaseData(collectTestDataObj);
@@ -325,7 +327,7 @@ public class DateGUI extends javax.swing.JFrame {
                     else if(randomRadioButton.isSelected()){
                         
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Random",format));
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Random",sepratorComboBox.getSelectedItem()+"&"+format));
                         this.dispose();
                         collectTestDataObj.increaseCount();
                         collectTestDataObj.CollectTestCaseData(collectTestDataObj);

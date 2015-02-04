@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Logic.GenerateTestData;
 
 
@@ -56,6 +56,18 @@ public class GenerateRandom {
                 break;
                 
             case "Date":
+                String [] parts = userValue.split("&");
+                
+                if(parts[0].equals("spaces"))
+                    parts[0]= " ";
+                
+                if(parts[0].equals("."))
+                    parts[0] = "\\.";
+                
+                String [] formatParts = parts[1].split(parts[0]);
+                // generate random date here.
+                ./././
+                
                 temp = userValue;
                 break;
                 
@@ -72,7 +84,7 @@ public class GenerateRandom {
     
     public String generateRandomWith()
     {
-       
+        
         temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
         //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;

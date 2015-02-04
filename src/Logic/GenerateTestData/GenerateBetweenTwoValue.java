@@ -72,7 +72,17 @@ public class GenerateBetweenTwoValue {
                 break;
                 
             case "Date":
-                temp = userValue;
+                parts = userValue.split("&");
+                
+                if(parts[0].equals("spaces"))
+                    parts[0]= " ";
+                
+                if(parts[0].equals("."))
+                    parts[0] = "\\.";
+                
+                String [] formatParts = parts[1].split(parts[0]);
+                // generate random date here.
+                /./.
                 break;
                 
             default :

@@ -1,5 +1,6 @@
 **** Think do to ****
 
+. Date can be after or before certain date
 . Dates and other values such as float, double etc. 
 . Automatic soap response.. try to get the url from WSDL
 . check number of test case and stop if certain number of test fails
