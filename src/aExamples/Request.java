@@ -1,0 +1,58 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package aExamples;
+
+import java.net.URL;
+import java.util.*;
+import javax.xml.namespace.QName;
+import javax.xml.soap.SOAPConnection;
+import javax.xml.soap.*;
+
+/**
+ *
+ * @author my301
+ */
+public class Request {
+    public static void main(String[] args)    {
+        try {
+            SOAPConnectionFactory soapConnectionFactory =
+                SOAPConnectionFactory.newInstance();
+            SOAPConnection connection =
+                soapConnectionFactory.createConnection();
+
+            MessageFactory factory = MessageFactory.newInstance();
+            SOAPMessage message = factory.createMessage();
+
+            SOAPHeader header = message.getSOAPHeader();
+            SOAPBody body = message.getSOAPBody();
+            header.detachNode();
+
+            QName bodyName = new QName("http://wombat.ztrade.com",
+                "GetLastTradePrice", "m");
+            SOAPBodyElement bodyElement = body.addBodyElement(bodyName);
+
+            QName name = new QName("symbol");
+            SOAPElement symbol = bodyElement.addChildElement(name);
+            symbol.addTextNode("SUNW");
+
+            URL endpoint = new URL("http://wombat.ztrade.com/quotes");
+            SOAPMessage response = connection.call(message, endpoint);
+
+            connection.close();
+
+            SOAPBody soapBody = response.getSOAPBody();
+
+            Iterator iterator = soapBody.getChildElements(bodyName);
+            bodyElement = (SOAPBodyElement)iterator.next();
+            String lastPrice = bodyElement.getValue();
+
+            System.out.print("The last price for SUNW is ");
+            System.out.println(lastPrice);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}

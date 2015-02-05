@@ -9,7 +9,7 @@ import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import GrahpicalUserInterface.Report.CustomReportGUI;
 import Logic.GenerateTestData.DecryptArrayList;
-import Logic.SoapRequest;
+import Logic.WSDL.SoapRequest;
 import aDeleteME.*;
 import java.util.*;
 import java.util.logging.Level;

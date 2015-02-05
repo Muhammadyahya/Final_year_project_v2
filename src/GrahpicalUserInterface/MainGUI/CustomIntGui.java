@@ -4,10 +4,9 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import Data.WSDL.StoreWsdlData;
 import Data.User.*;
-import Logic.*;
 import Logic.UserInterface.*;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;

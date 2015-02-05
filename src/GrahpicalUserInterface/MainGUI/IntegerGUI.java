@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import javax.swing.JOptionPane;
 import Logic.GenerateTestData.*;
 import Logic.UserInterface.*;

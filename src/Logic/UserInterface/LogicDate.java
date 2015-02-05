@@ -4,7 +4,7 @@
  */
 package Logic.UserInterface;
 
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

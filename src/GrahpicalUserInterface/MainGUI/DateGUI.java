@@ -5,7 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
 import Logic.UserInterface.LogicCustomInt;
 import Logic.UserInterface.LogicDate;

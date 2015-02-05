@@ -4,7 +4,7 @@
  */
 package Logic.UserInterface;
 
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import java.util.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;

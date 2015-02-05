@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package Logic.WSDL;
 
 import Data.User.CollectTestData;
 import Data.User.StoreGeneratedValue;
@@ -57,24 +57,24 @@ public class SoapRequest {
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
-        String serverURI = "http://ws.cdyne.com/";
+        String serverURI = collectTestDataObj.getStoreWsdlData().getServerURI();
 
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
 
         
-        ArrayList<String> e = storeGeneratedValueObj.getParameterNameList();
-        ArrayList<String> v = storeGeneratedValueObj.getGeneratedValueList();
+        ArrayList<String> parmName = storeGeneratedValueObj.getParameterNameList();
+        ArrayList<String> parmValue = storeGeneratedValueObj.getGeneratedValueList();
        
        SOAPBody soapBody = envelope.getBody();
        SOAPElement soapBodyElem = soapBody.addChildElement(collectTestDataObj.getMethodName(), "example");
        
        // my code
-        for (int i = 0; i < v.size(); i++) {
+        for (int i = 0; i < parmValue.size(); i++) {
            
-            SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e.get(i), "example");
-            soapBodyElem1.addTextNode(v.get(i));
+            SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(parmName.get(i), "example");
+            soapBodyElem1.addTextNode(parmValue.get(i));
         }
 
         // end of my code

@@ -7,7 +7,7 @@ package GrahpicalUserInterface.Report;
 import GrahpicalUserInterface.MainGUI.*;
 import Data.User.*;
 import Logic.CheckResult.*;
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

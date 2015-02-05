@@ -9,8 +9,8 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
- * This class store all the Wsdl Data for each element, such as method Name, it prammeters and data types. 
- * All the variables are private user has to use getters and setters to get and save data. 
+ * This class store all the Wsdl Data for each element, such as method Name, it prammeters and data types.
+ * All the variables are private user has to use getters and setters to get and save data.
  * @author my301
  */
 public class StoreWsdlData {
@@ -18,30 +18,32 @@ public class StoreWsdlData {
     private String methodName;
     private ArrayList <Object> elementType;
     private ArrayList <String> elementName;
+    private String serverURI;
+    private String url;
     
     
     // Constructor of the class. it requires method name.
     public StoreWsdlData(String methodName){
         this.methodName = methodName;
         this.elementName = new ArrayList<>();
-        this.elementType = new ArrayList<>();        
+        this.elementType = new ArrayList<>();
     }
     
     // This method store input prammeter elment Name.
     public void addElmentName(String elementName)
     {
         this.elementName.add(elementName);
-    }    
+    }
     
-     // This method store input prammeter element data type.
+    // This method store input prammeter element data type.
     
     // i need to work on storing complex types sepratly.
     public void addElmentType(Object elementType)
     {
-        if(elementType instanceof StoreEnum){   
+        if(elementType instanceof StoreEnum){
             this.elementType.add((StoreEnum)elementType);
         }
-        else if(elementType instanceof String){            
+        else if(elementType instanceof String){
             String castElementType = (String)elementType;
             this.elementType.add(castElementType.substring(34,castElementType.length()));
         }
@@ -56,10 +58,10 @@ public class StoreWsdlData {
         for(EnumerationFacet ef: enumValue)
         {
             storeEnumObj.addEnumValue(ef.getValue());
-        }         
+        }
         return storeEnumObj;
     }
- 
+    
     // This method get input prammeter elment data type. It returns Arraylist.
     public ArrayList<Object> getElmentType()
     {
@@ -76,5 +78,24 @@ public class StoreWsdlData {
     public String getMethodName()
     {
         return this.methodName;
-    }    
+    }
+    
+    public String getServerURI()
+    {
+        return this.serverURI;
+    }
+    
+    public void setServerURI(String parm)
+    {
+        this.serverURI = parm;;
+    }
+    public String getUrl()
+    {
+        return this.url;
+    }
+    
+    public void setUrl(String parm)
+    {
+        this.url = parm;;
+    }
 }

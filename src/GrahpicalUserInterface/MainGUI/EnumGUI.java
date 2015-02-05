@@ -4,7 +4,7 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
 import Logic.UserInterface.LogicEnum;

@@ -20,7 +20,7 @@ public class SoapExample2 {
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL";
+        String url = "http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         // print SOAP Response
         System.out.print("Response SOAP Message:");
@@ -34,7 +34,7 @@ public class SoapExample2 {
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
-        String serverURI = "http://ws.cdyne.com/WeatherWS/";
+        String serverURI = "http://webservices.amazon.com/AWSECommerceService/2011-08-01";
 
 
         // SOAP Envelope
@@ -48,7 +48,7 @@ public class SoapExample2 {
        String [] v = {"21045" };
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("GetCityForecastByZIP", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement("ItemSearchRequest", "example");
        
        // my code
         for (int i = 0; i < v.length; i++) {
@@ -61,7 +61,7 @@ public class SoapExample2 {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "GetCityForecastByZIP");
+        headers.addHeader("SOAPAction", serverURI  + "ItemSearchRequest");
         /* end of not working code*/
 
         soapMessage.saveChanges();

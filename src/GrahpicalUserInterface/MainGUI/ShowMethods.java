@@ -4,11 +4,11 @@
 */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.CommonMethodsOne;
+import Logic.Common.CommonMethodsOne;
 import Data.User.CollectTestData;
 import Data.WSDL.StoreEnum;
 import Data.WSDL.StoreWsdlData;
-import Logic.ParsingWsdl;
+import Logic.WSDL.ParsingWsdl;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;

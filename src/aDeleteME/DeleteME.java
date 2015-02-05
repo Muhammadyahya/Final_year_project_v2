@@ -14,8 +14,13 @@ package aDeleteME;
  * @author Muhammad Yahya
  */
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import java.util.Random;
+import org.joda.time.*;
+import org.joda.time.Hours;
+import org.joda.time.Minutes;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
  
 
 @SuppressWarnings("serial")
@@ -24,28 +29,21 @@ public class DeleteME {
 
      public static void main( String[] args ) 
     {
-    	try{
- 
-    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        	Date date1 = sdf.parse("2009-12-31");
-        	Date date2 = sdf.parse("2010-01-31");
- 
-        	System.out.println(sdf.format(date1));
-        	System.out.println(sdf.format(date2));
- 
-        	if(date1.compareTo(date2)>0){
-        		System.out.println("Date1 is after Date2");
-        	}else if(date1.compareTo(date2)<0){
-        		System.out.println("Date1 is before Date2");
-        	}else if(date1.compareTo(date2)==0){
-        		System.out.println("Date1 is equal to Date2");
-        	}else{
-        		System.out.println("How to get here?");
-        	}
- 
-    	}catch(ParseException ex){
-    		ex.printStackTrace();
-    	}
+            Random random = new Random();
+
+        DateTime startTime = new DateTime(random.nextLong()).withMillisOfSecond(0);
+
+        Minutes minimumPeriod = Minutes.TWO;
+        int minimumPeriodInSeconds = minimumPeriod.toStandardSeconds().getSeconds();
+        int maximumPeriodInSeconds = Hours.ONE.toStandardSeconds().getSeconds();
+
+        Seconds randomPeriod = Seconds.seconds(random.nextInt(maximumPeriodInSeconds - minimumPeriodInSeconds));
+        DateTime endTime = startTime.plus(minimumPeriod).plus(randomPeriod);
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(dateTimeFormatter.print(startTime));
+        System.out.println(dateTimeFormatter.print(endTime));
     }
 
 }

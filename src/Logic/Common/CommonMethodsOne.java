@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Logic;
+package Logic.Common;
 
 import com.predic8.wsdl.WSDLParser;
 import java.io.StringReader;
@@ -106,17 +106,7 @@ public class CommonMethodsOne {
     }
     
     /**********************************************************/
-    public static boolean checkPath(String pram)
-    {
-        try{
-            WSDLParser parser = new WSDLParser();
-            parser.parse(pram);
-            return true;
-        }
-        catch(Exception e){
-            return false;
-        }
-    }
+    
     
     /*******************************************************/
     

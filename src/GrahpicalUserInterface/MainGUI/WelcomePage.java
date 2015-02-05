@@ -9,8 +9,8 @@ package GrahpicalUserInterface.MainGUI;
  * @author my301
  */
 
-import Logic.CheckWsdl;
-import Logic.ParsingWsdl;
+import Logic.WSDL.CheckWsdl;
+import Logic.WSDL.ParsingWsdl;
 import javax.swing.JOptionPane;
 
 public class WelcomePage extends javax.swing.JFrame {
@@ -152,6 +152,7 @@ public class WelcomePage extends javax.swing.JFrame {
               wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
         //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
+        //       wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
   
                 /* for laptop */
         //      wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
@@ -160,6 +161,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
+        
         
         
         CheckWsdl checkWsdlObj =  new CheckWsdl();
