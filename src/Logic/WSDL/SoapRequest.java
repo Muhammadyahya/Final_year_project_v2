@@ -36,10 +36,12 @@ public class SoapRequest {
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL";
+        String url = collectTestDataObj.getStoreWsdlData().getUrl();
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         
-        
+        System.out.println("url :  "+ url);
+        System.out.println("URI :  "+ collectTestDataObj.getStoreWsdlData().getServerURI());
+        System.out.println("method name :  "+ collectTestDataObj.getMethodName());
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         soapResponse.writeTo(os);
         String aString = new String(os.toByteArray(),"UTF-8");
@@ -80,7 +82,7 @@ public class SoapRequest {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "VerifyEmail");
+        headers.addHeader("SOAPAction", serverURI  + collectTestDataObj.getMethodName());
 
         soapMessage.saveChanges();
         

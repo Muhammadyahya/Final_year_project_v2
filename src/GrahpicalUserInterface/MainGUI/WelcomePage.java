@@ -140,24 +140,40 @@ public class WelcomePage extends javax.swing.JFrame {
          * Below are different wsdl for testing
          */
         
-        //      
+        //
         //      http://www.webservicex.net/genericbarcode.asmx?WSDL
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
         //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
-        //      http://www.webservicex.net/WeatherForecast.asmx?WSDL
-        //      /homes/my301/year3/Project/other/GoogleSearch.wsdl
-        
+        //      http://www.webservicex.net/WeatherForecast.asmx?WSDL        
         //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
               wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
         //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
-        //       wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
-  
-                /* for laptop */
+        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");        
+        //      wsdlInput.setText("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"); // not wotking
+        //      wsdlInput.setText("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl");
+        //      wsdlInput.setText("http://www.webservicex.net/usaddressverification.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/GenericNAICS.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/FedACH.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); //  
+        //      wsdlInput.setText("http://www.webservicex.net/sunsetriseservice.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/FedWire.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/medicareSupplier.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/RealTimeMarketData.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/LondonGoldFix.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/Statistics.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/FinanceService.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // not working
+        //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
+        
+        
+        
+        
+        /* for laptop */
         //      wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
-                /* for ITL */
+        /* for ITL */
         //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");

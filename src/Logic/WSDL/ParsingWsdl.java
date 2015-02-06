@@ -27,36 +27,40 @@ public class ParsingWsdl
     
     public void parseWsdl (String wsdl)
     {
-        String portSOAP;
-        boolean checkTypeTwo = false;
-        boolean checkTypeOne = false;
-        WSDLParser parser = new WSDLParser();
-        Definitions defs = parser.parse(wsdl);
-        
-        
-        for (PortType pt : defs.getPortTypes()) {
-            portSOAP = pt.getName();
+        try{
+            String portSOAP;
+            boolean checkTypeTwo = false;
+            boolean checkTypeOne = false;
+            WSDLParser parser = new WSDLParser();
+            Definitions defs = parser.parse(wsdl);
             
-            if (portSOAP.endsWith("Soap")) {
-                checkTypeOne = true;
-                for (Operation op : pt.getOperations()) {
-                    
-                    Element x =   op.getInput().getMessage().getParts().get(0).getElement();
-                    StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
-                    wsdlData.add(storeWsdlDataObj);                    
-                    storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
-                    storeWsdlDataObj.setUrl(wsdl);
-                    listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+            
+            for (PortType pt : defs.getPortTypes()) {
+                portSOAP = pt.getName();
+                
+                if (portSOAP.endsWith("Soap")) {
+                    checkTypeOne = true;
+                    for (Operation op : pt.getOperations()) {
+                        
+                        Element x =   op.getInput().getMessage().getParts().get(0).getElement();
+                        StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
+                        wsdlData.add(storeWsdlDataObj);
+                        storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
+                        storeWsdlDataObj.setUrl(wsdl);
+                        listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                    }
+                }
+                else if(!checkTypeOne){
+                    checkTypeTwo = true;
+                    break;
                 }
             }
-            else if(!checkTypeOne){
-                checkTypeTwo = true;
-                break;
+            
+            if(checkTypeTwo){
+                wsdlTypeTwo(wsdl);
             }
-        }
-        
-        if(checkTypeTwo){
-            wsdlTypeTwo(wsdl);
+        }catch(Exception e){
+            e.printStackTrace();
         }
         
     }
@@ -101,6 +105,8 @@ public class ParsingWsdl
                 return;
             }
         }
+        
+        
         if(ct.getModel()!=null){
             
             for (Element e : ct.getSequence().getElements()) {
@@ -130,8 +136,13 @@ public class ParsingWsdl
     public static void main(String [] args)
     {
         ParsingWsdl obj = new ParsingWsdl();
-        obj.parseWsdl("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
-        System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
+        obj.parseWsdl("http://www.webservicex.net/FinanceService.asmx?WSDL");
+        CheckWsdl c = new CheckWsdl();
+        //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
+        
+        
+        //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
+        //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
     }
     
 }// end class
