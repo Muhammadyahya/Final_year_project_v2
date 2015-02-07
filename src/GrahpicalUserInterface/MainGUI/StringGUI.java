@@ -241,7 +241,7 @@ public class StringGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,0);
+                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,0); // pass collectTextData class obj and length on the table;
                 customStringGuiFrame.setSize(550,550);
                 customStringGuiFrame.setLocationRelativeTo(null);
                 customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
@@ -254,9 +254,9 @@ public class StringGUI extends javax.swing.JFrame {
                 {
                     // below line store and concatenate the String
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText())); // startEncrypt method return array of the string that i pass as parameters.
                     this.dispose();
-                    collectTestDataObj.increaseCount();
+                    collectTestDataObj.increaseCount(); // increase count is very nessary.. it move to the next parameter
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{

@@ -177,8 +177,6 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/country.asmx?WSDL");
         
         
-        
-        
         /* for laptop */
         //      wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
         
@@ -187,8 +185,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         
-        
-        
+
         CheckWsdl checkWsdlObj =  new CheckWsdl();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){

@@ -5,9 +5,7 @@
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
-import Logic.Common.CommonMethodsOne;
 import Logic.GenerateTestData.EncryptArrayList;
-import Logic.UserInterface.LogicCustomInt;
 import Logic.UserInterface.LogicDate;
 import javax.swing.JOptionPane;
 
@@ -16,7 +14,6 @@ import javax.swing.JOptionPane;
  * @author my301
  */
 public class DateGUI extends javax.swing.JFrame {
-    
     /**
      * Creates new form IntGenGUI
      */
@@ -45,7 +42,7 @@ public class DateGUI extends javax.swing.JFrame {
         groupRadioButton.add(randomRadioButton);
         groupRadioButton.add(specificRadioButton);
         groupRadioButton.add(randomBetweenRadioButton);
-        groupRadioButton.add(customRadioButton);
+        groupRadioButton.add(todayRadioButton);
     }
     
     /**
@@ -66,10 +63,8 @@ public class DateGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nextButton = new javax.swing.JButton();
-        noteLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         mainButton = new javax.swing.JButton();
-        customRadioButton = new javax.swing.JRadioButton();
         dateTwoTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         pramTypeLabel = new javax.swing.JLabel();
@@ -79,6 +74,8 @@ public class DateGUI extends javax.swing.JFrame {
         sepratorComboBox = new javax.swing.JComboBox();
         dateOneTextField = new javax.swing.JTextField();
         specificTextField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        todayRadioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,8 +100,6 @@ public class DateGUI extends javax.swing.JFrame {
             }
         });
 
-        noteLabel.setText("Note");
-
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,19 +114,27 @@ public class DateGUI extends javax.swing.JFrame {
             }
         });
 
-        customRadioButton.setText("Custom ( More Options )");
-
         jLabel3.setText("Format");
 
         pramTypeLabel.setText("Parameter Type :");
 
-        formatComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yy", "yyyy", "m", "mm", "mmm", "mmmm", "d", "dd" }));
+        formatComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
 
-        formatComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yy", "yyyy", "m", "mm", "mmm", "mmmm", "d", "dd" }));
+        formatComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
 
-        formatComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yy", "yyyy", "m", "mm", "mmm", "mmmm", "d", "dd" }));
+        formatComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
+        formatComboBox2.setToolTipText("");
 
         sepratorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "/", ".", "-", "spaces" }));
+
+        jButton1.setText("Help!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        todayRadioButton.setText("Today Date");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,73 +143,72 @@ public class DateGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(mainButton)
-                        .addGap(39, 39, 39)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
+                        .addGap(172, 172, 172)
                         .addComponent(headerLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(noteLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(specificRadioButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(specificTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(pramNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-                        .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(163, 163, 163))
-                            .addComponent(randomBetweenRadioButton))
-                        .addComponent(customRadioButton))
-                    .addComponent(randomRadioButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dateTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(4, 4, 4)
-                                .addComponent(formatComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(formatComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(formatComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dateOneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sepratorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56))
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(randomRadioButton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(mainButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pramNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pramTypeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(4, 4, 4)
+                                    .addComponent(formatComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(formatComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(formatComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(sepratorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(116, 116, 116)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(dateTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(dateOneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(19, 19, 19)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabel1)
+                                                .addComponent(jLabel2))
+                                            .addGap(163, 163, 163)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(specificRadioButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(specificTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(randomBetweenRadioButton, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(todayRadioButton))))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
                 .addComponent(headerLabel)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addComponent(pramNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pramTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(randomRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(specificRadioButton)
                     .addComponent(specificTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addComponent(randomBetweenRadioButton)
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dateOneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -214,23 +216,22 @@ public class DateGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dateTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(todayRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(formatComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(formatComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(formatComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sepratorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addComponent(customRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(noteLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(closeButton)
-                    .addComponent(mainButton))
-                .addContainerGap(80, Short.MAX_VALUE))
+                    .addComponent(mainButton)
+                    .addComponent(jButton1))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
@@ -239,7 +240,7 @@ public class DateGUI extends javax.swing.JFrame {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
         
-        if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()||customRadioButton.isSelected())
+        if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()|| todayRadioButton.isSelected())
         {
             if(!formatComboBox1.getSelectedItem().equals("")&&!formatComboBox2.getSelectedItem().equals("")&&!formatComboBox3.getSelectedItem().equals("")&&!sepratorComboBox.getSelectedItem().equals(""))
             {
@@ -247,37 +248,32 @@ public class DateGUI extends javax.swing.JFrame {
                 String format;
                 if(obj.checkFormat(formatComboBox1.getSelectedItem().toString(),formatComboBox2.getSelectedItem().toString(),formatComboBox3.getSelectedItem().toString(), sepratorComboBox.getSelectedItem().toString()))
                 {
-                    if(sepratorComboBox.getSelectedItem().equals("spaces")){
+                    if(sepratorComboBox.getSelectedItem().equals("spaces"))
+                    {
                         format = formatComboBox1.getSelectedItem().toString() +" "+formatComboBox2.getSelectedItem().toString()+" "+formatComboBox3.getSelectedItem().toString();
                         JOptionPane.showMessageDialog(null,"The date format will be "+ format);
                     }
-                    else{
+                    else
+                    {
                         format = formatComboBox1.getSelectedItem().toString() +sepratorComboBox.getSelectedItem().toString()+formatComboBox2.getSelectedItem().toString()+sepratorComboBox.getSelectedItem().toString()+formatComboBox3.getSelectedItem().toString();
                         JOptionPane.showMessageDialog(null,"The date format will be "+ format);
                     }
-                    if(customRadioButton.isSelected())
+                    if(todayRadioButton.isSelected())
                     {
-                        /*
-                         * 
-                         * this is the only one not done yet
-                         * 
-                         */
+                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Today", format));
                         this.dispose();
-                        CustomDateGUI customDateGuiFrame =  new CustomDateGUI(collectTestDataObj,0);
-                        customDateGuiFrame.setSize(550,550);
-                        customDateGuiFrame.setLocationRelativeTo(null);
-                        customDateGuiFrame.setDefaultCloseOperation(DateGUI.DISPOSE_ON_CLOSE);
-                        customDateGuiFrame.setVisible(true);
-                        customDateGuiFrame.revalidate();
+                        collectTestDataObj.increaseCount();
+                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                     else if(specificRadioButton.isSelected())
                     {
                         if(!specificTextField.getText().equals(""))
                         {
-                            if(obj.checkDate(specificTextField.getText()))
+                            if(obj.isThisDateValid(specificTextField.getText(),format))
                             {
                                 EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Specific", specificTextField.getText()));
+                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Specific", specificTextField.getText()+"&"+format));
                                 this.dispose();
                                 collectTestDataObj.increaseCount();
                                 collectTestDataObj.CollectTestCaseData(collectTestDataObj);
@@ -289,15 +285,13 @@ public class DateGUI extends javax.swing.JFrame {
                         else{
                             JOptionPane.showMessageDialog(null,"Please enter a date in the specific text field.");
                         }
-                    }
-                    
+                    }                    
                     else if(randomBetweenRadioButton.isSelected())
                     {
                         if(!dateOneTextField.equals("")&&!dateTwoTextField.equals(""))
                         {
-                            if(obj.checkDate(dateOneTextField.getText())&& obj.checkDate(dateTwoTextField.getText()))
+                            if(obj.isThisDateValid(dateOneTextField.getText(),format)&& obj.isThisDateValid(dateTwoTextField.getText(),format))
                             {
-                                
                                 String result = obj.compareDate(dateOneTextField.getText(),dateTwoTextField.getText(),format);
                                 String dateOne;
                                 String dateTwo;
@@ -330,7 +324,6 @@ public class DateGUI extends javax.swing.JFrame {
                         }
                     }
                     else if(randomRadioButton.isSelected()){
-                        
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
                         collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Random",sepratorComboBox.getSelectedItem()+"&"+format));
                         this.dispose();
@@ -358,7 +351,7 @@ public class DateGUI extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
-
+    
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
@@ -372,6 +365,15 @@ public class DateGUI extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        HelpGUI showMethodPanel = new HelpGUI("DateGUI");
+        showMethodPanel.setSize(500,550);
+        showMethodPanel.setLocationRelativeTo(null);
+        showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+        showMethodPanel.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -409,7 +411,6 @@ public class DateGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JRadioButton customRadioButton;
     private javax.swing.JTextField dateOneTextField;
     private javax.swing.JTextField dateTwoTextField;
     private javax.swing.JComboBox formatComboBox1;
@@ -417,12 +418,12 @@ public class DateGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox formatComboBox3;
     private javax.swing.ButtonGroup groupRadioButton;
     private javax.swing.JLabel headerLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
-    private javax.swing.JLabel noteLabel;
     private javax.swing.JLabel pramNameLabel;
     private javax.swing.JLabel pramTypeLabel;
     private javax.swing.JRadioButton randomBetweenRadioButton;
@@ -430,5 +431,6 @@ public class DateGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox sepratorComboBox;
     private javax.swing.JRadioButton specificRadioButton;
     private javax.swing.JTextField specificTextField;
+    private javax.swing.JRadioButton todayRadioButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,17 +5,9 @@
 package Data.User;
 
 import GrahpicalUserInterface.MainGUI.*;;
-import Data.WSDL.StoreWsdlData;
-import Data.WSDL.StoreEnum;
-import GrahpicalUserInterface.Report.CustomReportGUI;
-import Logic.GenerateTestData.DecryptArrayList;
 import Logic.WSDL.ParsingWsdl;
-import Logic.WSDL.SoapRequest;
-import aDeleteME.*;
-import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import GrahpicalUserInterface.Report.CustomReportGUI;
@@ -23,8 +15,6 @@ import Logic.GenerateTestData.DecryptArrayList;
 import Logic.WSDL.SoapRequest;
 import aDeleteME.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**

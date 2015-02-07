@@ -153,15 +153,15 @@ public class CustomReportGUI extends javax.swing.JFrame {
     
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         
-        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
         {
+            this.setVisible(false);
+            ShowMethods showMethodPanel = new ShowMethods(storeReportDataObj.getCollectTestData().getParsingWsdl());
+            showMethodPanel.setSize(500,500);
+            showMethodPanel.setLocationRelativeTo(null);
+            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+            showMethodPanel.setVisible(true);
             this.dispose();
-            IntegerGUI intGenGUIFrame = new IntegerGUI(storeReportDataObj.getCollectTestData());
-            intGenGUIFrame.setSize(450,600);
-            intGenGUIFrame.setLocationRelativeTo(null);
-            intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            intGenGUIFrame.setVisible(true);
-            intGenGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
     

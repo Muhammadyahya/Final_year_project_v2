@@ -46,7 +46,7 @@ public class DecryptArrayList {
                 
                 //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for (int i = 1; i < userInputDataArrayList.size(); i++) {
-                    generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
+                    generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i); // decryptButtonValue private method in this class
                 }
                 System.out.println("temp :  "+generatedValue);
                 break;
@@ -57,7 +57,7 @@ public class DecryptArrayList {
                 for (int i = 1; i < userInputDataArrayList.size(); i++) {
                     generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
                 }                
-                //System.out.println("temp :  "+generatedValue);
+                System.out.println("temp :  "+generatedValue);
                 break;
                 
             case "Enum":
@@ -67,7 +67,7 @@ public class DecryptArrayList {
                 {
                     //System.out.println("   Enum   "+a);
                     //decryptButtonValue(userInputDataArrayList.get(1));
-                }              
+                }    
                 
                 break;
                 
@@ -98,7 +98,7 @@ public class DecryptArrayList {
                 break;
                 
             default :
-                //System.out.println("default case... method: startDecoding");
+                System.out.println("default case... method: startDecoding");
                 break;
                 
         }// end Switch
@@ -113,7 +113,7 @@ public class DecryptArrayList {
     }// end method start decoding
     
     
-    public String decryptButtonValue(String buttonValue, int position)
+    private String decryptButtonValue(String buttonValue, int position)
     {
         String userValue = userInputDataArrayList.get(position); // need to change this
         String className = userInputDataArrayList.get(0);

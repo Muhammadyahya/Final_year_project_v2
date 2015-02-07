@@ -157,6 +157,16 @@ public class VerifyResultGUI extends javax.swing.JFrame {
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
+        {
+            this.setVisible(false);
+            ShowMethods showMethodPanel = new ShowMethods(collectTestDataObj.getParsingWsdl());
+            showMethodPanel.setSize(500,500);
+            showMethodPanel.setLocationRelativeTo(null);
+            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+            showMethodPanel.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_mainButtonActionPerformed
 
     /**

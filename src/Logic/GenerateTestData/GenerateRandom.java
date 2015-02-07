@@ -17,9 +17,9 @@ public class GenerateRandom {
         temp="";
     }
 
-    public String generateRandomValue(String pram,String userValue)
+    public String generateRandomValue(String parm,String userValue)
     {
-        String className = pram;
+        String className = parm;
         int size=0;
         switch (className) {
 
@@ -66,14 +66,7 @@ public class GenerateRandom {
 
                 String [] formatParts = parts[1].split(parts[0]);
                 // generate random date here.
-               // ./././
-                
-                
-                
-                
-                
-                
-                
+               // ./././//************************************************************************************************************************//
 
                 temp = userValue;
                 break;
@@ -89,7 +82,7 @@ public class GenerateRandom {
 
 
 
-    public String generateRandomWith()
+    public String generateRandomWithOut()
     {
 
         temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
@@ -97,7 +90,7 @@ public class GenerateRandom {
         return temp;
     }
 
-    public String generateRandomWithOut()
+    public String generateRandomWith()
     {
         int valueOne = 0;
         int valueTwo = 0;
@@ -123,7 +116,10 @@ public class GenerateRandom {
     public static void main(String [] args)
     {
         GenerateRandom obj = new GenerateRandom();
-        obj.generateRandomValue("String", "12");
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(obj.generateRandomWith());
+        }
+        
     }
 
 

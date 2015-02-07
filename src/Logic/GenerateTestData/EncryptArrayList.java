@@ -5,8 +5,6 @@
 package Logic.GenerateTestData;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -53,6 +51,12 @@ public class EncryptArrayList {
         this.encryptArrayList.add(buttonValue);
         this.encryptArrayList.add(userValue);
         
+        for(String s: encryptArrayList){
+        
+        System.out.println(" encrpt -- "+s);
+        }
+        
+        System.out.println("-----encrpt-------");
         return this.encryptArrayList;
         
     }

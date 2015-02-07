@@ -4,7 +4,7 @@
  */
 package Data.User;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *

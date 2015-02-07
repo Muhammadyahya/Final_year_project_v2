@@ -44,8 +44,9 @@ public class GenerateBetweenTwoValue {
                 break;                
                 
             case "String":
-                size =  Integer.parseInt(""+userValue.charAt(0));
-                parts = userValue.split("-");                
+                
+                parts = userValue.split("-");
+                size =  Integer.parseInt(parts[0]);
                 valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
                 valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
                 for (int i = 0; i < size ; i++) 
@@ -55,9 +56,9 @@ public class GenerateBetweenTwoValue {
                 break;
                 
             case "Int":
-                size =  Integer.parseInt(""+userValue.charAt(0));
-                parts = userValue.split("-");
                 
+                parts = userValue.split("-");
+                size =  Integer.parseInt(parts[0]);
                 for (int i = 0; i < size ; i++) 
                 {
                     temp = temp+CommonMethodsTwo.intGen(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
