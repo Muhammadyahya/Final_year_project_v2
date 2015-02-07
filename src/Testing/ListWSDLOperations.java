@@ -18,11 +18,14 @@ public class ListWSDLOperations {
     Definitions defs = parser
         .parse("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
  
+      System.out.println(defs.getSchemas());
+    
+    /*
     for (PortType pt : defs.getPortTypes()) {
       System.out.println(pt.getName());
       for (Operation op : pt.getOperations()) {
         System.out.println(" -" + op.getName());
       }
-    }
+    }*/
   }
 }

@@ -167,7 +167,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // not working
         //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
         //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
-              wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/Astronomical.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/ConverPower.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/ConvertAngle.asmx?WSDL");

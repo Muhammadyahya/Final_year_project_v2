@@ -76,12 +76,17 @@ public class BooleanGUI extends javax.swing.JFrame {
         });
 
         mainButton.setText("Main Menu");
+        mainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainButtonActionPerformed(evt);
+            }
+        });
 
         pramTypeLabel.setText("Parameter Type :");
 
         jLabel4.setText("Value");
 
-        valueComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please Select", "True", "False" }));
+        valueComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please Select", "True", "False", "0", "1" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +167,20 @@ public class BooleanGUI extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
+        {
+            this.setVisible(false);
+            ShowMethods showMethodPanel = new ShowMethods(collectTestDataObj.getParsingWsdl());
+            showMethodPanel.setSize(500,500);
+            showMethodPanel.setLocationRelativeTo(null);
+            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+            showMethodPanel.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_mainButtonActionPerformed
     
     /**
      * @param args the command line arguments

@@ -32,7 +32,7 @@ public class StringGUI extends javax.swing.JFrame {
         this.collectTestDataObj = obj;
         this.radioButton();
         this.countChecked = false;
-        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));     
+        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
         pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
     }
     
@@ -71,10 +71,10 @@ public class StringGUI extends javax.swing.JFrame {
         customRadioButton = new javax.swing.JRadioButton();
         specificTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
         alphaTwoComboBox = new javax.swing.JComboBox();
         alphaOneComboBox = new javax.swing.JComboBox();
+        lengthTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,10 +83,25 @@ public class StringGUI extends javax.swing.JFrame {
         pramNameLabel.setText("Parameter Name :");
 
         randomRadioButton.setText("Random String");
+        randomRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randomRadioButtonActionPerformed(evt);
+            }
+        });
 
         specificRadioButton.setText("Specific String");
+        specificRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificRadioButtonActionPerformed(evt);
+            }
+        });
 
         randomBetweenRadioButton.setText("Random String between two alphabets");
+        randomBetweenRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randomBetweenRadioButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Alphabet One");
 
@@ -109,12 +124,15 @@ public class StringGUI extends javax.swing.JFrame {
         });
 
         mainButton.setText("Main Menu");
+        mainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainButtonActionPerformed(evt);
+            }
+        });
 
         customRadioButton.setText("Custom ( More Options )");
 
-        jLabel3.setText("E.g length 5 (abcde or eadfd etc).");
-
-        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        jLabel3.setText("Length of the String");
 
         pramTypeLabel.setText("Parameter Type :");
 
@@ -128,6 +146,19 @@ public class StringGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(randomBetweenRadioButton)
+                        .addComponent(randomRadioButton)
+                        .addComponent(customRadioButton)
+                        .addComponent(noteLabel)
+                        .addComponent(specificRadioButton)
+                        .addComponent(pramNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                        .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -139,29 +170,11 @@ public class StringGUI extends javax.swing.JFrame {
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(182, 182, 182)
-                        .addComponent(headerLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(randomBetweenRadioButton)
-                    .addComponent(randomRadioButton)
-                    .addComponent(customRadioButton)
-                    .addComponent(noteLabel)
-                    .addComponent(specificRadioButton)
-                    .addComponent(pramNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-                    .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(56, 56, 56))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(specificTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(headerLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel3))
+                        .addGap(112, 112, 112)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(specificTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -169,9 +182,9 @@ public class StringGUI extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(alphaTwoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(alphaOneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(22, 22, 22)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(alphaOneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(22, 99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +215,8 @@ public class StringGUI extends javax.swing.JFrame {
                     .addComponent(alphaTwoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -222,8 +235,8 @@ public class StringGUI extends javax.swing.JFrame {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
         
-        if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()||customRadioButton.isSelected()){
-            
+        if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()||customRadioButton.isSelected()) // checks if any radio button is selected or not
+        {
             if(customRadioButton.isSelected())
             {
                 // go the custom int GUI
@@ -239,60 +252,99 @@ public class StringGUI extends javax.swing.JFrame {
             {
                 if(!specificTextField.getText().equals(""))
                 {
-                    // below line store and concatenate the String 
-                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
-                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));                    
+                    // below line store and concatenate the String
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Specific", specificTextField.getText()));
                     this.dispose();
-                    collectTestDataObj.increaseCount();                    
+                    collectTestDataObj.increaseCount();
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Please enter a String in the specific text field.");
                 }
             }
-            else if(randomBetweenRadioButton.isSelected())
-            {   
-                if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select")&&!lengthComboBox.getSelectedItem().equals("0"))
-                {   
-                    // below code store user value in the arraylist and increase the count 
-                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthComboBox.getSelectedItem()+"-"+CommonMethodsOne.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+CommonMethodsOne.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
-                    this.dispose();
-                    collectTestDataObj.increaseCount();                    
-                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Please select Alphabet One, Alphabet Two and Length.");
-                }
-            }
-            else if(randomRadioButton.isSelected())
+            else if(!lengthTextField.getText().equals("")&&!lengthTextField.getText().equals("0"))
             {
-                if(!lengthComboBox.getSelectedItem().equals("0"))
+                if(CommonMethodsOne.isInt(lengthTextField.getText()))
                 {
-                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Random",""+lengthComboBox.getSelectedItem()));  
-                    this.dispose();
-                    collectTestDataObj.increaseCount();                    
-                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
-                 }
+                    if(randomBetweenRadioButton.isSelected())
+                    {
+                        if(!alphaOneComboBox.getSelectedItem().equals("Please Select")&&!alphaTwoComboBox.getSelectedItem().equals("Please Select"))
+                        {
+                            // below code store user value in the arraylist and increase the count
+                            EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                            collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "BetweenTwoValue",lengthTextField.getText()+"-"+CommonMethodsOne.smallerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())+"-"+CommonMethodsOne.biggerChar(alphaOneComboBox.getSelectedItem(),alphaTwoComboBox.getSelectedItem())));
+                            this.dispose();
+                            collectTestDataObj.increaseCount();
+                            collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"Please select Alphabet One, Alphabet Two and Length.");
+                        }
+                    }
+                    else if(randomRadioButton.isSelected())
+                    {
+                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("String", "Random",""+lengthTextField.getText()));
+                        this.dispose();
+                        collectTestDataObj.increaseCount();
+                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                    }
+                }
                 else{
-                    JOptionPane.showMessageDialog(null,"Please select a length.");
+                    JOptionPane.showMessageDialog(null,"Length text field value is not a Number \n \nPlease enter a Number.");
                 }
             }
-        }
+            else{
+                JOptionPane.showMessageDialog(null,"Please enter a number in length text field.\n"
+                        + "Number has to be greater than 0.");
+            }
+        }// end 1st if
         else{
             JOptionPane.showMessageDialog(null,"Please select one of the option. Thanks");
-        }
+        } 
     }//GEN-LAST:event_nextButtonActionPerformed
-
+    
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-
+        
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
         {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
+    
+    private void randomBetweenRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomBetweenRadioButtonActionPerformed
+        // TODO add your handling code here:
+        specificTextField.setText("");
+    }//GEN-LAST:event_randomBetweenRadioButtonActionPerformed
+    
+    private void specificRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificRadioButtonActionPerformed
+        // TODO add your handling code here:
+        lengthTextField.setText("");
+        alphaOneComboBox.setSelectedIndex(0);
+        alphaTwoComboBox.setSelectedIndex(0);
+    }//GEN-LAST:event_specificRadioButtonActionPerformed
+    
+    private void randomRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomRadioButtonActionPerformed
+        // TODO add your handling code here:
+        alphaOneComboBox.setSelectedIndex(0);
+        alphaTwoComboBox.setSelectedIndex(0);
+        specificTextField.setText("");
+    }//GEN-LAST:event_randomRadioButtonActionPerformed
+    
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
+        {
+            this.setVisible(false);
+            ShowMethods showMethodPanel = new ShowMethods(collectTestDataObj.getParsingWsdl());
+            showMethodPanel.setSize(500,500);
+            showMethodPanel.setLocationRelativeTo(null);
+            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+            showMethodPanel.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_mainButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -338,7 +390,7 @@ public class StringGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JComboBox lengthComboBox;
+    private javax.swing.JTextField lengthTextField;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel noteLabel;

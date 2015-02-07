@@ -8,6 +8,7 @@ import Logic.Common.CommonMethodsOne;
 import Data.WSDL.StoreWsdlData;
 import Data.User.*;
 import Logic.UserInterface.*;
+import aDeleteME.TestFrame;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -19,7 +20,7 @@ import javax.swing.table.TableColumn;
  *
  * @author my301
  */
-public class CustomIntGui extends javax.swing.JFrame {
+public class CustomDecimalGUI extends javax.swing.JFrame {
     
     /**
      * Creates new form CustomIntGui
@@ -27,7 +28,7 @@ public class CustomIntGui extends javax.swing.JFrame {
     private int length;
     private CollectTestData collectTestDataObj;
     
-    public CustomIntGui() {
+    public CustomDecimalGUI() {
         initComponents();
         //comboBoxColumn(jTable1.getColumnModel().getColumn(2));
         //addRowsTable(0);
@@ -45,7 +46,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         
     }
     
-    public CustomIntGui(CollectTestData obj, int length) {
+    public CustomDecimalGUI(CollectTestData obj, int length) {
         initComponents();
         this.length = length+1;
         comboBoxColumn(inputTable.getColumnModel().getColumn(1));
@@ -248,7 +249,7 @@ public class CustomIntGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempLength = lengthComboBox.getSelectedIndex();
         this.dispose();
-        CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,tempLength);
+        CustomDecimalGUI customIntGuiFrame = new CustomDecimalGUI(collectTestDataObj,tempLength);
         customIntGuiFrame.setSize(550,550);
         customIntGuiFrame.setLocationRelativeTo(null);
         customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
@@ -256,21 +257,21 @@ public class CustomIntGui extends javax.swing.JFrame {
         customIntGuiFrame.revalidate();
         
     }//GEN-LAST:event_lengthComboBoxActionPerformed
-    
+
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
         {
             this.dispose();
-            IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
-            intGenGUIFrame.setSize(450,600);
-            intGenGUIFrame.setLocationRelativeTo(null);
-            intGenGUIFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            intGenGUIFrame.setVisible(true);
-            intGenGUIFrame.revalidate();
+            DecimalGUI decimalGUIFrame = new DecimalGUI(collectTestDataObj);
+            decimalGUIFrame.setSize(500,600);
+            decimalGUIFrame.setLocationRelativeTo(null);
+            decimalGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            decimalGUIFrame.setVisible(true);
+            decimalGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-    
+        
     
     public void addRowsTable(int length) {
         DefaultTableModel model = (DefaultTableModel) inputTable.getModel();
@@ -324,20 +325,20 @@ public class CustomIntGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomIntGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomDecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomIntGui().setVisible(true);
+                new CustomDecimalGUI().setVisible(true);
             }
         });
     }

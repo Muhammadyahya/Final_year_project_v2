@@ -9,6 +9,17 @@ import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import GrahpicalUserInterface.Report.CustomReportGUI;
 import Logic.GenerateTestData.DecryptArrayList;
+import Logic.WSDL.ParsingWsdl;
+import Logic.WSDL.SoapRequest;
+import aDeleteME.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import Data.WSDL.StoreWsdlData;
+import Data.WSDL.StoreEnum;
+import GrahpicalUserInterface.Report.CustomReportGUI;
+import Logic.GenerateTestData.DecryptArrayList;
 import Logic.WSDL.SoapRequest;
 import aDeleteME.*;
 import java.util.*;
@@ -32,10 +43,12 @@ public class CollectTestData {
     private String tagName;
     private String tagValue;
     private String methodName;
+    private ParsingWsdl parsingWsdlObj;
     
     
-    public CollectTestData(StoreWsdlData swdObj, int numTestCase, String methodName)
+    public CollectTestData(StoreWsdlData swdObj, int numTestCase, String methodName,ParsingWsdl parsingWsdlObj)
     {
+        this.parsingWsdlObj = parsingWsdlObj;
         this.numTestCase= numTestCase;
         this.swdObj = swdObj;
         this.prameterLength =  swdObj.getElmentType().size();
@@ -44,6 +57,11 @@ public class CollectTestData {
         this.checkCompleted = false;
         this.methodName = methodName;
         
+    }
+    
+    public ParsingWsdl getParsingWsdl()
+    {
+        return this.parsingWsdlObj;
     }
     
     public void addTestCaseInfo(ArrayList<String> pram)

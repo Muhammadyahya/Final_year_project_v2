@@ -41,7 +41,6 @@ public class ParsingWsdl
                 if (portSOAP.endsWith("Soap")) {
                     checkTypeOne = true;
                     for (Operation op : pt.getOperations()) {
-                        
                         Element x =   op.getInput().getMessage().getParts().get(0).getElement();
                         StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
                         wsdlData.add(storeWsdlDataObj);
@@ -65,7 +64,7 @@ public class ParsingWsdl
         
     }
     
-    private void wsdlTypeTwo (String wsdl)
+    public void wsdlTypeTwo (String wsdl)
     {
         WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
@@ -105,8 +104,7 @@ public class ParsingWsdl
                 return;
             }
         }
-        
-        
+          
         if(ct.getModel()!=null){
             
             for (Element e : ct.getSequence().getElements()) {
@@ -136,19 +134,14 @@ public class ParsingWsdl
     public static void main(String [] args)
     {
         
-        String [] a = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
 
-        for (int i = 0; i < a.length; i++) {
-            String string = a[i];
-            
-        
         ParsingWsdl obj = new ParsingWsdl();       
+        //http://www.webservicex.net/genericbarcode.asmx?WSDL
+        //http://www.webservicex.net/ConvertComputer.asmx?WSDL
+        obj.parseWsdl("http://www.webservicex.net/genericbarcode.asmx?WSDL");
+       //     System.out.println("      : "+obj.wsdlData.get(0).getElmentName());
         
-        obj.parseWsdl(a[i]);
-            System.out.println(a[i]);
-            System.out.println(i +"      : "+obj.wsdlData.get(0).getElmentName());
-        }
-                CheckWsdl c = new CheckWsdl();
+         //       CheckWsdl c = new CheckWsdl();
         //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
         //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
         //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());

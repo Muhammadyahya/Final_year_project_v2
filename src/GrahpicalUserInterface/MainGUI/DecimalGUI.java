@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package GrahpicalUserInterface.MainGUI;
 
 import Data.User.CollectTestData;
@@ -14,19 +14,19 @@ import Logic.UserInterface.*;
  *
  * @author my301
  */
-public class IntegerGUI extends javax.swing.JFrame {
+public class DecimalGUI extends javax.swing.JFrame {
     
     /**
      * Creates new form IntegerGUI
      */
     private CollectTestData collectTestDataObj;
     
-    public IntegerGUI() {
+    public DecimalGUI() {
         initComponents();
         this.radioButton();
     }
     
-    public IntegerGUI(CollectTestData obj) {
+    public DecimalGUI(CollectTestData obj) {
         initComponents();
         this.collectTestDataObj = obj;
         this.radioButton();
@@ -35,8 +35,8 @@ public class IntegerGUI extends javax.swing.JFrame {
     }
     
     /*
-     * adding the radio button in group so only one is selected
-     */
+    * adding the radio button in group so only one is selected
+    */
     public void radioButton()
     {
         groupRadioButton.add(randomRadioButton);
@@ -81,25 +81,10 @@ public class IntegerGUI extends javax.swing.JFrame {
         pramLabel.setText("Parameter Name :");
 
         randomRadioButton.setText("Random Number");
-        randomRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                randomRadioButtonActionPerformed(evt);
-            }
-        });
 
         specificRadioButton.setText("Specific Number");
-        specificRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specificRadioButtonActionPerformed(evt);
-            }
-        });
 
         randomBetweenRadioButton.setText("Random Number between two numbers");
-        randomBetweenRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                randomBetweenRadioButtonActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Value One");
 
@@ -132,7 +117,7 @@ public class IntegerGUI extends javax.swing.JFrame {
 
         jLabel3.setText("E.g length 5 (12345 or 32143 etc).");
 
-        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         pramTypeLabel.setText("Parameter Type :");
 
@@ -235,49 +220,41 @@ public class IntegerGUI extends javax.swing.JFrame {
         
         if(randomRadioButton.isSelected()||specificRadioButton.isSelected()||randomBetweenRadioButton.isSelected()||customRadioButton.isSelected()){
             
-            if(specificRadioButton.isSelected())
-            {
-                if(!specificTextField.getText().equals("")&& specificTextField.getText().length() <11)
-                {
-                    // below line store and concatenate the String
-                    if(CommonMethodsOne.isInt(specificTextField.getText()))
-                    {
-                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        // delete this once below line is working collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
-                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
-                        
-                        this.dispose();
-                        collectTestDataObj.increaseCount();
-                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
-                    }                    
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null,"Please enter a number in the specific text field.");
-                    }                  
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null,"Please enter a number in the specific text field.\n\nNumber length has to be less than 10.");
-                }
-            }
-            
-            else if(customRadioButton.isSelected())
+            if(customRadioButton.isSelected())
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGui customIntGuiFrame = new CustomIntGui(collectTestDataObj,0);
+                CustomIntGUI customIntGuiFrame = new CustomIntGUI(collectTestDataObj,0);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
-                customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
+                customIntGuiFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
                 customIntGuiFrame.setVisible(true);
                 customIntGuiFrame.revalidate();
             }
-            
+            else if(specificRadioButton.isSelected())
+            {
+                if(!specificTextField.getText().equals(""))
+                {
+                    // below line store and concatenate the String
+                    
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                    // delete this once below line is working collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
+                    
+                    this.dispose();
+                    collectTestDataObj.increaseCount();
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Please enter a number in the specific text field.");
+                }
+            }
             
             else if(randomBetweenRadioButton.isSelected())
             {
                 
-                if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals("")&& valueOneTextField.getText().length() <11 && valueTwoTextField.getText().length() <11)
+                if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {
                     // below line store and concatenate the String
                     //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(CommonMethodsOne.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+CommonMethodsOne.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
@@ -293,15 +270,31 @@ public class IntegerGUI extends javax.swing.JFrame {
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null,"Please enter a number in value one and two field.");
+                        JOptionPane.showMessageDialog(null,"Please select a number in value one and two feild.");
                     }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Please enter a number in value one and two field.\n\nNumber length has to be less than 10.");
+                    JOptionPane.showMessageDialog(null,"Please enter a number in value one and two feild.");
                 }
             }
-            
+            else if(randomRadioButton.isSelected())
+            {
+                if(!lengthComboBox.getSelectedItem().equals("0"))
+                {
+                    // below line store the user value in the arraylist
+                    EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Random",""+lengthComboBox.getSelectedItem()));
+                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
+                    this.dispose();
+                    collectTestDataObj.increaseCount();
+                    collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Please select a length.");
+                }
+            }
         }
         else{
             JOptionPane.showMessageDialog(null,"Please select one of the option. Thanks");
@@ -315,7 +308,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
-    
+
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
@@ -329,25 +322,6 @@ public class IntegerGUI extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-
-    private void randomRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomRadioButtonActionPerformed
-        // TODO add your handling code here:
-        valueOneTextField.setText("");
-        valueTwoTextField.setText("");
-        specificTextField.setText("");
-    }//GEN-LAST:event_randomRadioButtonActionPerformed
-
-    private void specificRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificRadioButtonActionPerformed
-        // TODO add your handling code here:
-        valueOneTextField.setText("");
-        valueTwoTextField.setText("");
-        lengthComboBox.setSelectedIndex(0);
-    }//GEN-LAST:event_specificRadioButtonActionPerformed
-
-    private void randomBetweenRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomBetweenRadioButtonActionPerformed
-        // TODO add your handling code here:
-        specificTextField.setText("");
-    }//GEN-LAST:event_randomBetweenRadioButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -356,8 +330,8 @@ public class IntegerGUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -366,20 +340,20 @@ public class IntegerGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntegerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DecimalGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntegerGUI().setVisible(true);
+                new DecimalGUI().setVisible(true);
             }
         });
     }

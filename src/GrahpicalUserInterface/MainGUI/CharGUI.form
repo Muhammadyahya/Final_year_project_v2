@@ -44,8 +44,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="alphaOneComboBox" pref="135" max="32767" attributes="0"/>
-                              <Component id="alphaTwoComboBox" max="32767" attributes="0"/>
+                              <Component id="charOneComboBox" pref="135" max="32767" attributes="0"/>
+                              <Component id="charTwoComboBox" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
@@ -54,8 +54,8 @@
                           <Component id="randomRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="specificRadioButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="specificComboBox" min="-2" pref="136" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="specificTextField" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -91,19 +91,19 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="specificRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="specificComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="specificTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="randomBetweenRadioButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="alphaOneComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="charOneComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="alphaTwoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="charTwoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
@@ -133,25 +133,34 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Random Char"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randomRadioButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="specificRadioButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Specific Char"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specificRadioButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="randomBetweenRadioButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Randomly select between two alphabets"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randomBetweenRadioButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alphabet One"/>
+        <Property name="text" type="java.lang.String" value="Character One"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alphabet Two"/>
+        <Property name="text" type="java.lang.String" value="Character Two"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="nextButton">
@@ -188,7 +197,7 @@
         <Property name="text" type="java.lang.String" value="Parameter Type :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="specificComboBox">
+    <Component class="javax.swing.JComboBox" name="charTwoComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="27">
@@ -224,7 +233,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="alphaTwoComboBox">
+    <Component class="javax.swing.JComboBox" name="charOneComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="27">
@@ -260,41 +269,10 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="alphaOneComboBox">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="27">
-            <StringItem index="0" value="Please Select"/>
-            <StringItem index="1" value="a"/>
-            <StringItem index="2" value="b"/>
-            <StringItem index="3" value="c"/>
-            <StringItem index="4" value="d"/>
-            <StringItem index="5" value="e"/>
-            <StringItem index="6" value="f"/>
-            <StringItem index="7" value="g"/>
-            <StringItem index="8" value="h"/>
-            <StringItem index="9" value="i"/>
-            <StringItem index="10" value="j"/>
-            <StringItem index="11" value="k"/>
-            <StringItem index="12" value="l"/>
-            <StringItem index="13" value="m"/>
-            <StringItem index="14" value="n"/>
-            <StringItem index="15" value="o"/>
-            <StringItem index="16" value="p"/>
-            <StringItem index="17" value="q"/>
-            <StringItem index="18" value="r"/>
-            <StringItem index="19" value="s"/>
-            <StringItem index="20" value="t"/>
-            <StringItem index="21" value="u"/>
-            <StringItem index="22" value="v"/>
-            <StringItem index="23" value="w"/>
-            <StringItem index="24" value="x"/>
-            <StringItem index="25" value="y"/>
-            <StringItem index="26" value="z"/>
-          </StringArray>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="specificTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="specificTextFieldKeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -54,6 +54,8 @@ public class EnumGUI extends javax.swing.JFrame {
         enumJList = new javax.swing.JList();
         randomCheckBox = new javax.swing.JCheckBox();
         nextButton = new javax.swing.JButton();
+        mainButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +71,20 @@ public class EnumGUI extends javax.swing.JFrame {
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
+            }
+        });
+
+        mainButton.setText("Main Menu");
+        mainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainButtonActionPerformed(evt);
+            }
+        });
+
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
             }
         });
 
@@ -93,6 +109,10 @@ public class EnumGUI extends javax.swing.JFrame {
                 .addGap(0, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(mainButton)
+                        .addGap(18, 18, 18)
                         .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -111,7 +131,11 @@ public class EnumGUI extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(randomCheckBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(nextButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(closeButton)
+                        .addComponent(mainButton)))
                 .addGap(36, 36, 36))
         );
 
@@ -143,6 +167,28 @@ public class EnumGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please select one or more option from the list or check select all.");
         }
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
+        {
+            this.setVisible(false);
+            ShowMethods showMethodPanel = new ShowMethods(collectTestDataObj.getParsingWsdl());
+            showMethodPanel.setSize(500,500);
+            showMethodPanel.setLocationRelativeTo(null);
+            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
+            showMethodPanel.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_mainButtonActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_closeButtonActionPerformed
     
     /**
      *  This method adds elements to the model object
@@ -194,9 +240,11 @@ public class EnumGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
     private javax.swing.JList enumJList;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel pramNameLabel;
     private javax.swing.JCheckBox randomCheckBox;

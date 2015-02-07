@@ -19,10 +19,7 @@ public class Printing {
         String [] b = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
          for (int i = 0; i < b.length; i++) {
              System.out.println("//      "+"wsdlInput.setText(\""+b[i]+"\");");
-             
-             
-             ver 2  
-            
+
         }
     }
     

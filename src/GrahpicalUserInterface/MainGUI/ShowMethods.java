@@ -200,7 +200,7 @@ public class ShowMethods extends javax.swing.JFrame {
                     }
                     else{
                         this.dispose();
-                        CollectTestData collectTestDataObj = new CollectTestData(swdObj,numTestCase,selectedMethod);
+                        CollectTestData collectTestDataObj = new CollectTestData(swdObj,numTestCase,selectedMethod,parsingWsdlObj);
                         collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                 }

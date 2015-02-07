@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aDeleteME;
+package aDeleteME.Wsdl;
 
 /**
  *
@@ -22,12 +22,24 @@ import com.predic8.schema.Schema;
 import com.predic8.schema.SchemaComponent;
 import com.predic8.schema.SchemaParser;
 import com.predic8.schema.SimpleType;
+import com.predic8.wsdl.Definitions;
+import com.predic8.wsdl.WSDLParser;
  
 public class FullSchemaParser {
  
     public static void main(String[] args) {
+        
+        WSDLParser Wparser = new WSDLParser();
+ 
+    Definitions defs = Wparser
+        .parse("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
+ 
+      System.out.println();
+      
+      String a =  "schema[ baseDir=http://www.webservicex.net/, targetNamespace=http://www.webserviceX.NET/, namespaces=[tm:http://microsoft.com/wsdl/mime/textMatching/, soapenc:http://schemas.xmlsoap.org/soap/encoding/, mime:http://schemas.xmlsoap.org/wsdl/mime/, tns:http://www.webserviceX.NET/, soap:http://schemas.xmlsoap.org/wsdl/soap/, s:http://www.w3.org/2001/XMLSchema, soap12:http://schemas.xmlsoap.org/wsdl/soap12/, http:http://schemas.xmlsoap.org/wsdl/http/, wsdl:http://schemas.xmlsoap.org/wsdl/], imports=[], includes=[], complexTypes=[], simpleTypes=[Computers], elements=[ChangeComputerUnit, ChangeComputerUnitResponse, double] ";
+      
         SchemaParser parser = new SchemaParser();
-        Schema schema = parser.parse("samples/xsd/human-resources.xsd");
+        Schema schema = parser.parse("/homes/my301/year3/Project/other/ms.xsd");
  
         out("-------------- Schema Information --------------");
         out("  Schema TargetNamespace: " + schema.getTargetNamespace());
