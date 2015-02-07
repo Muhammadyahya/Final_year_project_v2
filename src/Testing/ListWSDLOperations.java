@@ -16,7 +16,7 @@ public class ListWSDLOperations {
     WSDLParser parser = new WSDLParser();
  
     Definitions defs = parser
-        .parse("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl");
+        .parse("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
  
     for (PortType pt : defs.getPortTypes()) {
       System.out.println(pt.getName());

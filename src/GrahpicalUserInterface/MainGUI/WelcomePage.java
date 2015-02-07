@@ -145,18 +145,18 @@ public class WelcomePage extends javax.swing.JFrame {
         //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
         //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
         //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
-        //      http://www.webservicex.net/WeatherForecast.asmx?WSDL        
+        //      http://www.webservicex.net/WeatherForecast.asmx?WSDL
         //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
-              wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
+                wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
         //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");        
+        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
         //      wsdlInput.setText("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"); // not wotking
         //      wsdlInput.setText("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl");
         //      wsdlInput.setText("http://www.webservicex.net/usaddressverification.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/GenericNAICS.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FedACH.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); //  
+        //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); //
         //      wsdlInput.setText("http://www.webservicex.net/sunsetriseservice.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FedWire.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/medicareSupplier.asmx?WSDL");
@@ -166,6 +166,15 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/FinanceService.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // not working
         //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
+        //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
+              wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/Astronomical.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/ConverPower.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/ConvertAngle.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/RssToHTML.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/uklocation.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/periodictable.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/country.asmx?WSDL");
         
         
         

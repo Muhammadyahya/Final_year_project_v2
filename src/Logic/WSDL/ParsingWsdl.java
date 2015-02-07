@@ -135,12 +135,21 @@ public class ParsingWsdl
     /* for testing porpose */
     public static void main(String [] args)
     {
-        ParsingWsdl obj = new ParsingWsdl();
-        obj.parseWsdl("http://www.webservicex.net/FinanceService.asmx?WSDL");
-        CheckWsdl c = new CheckWsdl();
+        
+        String [] a = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
+
+        for (int i = 0; i < a.length; i++) {
+            String string = a[i];
+            
+        
+        ParsingWsdl obj = new ParsingWsdl();       
+        
+        obj.parseWsdl(a[i]);
+            System.out.println(a[i]);
+            System.out.println(i +"      : "+obj.wsdlData.get(0).getElmentName());
+        }
+                CheckWsdl c = new CheckWsdl();
         //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
-        
-        
         //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
         //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
     }
