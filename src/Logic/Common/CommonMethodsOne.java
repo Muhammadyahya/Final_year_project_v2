@@ -6,10 +6,8 @@
 
 package Logic.Common;
 
-import com.predic8.wsdl.WSDLParser;
 import java.io.StringReader;
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
+import java.util.Random;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
@@ -27,7 +25,18 @@ public class CommonMethodsOne {
     
     
     private static boolean next;
+
     
+    
+    /********************************************************************************************************************/
+    public static boolean isDouble(String parm){
+        try{
+            Double.parseDouble(parm);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
     
     /************************ I have copied this code from ref # http://stackoverflow.com/questions/139076/how-to-pretty-print-xml-from-java **********************************/
     /* Time 12:39 Date 29/01/2015 */
@@ -140,5 +149,10 @@ public class CommonMethodsOne {
         else{
             return false;
         }
+    }
+    
+    public static void main(String [] args)
+    {
+        System.out.println(isDouble("12345678945646546546."));
     }
 }

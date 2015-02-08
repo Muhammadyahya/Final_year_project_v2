@@ -1,8 +1,10 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Logic.GenerateTestData;
+
+import Logic.Common.CommonMethodsTwo;
 
 /**
  *
@@ -28,45 +30,47 @@ public class GenerateBetweenTwoValue {
         System.out.println("ref#  GenerateBetweenTwoValue...  pramTwo : "+pramTwo);
         switch (className) {
             
+            case "Custom Decimal":
+                temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
+                System.out.println(temp);
+                break;
+                
+            case "Decimal":                
+                parts = userValue.split("-");
+                temp = ""+CommonMethodsTwo.doubleGen(Double.parseDouble(parts[0]),Double.parseDouble(parts[1]));
+                System.out.println(temp);
+                break;
+                
             case "Custom Int":
                 temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
                 break;
                 
+            case "Int":                
+                parts = userValue.split("-");
+                temp = temp+CommonMethodsTwo.intGen(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+                break;
+                
             case "Custom String":
-                parts = userValue.split("-");                
+                parts = userValue.split("-");
                 valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
                 valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
                 temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne,valueTwo));
+                break;
                 
-//                System.out.println("value one : "+ valueOne);
-//                System.out.println("value two : "+ valueTwo);
-//                System.out.println("temp : "+ temp);
-                break;                
-                
-            case "String":
-                
+            case "String":                
                 parts = userValue.split("-");
                 size =  Integer.parseInt(parts[0]);
                 valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
                 valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
-                for (int i = 0; i < size ; i++) 
+                for (int i = 0; i < size ; i++)
                 {
                     temp = temp+CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne, valueTwo));
                 }
                 break;
                 
-            case "Int":
-                
-                parts = userValue.split("-");
-                size =  Integer.parseInt(parts[0]);
-                for (int i = 0; i < size ; i++) 
-                {
-                    temp = temp+CommonMethodsTwo.intGen(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
-                }
-                break;
                 
             case "Char":
-                parts = userValue.split("-");                
+                parts = userValue.split("-");
                 valueOne = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[1]));
                 valueTwo = Integer.parseInt(""+CommonMethodsTwo.charToInt(parts[2]));
                 temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne,valueTwo));
@@ -83,7 +87,7 @@ public class GenerateBetweenTwoValue {
                 
                 String [] formatParts = parts[1].split(parts[0]);
                 // generate random date here.
-               // /./.
+                // /./.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 
                 
                 
@@ -95,7 +99,7 @@ public class GenerateBetweenTwoValue {
                 break;
                 
             default :
-
+                
                 break;
                 
         }// end Switch
@@ -103,11 +107,11 @@ public class GenerateBetweenTwoValue {
         return temp;
     }
     
-     /* delete at the end of project... use only for testing */
+    /* delete at the end of project... use only for testing */
     public static void main(String [] args)
     {
         GenerateBetweenTwoValue obj = new GenerateBetweenTwoValue();
-        obj.generateValue("Custom String", "4-d-e");
+        System.out.println(obj.generateValue("Decimal", "11223124314312-9423141234213"));
     }
     
     

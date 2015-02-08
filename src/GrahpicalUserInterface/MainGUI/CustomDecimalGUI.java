@@ -36,22 +36,19 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
         
         this.length = 4;
         
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),".");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"");
         addRowsTable(length);
-        
-        
         /* delete finished */
-        
     }
     
     public CustomDecimalGUI(CollectTestData obj, int length) {
         initComponents();
         this.length = length+1;
-        comboBoxColumn(inputTable.getColumnModel().getColumn(1));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(2));
-        comboBoxColumn(inputTable.getColumnModel().getColumn(3));
+        comboBoxColumn(inputTable.getColumnModel().getColumn(1),".");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(2),"");
+        comboBoxColumn(inputTable.getColumnModel().getColumn(3),"");
         addRowsTable(this.length);
         setDecimalPoint();
         this.collectTestDataObj= obj;
@@ -78,8 +75,6 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
         inputTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         pointPositionComboBox = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        pointPositionTextField = new javax.swing.JTextField();
         lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
 
@@ -140,8 +135,6 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
 
         jLabel3.setText("Decimal Point position:-");
 
-        jLabel4.setText("Or");
-
         lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         lengthComboBox.setToolTipText("");
         lengthComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -172,11 +165,7 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(6, 6, 6)
-                                .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(69, 69, 69)
                                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,9 +195,7 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(pointPositionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pointPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
@@ -222,7 +209,7 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
-        LogicCustomInt logicCustomIntObj = new LogicCustomInt();
+        LogicCustomDecimal logicCustomIntObj = new LogicCustomDecimal();
         
         if(logicCustomIntObj.checkAllFeilds(inputTable.getModel()))
         {
@@ -283,9 +270,13 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
         }
     }
     
-    public void comboBoxColumn(TableColumn columnNum) {
+    public void comboBoxColumn(TableColumn columnNum,String dot) {
         
         JComboBox comboBox = new JComboBox();
+        if(dot.equals("."))
+        {
+            comboBox.addItem(".");
+        }
         comboBox.addItem("1");
         comboBox.addItem("2");
         comboBox.addItem("3");
@@ -297,7 +288,6 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
         comboBox.addItem("9");
         comboBox.addItem("0");
         columnNum.setCellEditor(new DefaultCellEditor(comboBox));
-        
     }
     
     public void setDecimalPoint()
@@ -348,13 +338,11 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
     private javax.swing.JTable inputTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JComboBox pointPositionComboBox;
-    private javax.swing.JTextField pointPositionTextField;
     private javax.swing.JLabel pramLabel;
     private javax.swing.JLabel pramTypeLabel;
     // End of variables declaration//GEN-END:variables

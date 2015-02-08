@@ -1,7 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Logic.GenerateTestData;
 
 import Data.User.StoreGeneratedValue;
@@ -20,9 +20,9 @@ public class DecryptArrayList {
     public StoreGeneratedValue storeGeneratedValueObj;
     
     /*
-     * To change this template, choose Tools | Templates
-     * and open the template in the editor.
-     */
+    * To change this template, choose Tools | Templates
+    * and open the template in the editor.
+    */
     
     public DecryptArrayList(StoreWsdlData storeWsdlDataObj, ArrayList<String> userInputDataArrayList, StoreGeneratedValue storeGeneratedValueObj)
     {
@@ -35,11 +35,11 @@ public class DecryptArrayList {
     {
         String generatedValue="";
         String className = userInputDataArrayList.get(0);
-       
+        
 //        System.out.println("");
 //        System.out.println("------ Start --------");
 //        System.out.println("");
-
+        
         switch (className) {
             
             case "Custom Int":
@@ -56,7 +56,7 @@ public class DecryptArrayList {
                 //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
                 for (int i = 1; i < userInputDataArrayList.size(); i++) {
                     generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i);
-                }                
+                }
                 System.out.println("temp :  "+generatedValue);
                 break;
                 
@@ -67,7 +67,7 @@ public class DecryptArrayList {
                 {
                     //System.out.println("   Enum   "+a);
                     //decryptButtonValue(userInputDataArrayList.get(1));
-                }    
+                }
                 
                 break;
                 
@@ -97,6 +97,20 @@ public class DecryptArrayList {
                 //decryptButtonValue(userInputDataArrayList.get(1));
                 break;
                 
+            case "Custom Decimal":
+                
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                for (int i = 1; i < userInputDataArrayList.size(); i++) {
+                    generatedValue=generatedValue+decryptButtonValue(userInputDataArrayList.get(i),++i); // decryptButtonValue private method in this class
+                }
+                System.out.println("temp :  "+generatedValue);
+                break;
+                
+            case "Decimal":
+                //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
+                generatedValue = decryptButtonValue(userInputDataArrayList.get(1),2);
+                break;
+                
             default :
                 System.out.println("default case... method: startDecoding");
                 break;
@@ -109,7 +123,7 @@ public class DecryptArrayList {
         
 //        System.out.println("");
 //        System.out.println("------ end --------");
- 
+        
     }// end method start decoding
     
     
@@ -122,7 +136,7 @@ public class DecryptArrayList {
         
         switch (buttonValue) {
             case "Random":
-                //System.out.println("value is : " + userValue);               
+                //System.out.println("value is : " + userValue);
                 temp = generateRandomObj.generateRandomValue(className, userValue);
                 break;
             case "BetweenTwoValue":

@@ -4,8 +4,6 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
-import Logic.Common.CommonMethodsOne;
-import Data.WSDL.StoreWsdlData;
 import Data.User.*;
 import Logic.UserInterface.*;
 import javax.swing.DefaultCellEditor;
@@ -132,7 +130,7 @@ public class CustomIntGUI extends javax.swing.JFrame {
         inputTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(inputTable);
 
-        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
         lengthComboBox.setToolTipText("");
         lengthComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,9 +147,6 @@ public class CustomIntGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(headerLabel))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -167,7 +162,10 @@ public class CustomIntGUI extends javax.swing.JFrame {
                                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(pramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pramTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(headerLabel)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -272,11 +270,9 @@ public class CustomIntGUI extends javax.swing.JFrame {
         comboBox.addItem("8");
         comboBox.addItem("9");
         comboBox.addItem("0");
-        columnNum.setCellEditor(new DefaultCellEditor(comboBox));
-        
+        columnNum.setCellEditor(new DefaultCellEditor(comboBox));        
     }  
-    
-    
+
     /**
      * @param args the command line arguments
      */

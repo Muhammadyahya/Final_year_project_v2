@@ -73,6 +73,8 @@ public class DecimalGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lengthComboBox = new javax.swing.JComboBox();
         pramTypeLabel = new javax.swing.JLabel();
+        decimalComboBox = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,9 +119,13 @@ public class DecimalGUI extends javax.swing.JFrame {
 
         jLabel3.setText("E.g length 5 (12345 or 32143 etc).");
 
-        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        lengthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         pramTypeLabel.setText("Parameter Type :");
+
+        decimalComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+
+        jLabel4.setText("Decimal Point Position");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,16 +138,9 @@ public class DecimalGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(randomBetweenRadioButton)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(randomRadioButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(specificRadioButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(specificTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(customRadioButton)
                             .addComponent(noteLabel)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -153,23 +152,32 @@ public class DecimalGUI extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(decimalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(pramTypeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pramLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))))
+                                .addComponent(pramLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
+                            .addComponent(customRadioButton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(mainButton)
+                                    .addGap(39, 39, 39)
+                                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(randomRadioButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lengthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(mainButton)
-                                .addGap(39, 39, 39)
-                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(182, 182, 182)
-                                .addComponent(headerLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(182, 182, 182)
+                        .addComponent(headerLabel)
+                        .addGap(0, 211, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -201,15 +209,19 @@ public class DecimalGUI extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(valueTwoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(decimalComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(customRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(noteLabel)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(closeButton)
                     .addComponent(mainButton))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
@@ -224,30 +236,26 @@ public class DecimalGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGUI customIntGuiFrame = new CustomIntGUI(collectTestDataObj,0);
-                customIntGuiFrame.setSize(550,550);
-                customIntGuiFrame.setLocationRelativeTo(null);
-                customIntGuiFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
-                customIntGuiFrame.setVisible(true);
-                customIntGuiFrame.revalidate();
+                CustomDecimalGUI customDecimalGuiFrame = new CustomDecimalGUI(collectTestDataObj,0);
+                customDecimalGuiFrame.setSize(550,550);
+                customDecimalGuiFrame.setLocationRelativeTo(null);
+                customDecimalGuiFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
+                customDecimalGuiFrame.setVisible(true);
+                customDecimalGuiFrame.revalidate();
             }
             else if(specificRadioButton.isSelected())
             {
-                if(!specificTextField.getText().equals(""))
+                if(!specificTextField.getText().equals("")&& CommonMethodsOne.isDouble(specificTextField.getText()))
                 {
-                    // below line store and concatenate the String
-                    
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                    // delete this once below line is working collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
-                    
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Decimal", "Specific", specificTextField.getText()));
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Please enter a number in the specific text field.");
+                    JOptionPane.showMessageDialog(null,"Please enter a decimal number in the specific text field.");
                 }
             }
             
@@ -256,43 +264,38 @@ public class DecimalGUI extends javax.swing.JFrame {
                 
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals(""))
                 {
-                    // below line store and concatenate the String
-                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(CommonMethodsOne.biggerChar(valueOneTextField.getText(),valueTwoTextField.getText())+"-"+CommonMethodsOne.smallerChar(valueOneTextField.getText(),valueTwoTextField.getText()))));
-                    if(CommonMethodsOne.isInt(valueOneTextField.getText())&& CommonMethodsOne.isInt(valueTwoTextField.getText()))
+                    if(CommonMethodsOne.isDouble(valueOneTextField.getText())&& CommonMethodsOne.isDouble(valueTwoTextField.getText()))
                     {
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        LogicCustomInt logicCustomIntObj = new LogicCustomInt();
-                        logicCustomIntObj.smallerAndBigger(valueOneTextField.getText(),valueTwoTextField.getText());
-                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue",logicCustomIntObj.getSmalerValue()+"-"+logicCustomIntObj.getBiggerValue()));
+                        LogicCustomDecimal logicCustomDecimalObj = new LogicCustomDecimal();
+                        logicCustomDecimalObj.smallerAndBigger(valueOneTextField.getText(),valueTwoTextField.getText());
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Decimal", "BetweenTwoValue",logicCustomDecimalObj.getSmalerValue()+"-"+logicCustomDecimalObj.getBiggerValue()));
                         this.dispose();
                         collectTestDataObj.increaseCount();
                         collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null,"Please select a number in value one and two feild.");
+                        JOptionPane.showMessageDialog(null,"Please select a decimal number in value one and two feild.");
                     }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Please enter a number in value one and two feild.");
+                    JOptionPane.showMessageDialog(null,"Please enter a decimal number in value one and two feild.");
                 }
             }
             else if(randomRadioButton.isSelected())
             {
-                if(!lengthComboBox.getSelectedItem().equals("0"))
+                if(Integer.parseInt(decimalComboBox.getSelectedItem().toString())<= Integer.parseInt(lengthComboBox.getSelectedItem().toString()))
                 {
-                    // below line store the user value in the arraylist
                     EncryptArrayList encrytArrayListObj = new EncryptArrayList();        
-                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Random",""+lengthComboBox.getSelectedItem()));
-                    //collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString("!R!A!N!D!O!M!"+lengthComboBox.getSelectedItem())));
+                    collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Decimal", "Random",lengthComboBox.getSelectedItem()+"-"+decimalComboBox.getSelectedItem()));
                     this.dispose();
                     collectTestDataObj.increaseCount();
                     collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                 }
-                else
-                {
-                    JOptionPane.showMessageDialog(null,"Please select a length.");
+                else{
+                    JOptionPane.showMessageDialog(null,"Decimal point has to be less than or equal to length.");
                 }
             }
         }
@@ -360,11 +363,13 @@ public class DecimalGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JRadioButton customRadioButton;
+    private javax.swing.JComboBox decimalComboBox;
     private javax.swing.ButtonGroup groupRadioButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JComboBox lengthComboBox;
     private javax.swing.JButton mainButton;
     private javax.swing.JButton nextButton;

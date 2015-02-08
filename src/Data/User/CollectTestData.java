@@ -106,9 +106,18 @@ public class CollectTestData {
                     booleanGUIFrame.revalidate();
                 }
                 
+                else if(tempElementType.equals("double")){
+                    DecimalGUI decimalGUIFrame = new DecimalGUI(collectTestDataObj);
+                    decimalGUIFrame.setSize(500,600);
+                    decimalGUIFrame.setLocationRelativeTo(null);
+                    decimalGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    decimalGUIFrame.setVisible(true);
+                    decimalGUIFrame.revalidate();
+                }
+                
                 else{
                     
-                    JOptionPane.showMessageDialog(null, "Unknow dataType... Class: TestDataGen!");
+                    JOptionPane.showMessageDialog(null, "Unknow dataType... Ref  Class: CollectTestData!!!!!!!");
                     TestFrame testFrame = new TestFrame(collectTestDataObj);
                     testFrame.setSize(550,500);
                     testFrame.setLocationRelativeTo(null);

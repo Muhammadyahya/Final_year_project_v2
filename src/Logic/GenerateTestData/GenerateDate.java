@@ -4,6 +4,8 @@
  */
 package Logic.GenerateTestData;
 
+import Logic.Common.CommonMethodsTwo;
+
 /**
  *
  * @author my301

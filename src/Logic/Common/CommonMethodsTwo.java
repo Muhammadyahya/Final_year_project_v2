@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic.GenerateTestData;
+package Logic.Common;
 
 import java.util.Random;
 
@@ -18,6 +18,15 @@ public class CommonMethodsTwo {
         int randomInt  = randomGenerator.nextInt(rangeTo - rangeFrom + 1) + rangeFrom;        
         //System.out.println("Generated : " + randomInt);
         return randomInt;
+    }
+    
+   
+    public static double doubleGen(double rangeMin, double rangeMax)
+    {        
+        // copied below two lines of code from : http://stackoverflow.com/questions/3680637/how-to-generate-a-random-double-in-a-given-range
+        Random r = new Random();
+        double randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();      
+        return randomValue;
     }
     
     public static int charToInt(String pram)
