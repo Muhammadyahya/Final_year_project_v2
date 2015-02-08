@@ -46,7 +46,8 @@ public class ParsingWsdl
                         wsdlData.add(storeWsdlDataObj);
                         storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
                         storeWsdlDataObj.setUrl(wsdl);
-                        listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                        Element q = defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname());
+                        listParameters(q,0,storeWsdlDataObj);
                     }
                 }
                 else if(!checkTypeOne){
@@ -88,20 +89,27 @@ public class ParsingWsdl
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
-                ct = element.getSchema().getComplexType(element.getType().getLocalPart());
-                
-            }catch(Exception e){
-                
-                if (element.getSchema().getSimpleTypes().size() > 0) {
+                String elemetType = element.getType().getLocalPart();
+                if(element.getSchema().getComplexTypes().contains(elemetType))
+                {
+                ct = element.getSchema().getComplexType(elemetType);
+               }
+               else{
+                               if (element.getSchema().getSimpleTypes().size() > 0) {
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
+                      //  if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
                             storeWsdlDataObj.addElmentName(st.getName());
                             storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
                             break;
-                        }
+//                        }
+
                     }
                 }
                 return;
+               }
+                
+            }catch(Exception e){
+                e.printStackTrace();    
             }
         }
           
@@ -138,7 +146,7 @@ public class ParsingWsdl
         ParsingWsdl obj = new ParsingWsdl();       
         //http://www.webservicex.net/genericbarcode.asmx?WSDL
         //http://www.webservicex.net/ConvertComputer.asmx?WSDL
-        obj.parseWsdl("http://www.webservicex.net/genericbarcode.asmx?WSDL");
+        obj.parseWsdl("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
        //     System.out.println("      : "+obj.wsdlData.get(0).getElmentName());
         
          //       CheckWsdl c = new CheckWsdl();
