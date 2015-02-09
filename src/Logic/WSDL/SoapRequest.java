@@ -39,9 +39,9 @@ public class SoapRequest {
         String url = collectTestDataObj.getStoreWsdlData().getUrl();
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         
-        System.out.println("url :  "+ url);
-        System.out.println("URI :  "+ collectTestDataObj.getStoreWsdlData().getServerURI());
-        System.out.println("method name :  "+ collectTestDataObj.getMethodName());
+//        System.out.println("url :  "+ url);
+//        System.out.println("URI :  "+ collectTestDataObj.getStoreWsdlData().getServerURI());
+//        System.out.println("method name :  "+ collectTestDataObj.getMethodName());
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         soapResponse.writeTo(os);
         String aString = new String(os.toByteArray(),"UTF-8");

@@ -9,4 +9,7 @@ String [] a = {"http://www.webservicex.net/usaddressverification.asmx?WSDL","htt
 String [] b = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL",}; 
  
 
+refrance
 
+https://groups.google.com/forum/#!topic/soa-model/DrDM0QkIx0Y
+https://groups.google.com/forum/?fromgroups#!searchin/soa-model/reading/soa-model/OJvA2VKwK0E/IUxl4vlyfjYJ

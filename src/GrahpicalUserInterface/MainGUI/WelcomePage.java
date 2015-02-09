@@ -140,20 +140,17 @@ public class WelcomePage extends javax.swing.JFrame {
          * Below are different wsdl for testing
          */
         
-        //
-        //      http://www.webservicex.net/genericbarcode.asmx?WSDL
-        //      http://www.webservicex.net/sendsmsworld.asmx?WSDL
-        //      http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
-        //      http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl
-        //      http://www.webservicex.net/WeatherForecast.asmx?WSDL
-        //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL");
-                wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL");
-        //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL");
-        //      wsdlInput.setText("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"); // not wotking
-        //      wsdlInput.setText("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl");
-//              wsdlInput.setText("http://www.webservicex.net/usaddressverification.asmx?WSDL");
-//              wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL");
+        //      wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL"); // doesn't work on website
+        //      wsdlInput.setText("http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl"); works
+        //      wsdlInput.setText("http://www.webservicex.net/WeatherForecast.asmx?WSDL"); // wsdl is broken also doesn't work on website
+        //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL"); // good example for String
+        //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL"); // good example for string
+        //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"); // good example
+        //     wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL"); //Note:If your country code 091,Please enter as 91 and if your mobile number 098XXXXX,Please enter as 98XXXX 
+        //      wsdlInput.setText("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"); // not wotking because of API limitation
+        //      wsdlInput.setText("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl"); // soap request doesn't work something wrong with WSDL
+        //      wsdlInput.setText("http://www.webservicex.net/usaddressverification.asmx?WSDL"); // soap request doesn't work also doesn't work on website
+        //      wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL"); // works
 //              wsdlInput.setText("http://www.webservicex.net/GenericNAICS.asmx?WSDL");
 //              wsdlInput.setText("http://www.webservicex.net/FedACH.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); // for int testing
@@ -164,7 +161,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/LondonGoldFix.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/Statistics.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FinanceService.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // not working
+              wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // not working
         //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
         //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
@@ -183,7 +180,7 @@ public class WelcomePage extends javax.swing.JFrame {
         /* for ITL */
         //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
         //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
+              wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         
 
         CheckWsdl checkWsdlObj =  new CheckWsdl();

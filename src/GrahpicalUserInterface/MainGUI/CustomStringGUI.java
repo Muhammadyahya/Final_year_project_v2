@@ -34,12 +34,10 @@ public class CustomStringGUI extends javax.swing.JFrame {
         comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
         addRowsTable(length);        
     }
-    
-
-    
+        
     public CustomStringGUI(CollectTestData obj, int length) {
         initComponents();
-        this.length = length+1;
+        this.length = length;
         comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
         comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
         comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
