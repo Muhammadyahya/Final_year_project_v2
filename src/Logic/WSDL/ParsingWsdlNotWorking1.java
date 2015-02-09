@@ -14,20 +14,19 @@ import java.util.*;
  *
  * @author my301
  */
-public class ParsingWsdl
+public class ParsingWsdlNotWorking1
 {
     
     private ArrayList<StoreWsdlData> wsdlData;
     
     // constractor
-    public ParsingWsdl()
+    public ParsingWsdlNotWorking1()
     {
         wsdlData = new ArrayList<>();
     }
     
     public void parseWsdl (String wsdl)
     {
-        System.out.println("111111");
         try{
             String portSOAP;
             boolean checkTypeTwo = false;
@@ -42,13 +41,13 @@ public class ParsingWsdl
                 if (portSOAP.endsWith("Soap")) {
                     checkTypeOne = true;
                     for (Operation op : pt.getOperations()) {
-                        
                         Element x =   op.getInput().getMessage().getParts().get(0).getElement();
                         StoreWsdlData storeWsdlDataObj = new StoreWsdlData(op.getName());
                         wsdlData.add(storeWsdlDataObj);
                         storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
                         storeWsdlDataObj.setUrl(wsdl);
-                        listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                        Element q = defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname());
+                        listParameters(q,0,storeWsdlDataObj);
                     }
                 }
                 else if(!checkTypeOne){
@@ -66,7 +65,7 @@ public class ParsingWsdl
         
     }
     
-    private void wsdlTypeTwo (String wsdl)
+    public void wsdlTypeTwo (String wsdl)
     {
         WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
@@ -86,38 +85,35 @@ public class ParsingWsdl
     
     
     private void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
-       
         
-        System.out.println(element.getName());
+        System.out.println("eeeee   "+ element.getName());
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
                 String elemetType = element.getType().getLocalPart();
                 if(element.getSchema().getComplexTypes().contains(elemetType))
                 {
-                     ct = element.getSchema().getComplexType(elemetType);
+                    ct = element.getSchema().getComplexType(elemetType);
+                    System.out.println("cttttt   "+ct.getName());
                 }
-                
-                else if (element.getSchema().getSimpleTypes().size() > 1) {
-                    for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        //if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
+                else{
+                    if (element.getSchema().getSimpleTypes().size() > 0) {
+                        for (SimpleType st : element.getSchema().getSimpleTypes()) {
+                             //if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
                             storeWsdlDataObj.addElmentName(st.getName());
                             storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
-                            break;
-                       // }
+                            //break;
+                                             //     }
+                            
+                        }
                     }
+                    return;
                 }
                 
-                else
-                {
-                     ct = element.getSchema().getComplexType(element.getType().getLocalPart());
-                }
-                return;
             }catch(Exception e){
-                e.printStackTrace(); 
+                e.printStackTrace();
             }
         }
-        
         
         if(ct.getModel()!=null){
             
@@ -132,6 +128,7 @@ public class ParsingWsdl
                     storeWsdlDataObj.addElmentType(e.getType().toString());
                 }
                 else {
+                    
                     listParameters(e,i, storeWsdlDataObj);
                     i++;
                 }
@@ -147,11 +144,18 @@ public class ParsingWsdl
     /* for testing porpose */
     public static void main(String [] args)
     {
-        ParsingWsdl obj = new ParsingWsdl();
+        
+        
+        ParsingWsdlNotWorking1 obj = new ParsingWsdlNotWorking1();
         String a = "http://www.webservicex.net/genericbarcode.asmx?WSDL";
         String v = "http://www.webservicex.net/ConvertComputer.asmx?WSDL";
         obj.parseWsdl(a);
-
+        //     System.out.println("      : "+obj.wsdlData.get(0).getElmentName());
+        
+        //       CheckWsdl c = new CheckWsdl();
+        //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
+        //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
+        //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
     }
     
 }// end class

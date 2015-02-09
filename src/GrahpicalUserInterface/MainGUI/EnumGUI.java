@@ -131,11 +131,11 @@ public class EnumGUI extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(randomCheckBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(closeButton)
-                        .addComponent(mainButton)))
+                        .addComponent(mainButton))
+                    .addComponent(nextButton))
                 .addGap(36, 36, 36))
         );
 

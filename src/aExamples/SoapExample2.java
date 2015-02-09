@@ -4,6 +4,7 @@
  */
 package aExamples;
 
+import Logic.Common.CommonMethodsOne;
 import java.io.ByteArrayOutputStream;
 import javax.xml.soap.*;
 
@@ -20,11 +21,15 @@ public class SoapExample2 {
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://www.webservicex.net/BibleWebservice.asmx?WSDL";
+        String url = "http://www.webservicex.net/ConvertAngle.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         // print SOAP Response
         System.out.print("Response SOAP Message:");
-        soapResponse.writeTo(System.out);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        soapResponse.writeTo(os);
+        String aString = new String(os.toByteArray(),"UTF-8");
+
+         System.out.println(CommonMethodsOne.format(aString));
 
         soapConnection.close();
     }
@@ -43,16 +48,16 @@ public class SoapExample2 {
 
         
         /* not working code */
-       String [] e = {};
+       String [] e = {"AngleValue","fromAngleUnit","toAngleUnit" };
         
-       String [] v = {};
+       String [] v = {"9.1","fullCircle","gradients"};
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("GetBookTitles", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement("ChangeAngleUnit", "example");
        
        // my code
         for (int i = 0; i < v.length; i++) {
-           
+            System.out.println("111");
             SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(e[i], "example");
             soapBodyElem1.addTextNode(v[i]);
             
@@ -61,7 +66,7 @@ public class SoapExample2 {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "/GetBookTitles");
+        headers.addHeader("SOAPAction", serverURI  + "/ChangeAngleUnitHttpPostIn");
         /* end of not working code*/
 
         soapMessage.saveChanges();
@@ -72,18 +77,12 @@ public class SoapExample2 {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         soapMessage.writeTo(os);
         String aString = new String(os.toByteArray(),"UTF-8");
-        
-        String z;
 
-        String s = "llllllllllllll     "+aString;
-        
-        //System.out.println("ssss"+ s);
-        
-        System.out.println("");
-        System.out.println("");
-        
         System.out.print("Request SOAP Message:");
-        soapMessage.writeTo(System.out);
+        System.out.println(CommonMethodsOne.format(aString));
+              
+        System.out.println();
+        System.out.println();
         System.out.println();
 
         return soapMessage;

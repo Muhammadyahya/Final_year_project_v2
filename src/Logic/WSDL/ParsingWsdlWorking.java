@@ -4,6 +4,10 @@
  */
 package Logic.WSDL;
 
+/**
+ *
+ * @author my301
+ */
 import Data.WSDL.StoreWsdlData;
 import com.predic8.schema.*;
 import com.predic8.soamodel.*;
@@ -14,20 +18,19 @@ import java.util.*;
  *
  * @author my301
  */
-public class ParsingWsdl
+public class ParsingWsdlWorking
 {
     
     private ArrayList<StoreWsdlData> wsdlData;
     
     // constractor
-    public ParsingWsdl()
+    public ParsingWsdlWorking()
     {
         wsdlData = new ArrayList<>();
     }
     
     public void parseWsdl (String wsdl)
     {
-        System.out.println("111111");
         try{
             String portSOAP;
             boolean checkTypeTwo = false;
@@ -86,35 +89,24 @@ public class ParsingWsdl
     
     
     private void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
-       
         
-        System.out.println(element.getName());
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
-                String elemetType = element.getType().getLocalPart();
-                if(element.getSchema().getComplexTypes().contains(elemetType))
-                {
-                     ct = element.getSchema().getComplexType(elemetType);
-                }
+                ct = element.getSchema().getComplexType(element.getType().getLocalPart());
                 
-                else if (element.getSchema().getSimpleTypes().size() > 1) {
+            }catch(Exception e){
+                
+                if (element.getSchema().getSimpleTypes().size() > 0) {
                     for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        //if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
+                        if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
                             storeWsdlDataObj.addElmentName(st.getName());
                             storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
                             break;
-                       // }
+                        }
                     }
                 }
-                
-                else
-                {
-                     ct = element.getSchema().getComplexType(element.getType().getLocalPart());
-                }
                 return;
-            }catch(Exception e){
-                e.printStackTrace(); 
             }
         }
         
@@ -147,11 +139,24 @@ public class ParsingWsdl
     /* for testing porpose */
     public static void main(String [] args)
     {
-        ParsingWsdl obj = new ParsingWsdl();
-        String a = "http://www.webservicex.net/genericbarcode.asmx?WSDL";
-        String v = "http://www.webservicex.net/ConvertComputer.asmx?WSDL";
-        obj.parseWsdl(a);
+        
+        String [] a = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
 
+        for (int i = 0; i < a.length; i++) {
+            String string = a[i];
+            
+        
+        ParsingWsdlWorking obj = new ParsingWsdlWorking();       
+        
+        obj.parseWsdl(a[i]);
+            System.out.println(a[i]);
+            System.out.println(i +"      : "+obj.wsdlData.get(0).getElmentName());
+        }
+                CheckWsdl c = new CheckWsdl();
+        //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
+        //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
+        //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
     }
     
 }// end class
+

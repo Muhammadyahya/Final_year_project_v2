@@ -6,6 +6,8 @@ package Logic.GenerateTestData;
 
 import Data.User.StoreGeneratedValue;
 import Data.WSDL.StoreWsdlData;
+import Logic.Common.CommonMethodsOne;
+import Logic.Common.CommonMethodsTwo;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -63,12 +65,9 @@ public class DecryptArrayList {
             case "Enum":
                 
                 //System.out.println("Elemnet Name " + storeWsdlDataObj.getElmentName().get(count));
-                for(String a: userInputDataArrayList)
-                {
-                    //System.out.println("   Enum   "+a);
-                    //decryptButtonValue(userInputDataArrayList.get(1));
-                }
-                
+                int x = CommonMethodsTwo.intGen(1, userInputDataArrayList.size()-1);
+                    generatedValue = userInputDataArrayList.get(x);
+                    System.out.println("ref decyptArrayList : "+generatedValue);
                 break;
                 
             case "String":

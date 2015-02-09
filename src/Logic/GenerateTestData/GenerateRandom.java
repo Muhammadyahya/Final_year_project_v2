@@ -33,7 +33,7 @@ public class GenerateRandom {
                 temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
                 break;
                 
-            case "Enum":
+            case "Enum": // i don't think i need this
                 temp = ""+CommonMethodsTwo.intGen(0, 9);
                 break;
                 
