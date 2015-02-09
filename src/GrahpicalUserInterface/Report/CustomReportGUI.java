@@ -197,10 +197,8 @@ public class CustomReportGUI extends javax.swing.JFrame {
         i++;
         columnNames[i]= "Output response";
         i++;i++;
-        System.out.println("3333 "+ i);
         columnNames[i]= "Result";
         i--;
-        System.out.println("4444 "+ i);
         columnNames[i]="Tag Value";
         Object [] [] rowData =  setRows();
         DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
@@ -228,11 +226,9 @@ public class CustomReportGUI extends javax.swing.JFrame {
             i++;
             data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
             i++;i++;
-            System.out.println("11111 "+ i);
             ResultChecker resultCheckerObj = new ResultChecker(storeReportDataObj, x);
             data[x][i]= resultCheckerObj.checkResponse();
             i--;
-            System.out.println("2222 "+ i);
             data[x][i]= this.storeReportDataObj.getActualTagValue().get(x);
             DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
             model.addRow(data[x]);

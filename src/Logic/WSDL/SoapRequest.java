@@ -60,7 +60,11 @@ public class SoapRequest {
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
         String serverURI = collectTestDataObj.getStoreWsdlData().getServerURI();
-
+        if(serverURI.charAt(serverURI.length()-1)!='/')
+        {
+            serverURI = serverURI+"/";
+        }
+        //System.out.println("serverURI    ***********  ref soapRequest   "+serverURI);
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
@@ -74,7 +78,7 @@ public class SoapRequest {
        
        // my code
         for (int i = 0; i < parmValue.size(); i++) {
-           
+           //System.out.println("ref soap request : "+parmName.get(i));
             SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(parmName.get(i), "example");
             soapBodyElem1.addTextNode(parmValue.get(i));
         }
@@ -82,7 +86,7 @@ public class SoapRequest {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + collectTestDataObj.getMethodName());
+        headers.addHeader("SOAPAction", serverURI  +collectTestDataObj.getMethodName());
 
         soapMessage.saveChanges();
         
@@ -91,14 +95,8 @@ public class SoapRequest {
         String aString = new String(os.toByteArray(),"UTF-8");
         
         storeReportDataObj.addinputData(aString);
-
-        /* Print the request message */
-//        System.out.print("Request SOAP Message:");
-//        
-//                
-//        soapMessage.writeTo(System.out);
-//        System.out.println();
-
         return soapMessage;
     }
+    
+   
 }

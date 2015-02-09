@@ -20,7 +20,7 @@ public class SoapExample2 {
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         // Send SOAP Message to SOAP Server
-        String url = "http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl";
+        String url = "http://www.webservicex.net/BibleWebservice.asmx?WSDL";
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
         // print SOAP Response
         System.out.print("Response SOAP Message:");
@@ -34,7 +34,7 @@ public class SoapExample2 {
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
 
-        String serverURI = "http://webservices.amazon.com/AWSECommerceService/2011-08-01";
+        String serverURI = "http://www.webserviceX.NET";
 
 
         // SOAP Envelope
@@ -43,12 +43,12 @@ public class SoapExample2 {
 
         
         /* not working code */
-       String [] e = {"ZIP"};
+       String [] e = {};
         
-       String [] v = {"21045" };
+       String [] v = {};
        
        SOAPBody soapBody = envelope.getBody();
-       SOAPElement soapBodyElem = soapBody.addChildElement("ItemSearchRequest", "example");
+       SOAPElement soapBodyElem = soapBody.addChildElement("GetBookTitles", "example");
        
        // my code
         for (int i = 0; i < v.length; i++) {
@@ -61,7 +61,7 @@ public class SoapExample2 {
         // end of my code
            
         MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", serverURI  + "ItemSearchRequest");
+        headers.addHeader("SOAPAction", serverURI  + "/GetBookTitles");
         /* end of not working code*/
 
         soapMessage.saveChanges();
@@ -77,7 +77,7 @@ public class SoapExample2 {
 
         String s = "llllllllllllll     "+aString;
         
-        System.out.println("ssss"+ s);
+        //System.out.println("ssss"+ s);
         
         System.out.println("");
         System.out.println("");
