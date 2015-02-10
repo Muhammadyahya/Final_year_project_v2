@@ -8,6 +8,7 @@ import Data.WSDL.StoreWsdlData;
 import com.predic8.schema.*;
 import com.predic8.soamodel.*;
 import com.predic8.wsdl.*;
+import java.lang.annotation.ElementType;
 import java.util.*;
 
 /**
@@ -22,12 +23,12 @@ public class ParsingWsdl
     // constractor
     public ParsingWsdl()
     {
+        System.out.println("wwwwwwww");
         wsdlData = new ArrayList<>();
     }
     
-    public void parseWsdl (String wsdl)
+     public void parseWsdl (String wsdl)
     {
-        System.out.println("111111");
         try{
             String portSOAP;
             boolean checkTypeTwo = false;
@@ -48,7 +49,7 @@ public class ParsingWsdl
                         wsdlData.add(storeWsdlDataObj);
                         storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
                         storeWsdlDataObj.setUrl(wsdl);
-                        listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                        listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),storeWsdlDataObj);
                     }
                 }
                 else if(!checkTypeOne){
@@ -79,42 +80,41 @@ public class ParsingWsdl
                 wsdlData.add(storeWsdlDataObj);
                 storeWsdlDataObj.setServerURI(defs.getTargetNamespace());
                 storeWsdlDataObj.setUrl(wsdl);
-                listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),0,storeWsdlDataObj);
+                listParameters(defs.getElement(op.getInput().getMessage().getParts().get(0).getElement().getQname()),storeWsdlDataObj);
             }
         }
     }// End of the method
     
-    
-    private void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
-       
+    /*
+     * ListParameters method takesa element( which is method name) and storeWsdlData object to store all the parameters name and type
+     * 
+     */
+    private void listParameters(Element element, StoreWsdlData storeWsdlDataObj) {
         
         System.out.println(element.getName());
+        
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
-                String elemetType = element.getType().getLocalPart();
-                if(element.getSchema().getComplexTypes().contains(elemetType))
-                {
-                     ct = element.getSchema().getComplexType(elemetType);
-                }
+                ct = element.getSchema().getComplexType(element.getType().getLocalPart());
                 
-                else if (element.getSchema().getSimpleTypes().size() > 1) {
-                    for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        //if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
-                            storeWsdlDataObj.addElmentName(st.getName());
-                            storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
+            }catch(Exception e){ // need to work on this... I have to take the code out of the exception
+                
+                if (element.getSchema().getSimpleTypes().size() > 0) 
+                {
+                    int x=0;
+                    for (SimpleType st : element.getSchema().getSimpleTypes()) 
+                    {
+                        if(element.getType().getLocalPart().equalsIgnoreCase(element.getSchema().getSimpleTypes().get(x).getName()))// checks if the complex type is not entered 
+                        {
+                            storeWsdlDataObj.addElmentName(element.getName());
+                            storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), element.getName()));
                             break;
-                       // }
+                        }
+                        x++;
                     }
                 }
-                
-                else
-                {
-                     ct = element.getSchema().getComplexType(element.getType().getLocalPart());
-                }
                 return;
-            }catch(Exception e){
-                e.printStackTrace(); 
             }
         }
         
@@ -123,6 +123,7 @@ public class ParsingWsdl
             
             for (Element e : ct.getSequence().getElements()) {
                 
+               // System.out.println("  -e- "+e.getName());   
                 // Fix for invalid schema
                 if (e.getType() == null) {
                     return;
@@ -132,8 +133,7 @@ public class ParsingWsdl
                     storeWsdlDataObj.addElmentType(e.getType().toString());
                 }
                 else {
-                    listParameters(e,i, storeWsdlDataObj);
-                    i++;
+                    listParameters(e, storeWsdlDataObj);
                 }
             }
         }
@@ -144,14 +144,31 @@ public class ParsingWsdl
         return this.wsdlData;
     }
     
+
+    
     /* for testing porpose */
     public static void main(String [] args)
     {
         ParsingWsdl obj = new ParsingWsdl();
         String a = "http://www.webservicex.net/genericbarcode.asmx?WSDL";
         String v = "http://www.webservicex.net/ConvertComputer.asmx?WSDL";
-        obj.parseWsdl(a);
+        obj.parseWsdl(v);
+        
+                
+          
+        String [] c = {"http://www.webservicex.net/usaddressverification.asmx?WSDL","http://www.webservicex.net/stockquote.asmx?WSDL","http://www.webservicex.net/GenericNAICS.asmx?WSDL","http://www.webservicex.net/FedACH.asmx?WSDL","http://www.webservicex.net/MortgageIndex.asmx?WSDL","http://www.webservicex.net/sunsetriseservice.asmx?WSDL","http://www.webservicex.net/FedWire.asmx?WSDL","http://www.webservicex.net/medicareSupplier.asmx?WSDL","http://www.webservicex.net/RealTimeMarketData.asmx?WSDL","http://www.webservicex.net/LondonGoldFix.asmx?WSDL","http://www.webservicex.net/Statistics.asmx?WSDL","http://www.webservicex.net/FinanceService.asmx?WSDL","http://www.webservicex.net/BibleWebservice.asmx?WSDL"};
+        String [] b = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
+         for (int i = 0; i < c.length; i++) {
+             obj.parseWsdl(c[i]);
+
+        }
+         
+        for (int i = 0; i < b.length; i++) {
+             obj.parseWsdl(b[i]);
+
+        }
 
     }
     
 }// end class
+

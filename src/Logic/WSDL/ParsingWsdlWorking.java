@@ -90,6 +90,8 @@ public class ParsingWsdlWorking
     
     private void listParameters(Element element, int i, StoreWsdlData storeWsdlDataObj) {
         
+        System.out.println(element.getName());
+        
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
@@ -97,9 +99,13 @@ public class ParsingWsdlWorking
                 
             }catch(Exception e){
                 
-                if (element.getSchema().getSimpleTypes().size() > 0) {
-                    for (SimpleType st : element.getSchema().getSimpleTypes()) {
-                        if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName())){
+                if (element.getSchema().getSimpleTypes().size() > 0) 
+                {
+                    for (SimpleType st : element.getSchema().getSimpleTypes()) 
+                    {
+                        if(st.getName().equals(element.getSchema().getSimpleTypes().get(i).getName()))
+                        {
+                            System.out.println("  -- "+st.getName());   
                             storeWsdlDataObj.addElmentName(st.getName());
                             storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), st.getName()));
                             break;
@@ -115,6 +121,7 @@ public class ParsingWsdlWorking
             
             for (Element e : ct.getSequence().getElements()) {
                 
+                System.out.println("  -e- "+e.getName());   
                 // Fix for invalid schema
                 if (e.getType() == null) {
                     return;
@@ -139,23 +146,11 @@ public class ParsingWsdlWorking
     /* for testing porpose */
     public static void main(String [] args)
     {
-        
-        String [] a = {"http://www.webservicex.net/TranslateService.asmx?WSDL","http://www.webservicex.net/ConvertComputer.asmx?WSDL","http://www.webservicex.net/Astronomical.asmx?WSDL","http://www.webservicex.net/ConverPower.asmx?WSDL","http://www.webservicex.net/ConvertAngle.asmx?WSDL","http://www.webservicex.net/RssToHTML.asmx?WSDL","http://www.webservicex.net/uklocation.asmx?WSDL","http://www.webservicex.net/periodictable.asmx?WSDL","http://www.webservicex.net/country.asmx?WSDL"}; 
+        ParsingWsdlWorking obj = new ParsingWsdlWorking();
+        String a = "http://www.webservicex.net/genericbarcode.asmx?WSDL";
+        String v = "http://www.webservicex.net/ConvertComputer.asmx?WSDL";
+        obj.parseWsdl(a);
 
-        for (int i = 0; i < a.length; i++) {
-            String string = a[i];
-            
-        
-        ParsingWsdlWorking obj = new ParsingWsdlWorking();       
-        
-        obj.parseWsdl(a[i]);
-            System.out.println(a[i]);
-            System.out.println(i +"      : "+obj.wsdlData.get(0).getElmentName());
-        }
-                CheckWsdl c = new CheckWsdl();
-        //System.out.println(c.checkWSDLAvailable("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"));
-        //obj.parseWsdl("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl");
-        //System.out.println("sssss :  "+obj.getWsdlData().get(0).getServerURI());
     }
     
 }// end class

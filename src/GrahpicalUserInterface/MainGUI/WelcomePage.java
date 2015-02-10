@@ -140,7 +140,7 @@ public class WelcomePage extends javax.swing.JFrame {
          * Below are different wsdl for testing
          */
         
-              wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL"); // doesn't work on website
+        //      wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL"); // doesn't work on website
         //      wsdlInput.setText("http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl"); works
         //      wsdlInput.setText("http://www.webservicex.net/WeatherForecast.asmx?WSDL"); // wsdl is broken also doesn't work on other website
         //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL"); // good example for String
@@ -166,7 +166,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/Astronomical.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/ConverPower.asmx?WSDL"); // good Example for Enum
+              wsdlInput.setText("http://www.webservicex.net/ConverPower.asmx?WSDL"); // good Example for Enum
         //      wsdlInput.setText("http://www.webservicex.net/ConvertAngle.asmx?WSDL"); // works
         //      wsdlInput.setText("http://www.webservicex.net/RssToHTML.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/uklocation.asmx?WSDL");
