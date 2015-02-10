@@ -13,7 +13,25 @@ import java.util.ArrayList;
  */
 public class StoreCheckValueData {
     
-    private ArrayList<ArrayList<String>> tagName;
-    private ArrayList<ArrayList<String>> tagValue;
+    private ArrayList<String> tagName;
+    private ArrayList<String> tagValue;
+
+    public ArrayList<String> getTagName() {
+        return tagName;
+    }
+
+    public void setTagName(ArrayList<String> tagName) {
+        this.tagName = tagName;
+    }
+
+    public ArrayList<String> getTagValue() {
+        return tagValue;
+    }
+
+    public void setTagValue(ArrayList<String> tagValue) {
+        this.tagValue = tagValue;
+    }
+
+
 
 }

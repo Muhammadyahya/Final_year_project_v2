@@ -34,8 +34,6 @@ public class CustomReportGUI extends javax.swing.JFrame {
         initComponents();
         this.storeReportDataObj = storeReportDataObj;
         setColumns();
-        // setRows();
-        
     }
     
     /**

@@ -18,6 +18,9 @@ public class StoreReportData {
     private ArrayList<String> inputData;
     private ArrayList<String> outPutResponse;
     private ArrayList<String> actualTagValue;
+    private ArrayList<StoreCheckValueData> storeCheckValueDataList;
+
+   
     
     public StoreReportData(CollectTestData collectTestDataPram)
     {
@@ -58,5 +61,12 @@ public class StoreReportData {
     public void addActualTagValue(String parm){
         this.actualTagValue.add(parm);
     }
-    
+
+    public ArrayList<StoreCheckValueData> getStoreCheckValueDataList() {
+        return storeCheckValueDataList;
+    }
+
+    public void setStoreCheckValueDataList(StoreCheckValueData storeCheckValueDataList) {
+        this.storeCheckValueDataList.add(storeCheckValueDataList);
+    }
 }

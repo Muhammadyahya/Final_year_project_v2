@@ -4,6 +4,7 @@
  */
 package Data.User;
 
+import GrahpicalUserInterface.Report.VerifyResultGUI;
 import GrahpicalUserInterface.MainGUI.*;
 import Logic.WSDL.ParsingWsdl;
 import java.util.logging.Level;
@@ -34,6 +35,7 @@ public class CollectTestData {
     private String tagValue;
     private String methodName;
     private ParsingWsdl parsingWsdlObj;
+    
     
     
     public CollectTestData(StoreWsdlData swdObj, int numTestCase, String methodName,ParsingWsdl parsingWsdlObj)
@@ -128,10 +130,10 @@ public class CollectTestData {
             }
         }
         else{
-                       
+            
             //this.runTestCases(collectTestDataObj);
             
-
+            
             VerifyResultGUI verifyResultGUIFrame = new VerifyResultGUI(collectTestDataObj);
             verifyResultGUIFrame.setSize(450,450);
             verifyResultGUIFrame.setLocationRelativeTo(null);
@@ -143,9 +145,7 @@ public class CollectTestData {
     }// end method
     
     public void runTestCases(CollectTestData collectTestDataObj)
-    {
-        
-        
+    {      
         StoreReportData storeReportDataObj = new StoreReportData(collectTestDataObj);
         
         for (int a = 0; a < numTestCase; a++)
@@ -158,104 +158,46 @@ public class CollectTestData {
             }// end 2nd for loop inside else case
             
             if(checkTestCaseRepetition(storeGeneratedValueObj , storeReportDataObj)){
-            storeReportDataObj.addStoreGeneratedValue(storeGeneratedValueObj); // storing the generated data in the StoreReportData class
-            
-            SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj, collectTestDataObj,storeReportDataObj); // soap request for each generated values
-            try {
-                soapRequestObj.soapConnectionRequest();
-            } catch (Exception ex) {
-                Logger.getLogger(CollectTestData.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-                System.out.println("else");
+                storeReportDataObj.addStoreGeneratedValue(storeGeneratedValueObj); // storing the generated data in the StoreReportData class
+                
+                SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj, collectTestDataObj,storeReportDataObj); // soap request for each generated values
+                try {
+                    soapRequestObj.soapConnectionRequest();
+                } catch (Exception ex) {
+                    Logger.getLogger(CollectTestData.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }// end 1st for loop inside else
         
         
-            CustomReportGUI customReportGUIFrame = new CustomReportGUI(storeReportDataObj);
-            customReportGUIFrame.setSize(1000,800);
-            customReportGUIFrame.setLocationRelativeTo(null);
-            customReportGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-            customReportGUIFrame.setVisible(true);
-            customReportGUIFrame.revalidate();
+        CustomReportGUI customReportGUIFrame = new CustomReportGUI(storeReportDataObj);
+        customReportGUIFrame.setSize(1000,800);
+        customReportGUIFrame.setLocationRelativeTo(null);
+        customReportGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+        customReportGUIFrame.setVisible(true);
+        customReportGUIFrame.revalidate();        
         
-        /* for testing purpose */
-       /*
-        * for (int i = 0; i < numTestCase; i++) {
-            
-            System.out.println("--------------------------------------------------------------");
-            System.out.println("");
-            System.out.println("");
-            
-                ArrayList<String> m = this.storeGeneratedValueObj.getParameterNameList();
-                ArrayList<String> v = this.storeGeneratedValueObj.getGeneratedValueList();
-                
-                System.out.println("");
-                for (int x = 0; x < m.size(); x++) {
-                    
-                    System.out.println("PrameterName : " +m.get(x) + "  Value is : "+ v.get(x));
-                }
-                System.out.println("");
-                System.out.println("**** Input Request ****");
-                System.out.println(storeReportDataObj.getInputData().get(i));
-                System.out.println("");
-                
-                System.out.println("");
-                System.out.println("**** OutPut Response ****");
-                //System.out.println(storeReportDataObj.getOutPutResponse().get(i));
-                
-                System.out.println(new xmlFormatter().format(storeReportDataObj.getOutPutResponse().get(i)));
-                System.out.println("");
-            
-            System.out.println("");
-            System.out.println("");
-            System.out.println("--------------------------------------------------------------");
-            System.out.println("");
-            System.out.println("");
-
-               }/* end of testing */
-        
-        
-        }
+    }
     
     private boolean checkTestCaseRepetition(StoreGeneratedValue storeGeneratedValueObj, StoreReportData storeReportDataObj)
     {
-        /*
-        boolean check = true;
-        for(int i=0; i<storeGeneratedValueObj.getGeneratedValueList().size(); i++)
+        for (int i = 0; i < storeReportDataObj.getStoreGeneratedValue().size(); i++)
         {
-            System.out.println("11111     "+storeGeneratedValueObj.getGeneratedValueList().get(i));
-            String genValue  =  storeGeneratedValueObj.getGeneratedValueList().get(i);
-            
-            for (int j = 0; j < storeReportDataObj.getStoreGeneratedValue().size(); j++) {
-                String s2 = storeReportDataObj.getStoreGeneratedValue().get(j).getGeneratedValueList().get(i);
-                if(genValue.equals(s2))
+            int x = 0;
+            for (int j = 0; j < this.storeGeneratedValueObj.getGeneratedValueList().size(); j++) {
+                if(this.storeGeneratedValueObj.getGeneratedValueList().get(j).equals(storeReportDataObj.getStoreGeneratedValue().get(i).getGeneratedValueList().get(j)))
                 {
-                    check = false;
+                    x=  x+1;
                 }
             }
-            if(!check)
+            if(x==this.storeGeneratedValueObj.getGeneratedValueList().size())
             {
-                return check;       
+                return false;
             }
-        }*/
-        System.out.println("------------------------------");
-        int x =0;
-        for(String s : this.storeGeneratedValueObj.getGeneratedValueList())
-        {
-            System.out.println("2222   "+s);
-            for (int i = 0; i < storeReportDataObj.getStoreGeneratedValue().size(); i++) {
-                System.out.println("    3333 "+ storeReportDataObj.getStoreGeneratedValue().get(i).getGeneratedValueList().get(x));
-                for (int j = 0; j < storeReportDataObj.getStoreGeneratedValue().size(); j++) {
-                    asdfasf /// need to work on this.
-                }
-            }
-            
-            x++;
         }
         return true;
     }
-
+    
     
     
     public StoreWsdlData getStoreWsdlData(){

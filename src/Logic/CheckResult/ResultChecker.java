@@ -5,14 +5,12 @@
 package Logic.CheckResult;
 
 import Data.User.StoreReportData;
+import GrahpicalUserInterface.Report.*;
 import Logic.Common.CommonMethodsOne;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import java.io.File;
 import java.io.StringReader;
 import javax.swing.JOptionPane;
 import org.xml.sax.InputSource;
@@ -46,6 +44,21 @@ public class ResultChecker {
             InputSource is = new InputSource(new StringReader(storeReportDataObj.getOutPutResponse().get(position)));
             Document doc = dBuilder.parse(is);
             doc.getDocumentElement().normalize();
+            
+            
+             CustomVerifyResult customVerifyResultFrame = new CustomVerifyResult(storeReportDataObj);
+                    customVerifyResultFrame.setSize(500,600);
+                    customVerifyResultFrame.setLocationRelativeTo(null);
+                    customVerifyResultFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    customVerifyResultFrame.setVisible(true);
+                    customVerifyResultFrame.revalidate();
+            
+            
+            
+            
+            
+            
+            
             String response = doc.getElementsByTagName(storeReportDataObj.getCollectTestData().getTagName()).item(0).getTextContent();
             
             if(response.equals(storeReportDataObj.getCollectTestData().getTagValue()))
@@ -89,6 +102,7 @@ public class ResultChecker {
     }
     
     
+    /**** testing purpose only */
     
     public String testmethod(String a)
     {
