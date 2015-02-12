@@ -187,10 +187,10 @@ public class MoreInformationReport extends javax.swing.JFrame {
     {       
         StoreCheckValueData storeCheckValueDataObj  = storeReportDataObj.getStoreCheckValueDataList().get(position);
         Object[][] data = new Object[storeCheckValueDataObj.getTagName().size()][5];//[number of rows][number of colouums]
-        
+        int i=1;
         for(int x = 0; x< storeCheckValueDataObj.getTagName().size(); x++)
         {
-            data[x][0]= ++x;
+            data[x][0]= i++;
             data[x][1]= storeCheckValueDataObj.getTagName().get(x) ;
             data[x][2]=storeCheckValueDataObj.getTagValue().get(x);
             data[x][3]=storeCheckValueDataObj.getActualTagValue().get(x);            

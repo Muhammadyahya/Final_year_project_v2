@@ -27,18 +27,16 @@ public class GenerateBetweenTwoValue {
         int valueOne;
         int valueTwo;
         
-        System.out.println("ref#  GenerateBetweenTwoValue...  pramTwo : "+pramTwo);
         switch (className) {
             
             case "Custom Decimal":
                 temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
-                System.out.println(temp);
+
                 break;
                 
             case "Decimal":                
                 parts = userValue.split("-");
                 temp = ""+CommonMethodsTwo.doubleGen(Double.parseDouble(parts[0]),Double.parseDouble(parts[1]));
-                System.out.println(temp);
                 break;
                 
             case "Custom Int":

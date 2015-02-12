@@ -7,7 +7,6 @@
 package Logic.Common;
 
 import java.io.StringReader;
-import java.util.Random;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
@@ -153,6 +152,6 @@ public class CommonMethodsOne {
     
     public static void main(String [] args)
     {
-        System.out.println(isDouble("12345678945646546546."));
+        
     }
 }

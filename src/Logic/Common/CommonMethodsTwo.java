@@ -16,7 +16,6 @@ public class CommonMethodsTwo {
     {
         Random randomGenerator = new Random();
         int randomInt  = randomGenerator.nextInt(rangeTo - rangeFrom + 1) + rangeFrom;        
-        //System.out.println("Generated : " + randomInt);
         return randomInt;
     }
     
@@ -46,11 +45,6 @@ public class CommonMethodsTwo {
     {
         char character = 'a'; // This gives the character 'a'
         int ascii = (int) character;
-        System.out.println(ascii);
-        
-        System.out.println(charToInt("a"));
-        
-        System.out.println(intTochar(122));
     }
 
 }

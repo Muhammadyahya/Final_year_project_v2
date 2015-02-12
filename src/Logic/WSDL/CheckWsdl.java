@@ -4,7 +4,6 @@
  */
 package Logic.WSDL;
 
-import Logic.Common.CommonMethodsOne;
 import com.predic8.wsdl.WSDLParser;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -27,14 +26,8 @@ public class CheckWsdl {
     }
     
     /* This method returns true, if the wsdl is correct else it returns false */
-    public boolean checkWSDLAvailable(String wsdl) {
-        
-        System.out.println(wsdl);
-        
-        
-        
+    public boolean checkWSDLAvailable(String wsdl) {        
         int length = wsdl.length();
-        //System.out.println("ssss  "+wsdl.charAt(length-5)+wsdl.charAt(length-4)+wsdl.charAt(length-3)+wsdl.charAt(length-2)+wsdl.charAt(length-1));
         if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))
         {
             if(checkPath(wsdl))

@@ -291,9 +291,6 @@ public class IntegerGUI extends javax.swing.JFrame {
                     }
                     else
                     {
-                        System.out.println("false");
-                        System.out.println(valueOneTextField.getText()+"        "+valueTwoTextField.getText());
-                        System.out.println(CommonMethodsOne.isInt(valueOneTextField.getText()) +"-"+ CommonMethodsOne.isInt(valueTwoTextField.getText()));
                         JOptionPane.showMessageDialog(null,"Please enter a number in value one and two field.");
                     }
                 }

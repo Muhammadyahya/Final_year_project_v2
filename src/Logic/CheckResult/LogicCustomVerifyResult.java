@@ -17,20 +17,6 @@ import org.w3c.dom.Document;
  */
 public class LogicCustomVerifyResult {
     
-    /***
-     * 
-     * 
-     *  i got start for the start numtestcase....
-     *  change the report as well
-     *  it should print some stuff.....
-     * 
-     * 
-     * 
-     */
-    
-    
-    
-    
     private String message = "Everything is fine";
     private StoreReportData storeReportDataObj;
     
@@ -89,7 +75,6 @@ public class LogicCustomVerifyResult {
             storeCheckValueDataObj.setResultList(resultArray);
             storeCheckValueDataObj.setActualTagValue(actualValueArray);        
             storeReportDataObj.setStoreCheckValueDataList(storeCheckValueDataObj);
-            System.out.println("a  "+tagNameArray.size()+"      b      "+resultArray.size());
         }
         return check;
     }    

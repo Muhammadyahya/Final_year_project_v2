@@ -23,7 +23,6 @@ public class ParsingWsdl
     // constractor
     public ParsingWsdl()
     {
-        System.out.println("wwwwwwww");
         wsdlData = new ArrayList<>();
     }
     
@@ -90,9 +89,7 @@ public class ParsingWsdl
      * 
      */
     private void listParameters(Element element, StoreWsdlData storeWsdlDataObj) {
-        
-        System.out.println(element.getName());
-        
+                
         ComplexType ct = (ComplexType) element.getEmbeddedType();
         if (ct == null){
             try{
@@ -122,8 +119,7 @@ public class ParsingWsdl
         if(ct.getModel()!=null){
             
             for (Element e : ct.getSequence().getElements()) {
-                
-               // System.out.println("  -e- "+e.getName());   
+                  
                 // Fix for invalid schema
                 if (e.getType() == null) {
                     return;

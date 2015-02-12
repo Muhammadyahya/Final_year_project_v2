@@ -109,7 +109,6 @@ public class GenerateRandom {
     {
         
         temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(97,122));
-        //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;
     }
     
@@ -129,8 +128,6 @@ public class GenerateRandom {
             valueTwo = 126;
         }
         temp = CommonMethodsTwo.intTochar(CommonMethodsTwo.intGen(valueOne, valueTwo));
-        
-        //System.out.println("class generateRandom... method GenereRandomWith :    "+ temp);
         return temp;
     }
     

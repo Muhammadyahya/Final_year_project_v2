@@ -174,9 +174,8 @@ public class CustomReportGUI extends javax.swing.JFrame {
             this.detailLabel.setText("Detail:  "+reportTable.getModel().getColumnName(col));
             if(reportTable.getModel().getColumnCount()-4 == col || reportTable.getModel().getColumnCount()-3 == col)
             {              
-                String a =  CommonMethodsOne.format(reportTable.getModel().getValueAt(row,col).toString());
-                System.out.println(a);
-                detailTextArea.setText(a);
+
+                detailTextArea.setText(CommonMethodsOne.format(reportTable.getModel().getValueAt(row,col).toString()));
             }
             else if(reportTable.getModel().getColumnCount()-2 == col)
             {

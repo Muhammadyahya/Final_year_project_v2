@@ -38,19 +38,10 @@ public class SoapRequest {
         // Send SOAP Message to SOAP Server
         String url = collectTestDataObj.getStoreWsdlData().getUrl();
         SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
-        
-//        System.out.println("url :  "+ url);
-//        System.out.println("URI :  "+ collectTestDataObj.getStoreWsdlData().getServerURI());
-//        System.out.println("method name :  "+ collectTestDataObj.getMethodName());
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         soapResponse.writeTo(os);
         String aString = new String(os.toByteArray(),"UTF-8");
         storeReportDataObj.addOutPutResponse(aString);
-        
-        // print SOAP Response
-//        System.out.print("Response SOAP Message:");
-//        soapResponse.writeTo(System.out);
-
         soapConnection.close();
     }
 
@@ -64,7 +55,6 @@ public class SoapRequest {
         {
             serverURI = serverURI+"/";
         }
-        //System.out.println("serverURI    ***********  ref soapRequest   "+serverURI);
         // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("example", serverURI);
@@ -78,7 +68,6 @@ public class SoapRequest {
        
        // my code
         for (int i = 0; i < parmValue.size(); i++) {
-           //System.out.println("ref soap request : "+parmName.get(i));
             SOAPElement soapBodyElem1 = soapBodyElem.addChildElement(parmName.get(i), "example");
             soapBodyElem1.addTextNode(parmValue.get(i));
         }
