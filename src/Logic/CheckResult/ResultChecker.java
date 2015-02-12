@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import java.io.StringReader;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.xml.sax.InputSource;
 
@@ -21,63 +22,36 @@ import org.xml.sax.InputSource;
  */
 public class ResultChecker {
     
-    private StoreReportData storeReportDataObj;
-    private int position;
-    
-    public ResultChecker(StoreReportData storeReportDataObj, int position){
-        
-        this.storeReportDataObj= storeReportDataObj;
-        this.position = position;
-    }
-    
-    public ResultChecker(){
-        
-    }
-        
-    public String checkResponse()
+                
+    public String checkResponse(StoreReportData storeReportDataObj, int position)
     {
+        String result="Passed";
+        int count =0;
         
-        String result = "Failed";
-        try {
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            InputSource is = new InputSource(new StringReader(storeReportDataObj.getOutPutResponse().get(position)));
-            Document doc = dBuilder.parse(is);
-            doc.getDocumentElement().normalize();
-            
-            
-             CustomVerifyResult customVerifyResultFrame = new CustomVerifyResult(storeReportDataObj);
-                    customVerifyResultFrame.setSize(500,600);
-                    customVerifyResultFrame.setLocationRelativeTo(null);
-                    customVerifyResultFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-                    customVerifyResultFrame.setVisible(true);
-                    customVerifyResultFrame.revalidate();
-            
-            
-            
-            
-            
-            
-            
-            String response = doc.getElementsByTagName(storeReportDataObj.getCollectTestData().getTagName()).item(0).getTextContent();
-            
-            if(response.equals(storeReportDataObj.getCollectTestData().getTagValue()))
+        ArrayList<String> resultList = storeReportDataObj.getStoreCheckValueDataList().get(position).getResultList();
+        for (int i = 0; i < resultList.size(); i++) {
+            if(resultList.get(i).equals("Failed"))
             {
-                result= "Passed";
-                storeReportDataObj.addActualTagValue(response);
-            }
-            else
-            {
-                storeReportDataObj.addActualTagValue(response);
-            }
-            
-        } catch (Exception e) {
-            String temp = "No such tag found. <"+storeReportDataObj.getCollectTestData().getTagName()+">.";
-            storeReportDataObj.getCollectTestData().addTagName(JOptionPane.showInputDialog(temp+"\n"+ CommonMethodsOne.format(storeReportDataObj.getOutPutResponse().get(position))+"\n"+"Please enter a new Tag."));
-            checkResponse();
-        }        
-        return result;
+                count++;
+                result = "Failed/Passed";
+            }            
+        }
+        if(count == resultList.size())
+        {
+            result = "Failed";
+        }
+       return result;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /* for testing porpose */
     public String checkTag(String parm, String parm2){
@@ -151,9 +125,7 @@ public class ResultChecker {
                 "   </soap:Body>\n" +
                 "</soap:Envelope>";
         
-        
-        ResultChecker obj = new ResultChecker();
-        obj.checkTag(output, "Goodemail");
+   
     }
     
     

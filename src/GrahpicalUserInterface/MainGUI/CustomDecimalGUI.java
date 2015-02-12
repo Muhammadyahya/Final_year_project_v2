@@ -8,7 +8,6 @@ import Logic.Common.CommonMethodsOne;
 import Data.WSDL.StoreWsdlData;
 import Data.User.*;
 import Logic.UserInterface.*;
-import aDeleteME.TestFrame;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -253,7 +252,7 @@ public class CustomDecimalGUI extends javax.swing.JFrame {
             DecimalGUI decimalGUIFrame = new DecimalGUI(collectTestDataObj);
             decimalGUIFrame.setSize(500,600);
             decimalGUIFrame.setLocationRelativeTo(null);
-            decimalGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            decimalGUIFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
             decimalGUIFrame.setVisible(true);
             decimalGUIFrame.revalidate();
         }

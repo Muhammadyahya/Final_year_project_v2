@@ -8,39 +8,38 @@ import GrahpicalUserInterface.MainGUI.*;
 import Data.User.*;
 import Logic.CheckResult.LogicCustomVerifyResult;
 import Logic.Common.CommonMethodsOne;
-import Logic.UserInterface.*;
-import aDeleteME.TestFrame;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import org.w3c.dom.Document;
 /**
  *
  * @author my301
  */
-public class CustomVerifyResult extends javax.swing.JFrame {
+public class CustomVerifyResultGUI extends javax.swing.JFrame {
     
     /**
      * Creates new form CustomIntGui
      */
-    private int length;    
+    private int length;
     private StoreReportData storeReportDataObj;
+    private Document doc;
+    private int testCasePosition;
     
-
     
-    public CustomVerifyResult() {
+    
+    public CustomVerifyResultGUI() {
         initComponents();
-        this.length = 4;        
-
-        addRowsTable(length);        
+        this.length = 1;        
+        addRowsTable(length);
     }
-        
-    public CustomVerifyResult(StoreReportData storeReportDataObj, int length) {
-       initComponents();
-       this.storeReportDataObj = storeReportDataObj;
+    
+    public CustomVerifyResultGUI(StoreReportData storeReportDataObj, int length, int testCasePosition, Document doc) {
+        initComponents();
+        this.storeReportDataObj = storeReportDataObj;
         this.length = length;
+        this.testCasePosition = testCasePosition;
+        this.doc = doc;
         addRowsTable(this.length);
     }
     
@@ -170,13 +169,15 @@ public class CustomVerifyResult extends javax.swing.JFrame {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         
         
-        LogicCustomVerifyResult logicCustomVerifyResultObj = new LogicCustomVerifyResult();
-        if(logicCustomVerifyResultObj.checkAllFeilds(inputTable.getModel(),storeReportDataObj))
+        LogicCustomVerifyResult logicCustomVerifyResultObj = new LogicCustomVerifyResult(storeReportDataObj);
+        if(logicCustomVerifyResultObj.checkAllFeilds(inputTable.getModel(),doc))
         {
-            
+            this.dispose();
+            CollectTestData collectTestDataObj= storeReportDataObj.getCollectTestData();
+            collectTestDataObj.runTestCases(collectTestDataObj, testCasePosition+1);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error on line "+logicCustomVerifyResultObj.getErrorLine()+" .");
+            JOptionPane.showMessageDialog(null,logicCustomVerifyResultObj.getMessage());
         }        
     }//GEN-LAST:event_nextButtonActionPerformed
     
@@ -187,7 +188,7 @@ public class CustomVerifyResult extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
-        
+    
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
@@ -196,30 +197,35 @@ public class CustomVerifyResult extends javax.swing.JFrame {
             StringGUI stringGUIFrame = new StringGUI(storeReportDataObj.getCollectTestData());
             stringGUIFrame.setSize(500,600);
             stringGUIFrame.setLocationRelativeTo(null);
-            stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            stringGUIFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
             stringGUIFrame.setVisible(true);
             stringGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-
+    
     private void goButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goButtonActionPerformed
         // TODO add your handling code here:
         if(!lengthTextField.getText().equals("")&& CommonMethodsOne.isInt(lengthTextField.getText()))
         {
             int tempLength = Integer.parseInt(lengthTextField.getText());
-            this.dispose();
-            CustomVerifyResult customVerifyResultFrame = new CustomVerifyResult(storeReportDataObj,tempLength);
-            customVerifyResultFrame.setSize(550,550);
-            customVerifyResultFrame.setLocationRelativeTo(null);
-            customVerifyResultFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            customVerifyResultFrame.setVisible(true);
-            customVerifyResultFrame.revalidate(); 
+            if(tempLength>0){
+                this.dispose();
+                CustomVerifyResultGUI customVerifyResultFrame = new CustomVerifyResultGUI(this.storeReportDataObj,tempLength,this.testCasePosition,this.doc);
+                customVerifyResultFrame.setSize(550,550);
+                customVerifyResultFrame.setLocationRelativeTo(null);
+                customVerifyResultFrame.setDefaultCloseOperation(CustomVerifyResultGUI.DISPOSE_ON_CLOSE);
+                customVerifyResultFrame.setVisible(true);
+                customVerifyResultFrame.revalidate();
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Only accept integers greater than 0.");
+            }
         }
         else
         {
-           JOptionPane.showMessageDialog(null,"Please enter length.\n\nOnly accept integers.");
+            JOptionPane.showMessageDialog(null,"Please enter length.\n\nOnly accept integers greater than 0.");
         }
-       
+        
     }//GEN-LAST:event_goButtonActionPerformed
     
     public void addRowsTable(int length) {
@@ -231,7 +237,7 @@ public class CustomVerifyResult extends javax.swing.JFrame {
                 "", ""});
         }
     }
-        
+    
     /**
      * @param args the command line arguments
      */
@@ -249,20 +255,20 @@ public class CustomVerifyResult extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomVerifyResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomVerifyResultGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomVerifyResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomVerifyResultGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomVerifyResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomVerifyResultGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomVerifyResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomVerifyResultGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomVerifyResult().setVisible(true);
+                new CustomVerifyResultGUI().setVisible(true);
             }
         });
     }

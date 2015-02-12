@@ -6,7 +6,7 @@ package GrahpicalUserInterface.MainGUI;
 
 import Data.User.*;
 import Logic.UserInterface.*;
-import aDeleteME.TestFrame;
+
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -252,7 +252,7 @@ public class CustomDateGUI extends javax.swing.JFrame {
             StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
             stringGUIFrame.setSize(500,600);
             stringGUIFrame.setLocationRelativeTo(null);
-            stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            stringGUIFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
             stringGUIFrame.setVisible(true);
             stringGUIFrame.revalidate();
         }

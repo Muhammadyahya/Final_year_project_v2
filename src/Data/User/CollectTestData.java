@@ -4,7 +4,6 @@
  */
 package Data.User;
 
-import GrahpicalUserInterface.Report.VerifyResultGUI;
 import GrahpicalUserInterface.MainGUI.*;
 import Logic.WSDL.ParsingWsdl;
 import java.util.logging.Level;
@@ -12,11 +11,16 @@ import java.util.logging.Logger;
 import Data.WSDL.StoreWsdlData;
 import Data.WSDL.StoreEnum;
 import GrahpicalUserInterface.Report.CustomReportGUI;
+import GrahpicalUserInterface.Report.CustomVerifyResultGUI;
 import Logic.GenerateTestData.DecryptArrayList;
 import Logic.WSDL.SoapRequest;
-import aDeleteME.*;
+import java.io.StringReader;
 import java.util.*;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
 /**
  *
@@ -31,11 +35,9 @@ public class CollectTestData {
     private boolean checkCompleted;
     private int numTestCase;
     private StoreGeneratedValue storeGeneratedValueObj;
-    private String tagName;
-    private String tagValue;
     private String methodName;
     private ParsingWsdl parsingWsdlObj;
-    
+    private StoreReportData storeReportDataObj;
     
     
     public CollectTestData(StoreWsdlData swdObj, int numTestCase, String methodName,ParsingWsdl parsingWsdlObj)
@@ -48,6 +50,7 @@ public class CollectTestData {
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
         this.checkCompleted = false;
         this.methodName = methodName;
+        this.storeReportDataObj = new StoreReportData(this);
         
     }
     
@@ -94,7 +97,7 @@ public class CollectTestData {
                     StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
                     stringGUIFrame.setSize(500,600);
                     stringGUIFrame.setLocationRelativeTo(null);
-                    stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    stringGUIFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
                     stringGUIFrame.setVisible(true);
                     stringGUIFrame.revalidate();
                 }
@@ -103,7 +106,7 @@ public class CollectTestData {
                     BooleanGUI booleanGUIFrame = new BooleanGUI(collectTestDataObj);
                     booleanGUIFrame.setSize(500,400);
                     booleanGUIFrame.setLocationRelativeTo(null);
-                    booleanGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    booleanGUIFrame.setDefaultCloseOperation(BooleanGUI.DISPOSE_ON_CLOSE);
                     booleanGUIFrame.setVisible(true);
                     booleanGUIFrame.revalidate();
                 }
@@ -112,43 +115,28 @@ public class CollectTestData {
                     DecimalGUI decimalGUIFrame = new DecimalGUI(collectTestDataObj);
                     decimalGUIFrame.setSize(500,600);
                     decimalGUIFrame.setLocationRelativeTo(null);
-                    decimalGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+                    decimalGUIFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
                     decimalGUIFrame.setVisible(true);
                     decimalGUIFrame.revalidate();
                 }
                 
-                else{
-                    
-                    JOptionPane.showMessageDialog(null, "Unknow dataType... Ref  Class: CollectTestData!!!!!!!");
-                    TestFrame testFrame = new TestFrame(collectTestDataObj);
-                    testFrame.setSize(550,500);
-                    testFrame.setLocationRelativeTo(null);
-                    testFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-                    testFrame.setVisible(true);
-                    testFrame.revalidate();
+                else{                    
+                    JOptionPane.showMessageDialog(null, "ERROR: \n Unknow dataType... "
+                                                      + "\n Ref  Class: CollectTestData!!!"
+                                                      + "\n Data type : "+tempElementType);
                 }
             }
         }
         else{
             
-            //this.runTestCases(collectTestDataObj);
-            
-            
-            VerifyResultGUI verifyResultGUIFrame = new VerifyResultGUI(collectTestDataObj);
-            verifyResultGUIFrame.setSize(450,450);
-            verifyResultGUIFrame.setLocationRelativeTo(null);
-            verifyResultGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-            verifyResultGUIFrame.setVisible(true);
-            verifyResultGUIFrame.revalidate();
-            
+            this.runTestCases(collectTestDataObj,0);
         }// else of 1st IF
     }// end method
     
-    public void runTestCases(CollectTestData collectTestDataObj)
-    {      
-        StoreReportData storeReportDataObj = new StoreReportData(collectTestDataObj);
+    public void runTestCases(CollectTestData collectTestDataObj, int testCasePosition)
+    {
         
-        for (int a = 0; a < numTestCase; a++)
+        if(testCasePosition<this.numTestCase)
         {
             this.storeGeneratedValueObj = new StoreGeneratedValue();
             for (int i = 0; i < testCaseInfo.size(); i++)
@@ -156,27 +144,43 @@ public class CollectTestData {
                 DecryptArrayList decodeArrayList = new DecryptArrayList(swdObj,testCaseInfo.get(i),this.storeGeneratedValueObj);
                 decodeArrayList.startDecoding(i);
             }// end 2nd for loop inside else case
-            
             if(checkTestCaseRepetition(storeGeneratedValueObj , storeReportDataObj)){
                 storeReportDataObj.addStoreGeneratedValue(storeGeneratedValueObj); // storing the generated data in the StoreReportData class
                 
                 SoapRequest soapRequestObj = new SoapRequest(storeGeneratedValueObj, collectTestDataObj,storeReportDataObj); // soap request for each generated values
                 try {
                     soapRequestObj.soapConnectionRequest();
+                    
+                    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                    InputSource is = new InputSource(new StringReader(storeReportDataObj.getOutPutResponse().get(testCasePosition)));
+                    Document doc = dBuilder.parse(is);
+                    doc.getDocumentElement().normalize();
+                    
+                    CustomVerifyResultGUI CustomVerifyResultGUIFrame = new CustomVerifyResultGUI(storeReportDataObj,1,testCasePosition,doc);
+                    CustomVerifyResultGUIFrame.setSize(550,600);
+                    CustomVerifyResultGUIFrame.setLocationRelativeTo(null);
+                    CustomVerifyResultGUIFrame.setDefaultCloseOperation(CustomVerifyResultGUI.DISPOSE_ON_CLOSE);
+                    CustomVerifyResultGUIFrame.setVisible(true);
+                    CustomVerifyResultGUIFrame.revalidate();
+                    
                 } catch (Exception ex) {
                     Logger.getLogger(CollectTestData.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }// end 1st for loop inside else
-        
-        
-        CustomReportGUI customReportGUIFrame = new CustomReportGUI(storeReportDataObj);
-        customReportGUIFrame.setSize(1000,800);
-        customReportGUIFrame.setLocationRelativeTo(null);
-        customReportGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
-        customReportGUIFrame.setVisible(true);
-        customReportGUIFrame.revalidate();        
-        
+            else{
+                numTestCase--;
+                runTestCases(collectTestDataObj, testCasePosition);
+            }
+        }// end 1st if statement
+        else{
+            CustomReportGUI customReportGUIFrame = new CustomReportGUI(storeReportDataObj);
+            customReportGUIFrame.setSize(1000,800);
+            customReportGUIFrame.setLocationRelativeTo(null);
+            customReportGUIFrame.setDefaultCloseOperation(CustomReportGUI.DISPOSE_ON_CLOSE);
+            customReportGUIFrame.setVisible(true);
+            customReportGUIFrame.revalidate();
+        }
     }
     
     private boolean checkTestCaseRepetition(StoreGeneratedValue storeGeneratedValueObj, StoreReportData storeReportDataObj)
@@ -219,23 +223,7 @@ public class CollectTestData {
     public boolean getCheckCompleted(){
         return checkCompleted;
     }
-    
-    public void addTagName(String pram){
-        this.tagName = pram;
-    }
-    
-    public void addTagValue(String pram){
-        this.tagValue = pram;
-    }
-    
-    public String getTagValue(){
-        return tagValue;
-    }
-    
-    public String getTagName(){
-        return tagName;
-    }
-    
+
     public String getMethodName() {
         return methodName;
     }

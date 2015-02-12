@@ -1,18 +1,17 @@
 **** Think do to ****
 
 . Date can be after or before certain date
+. Generate date data...
 . Dates and other values such as float, double etc. 
-. Automatic soap response.. try to get the url from WSDL
-. check number of test case and stop if certain number of test fails
-. increase the string length
-. user output prammeters to check for pass and fail (trim and remove spaces + make is lower case ) .
-. combine other data types togather.
+. combine other data types together.
 . print, save and email report;
 . testing 
 
 **** Completed ****
 
-Added Char GUI
+. Added Char GUI
+. Automatic soap response.. try to get the url from WSDL
+. increase the string length
 . Store the user information correctly
 . finish storing the data.
 . generate the data.
@@ -20,3 +19,9 @@ Added Char GUI
 . Generate data from store information
 . run the soap response automatically.
 . Check if the result is correct for not
+
+
+***** not doing *****
+
+. check number of test case and stop if certain number of test fails
+. user output prammeters to check for pass and fail (trim and remove spaces + make is lower case ) .

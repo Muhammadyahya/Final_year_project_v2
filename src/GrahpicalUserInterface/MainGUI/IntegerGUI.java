@@ -265,7 +265,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomIntGUI customIntGuiFrame = new CustomIntGUI(collectTestDataObj,0);
+                CustomIntGUI customIntGuiFrame = new CustomIntGUI(collectTestDataObj,1);
                 customIntGuiFrame.setSize(550,550);
                 customIntGuiFrame.setLocationRelativeTo(null);
                 customIntGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);

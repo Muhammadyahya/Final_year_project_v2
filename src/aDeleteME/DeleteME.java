@@ -23,11 +23,13 @@ public class DeleteME {
     
     public static void main( String[] args )
     {
-        double rangeMin = 1.2;
-        double rangeMax = 14;
-        Random r = new Random();
-        double randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
-        System.out.println(randomValue);
+        
+        int [] i= new int[4];
+        
+        for (int j = 0; j < i.length; j++) {
+            System.out.println(i.length);
+        }
+ 
     }
    
     

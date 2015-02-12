@@ -241,7 +241,7 @@ public class StringGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,0); // pass collectTextData class obj and length on the table;
+                CustomStringGUI customStringGuiFrame =  new CustomStringGUI(collectTestDataObj,1); // pass collectTextData class obj and length on the table;
                 customStringGuiFrame.setSize(550,550);
                 customStringGuiFrame.setLocationRelativeTo(null);
                 customStringGuiFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);

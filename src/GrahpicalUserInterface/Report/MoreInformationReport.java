@@ -16,23 +16,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author my301
  */
-public class CustomReportGUI extends javax.swing.JFrame {
+public class MoreInformationReport extends javax.swing.JFrame {
     
     /**
      * Creates new form CustomReportGUI
      */
     private StoreReportData storeReportDataObj;
+    private int position;
     
-    public CustomReportGUI() {
+    public MoreInformationReport() {
         initComponents();
-        setColumns();
-        this.revalidate();
-        
     }
     
-    public CustomReportGUI(StoreReportData storeReportDataObj) {
+    public MoreInformationReport(StoreReportData storeReportDataObj, int position) {
         initComponents();
         this.storeReportDataObj = storeReportDataObj;
+        this.position = position;
         setColumns();
     }
     
@@ -46,22 +45,21 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         headerLabel = new javax.swing.JLabel();
-        mainButton = new javax.swing.JButton();
+        doneButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         reportTable = new javax.swing.JTable();
-        detailLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         detailTextArea = new javax.swing.JTextArea();
+        detailLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        headerLabel.setText("TEST DATA GENERATOR");
+        headerLabel.setText("More Information");
 
-        mainButton.setText("Done");
-        mainButton.addActionListener(new java.awt.event.ActionListener() {
+        doneButton.setText("Done");
+        doneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainButtonActionPerformed(evt);
+                doneButtonActionPerformed(evt);
             }
         });
 
@@ -90,11 +88,10 @@ public class CustomReportGUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(reportTable);
 
-        detailLabel.setText("Detail");
-
         detailTextArea.setColumns(20);
         detailTextArea.setRows(5);
-        jScrollPane1.setViewportView(detailTextArea);
+
+        detailLabel.setText("Detail:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,37 +102,37 @@ public class CustomReportGUI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(351, 351, 351)
-                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(149, 149, 149)
-                                .addComponent(mainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(235, 235, 235)
+                                .addComponent(headerLabel)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(detailLabel)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(detailTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
-                        .addComponent(headerLabel)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGap(152, 152, 152)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(149, 149, 149)
+                        .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(32, 32, 32)
                 .addComponent(headerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(detailLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(detailLabel)
+                .addGap(13, 13, 13)
+                .addComponent(detailTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)
-                    .addComponent(mainButton))
-                .addGap(34, 34, 34))
+                    .addComponent(doneButton))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,19 +146,10 @@ public class CustomReportGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_closeButtonActionPerformed
     
-    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
-        
-        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go to main menu?")==0)
-        {
-            this.setVisible(false);
-            ShowMethods showMethodPanel = new ShowMethods(storeReportDataObj.getCollectTestData().getParsingWsdl());
-            showMethodPanel.setSize(500,500);
-            showMethodPanel.setLocationRelativeTo(null);
-            showMethodPanel.setDefaultCloseOperation(ShowMethods.DISPOSE_ON_CLOSE);
-            showMethodPanel.setVisible(true);
+    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
+           
             this.dispose();
-        }
-    }//GEN-LAST:event_mainButtonActionPerformed
+    }//GEN-LAST:event_doneButtonActionPerformed
     
     
     private void reportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportTableMouseClicked
@@ -171,84 +159,46 @@ public class CustomReportGUI extends javax.swing.JFrame {
         {
             int row = reportTable.getSelectedRow();
             int col = reportTable.getSelectedColumn();
-            this.detailLabel.setText("Detail:  "+reportTable.getModel().getColumnName(col));
-            if(reportTable.getModel().getColumnCount()-4 == col || reportTable.getModel().getColumnCount()-3 == col)
-            {              
-                String a =  CommonMethodsOne.format(reportTable.getModel().getValueAt(row,col).toString());
-                System.out.println(a);
-                detailTextArea.setText(a);
-            }
-            else if(reportTable.getModel().getColumnCount()-2 == col)
-            {
-                MoreInformationReport moreInformationReportFrame = new MoreInformationReport(storeReportDataObj,row);
-                moreInformationReportFrame.setSize(680,660);
-                moreInformationReportFrame.setLocationRelativeTo(null);
-                moreInformationReportFrame.setDefaultCloseOperation(MoreInformationReport.DISPOSE_ON_CLOSE);
-                moreInformationReportFrame.setVisible(true);
-                moreInformationReportFrame.revalidate();
-            }
-            else
-            {
-                detailTextArea.setText(reportTable.getModel().getValueAt(row, col).toString());
-            }
+            this.detailLabel.setText("Detail:  "+reportTable.getModel().getColumnName(col));            
+            detailTextArea.setText(reportTable.getModel().getValueAt(row, col).toString());            
         }
     }//GEN-LAST:event_reportTableMouseClicked
     
+    
     private void setColumns()
     {
-        
-        Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+5];
-        columnNames[0] = "Test Case #";
-        int i =0;
-        for (; i < columnNames.length-5; i++) {
-            columnNames[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().get(i);
-        }
-        i++;
-        columnNames[i]="Input request";
-        i++;
-        columnNames[i]= "Output response";
-        i++;i++;
-        columnNames[i]= "Result";
-        i--;
-        columnNames[i]="More Information";
+        Object [] columnNames = new Object[5];
+        columnNames[0]= "Tag#";
+        columnNames[1]= "Tag Name";
+        columnNames[2]= "Tag Value";
+        columnNames[3]= "Actual Value";
+        columnNames[4]= "Result";
+
         Object [] [] rowData =  setRows();
         DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
         
         model.setColumnIdentifiers(columnNames);
         model.setDataVector(rowData, columnNames);
-        reportTable.setModel(model);
-        
+        reportTable.setModel(model);        
     }
-    
+      
     
     private Object [] [] setRows()
-    {
-        Object[][] data = new Object[this.storeReportDataObj.getInputData().size()][this.storeReportDataObj.getStoreGeneratedValue().get(0).getGeneratedValueList().size()+5];//[number of rows][number of colouums]
-        for(int x = 0; x< this.storeReportDataObj.getInputData().size(); x++)
+    {       
+        StoreCheckValueData storeCheckValueDataObj  = storeReportDataObj.getStoreCheckValueDataList().get(position);
+        Object[][] data = new Object[storeCheckValueDataObj.getTagName().size()][5];//[number of rows][number of colouums]
+        
+        for(int x = 0; x< storeCheckValueDataObj.getTagName().size(); x++)
         {
-            ArrayList<String> generatedValue =  this.storeReportDataObj.getStoreGeneratedValue().get(x).getGeneratedValueList();
-            data[x][0] = x+1;
-            int i = 0;
-            for (; i < generatedValue.size(); i++) {
-                data[x][i+1]=generatedValue.get(i);
-            }
-            i++;
-            data[x][i]=this.storeReportDataObj.getInputData().get(x);
-            i++;
-            data[x][i]=this.storeReportDataObj.getOutPutResponse().get(x);
-            i++;i++;
-
-            ResultChecker resultCheckerObj = new ResultChecker();
-            data[x][i]=resultCheckerObj.checkResponse(storeReportDataObj, x);
-            i--;
+            data[x][0]= ++x;
+            data[x][1]= storeCheckValueDataObj.getTagName().get(x) ;
+            data[x][2]=storeCheckValueDataObj.getTagValue().get(x);
+            data[x][3]=storeCheckValueDataObj.getActualTagValue().get(x);            
+            data[x][4]= storeCheckValueDataObj.getResultList().get(x);
             
-            data[x][i]= "click me";
             DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
             model.addRow(data[x]);
-        }
-        
-        
-        
+        }        
         return data;        
     }
     
@@ -270,20 +220,20 @@ public class CustomReportGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomReportGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MoreInformationReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomReportGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MoreInformationReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomReportGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MoreInformationReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomReportGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MoreInformationReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomReportGUI().setVisible(true);
+                new MoreInformationReport().setVisible(true);
             }
         });
     }
@@ -291,10 +241,9 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel detailLabel;
     private javax.swing.JTextArea detailTextArea;
+    private javax.swing.JButton doneButton;
     private javax.swing.JLabel headerLabel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton mainButton;
     private javax.swing.JTable reportTable;
     // End of variables declaration//GEN-END:variables
 }

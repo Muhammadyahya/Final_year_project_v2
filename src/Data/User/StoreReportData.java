@@ -17,10 +17,7 @@ public class StoreReportData {
     private ArrayList<StoreGeneratedValue> storeGeneratedValueObj;
     private ArrayList<String> inputData;
     private ArrayList<String> outPutResponse;
-    private ArrayList<String> actualTagValue;
     private ArrayList<StoreCheckValueData> storeCheckValueDataList;
-
-   
     
     public StoreReportData(CollectTestData collectTestDataPram)
     {
@@ -28,9 +25,10 @@ public class StoreReportData {
         this.storeGeneratedValueObj = new ArrayList<>();
         this.inputData = new ArrayList<>();
         this.outPutResponse = new ArrayList<>();
-        this.actualTagValue = new ArrayList<>();
+        this.storeCheckValueDataList = new ArrayList<>();
+
     }
-    
+
     public void addStoreGeneratedValue(StoreGeneratedValue obj){
         this.storeGeneratedValueObj.add(obj);
     }
@@ -55,13 +53,7 @@ public class StoreReportData {
     public ArrayList<StoreGeneratedValue> getStoreGeneratedValue(){
         return this.storeGeneratedValueObj;
     }
-    public ArrayList<String> getActualTagValue(){
-        return this.actualTagValue;
-    }
-    public void addActualTagValue(String parm){
-        this.actualTagValue.add(parm);
-    }
-
+    
     public ArrayList<StoreCheckValueData> getStoreCheckValueDataList() {
         return storeCheckValueDataList;
     }

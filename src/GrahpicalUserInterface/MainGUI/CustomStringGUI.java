@@ -7,7 +7,6 @@ package GrahpicalUserInterface.MainGUI;
 import Data.User.*;
 import Logic.Common.CommonMethodsOne;
 import Logic.UserInterface.*;
-import aDeleteME.TestFrame;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -28,13 +27,13 @@ public class CustomStringGUI extends javax.swing.JFrame {
     
     public CustomStringGUI() {
         initComponents();
-        this.length = 1;        
+        this.length = 1;
         comboBoxColumn(inputTable.getColumnModel().getColumn(1),"valueTwo");
         comboBoxColumn(inputTable.getColumnModel().getColumn(2),"valueOne");
         comboBoxColumn(inputTable.getColumnModel().getColumn(3),"valueOne");
-        addRowsTable(length);        
+        addRowsTable(length);
     }
-        
+    
     public CustomStringGUI(CollectTestData obj, int length) {
         initComponents();
         this.length = length;
@@ -202,7 +201,7 @@ public class CustomStringGUI extends javax.swing.JFrame {
         {
             collectTestDataObj.addTestCaseInfo(logicCustomStringObj.getCustomArrayListData());
             this.dispose();
-            collectTestDataObj.increaseCount(); 
+            collectTestDataObj.increaseCount();
             collectTestDataObj.CollectTestCaseData(collectTestDataObj);
         }
         else{
@@ -217,7 +216,7 @@ public class CustomStringGUI extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeButtonActionPerformed
-        
+    
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to go back")==0)
@@ -226,30 +225,35 @@ public class CustomStringGUI extends javax.swing.JFrame {
             StringGUI stringGUIFrame = new StringGUI(collectTestDataObj);
             stringGUIFrame.setSize(500,600);
             stringGUIFrame.setLocationRelativeTo(null);
-            stringGUIFrame.setDefaultCloseOperation(TestFrame.DISPOSE_ON_CLOSE);
+            stringGUIFrame.setDefaultCloseOperation(StringGUI.DISPOSE_ON_CLOSE);
             stringGUIFrame.setVisible(true);
             stringGUIFrame.revalidate();
         }
     }//GEN-LAST:event_mainButtonActionPerformed
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(!lengthTextField.getText().equals("")&& CommonMethodsOne.isInt(lengthTextField.getText()))
         {
             int tempLength = Integer.parseInt(lengthTextField.getText());
-            this.dispose();
-            CustomStringGUI customStringGuiFrame = new CustomStringGUI(collectTestDataObj,tempLength);
-            customStringGuiFrame.setSize(550,550);
-            customStringGuiFrame.setLocationRelativeTo(null);
-            customStringGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
-            customStringGuiFrame.setVisible(true);
-            customStringGuiFrame.revalidate(); 
+            if(tempLength>0){
+                this.dispose();
+                CustomStringGUI customStringGuiFrame = new CustomStringGUI(collectTestDataObj,tempLength);
+                customStringGuiFrame.setSize(550,550);
+                customStringGuiFrame.setLocationRelativeTo(null);
+                customStringGuiFrame.setDefaultCloseOperation(IntegerGUI.DISPOSE_ON_CLOSE);
+                customStringGuiFrame.setVisible(true);
+                customStringGuiFrame.revalidate();
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Only accept integers greater than 0.");
+            }
         }
         else
         {
-           JOptionPane.showMessageDialog(null,"Please enter length.\n\nOnly accept integers.");
+            JOptionPane.showMessageDialog(null,"Please enter length.\n\nOnly accept integers.");
         }
-       
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public void addRowsTable(int length) {

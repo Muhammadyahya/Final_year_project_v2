@@ -236,7 +236,7 @@ public class DecimalGUI extends javax.swing.JFrame {
             {
                 // go the custom int GUI
                 this.dispose();
-                CustomDecimalGUI customDecimalGuiFrame = new CustomDecimalGUI(collectTestDataObj,0);
+                CustomDecimalGUI customDecimalGuiFrame = new CustomDecimalGUI(collectTestDataObj,1);
                 customDecimalGuiFrame.setSize(550,550);
                 customDecimalGuiFrame.setLocationRelativeTo(null);
                 customDecimalGuiFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
