@@ -22,15 +22,15 @@ public class StoreWsdlData {
     private String url;
     
     
-    // Constructor of the class. it requires method name.
-    public StoreWsdlData(String methodName){
+   
+    public StoreWsdlData(String methodName){ // Constructor of this class. it requires method name.
         this.methodName = methodName;
         this.elementName = new ArrayList<>();
         this.elementType = new ArrayList<>();
     }
     
     // This method store input prammeter elment Name.
-    public void addElmentName(String elementName)
+    public void addElementName(String elementName)
     {
         this.elementName.add(elementName);
     }
@@ -38,7 +38,7 @@ public class StoreWsdlData {
     // This method store input prammeter element data type.
     
     // i need to work on storing complex types sepratly.
-    public void addElmentType(Object elementType)
+    public void addElementType(Object elementType)
     {
         if(elementType instanceof StoreEnum){
             this.elementType.add((StoreEnum)elementType);
@@ -48,7 +48,7 @@ public class StoreWsdlData {
             this.elementType.add(castElementType.substring(34,castElementType.length()));
         }
         else{
-            JOptionPane.showMessageDialog(null, "Warning! Unable to add element Type!. Please check class name: StoreWsdl and method name: addElement Type.");
+            JOptionPane.showMessageDialog(null, "Warning! Unable to add element Type!. Please check class name: StoreWsdl and method name: addElement Type."); // for error detection
         }
     }
     
@@ -63,13 +63,13 @@ public class StoreWsdlData {
     }
     
     // This method get input prammeter elment data type. It returns Arraylist.
-    public ArrayList<Object> getElmentType()
+    public ArrayList<Object> getElementType()
     {
         return this.elementType;
     }
     
     // This method get input prammeter elment name. It returns Arraylist.
-    public ArrayList<String> getElmentName()
+    public ArrayList<String> getElementName()
     {
         return this.elementName;
     }

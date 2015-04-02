@@ -5,10 +5,13 @@
 package Logic.UserInterface;
 
 import Logic.Common.CommonMethodsOne;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -250,20 +253,140 @@ public class LogicDate {
         return true;
     }
     
+    
+    public boolean getRandomDate(String dateOne, String dateTwo, String dateFormat, String seprator)
+    {
+        String [] dateOneparts = dateOne.split(seprator);
+        String [] dateTwoparts = dateTwo.split(seprator);
+        
+        String randomformat = "yyyy-mm-dd hh:mm:ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        try {
+            dateOne = new SimpleDateFormat(randomformat).format(sdf.parse(dateOne));        
+            dateTwo = new SimpleDateFormat(randomformat).format(sdf.parse(dateTwo));
+            
+            long offset = Timestamp.valueOf(dateOne).getTime();
+            long end = Timestamp.valueOf(dateTwo).getTime();
+            long diff = end - offset + 1;
+            Timestamp rand = new Timestamp(offset + (long)(Math.random() * diff));
+        
+            String time = rand.toString().substring(0,10);
+            Date d = sdf.parse(rand.toString());
+            System.out.println(d);
+            
+            System.out.println(time);
+            System.out.println(rand);
+        System.out.println(new SimpleDateFormat(dateFormat).format(rand));
+        
+        } catch (ParseException ex) {
+            Logger.getLogger(LogicDate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        
+        
+        return true;
+    }
+    
 
     
     /* for testing porpose */
     public static void main(String [] args) throws ParseException
     {
+        
         LogicDate obj = new LogicDate();
-        String format = "dd/MMM/yyyy";
-        String date2  = "32/oct/2001";
+        obj.getRandomDate("02/10/89", "02/10/14", "dd/mm/yy", "/");
+        
+        
+        
+//        //Date myDate = new Date();
+//        String date2  = "2001-10-03 00:00:00";
+//        String format = "yyyy-mm-dd hh:mm:ss";
+//        SimpleDateFormat sdf = new SimpleDateFormat(format);
+//        Date myDate = sdf.parse(date2);
+//        System.out.println(myDate);
+//        System.out.println(new SimpleDateFormat("MM-dd-yyyy").format(myDate));
+//        System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(myDate));
+//        System.out.println(myDate);
+//        
+//        
+//        long offset = Timestamp.valueOf(myDate.toString()).getTime();
+//        long end = Timestamp.valueOf("2013-01-01 00:00:00").getTime();
+//        long diff = end - offset + 1;
+//        Timestamp rand = new Timestamp(offset + (long)(Math.random() * diff));
+//        
+//        System.out.println(rand);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+         * 
+         
+        LogicDate obj = new LogicDate();
+        String format = "yyyy-mm-dd hh:mm:ss";
+        String date2  = "2001-10-03 00:00:00";
         //System.out.println("check format :"+obj.checkFormat("dd", "mmm", "yyyy","/"));
         //System.out.println(obj.valueOne+obj.valueTwo+obj.valueThree);
-       // System.out.println("Test result :"  +obj.checkDate(date2));
+        //System.out.println("Test result :"  +obj.checkDate(date2));
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date date1 = sdf.parse(date2);
         
+        System.out.println(date1+"   44");
         
+        sdf = new SimpleDateFormat(format);
+        Date date = sdf.parse(date2);
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(dateFormat.format(dateFormat.parse(date2))+"      dd");
+        
+        String a  = dateFormat.format(dateFormat.parse(date2));
+        
+        System.out.println(date.getYear());
+        
+        System.out.println(a);
+        
+        System.out.println(calendar.YEAR+"-"+calendar.DAY_OF_MONTH+"-"+calendar.MONTH+"-");
+        
+        System.out.println(date +"   ss");        
+                
         System.out.println(obj.isThisDateValid(date2, format));
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /*
          * SimpleDateFormat sdf = new SimpleDateFormat(format);
          * String dateInString = date2;

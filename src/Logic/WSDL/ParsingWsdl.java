@@ -8,25 +8,25 @@ import Data.WSDL.StoreWsdlData;
 import com.predic8.schema.*;
 import com.predic8.soamodel.*;
 import com.predic8.wsdl.*;
-import java.lang.annotation.ElementType;
 import java.util.*;
 
 /**
- *
+ * This class is for parsing WSDL and for storing WSDL data into class called StoreWSDLData
  * @author my301
  */
 public class ParsingWsdl
 {
     
-    private ArrayList<StoreWsdlData> wsdlData;
+    private ArrayList<StoreWsdlData> wsdlData; // not sure why i have array for StoreWSDLDATA
     
-    // constractor
-    public ParsingWsdl()
+    
+    public ParsingWsdl()// constractor
     {
         wsdlData = new ArrayList<>();
     }
     
-     public void parseWsdl (String wsdl)
+    
+    public void parseWsdl (String wsdl) // for parsing WSDL type one
     {
         try{
             String portSOAP;
@@ -66,7 +66,7 @@ public class ParsingWsdl
         
     }
     
-    private void wsdlTypeTwo (String wsdl)
+    private void wsdlTypeTwo (String wsdl) // for parsing WSDL type Two
     {
         WSDLParser parser = new WSDLParser();
         Definitions defs = parser.parse(wsdl);
@@ -85,7 +85,7 @@ public class ParsingWsdl
     }// End of the method
     
     /*
-     * ListParameters method takesa element( which is method name) and storeWsdlData object to store all the parameters name and type
+     * ListParameters method takes a element( which is method name) and storeWsdlData object to store all the parameters name and type
      * 
      */
     private void listParameters(Element element, StoreWsdlData storeWsdlDataObj) {
@@ -104,8 +104,8 @@ public class ParsingWsdl
                     {
                         if(element.getType().getLocalPart().equalsIgnoreCase(element.getSchema().getSimpleTypes().get(x).getName()))// checks if the complex type is not entered 
                         {
-                            storeWsdlDataObj.addElmentName(element.getName());
-                            storeWsdlDataObj.addElmentType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), element.getName()));
+                            storeWsdlDataObj.addElementName(element.getName());
+                            storeWsdlDataObj.addElementType(storeWsdlDataObj.addEnumValue(st.getRestriction().getEnumerationFacets(), element.getName()));
                             break;
                         }
                         x++;
@@ -125,8 +125,8 @@ public class ParsingWsdl
                     return;
                 }
                 if (e.getType().getNamespaceURI() == Consts.SCHEMA_NS) {
-                    storeWsdlDataObj.addElmentName(e.getName());
-                    storeWsdlDataObj.addElmentType(e.getType().toString());
+                    storeWsdlDataObj.addElementName(e.getName());
+                    storeWsdlDataObj.addElementType(e.getType().toString());
                 }
                 else {
                     listParameters(e, storeWsdlDataObj);

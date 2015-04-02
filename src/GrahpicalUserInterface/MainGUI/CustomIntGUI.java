@@ -51,8 +51,8 @@ public class CustomIntGUI extends javax.swing.JFrame {
         comboBoxColumn(inputTable.getColumnModel().getColumn(3));
         addRowsTable(this.length);
         this.collectTestDataObj= obj;
-        pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
-        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
+        pramLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElementName().get(collectTestDataObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElementType().get(collectTestDataObj.getCount()));
     }
     
     /**

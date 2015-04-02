@@ -9,7 +9,7 @@ package GrahpicalUserInterface.MainGUI;
  * @author my301
  */
 
-import Logic.WSDL.CheckWsdl;
+import Logic.WSDL.CheckWsdlPath;
 import Logic.WSDL.ParsingWsdl;
 import javax.swing.JOptionPane;
 
@@ -162,7 +162,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/Statistics.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FinanceService.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // good Example for big Data
-        //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
+              wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl");
         //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/Astronomical.asmx?WSDL");
@@ -183,7 +183,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
         
 
-        CheckWsdl checkWsdlObj =  new CheckWsdl();
+        CheckWsdlPath checkWsdlObj =  new CheckWsdlPath();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());
@@ -232,7 +232,7 @@ public class WelcomePage extends javax.swing.JFrame {
         /*
          * checking if the wsdl is correct
          */
-        CheckWsdl checkWsdlObj =  new CheckWsdl();
+        CheckWsdlPath checkWsdlObj =  new CheckWsdlPath();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());

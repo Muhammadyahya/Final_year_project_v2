@@ -29,8 +29,8 @@ public class CharGUI extends javax.swing.JFrame {
         initComponents();
         this.collectTestDataObj = obj;
         this.radioButton();
-        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElmentName().get(collectTestDataObj.getCount()));
-        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElmentType().get(collectTestDataObj.getCount()));
+        pramNameLabel.setText("Parameter Name : "+ collectTestDataObj.getStoreWsdlData().getElementName().get(collectTestDataObj.getCount()));
+        pramTypeLabel.setText("Parameter Type : "+ collectTestDataObj.getStoreWsdlData().getElementType().get(collectTestDataObj.getCount()));
         
     }
     

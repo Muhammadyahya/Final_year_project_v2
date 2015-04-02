@@ -107,7 +107,7 @@ public class DecryptArrayList {
                 
         }// end Switch
         
-        this.storeGeneratedValueObj.addParameterName(storeWsdlDataObj.getElmentName().get(count));
+        this.storeGeneratedValueObj.addParameterName(storeWsdlDataObj.getElementName().get(count));
         this.storeGeneratedValueObj.addGeneratedValue(generatedValue);
         
         

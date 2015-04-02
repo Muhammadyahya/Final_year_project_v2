@@ -14,25 +14,26 @@ import java.net.URLConnection;
  *
  * @author my301
  */
-public class CheckWsdl {
+public class CheckWsdlPath {
     
     
-    /* This class has only one method which checks if the given Wsdl is correct or not, it returns a boolean
+    /* 
+     * This class has only one method which checks if the given Wsdl is correct or not, it returns a boolean
      * I call this class every time user enters a new wsdl
      */
     private String message;
-    public CheckWsdl(){
+    public CheckWsdlPath(){
         message = "Wsdl is invalid.";
     }
     
     /* This method returns true, if the wsdl is correct else it returns false */
     public boolean checkWSDLAvailable(String wsdl) {        
         int length = wsdl.length();
-        if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))
+        if(wsdl.charAt(length-5) == ('.')&& Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l'))// this is to make sure that file extension is correct
         {
-            if(checkPath(wsdl))
+            if(checkPath(wsdl)) // check path parse the WSDL aswell
             {
-                message = "Wsdl is correct.";
+                message = "Wsdl is correct."; // message is for user infomation
                 return true;
             }
             else
@@ -41,12 +42,12 @@ public class CheckWsdl {
                 return false;
             }
         }
-        else if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){
+        else if(wsdl.charAt(length-5) == ('?') && Character.toLowerCase(wsdl.charAt(length-4)) == ('w') && Character.toLowerCase(wsdl.charAt(length-3)) == ('s') && Character.toLowerCase(wsdl.charAt(length-2)) == ('d') && Character.toLowerCase(wsdl.charAt(length-1)) == ('l')){ // for online WSDL
             URL url = null;
             URLConnection urlConnection = null;
             try {
-                url = new URL(wsdl);
-                urlConnection = url.openConnection();
+                url = new URL(wsdl); // creating URL object
+                urlConnection = url.openConnection(); // opening new connection
                 
                 if(urlConnection.getContent() == null) {
                     return false;
@@ -83,10 +84,8 @@ public class CheckWsdl {
     /* for testing purpose */
      public static void main(String [] args)
     {
-        //article
-        //genericbarcode
         String wsdl = "/homes/my301/year3/Project/other/article.wsdl";
-        CheckWsdl obj =  new CheckWsdl();
+        CheckWsdlPath obj =  new CheckWsdlPath();
         obj.checkWSDLAvailable(wsdl);
         System.out.println(obj.message);
 

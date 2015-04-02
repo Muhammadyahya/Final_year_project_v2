@@ -196,11 +196,11 @@ public class CustomReportGUI extends javax.swing.JFrame {
     private void setColumns()
     {
         
-        Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().size()+5];
+        Object [] columnNames = new Object[storeReportDataObj.getCollectTestData().getStoreWsdlData().getElementName().size()+5];
         columnNames[0] = "Test Case #";
         int i =0;
         for (; i < columnNames.length-5; i++) {
-            columnNames[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElmentName().get(i);
+            columnNames[i+1] = storeReportDataObj.getCollectTestData().getStoreWsdlData().getElementName().get(i);
         }
         i++;
         columnNames[i]="Input request";

@@ -45,7 +45,7 @@ public class CollectTestData {
         this.parsingWsdlObj = parsingWsdlObj;
         this.numTestCase= numTestCase;
         this.swdObj = swdObj;
-        this.prameterLength =  swdObj.getElmentType().size();
+        this.prameterLength =  swdObj.getElementType().size();
         this.count=0;
         this.testCaseInfo=new ArrayList<ArrayList<String>>();
         this.checkCompleted = false;
@@ -68,7 +68,7 @@ public class CollectTestData {
     {
         if(count < prameterLength)
         {
-            Object obj = swdObj.getElmentType().get(count);
+            Object obj = swdObj.getElementType().get(count);
             
             if(obj instanceof StoreEnum)
             {
@@ -82,7 +82,7 @@ public class CollectTestData {
             }
             else if(obj instanceof String)
             {
-                String tempElementType = (String)swdObj.getElmentType().get(count);
+                String tempElementType = (String)swdObj.getElementType().get(count);
                 if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     // call intGenGUI
                     IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
