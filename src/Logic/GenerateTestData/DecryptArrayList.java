@@ -142,6 +142,10 @@ public class DecryptArrayList {
             case "Specific":
                 temp = userValue;
                 break;
+            case "Today":
+                String [] parts = userValue.split("&");
+                temp = new GenerateDate().genTodayDate(parts[0], parts[1]);
+                break;
             default :
                 temp = userValue;
                 break;

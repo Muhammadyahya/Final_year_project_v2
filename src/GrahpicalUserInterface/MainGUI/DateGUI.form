@@ -222,14 +222,15 @@
             <StringItem index="0" value="Select"/>
             <StringItem index="1" value="yy"/>
             <StringItem index="2" value="yyyy"/>
-            <StringItem index="3" value="m"/>
-            <StringItem index="4" value="mm"/>
+            <StringItem index="3" value="M"/>
+            <StringItem index="4" value="MM"/>
             <StringItem index="5" value="MMM"/>
             <StringItem index="6" value="MMMM"/>
             <StringItem index="7" value="d"/>
             <StringItem index="8" value="dd"/>
           </StringArray>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="formatComboBox3">
@@ -239,8 +240,8 @@
             <StringItem index="0" value="Select"/>
             <StringItem index="1" value="yy"/>
             <StringItem index="2" value="yyyy"/>
-            <StringItem index="3" value="m"/>
-            <StringItem index="4" value="mm"/>
+            <StringItem index="3" value="M"/>
+            <StringItem index="4" value="MM"/>
             <StringItem index="5" value="MMM"/>
             <StringItem index="6" value="MMMM"/>
             <StringItem index="7" value="d"/>
@@ -256,8 +257,8 @@
             <StringItem index="0" value="Select"/>
             <StringItem index="1" value="yy"/>
             <StringItem index="2" value="yyyy"/>
-            <StringItem index="3" value="m"/>
-            <StringItem index="4" value="mm"/>
+            <StringItem index="3" value="M"/>
+            <StringItem index="4" value="MM"/>
             <StringItem index="5" value="MMM"/>
             <StringItem index="6" value="MMMM"/>
             <StringItem index="7" value="d"/>

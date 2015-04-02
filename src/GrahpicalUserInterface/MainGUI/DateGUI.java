@@ -118,11 +118,12 @@ public class DateGUI extends javax.swing.JFrame {
 
         pramTypeLabel.setText("Parameter Type :");
 
-        formatComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
+        formatComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "M", "MM", "MMM", "MMMM", "d", "dd" }));
+        formatComboBox1.setToolTipText("");
 
-        formatComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
+        formatComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "M", "MM", "MMM", "MMMM", "d", "dd" }));
 
-        formatComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "m", "mm", "MMM", "MMMM", "d", "dd" }));
+        formatComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "yy", "yyyy", "M", "MM", "MMM", "MMMM", "d", "dd" }));
         formatComboBox2.setToolTipText("");
 
         sepratorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "/", ".", "-", "spaces" }));
@@ -181,8 +182,7 @@ public class DateGUI extends javax.swing.JFrame {
                                             .addGap(19, 19, 19)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(jLabel1)
-                                                .addComponent(jLabel2))
-                                            .addGap(163, 163, 163)))
+                                                .addComponent(jLabel2))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(specificRadioButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,8 +246,10 @@ public class DateGUI extends javax.swing.JFrame {
             {
                 LogicDate obj = new LogicDate();
                 String format;
+                // checking the format
                 if(obj.checkFormat(formatComboBox1.getSelectedItem().toString(),formatComboBox2.getSelectedItem().toString(),formatComboBox3.getSelectedItem().toString(), sepratorComboBox.getSelectedItem().toString()))
                 {
+                    // if sepratorComboBox == spaces... insert a space " "....
                     if(sepratorComboBox.getSelectedItem().equals("spaces"))
                     {
                         format = formatComboBox1.getSelectedItem().toString() +" "+formatComboBox2.getSelectedItem().toString()+" "+formatComboBox3.getSelectedItem().toString();
@@ -258,10 +260,11 @@ public class DateGUI extends javax.swing.JFrame {
                         format = formatComboBox1.getSelectedItem().toString() +sepratorComboBox.getSelectedItem().toString()+formatComboBox2.getSelectedItem().toString()+sepratorComboBox.getSelectedItem().toString()+formatComboBox3.getSelectedItem().toString();
                         JOptionPane.showMessageDialog(null,"The date format will be "+ format);
                     }
+                    
                     if(todayRadioButton.isSelected())
                     {
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Today", format));
+                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Today", sepratorComboBox.getSelectedItem()+"&"+format));
                         this.dispose();
                         collectTestDataObj.increaseCount();
                         collectTestDataObj.CollectTestCaseData(collectTestDataObj);
@@ -273,13 +276,13 @@ public class DateGUI extends javax.swing.JFrame {
                             if(obj.isThisDateValid(specificTextField.getText(),format))
                             {
                                 EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Specific", specificTextField.getText()+"&"+format));
+                                collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Date", "Specific", specificTextField.getText()));
                                 this.dispose();
                                 collectTestDataObj.increaseCount();
                                 collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                             }
                             else{
-                                JOptionPane.showMessageDialog(null,"InputDate in specific text field is wrong.");
+                                JOptionPane.showMessageDialog(null,"InputDate in specific date is wrong or it does not match the format.");
                             }
                         }
                         else{
@@ -316,7 +319,7 @@ public class DateGUI extends javax.swing.JFrame {
                                 collectTestDataObj.CollectTestCaseData(collectTestDataObj);
                             }
                             else{
-                                JOptionPane.showMessageDialog(null,"InputDate in textfield one or textfield two is wrong.");
+                                JOptionPane.showMessageDialog(null,"Date one or Date Two is wrong or the dates does not match the format.");
                             }
                         }
                         else{

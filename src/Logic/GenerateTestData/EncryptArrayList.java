@@ -16,7 +16,6 @@ public class EncryptArrayList {
     public EncryptArrayList()
     {
         this.encryptArrayList = new ArrayList<>();
-
     }
     
     public synchronized ArrayList<String> startEncrypt(String className, String buttonValue, String userValue)
@@ -24,7 +23,6 @@ public class EncryptArrayList {
         this.encryptArrayList.add(className);
         this.encryptArrayList.add(buttonValue);
         this.encryptArrayList.add(userValue);
-
         return this.encryptArrayList;
         
     }   

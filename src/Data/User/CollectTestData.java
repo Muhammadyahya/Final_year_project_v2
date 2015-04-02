@@ -83,7 +83,7 @@ public class CollectTestData {
             else if(obj instanceof String)
             {
                 String tempElementType = (String)swdObj.getElementType().get(count);
-                if(tempElementType.equals("int")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
+                if(tempElementType.equals("int")){
                     // call intGenGUI
                     IntegerGUI intGenGUIFrame = new IntegerGUI(collectTestDataObj);
                     intGenGUIFrame.setSize(500,600);
@@ -111,13 +111,22 @@ public class CollectTestData {
                     booleanGUIFrame.revalidate();
                 }
                 
-                else if(tempElementType.equals("double")){
+                else if(tempElementType.equals("double")|| tempElementType.equals("float")||tempElementType.equals("decimal")){
                     DecimalGUI decimalGUIFrame = new DecimalGUI(collectTestDataObj);
                     decimalGUIFrame.setSize(500,600);
                     decimalGUIFrame.setLocationRelativeTo(null);
                     decimalGUIFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
                     decimalGUIFrame.setVisible(true);
                     decimalGUIFrame.revalidate();
+                }
+                
+                else if(tempElementType.equals("date")){
+                    DateGUI dateGUIFrame = new DateGUI(collectTestDataObj);
+                    dateGUIFrame.setSize(500,600);
+                    dateGUIFrame.setLocationRelativeTo(null);
+                    dateGUIFrame.setDefaultCloseOperation(DecimalGUI.DISPOSE_ON_CLOSE);
+                    dateGUIFrame.setVisible(true);
+                    dateGUIFrame.revalidate();
                 }
                 
                 else{                    
@@ -158,7 +167,7 @@ public class CollectTestData {
                     doc.getDocumentElement().normalize();
                     
                     CustomVerifyResultGUI CustomVerifyResultGUIFrame = new CustomVerifyResultGUI(storeReportDataObj,1,testCasePosition,doc);
-                    CustomVerifyResultGUIFrame.setSize(550,600);
+                    CustomVerifyResultGUIFrame.setSize(550,670);
                     CustomVerifyResultGUIFrame.setLocationRelativeTo(null);
                     CustomVerifyResultGUIFrame.setDefaultCloseOperation(CustomVerifyResultGUI.DISPOSE_ON_CLOSE);
                     CustomVerifyResultGUIFrame.setVisible(true);

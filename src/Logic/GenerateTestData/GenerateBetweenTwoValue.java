@@ -11,12 +11,7 @@ import Logic.Common.CommonMethodsTwo;
  * @author my301
  */
 public class GenerateBetweenTwoValue {
-    
-    public GenerateBetweenTwoValue()
-    {
         
-    }
-    
     public String generateValue(String pramOne, String pramTwo)
     {
         String className = pramOne;
@@ -85,15 +80,9 @@ public class GenerateBetweenTwoValue {
                 
                 String [] formatParts = parts[1].split(parts[0]);
                 // generate random date here.
-                // /./.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 
-                
-                
-                
-                
-                
-                
-                
+                GenerateDate generateDateObj = new GenerateDate();
+                temp = generateDateObj.genRandomDateBetween(parts[0], parts[1], parts[2], parts[3]);                             
                 break;
                 
             default :
