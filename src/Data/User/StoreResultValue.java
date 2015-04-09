@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author my301
  */
-public class StoreCheckValueData {
+public class StoreResultValue {
     
     private ArrayList<String> tagName;
     private ArrayList<String> tagValue;
@@ -20,7 +20,7 @@ public class StoreCheckValueData {
    
     
     /* i don't think i need this.
-    public StoreCheckValueData()
+    public StoreResultValue()
     {
         
         this.actualTagValue = new ArrayList<>();

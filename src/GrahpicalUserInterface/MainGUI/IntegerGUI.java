@@ -237,7 +237,7 @@ public class IntegerGUI extends javax.swing.JFrame {
             
             if(specificRadioButton.isSelected())
             {
-                if(!specificTextField.getText().equals("")&& specificTextField.getText().length() <10)
+                if(!specificTextField.getText().equals("")&& CommonMethodsOne.isInt(specificTextField.getText()))
                 {
                     // below line store and concatenate the String
                     if(CommonMethodsOne.isInt(specificTextField.getText()))
@@ -276,18 +276,33 @@ public class IntegerGUI extends javax.swing.JFrame {
             
             else if(randomBetweenRadioButton.isSelected())
             {
-                
-                if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals("")&& valueOneTextField.getText().length() <10 && valueTwoTextField.getText().length() <10)
+                System.out.println(CommonMethodsOne.isInt(valueOneTextField.getText()));
+                System.out.println(CommonMethodsOne.isInt(valueTwoTextField.getText()));
+                if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals("")&& CommonMethodsOne.isInt(valueOneTextField.getText()) && CommonMethodsOne.isInt(valueTwoTextField.getText()))
                 {
                     if(CommonMethodsOne.isInt(valueOneTextField.getText())&& CommonMethodsOne.isInt(valueTwoTextField.getText()))
                     {
-                        EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        LogicCustomInt logicCustomIntObj = new LogicCustomInt();
-                        logicCustomIntObj.smallerAndBigger(valueOneTextField.getText(),valueTwoTextField.getText());
-                        collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue",logicCustomIntObj.getSmalerValue()+"-"+logicCustomIntObj.getBiggerValue()));
-                        this.dispose();
-                        collectTestDataObj.increaseCount();
-                        collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                        int val1 = Integer.parseInt(valueOneTextField.getText());
+                        int val2 = Integer.parseInt(valueTwoTextField.getText());
+                        if((val1>=0 && val2>=0)||(val1<=0 && val2<=0))
+                        {
+                            EncryptArrayList encrytArrayListObj = new EncryptArrayList();
+                            LogicCustomInt logicCustomIntObj = new LogicCustomInt();
+                            logicCustomIntObj.smallerAndBigger(valueOneTextField.getText(),valueTwoTextField.getText());
+                            collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "BetweenTwoValue",logicCustomIntObj.getSmalerValue()+"&"+logicCustomIntObj.getBiggerValue()));
+                            this.dispose();
+                            collectTestDataObj.increaseCount();
+                            collectTestDataObj.CollectTestCaseData(collectTestDataObj);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null,"Both value one and two must postive or negative\n"
+                                                             + "For example: 0  - 100\n"
+                                                             + "             10 - 20\n"
+                                                             + "             0  - -10\n"
+                                                             + "            -10 - -12 ");
+                            
+                        }
                     }
                     else
                     {

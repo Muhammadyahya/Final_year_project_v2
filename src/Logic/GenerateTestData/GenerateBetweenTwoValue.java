@@ -39,7 +39,7 @@ public class GenerateBetweenTwoValue {
                 break;
                 
             case "Int":                
-                parts = userValue.split("-");
+                parts = userValue.split("&");
                 temp = temp+CommonMethodsTwo.intGen(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
                 break;
                 

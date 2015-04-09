@@ -17,7 +17,7 @@ public class StoreReportData {
     private ArrayList<StoreGeneratedValue> storeGeneratedValueObj;
     private ArrayList<String> inputData;
     private ArrayList<String> outPutResponse;
-    private ArrayList<StoreCheckValueData> storeCheckValueDataList;
+    private ArrayList<StoreResultValue> storeCheckValueDataList;
     
     public StoreReportData(CollectTestData collectTestDataPram)
     {
@@ -54,11 +54,11 @@ public class StoreReportData {
         return this.storeGeneratedValueObj;
     }
     
-    public ArrayList<StoreCheckValueData> getStoreCheckValueDataList() {
+    public ArrayList<StoreResultValue> getStoreCheckValueDataList() {
         return storeCheckValueDataList;
     }
 
-    public void setStoreCheckValueDataList(StoreCheckValueData storeCheckValueDataList) {
+    public void setStoreCheckValueDataList(StoreResultValue storeCheckValueDataList) {
         this.storeCheckValueDataList.add(storeCheckValueDataList);
     }
 }

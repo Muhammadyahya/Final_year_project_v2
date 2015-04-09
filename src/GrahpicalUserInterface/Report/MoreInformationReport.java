@@ -185,7 +185,7 @@ public class MoreInformationReport extends javax.swing.JFrame {
     
     private Object [] [] setRows()
     {       
-        StoreCheckValueData storeCheckValueDataObj  = storeReportDataObj.getStoreCheckValueDataList().get(position);
+        StoreResultValue storeCheckValueDataObj  = storeReportDataObj.getStoreCheckValueDataList().get(position);
         Object[][] data = new Object[storeCheckValueDataObj.getTagName().size()][5];//[number of rows][number of colouums]
         int i=1;
         for(int x = 0; x< storeCheckValueDataObj.getTagName().size(); x++)

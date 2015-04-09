@@ -5,7 +5,7 @@
 package Logic.CheckResult;
 
 import Data.User.CollectTestData;
-import Data.User.StoreCheckValueData;
+import Data.User.StoreResultValue;
 import Data.User.StoreReportData;
 import java.util.*;
 import javax.swing.table.TableModel;
@@ -69,7 +69,7 @@ public class LogicCustomVerifyResult {
         
         if(check)
         {
-            StoreCheckValueData storeCheckValueDataObj = new StoreCheckValueData();
+            StoreResultValue storeCheckValueDataObj = new StoreResultValue();
             storeCheckValueDataObj.setTagName(tagNameArray);
             storeCheckValueDataObj.setTagValue(tagValueArray);
             storeCheckValueDataObj.setResultList(resultArray);
