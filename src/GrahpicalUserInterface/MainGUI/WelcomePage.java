@@ -152,7 +152,7 @@ public class WelcomePage extends javax.swing.JFrame {
         //      wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL"); // works
         //      wsdlInput.setText("http://www.webservicex.net/GenericNAICS.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FedACH.asmx?WSDL");
-              wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); // Good example for int testing
+        //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); // Good example for int testing
         //      wsdlInput.setText("http://www.webservicex.net/sunsetriseservice.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/FedWire.asmx?WSDL");
         //      wsdlInput.setText("http://www.webservicex.net/medicareSupplier.asmx?WSDL");
