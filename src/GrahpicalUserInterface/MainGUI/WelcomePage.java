@@ -10,6 +10,7 @@ package GrahpicalUserInterface.MainGUI;
 
 import Logic.WSDL.CheckWsdlPath;
 import Logic.WSDL.ParsingWsdl;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class WelcomePage extends javax.swing.JFrame {
@@ -191,11 +192,15 @@ public class WelcomePage extends javax.swing.JFrame {
         else
         {
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
+                System.out.println("333");
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
+                noteLabel.setForeground(Color.blue);
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
+                noteLabel.setForeground(Color.red);
             }
             else{
+                System.out.println("eeeee");
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
             }

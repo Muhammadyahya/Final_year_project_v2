@@ -4,6 +4,12 @@
  */
 package GrahpicalUserInterface.MainGUI;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -36,15 +42,15 @@ public class HelpGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        helpLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        imgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Help!");
+        helpLabel.setText("Date Format Help");
 
-        closeButton.setText("Close");
+        closeButton.setText("Close Help");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -56,27 +62,26 @@ public class HelpGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(imgLabel)
+                .addContainerGap(524, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(helpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(helpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
+                .addComponent(imgLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
                 .addComponent(closeButton)
-                .addGap(52, 52, 52))
+                .addGap(54, 54, 54))
         );
 
         pack();
@@ -84,10 +89,7 @@ public class HelpGUI extends javax.swing.JFrame {
     
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         
-        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to Close the program?")==0)
-        {
             this.dispose();
-        }
     }//GEN-LAST:event_closeButtonActionPerformed
     
     public void showHelp()
@@ -95,8 +97,22 @@ public class HelpGUI extends javax.swing.JFrame {
         switch(className){
             
             case"DateGUI":
-                ImageIcon imgThisImg = new ImageIcon("/homes/my301/year3/Project/Netbeans/Final_year_project_v2/images/dateFormat.png");
-                jLabel3.setIcon(imgThisImg);                
+                //ImageIcon imgThisImg = new ImageIcon("/homes/my301/year3/Project/Netbeans/Final_year_project_v2/images/dateFormat.png");
+               //ImageIcon imgThisImg = new ImageIcon("C:\\Users\\Aleena\\Documents\\NetBeansProjects\\Final_year_project_v2\\images\\dateFormat.png");
+                try {
+                    URL url = new URL("http://i.imgur.com/kqGMnP9.png"); // creating URL object
+                    URLConnection urlConnection = url.openConnection();
+                    BufferedImage img = ImageIO.read(url);
+                    ImageIcon icon = new ImageIcon(img);
+                    imgLabel .setIcon(icon);  
+                    if(urlConnection.getContent() == null) {
+                        imgLabel.setText("Unable to load the image.\n Please contact Muhammad Yahya");
+                    }
+                } catch (MalformedURLException ex) {
+                    imgLabel.setText("Unable to load the image.\n Please contact Muhammad Yahya");
+                } catch (IOException ex) {
+                    imgLabel.setText("Unable to load the image.\n Please contact Muhammad Yahya");
+                }               
                 break;
             default :
                 
@@ -141,7 +157,7 @@ public class HelpGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel helpLabel;
+    private javax.swing.JLabel imgLabel;
     // End of variables declaration//GEN-END:variables
 }
