@@ -15,7 +15,6 @@ public class CommonMethodsTwo {
     public static int intGen(int rangeFrom, int rangeTo)
     {
         //the if statments are for making sure that max and min values are included...
-        System.out.println(rangeFrom+"  "+rangeTo);
 
         if(rangeTo==2147483647)
             rangeTo= rangeTo-1;

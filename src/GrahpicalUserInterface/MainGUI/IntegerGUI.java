@@ -275,8 +275,6 @@ public class IntegerGUI extends javax.swing.JFrame {
             
             else if(randomBetweenRadioButton.isSelected())
             {
-                System.out.println(CommonMethodsOne.isInt(valueOneTextField.getText()));
-                System.out.println(CommonMethodsOne.isInt(valueTwoTextField.getText()));
                 if(!valueOneTextField.getText().equals("")&&!valueTwoTextField.getText().equals("")&& CommonMethodsOne.isInt(valueOneTextField.getText()) && CommonMethodsOne.isInt(valueTwoTextField.getText()))
                 {
                     if(CommonMethodsOne.isInt(valueOneTextField.getText())&& CommonMethodsOne.isInt(valueTwoTextField.getText()))

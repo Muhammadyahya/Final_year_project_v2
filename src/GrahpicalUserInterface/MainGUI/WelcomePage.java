@@ -136,71 +136,24 @@ public class WelcomePage extends javax.swing.JFrame {
     
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         
-        /*
-         * Below are different wsdl for testing
-         */
-        
-        //      wsdlInput.setText("http://www.webservicex.net/genericbarcode.asmx?WSDL"); // doesn't work on website
-        //      wsdlInput.setText("http://trial.serviceobjects.com/gp/GeoPhone.asmx?wsdl"); works
-        //      wsdlInput.setText("http://www.webservicex.net/WeatherForecast.asmx?WSDL"); // wsdl is broken also doesn't work on other website
-        //      wsdlInput.setText("http://www.webservicex.net/geoipservice.asmx?WSDL"); // good example for String
-        //      wsdlInput.setText("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?WSDL"); // good example for string
-        //      wsdlInput.setText("http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"); // good example
-        //      wsdlInput.setText("http://www.webservicex.net/sendsmsworld.asmx?WSDL"); //Note:If your country code 091,Please enter as 91 and if your mobile number 098XXXXX,Please enter as 98XXXX 
-        //      wsdlInput.setText("http://developer.ebay.com/webservices/latest/ebaysvc.wsdl"); // not wotking because of API limitation
-        //      wsdlInput.setText("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl"); // soap request doesn't work something wrong with WSDL
-        //      wsdlInput.setText("http://www.webservicex.net/usaddressverification.asmx?WSDL"); // soap request doesn't work also doesn't work on website
-        //      wsdlInput.setText("http://www.webservicex.net/stockquote.asmx?WSDL"); // works
-        //      wsdlInput.setText("http://www.webservicex.net/GenericNAICS.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/FedACH.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/MortgageIndex.asmx?WSDL"); // Good example for int testing
-        //      wsdlInput.setText("http://www.webservicex.net/sunsetriseservice.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/FedWire.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/medicareSupplier.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/RealTimeMarketData.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/LondonGoldFix.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/Statistics.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/FinanceService.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/BibleWebservice.asmx?WSDL"); // good Example for big Data
-        //      wsdlInput.setText("http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl"); delete this
-        //      wsdlInput.setText("http://www.webservicex.net/TranslateService.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/ConvertComputer.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/Astronomical.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/ConverPower.asmx?WSDL"); // good Example for Enum
-        //      wsdlInput.setText("http://www.webservicex.net/ConvertAngle.asmx?WSDL"); // works
-        //      wsdlInput.setText("http://www.webservicex.net/RssToHTML.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/uklocation.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/periodictable.asmx?WSDL");
-        //      wsdlInput.setText("http://www.webservicex.net/country.asmx?WSDL");
-        
-        
-        /* for laptop */
-        //      wsdlInput.setText("C:\\Users\\Muhammad Yahya\\Documents\\NetBeansProjects\\wsdl\\genericbarcode.wsdl");
-        
-        /* for ITL */
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/genericbarcode.wsdl");
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/sendsmsworld.wsdl");
-        //      wsdlInput.setText("/homes/my301/year3/Project/other/article.wsdl");
-        
-
         CheckWsdlPath checkWsdlObj =  new CheckWsdlPath();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
         if(wsdlInput.getText().equals("")){
+            noteLabel.setForeground(Color.red);
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
         }//end if
         else
         {
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText())){
-                System.out.println("333");
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
                 noteLabel.setForeground(Color.blue);
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
-                noteLabel.setForeground(Color.red);
+                
             }
             else{
-                System.out.println("eeeee");
+                noteLabel.setForeground(Color.red);
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(false);
             }
@@ -212,7 +165,9 @@ public class WelcomePage extends javax.swing.JFrame {
         /*
          * this method clear the text in the wsld input textfeild
          */
+        noteLabel.setForeground(Color.red);
         wsdlInput.setText("");
+        noteLabel.setText("");
         checkMethodButton.setEnabled(false);
     }//GEN-LAST:event_clearButtonActionPerformed
     
@@ -238,6 +193,7 @@ public class WelcomePage extends javax.swing.JFrame {
          */
         CheckWsdlPath checkWsdlObj =  new CheckWsdlPath();
         ParsingWsdl parsingWsdlObj =  new ParsingWsdl();
+         noteLabel.setForeground(Color.red);
         if(wsdlInput.getText().equals("")){
             noteLabel.setText("Note: "+checkWsdlObj.getMessage());
             checkMethodButton.setEnabled(false);
@@ -246,6 +202,7 @@ public class WelcomePage extends javax.swing.JFrame {
             if(checkWsdlObj.checkWSDLAvailable(wsdlInput.getText()))
             {
                 parsingWsdlObj.parseWsdl(wsdlInput.getText());
+                noteLabel.setForeground(Color.blue);
                 noteLabel.setText("Note: "+checkWsdlObj.getMessage());
                 checkMethodButton.setEnabled(true);
                 
