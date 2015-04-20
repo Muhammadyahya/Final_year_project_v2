@@ -243,7 +243,6 @@ public class IntegerGUI extends javax.swing.JFrame {
                     if(CommonMethodsOne.isInt(specificTextField.getText()))
                     {
                         EncryptArrayList encrytArrayListObj = new EncryptArrayList();
-                        // delete this once below line is working collectTestDataObj.addTestCaseInfo(CommonMethodsOne.addToArray(CommonMethodsOne.concatenateString(specificTextField.getText())));
                         collectTestDataObj.addTestCaseInfo(encrytArrayListObj.startEncrypt("Int", "Specific", specificTextField.getText()));
                         
                         this.dispose();

@@ -15,6 +15,7 @@ public class CommonMethodsTwo {
     public static int intGen(int rangeFrom, int rangeTo)
     {
         //the if statments are for making sure that max and min values are included...
+        System.out.println(rangeFrom+"  "+rangeTo);
 
         if(rangeTo==2147483647)
             rangeTo= rangeTo-1;
@@ -67,8 +68,8 @@ public class CommonMethodsTwo {
         char character = 'a'; //http:// This gives the character 'a'
         int ascii = (int) character;
         for (int i = 0; i < 100; i++) {
-            int a = -50;
-            int b = -60;
+            int a = 4;
+            int b = 6;
             int c = intGen(a, b);
             System.out.println(c);
         }

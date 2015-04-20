@@ -25,7 +25,7 @@ public class GenerateBetweenTwoValue {
         switch (className) {
             
             case "Custom Decimal":
-                temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(2)));
+                temp = ""+CommonMethodsTwo.intGen(Integer.parseInt(""+pramTwo.charAt(0)),Integer.parseInt(""+pramTwo.charAt(4)));
 
                 break;
                 

@@ -28,7 +28,7 @@ public class CommonMethodsOne {
     
     
     /********************************************************************************************************************/
-    public static boolean isDouble(String parm){
+    public static boolean isDouble(String parm){ // check if givern values is double
         try{
             Double.parseDouble(parm);
             return true;
@@ -39,7 +39,7 @@ public class CommonMethodsOne {
     
     /************************ I have copied this code from ref # http://stackoverflow.com/questions/139076/how-to-pretty-print-xml-from-java **********************************/
     /* Time 12:39 Date 29/01/2015 */
-    public static String format(String xml) {        
+    public static String format(String xml) {
         try {
             final InputSource src = new InputSource(new StringReader(xml));
             final Node document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(src).getDocumentElement();
@@ -62,7 +62,7 @@ public class CommonMethodsOne {
     
     /**********************************************************/
     
-    public static String smallerChar(Object pramOne, Object pramTwo)
+    public static String smallerChar(Object pramOne, Object pramTwo) // return bigger char
     {
         String TempOne = (String)pramOne;
         String TempTwo = (String)pramTwo;
@@ -77,7 +77,7 @@ public class CommonMethodsOne {
         }
     }
     
-    public static String biggerChar(Object pramOne, Object pramTwo)
+    public static String biggerChar(Object pramOne, Object pramTwo) // return bigger char
     {
         String TempOne = (String)pramOne;
         String TempTwo = (String)pramTwo;
@@ -113,33 +113,9 @@ public class CommonMethodsOne {
         }
     }
     
-    /**********************************************************/
-    
-    
-    /*******************************************************/
-    
-    public static void stopLoop()
-    {
-        next = false;
-        while(!CommonMethodsOne.getNext())
-        {
-            
-        }
-    }
-    
-    public static void StartLoop()
-    {
-        next = true;
-    }
-    
-    public static boolean getNext()
-    {
-        return next;
-    }
-    
     /*********************************************************/
     
-    public static boolean checkConfirm(int pram)
+    public static boolean checkConfirm(int pram) // for enum check box confimation
     {
         if(pram==0)
         {
@@ -150,8 +126,5 @@ public class CommonMethodsOne {
         }
     }
     
-    public static void main(String [] args)
-    {
-        
-    }
+
 }
